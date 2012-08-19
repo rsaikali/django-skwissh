@@ -41,7 +41,7 @@ More information on [Skwissh website](http://skwissh.com/ "Skwissh website") (un
 
 ## Installation
 
-Configure a Django project (database, etc...)
+Configure your Django project (database, etc...).
 
 Add ``skwissh`` and ``kronos`` to your Django ``INSTALLED_APPS`` :
 
