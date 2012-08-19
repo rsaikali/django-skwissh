@@ -1,0 +1,129 @@
+{% load i18n %}
+{% load skwissh_templatetags %}
+{% get_language_info_list for LANGUAGES as langs %}
+<nav>
+	<ul class="nav-bar">
+		<li class="has-flyout{% if not server and not probes %} active{% endif %}">
+			<a href="{% url index %}">{% trans 'Accueil' %}</a>
+			<a href="#" class="flyout-toggle"><span></span></a>
+			<ul class="flyout">
+				{% for group in groups %}
+				<li>
+					<h6><a href="{% url server-list %}#group-{{ group.id }}">{{ group.name }}</a></h6>
+				</li>
+				{% for server in group.servers.all %}
+				<li class="{% if not server.state %}offline{% else %}online{% endif %}">
+					<a href="{% url server-detail server.id %}">{{ server.hostname }}</a>
+				</li>
+				{% endfor %}
+				{% endfor %}
+				{% if nogroup_servers %}
+				<li>
+					<h6><a href="#group-undefined">{% trans 'Non classé' %}{{ nogroup_servers|length|pluralize }}</a></h6>
+				</li>
+				{% for server in nogroup_servers %}
+				<li class="{% if not server.state %}offline{% else %}online{% endif %}">
+					<a href="{% url server-detail server.id %}">{{ server.hostname }}</a>
+				</li>
+				{% endfor %}
+				{% endif %}
+			</ul>
+		</li>
+		{% if server %}
+		<li class="active{% if not server.state %} offline{% endif %}">
+			<a class="bigger nolink" href="#">{{ server.hostname }}</a>
+		</li>
+		{% endif %}
+		{% if probes %}
+		<li class="active">
+			<a class="bigger nolink" href="#">{% blocktrans count nb=probes.count %}{{ nb }} sonde disponible{% plural %}{{ nb }} sondes disponibles{% endblocktrans %}</a>
+		</li>
+		{% endif %}
+		<li>
+			{% if nb_mesures %}
+			<a class="nolink" href="#">{{ nb_mesures }} {% trans 'mesures' %}</a>
+			{% else %}
+			<a class="nolink" href="#">{% get_nb_mesures %} {% trans 'mesures' %}</a>
+			{% endif %}
+		</li>
+		{% if get_last_mesure %}
+		<li>
+			<a class="nolink" href="#">{% trans 'Dernière mesure à' %} {% get_last_mesure %}</a>
+		</li>
+		{% endif %}
+		<li class="has-flyout">
+			<a href="#">Options</a>
+			<a href="#" class="flyout-toggle"><span></span></a>
+			<ul class="flyout">
+				{% if user.is_staff %}
+				<li>
+					<h6><a href="#">{% trans 'Configuration' %}</a></h6>
+				</li>
+				{% else %}
+				{% if user.is_authenticated %}
+				{% if not probes %}
+				<li>
+					<h6><a href="#">{% trans 'Sondes' %}</a></h6>
+				</li>
+				{% endif %}
+				{% endif %}
+				{% endif %}
+				{% if user.is_authenticated %}
+				{% if not probes %}
+				<li class="probe">
+					<a title="{% trans 'Voir la liste des sondes' %}..." href="{% url probe-list %}">{% trans 'Liste des sondes' %}...</a>
+				</li>
+				{% endif %}
+				{% endif %}
+				{% if user.is_staff %}
+				{% if not server %}
+				{% if not probes %}
+				<li class="server">
+					<a title="{% trans 'Ajouter un serveur' %}..." href="#" onclick="javascript:$('#add-server').reveal();">{% trans 'Ajouter un serveur' %}...</a>
+				</li>
+				<li class="server-group">
+					<a title="{% trans 'Ajouter un groupe de serveurs' %}..." href="#"  onclick="javascript:$('#add-server-group').reveal();">{% trans 'Ajouter un groupe' %}...</a>
+				</li>
+				{% else %}
+				<li class="probe">
+					<a title="{% trans 'Ajouter une sonde' %}..." href="#" data-reveal-id="add-probe">{% trans 'Ajouter une sonde' %}...</a>
+				</li>
+				{% endif %}
+				{% else %}
+				<li class="edit">
+					<a title="{% trans 'Editer le serveur actuel' %}..." href="#" data-reveal-id="edit-server">{% trans 'Editer ce serveur' %}...</a>
+				</li>
+				{% endif %}
+				{% endif %}
+				<li>
+					<h6><a href="#">{% trans 'Langue' %}</a></h6>
+				</li>
+				<form name='langform' action='/skwissh/i18n/setlang/' method='post'>
+					{% csrf_token %}
+					{% for lang in langs %}
+					<li class="{{ lang.code }}">
+						<a href="#" onclick="document.langform.language.value='{{ lang.code }}';document.langform.submit();">{{ lang.name_local }}</a>
+					</li>
+					{% endfor %}
+					<input name='language' type='hidden' value="{{ LANGUAGE_CODE }}">
+				</form>
+				<li>
+					{% if user.is_authenticated %}
+					<h6><a href="#">{{ user.first_name }} {{ user.last_name }}</a></h6>
+					{% else %}
+					<h6><a href="#">{% trans 'Connexion' %}</a></h6>
+					{% endif %}
+				</li>
+				{% if user.is_authenticated %}
+				<li class="logout">
+					<a title="{% trans 'Se déconnecter de Skwissh' %}" href="{% url django.contrib.auth.views.logout %}">{% trans 'Se déconnecter' %}...</a>
+				</li>
+				{% else %}
+				<li class="login">
+					<a title="{% trans 'Se connecter de Skwissh' %}" href="{% url django.contrib.auth.views.login %}">{% trans 'Se connecter' %}...</a>
+				</li>
+				{% endif %}
+			</ul>
+		</li>
+	</ul>
+</nav>

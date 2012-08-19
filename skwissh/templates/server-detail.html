@@ -1,0 +1,19 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+
+{% block content %}
+	{% include "base/navigation.html" with nb_mesures=server.measure_set.count %}
+	{% for probe in server.probes.all %}
+		{% include "section-graph.html" %}
+	{% endfor %}
+{% endblock content %}
+
+{% block container %}
+	{% if user.is_staff %}
+		{% include "modal-edit-server.html" %}
+	{% endif %}
+{% endblock container %}
+
+{% block javascript %}
+	{% include "skwissh_graphs.js" %}
+{% endblock javascript %}

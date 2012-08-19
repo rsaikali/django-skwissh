@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   width="100px"
+   height="100px"
+   viewBox="0 0 100 100"
+   enable-background="new 0 0 100 100"
+   xml:space="preserve"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="delete.svg"><metadata
+   id="metadata9"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs7" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1908"
+   inkscape:window-height="1016"
+   id="namedview5"
+   showgrid="false"
+   inkscape:zoom="6.675088"
+   inkscape:cx="21.884668"
+   inkscape:cy="56.94724"
+   inkscape:window-x="0"
+   inkscape:window-y="33"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" />
+<path
+   d="M88.096,26.19c0-3.939-3.205-7.143-7.143-7.143h-7.145v-7.143C73.809,5.341,68.469,0,61.904,0H38.095  C31.532,0,26.19,5.341,26.19,11.905v7.143h-7.143c-3.939,0-7.143,3.204-7.143,7.143v2.381h4.762v59.524  c0,6.563,5.341,11.904,11.905,11.904h42.856c6.564,0,11.906-5.341,11.906-11.904V28.571h4.762V26.19z M38.095,9.524h23.809  c1.291,0,2.381,1.09,2.381,2.381v7.143H35.714v-7.143C35.714,10.614,36.805,9.524,38.095,9.524z M73.809,88.096  c0,1.29-1.09,2.381-2.381,2.381H28.571c-1.291,0-2.381-1.091-2.381-2.381V30.952c0-1.29,1.09-2.381,2.381-2.381h42.856  c1.291,0,2.381,1.091,2.381,2.381V88.096z M30.953,38.095h9.523v42.857h-9.523V38.095z M45.238,38.095h9.524v42.857h-9.524V38.095z   M59.523,38.095h9.523v42.857h-9.523V38.095z"
+   id="path3"
+   style="fill:#4d4d4d;fill-opacity:1" />
+</svg>

@@ -1,0 +1,144 @@
+[
+  {
+    "pk": 2, 
+    "model": "skwissh.probe", 
+    "fields": {
+      "date_modified": "2012-08-18T09:47:17.828Z", 
+      "addon_name": "", 
+      "display_name": "Charge machine", 
+      "ssh_command": "cat /proc/loadavg", 
+      "probe_labels": "Load 1min;Load 5min;Load 15min", 
+      "use_sudo": false, 
+      "probe_unit": "", 
+      "date_created": "2012-05-17T18:08:23.960Z", 
+      "graph_type": 1, 
+      "python_parse": "output = \";\".join(output.strip().split()[0:3])"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "skwissh.probe", 
+    "fields": {
+      "date_modified": "2012-08-18T10:22:18.947Z", 
+      "addon_name": "", 
+      "display_name": "M\u00e9moire utilis\u00e9e", 
+      "ssh_command": "cat /proc/meminfo | grep Active:", 
+      "probe_labels": "M\u00e9moire libre", 
+      "use_sudo": false, 
+      "probe_unit": "Ko", 
+      "date_created": "2012-05-17T18:07:32.286Z", 
+      "graph_type": 1, 
+      "python_parse": "output = output.strip().split()[1]"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "skwissh.probe", 
+    "fields": {
+      "date_modified": "2012-08-17T21:24:11.177Z", 
+      "addon_name": "", 
+      "display_name": "R\u00e9partition m\u00e9moire", 
+      "ssh_command": "top -bn1 | grep \"Mem:\"", 
+      "probe_labels": "M\u00e9moire utilis\u00e9e;M\u00e9moire libre", 
+      "use_sudo": false, 
+      "probe_unit": "%", 
+      "date_created": "2012-08-14T08:02:58.912Z", 
+      "graph_type": 2, 
+      "python_parse": "mems = [x.strip().split()[0].replace('k','') for x in output.split(\",\")[1:3]]\r\noutput = \"%s;%s\" % (mems[0], mems[1])"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "skwissh.probe", 
+    "fields": {
+      "date_modified": "2012-08-11T20:51:08.030Z", 
+      "addon_name": "", 
+      "display_name": "Top", 
+      "ssh_command": "top -bn1 | head -15", 
+      "probe_labels": null, 
+      "use_sudo": false, 
+      "probe_unit": "", 
+      "date_created": "2012-05-20T10:09:41.655Z", 
+      "graph_type": 3, 
+      "python_parse": "output = output"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "skwissh.probe", 
+    "fields": {
+      "date_modified": "2012-08-18T10:23:34.230Z", 
+      "addon_name": "", 
+      "display_name": "Usage CPU", 
+      "ssh_command": "top -d0.2 -bn2 | grep \"Cpu\"", 
+      "probe_labels": "CPU 1;CPU 2;CPU 3;CPU 4;CPU 5;CPU 6;CPU 7;CPU 8", 
+      "use_sudo": false, 
+      "probe_unit": "%", 
+      "date_created": "2012-05-17T18:09:01.978Z", 
+      "graph_type": 1, 
+      "python_parse": "output = \";\".join([str(float(100) - float(i.split(',')[3].split(\"%\")[0])) for i in output.splitlines()[-(len(output.splitlines())/2):]])"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "skwissh.probe", 
+    "fields": {
+      "date_modified": "2012-08-17T22:07:22.494Z", 
+      "addon_name": "Ubuntu 12.04", 
+      "display_name": "Usage disque", 
+      "ssh_command": "df -h / | tail -1", 
+      "probe_labels": "Espace utilis\u00e9;Espace libre", 
+      "use_sudo": false, 
+      "probe_unit": "%", 
+      "date_created": "2012-05-17T18:09:45.471Z", 
+      "graph_type": 2, 
+      "python_parse": "used = output.strip().split()[4].strip().replace(\"%\",\"\")\r\navail = 100 - int(used)\r\noutput = \"%s;%s\" % (avail, used)"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "skwissh.probe", 
+    "fields": {
+      "date_modified": "2012-08-18T11:13:21.345Z", 
+      "addon_name": "", 
+      "display_name": "Wait IO", 
+      "ssh_command": "top -d0.2 -bn2 | grep \"Cpu\"", 
+      "probe_labels": "CPU 1;CPU 2;CPU 3;CPU 4;CPU 5;CPU 6;CPU 7;CPU 8", 
+      "use_sudo": false, 
+      "probe_unit": "%", 
+      "date_created": "2012-08-13T13:31:56.260Z", 
+      "graph_type": 1, 
+      "python_parse": "output = \";\".join([i.split(',')[4].split(\"%\")[0].strip() for i in output.splitlines()[-(len(output.splitlines())/2):]])"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "skwissh.graphtype", 
+    "fields": {
+      "date_created": "2012-05-17T18:01:01.357Z", 
+      "date_modified": "2012-08-18T09:39:13.869Z", 
+      "name": "linegraph", 
+      "options": "seriesColors: [ \"#7FAE00\", \"#EAA228\", \"#D5383B\", \"#4EA5B5\" ],\r\naxes:{\r\n    xaxis:{\r\n        renderer:$.jqplot.DateAxisRenderer,\r\n        min:minDate,\r\n        max:maxDate,\r\n        tickOptions:{\r\n            formatString:\" %H:%M<br/>%d %b\"\r\n        },\r\n    },\r\n    yaxis:{\r\n        min:0,\r\n        tickOptions:{\r\n            formatString:\"%.1f @UNITS@\"\r\n        },\r\n    }\r\n},\r\nseriesDefaults:{\r\n    lineWidth:1,\r\n    shadow: true,\r\n    markerOptions:{\r\n        show: false\r\n    },\r\n    rendererOptions:{\r\n        smooth: true,\r\n    }\r\n},\r\n@SERIES@,\r\nanimate: true,\r\nanimateReplot: true,\r\nhighlighter: {\r\n            show: true, \r\n            showLabel: false, \r\n            tooltipAxes: 'xy',\r\n            sizeAdjust: 5,\r\n            tooltipLocation : 'n',\r\n            useAxesFormatters: true\r\n},\r\ngrid: {\r\n            background: '#F2F2F2',\r\n}"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "skwissh.graphtype", 
+    "fields": {
+      "date_created": "2012-05-17T18:06:27.224Z", 
+      "date_modified": "2012-08-18T19:58:15.449Z", 
+      "name": "pie", 
+      "options": "seriesColors: [ \"#7FAE00\", \"#D5383B\", \"#EAA228\", \"#4EA5B5\" ],\r\nseriesDefaults:{\r\n    renderer: jQuery.jqplot.PieRenderer, \r\n    rendererOptions:{\r\n        showDataLabels: true\r\n    }\r\n},\r\n@SERIES@,\r\ngrid: {\r\n            background: '#F2F2F2',      // CSS color spec for background color of grid.\r\n}"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "skwissh.graphtype", 
+    "fields": {
+      "date_created": "2012-05-20T10:07:47.155Z", 
+      "date_modified": "2012-05-20T10:07:47.155Z", 
+      "name": "text", 
+      "options": ""
+    }
+  }
+]

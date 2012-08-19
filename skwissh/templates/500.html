@@ -1,0 +1,27 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% block content %}
+{% include "base/navigation.html" with is_home=1 %}
+<section>
+	<ul class="nav-bar">
+		<li class="nolink">
+			<a class="bigger" href="#">{% trans 'Erreur 500 - Erreur interne du serveur' %}</a>
+		</li>
+	</ul>
+	<div class="panel red">
+		<div class="row">
+			<div class="two columns">
+				<div class="warning"></div>
+			</div>
+			<div class="ten columns">
+				<p>
+					{% blocktrans %}Une erreur interne du serveur est survenue alors que vous tentiez d'accéder à une fonctionnalité.{% endblocktrans %}
+				</p>
+				<p>
+					{% blocktrans %}Si cette erreur se reproduit, merci de nous contacter afin que nous puissions la corriger.{% endblocktrans %}
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock content %}

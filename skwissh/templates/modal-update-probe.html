@@ -1,0 +1,21 @@
+{% load i18n %}
+<form method="post" action="{% url update-probe  %}">
+	{{ probe_formset.management_form }}
+	{% for form in probe_formset %}
+	<div id='edit-probe-{{ form.id.value }}' class="reveal-modal medium update">
+		<ul class="nav-bar">
+			<li>
+				{% with name=form.display_name.value %}
+				<a class="bigger nolink" href="#">{% blocktrans %}Editer la sonde '{{ name }}'{% endblocktrans %}</a>
+				{% endwith %}
+			</li>
+		</ul>
+		<div class="panel">
+			{% csrf_token %}
+			{{ form.as_table }}
+			<input class="right small success button radius" type="submit" value="{% trans 'Sauvegarder' %}" />
+			<a href="#" class="right small alert button radius" onclick="javascript:$('.reveal-modal-bg').click();">{% trans 'Annuler' %}</a>
+		</div>
+	</div>
+	{% endfor %}
+</form>

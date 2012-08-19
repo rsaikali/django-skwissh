@@ -1,0 +1,25 @@
+{% load i18n %}
+<div id="delete-server-{{ server.id }}" class="reveal-modal medium delete">
+	<ul class="nav-bar">
+		<li>
+			<a class="bigger nolink" href="#">{% blocktrans with name=server.hostname %}Supprimer le serveur '{{ name }}' ?{% endblocktrans %}</a>
+		</li>
+	</ul>
+	<div class="panel">
+		<p>
+			{% trans 'La suppression de ce serveur entraînera la suppression de toutes les mesures associées.' %}
+		</p>
+		<p>
+			{% blocktrans with count=server.measure_set.count %}{{ count }} mesures seront définitivement perdues.{% endblocktrans %}
+			{% trans 'Cette opération est irréversible.' %}
+		</p>
+		<p>
+			{% blocktrans with name=server.hostname %}Voulez vous vraiment supprimer le serveur '{{ name }}' ?{% endblocktrans %}
+		</p>
+		<form action="{% url delete-server server.id %}" method="post">
+			{% csrf_token %}
+			<input class="right small success button radius" type="submit" value="{% trans 'Oui' %}" />
+			<a href="#" class="right small alert button radius" onclick="javascript:$('.reveal-modal-bg').click();">{% trans 'Non' %}</a>
+		</form>
+	</div>
+</div>

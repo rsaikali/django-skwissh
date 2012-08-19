@@ -1,0 +1,16 @@
+{% load i18n %}
+{% load skwissh_templatetags %}
+<footer>
+	<div class="row copyright">
+		<div class="twelve columns">
+			<ul class="nav-bar">
+				<a target="_blank" href="https://www.djangoproject.com/">Django {% get_django_version %}</a><span> - </span>
+				<a target="_blank" href="http://foundation.zurb.com/">Zurb Foundation 3.0</a><span> - </span>
+				<a target="_blank" href="http://www.jqplot.com/">jqPlot 1.0.2</a><span> - </span>
+				<a target="_blank" href="http://fabfile.org">Fabric {% get_fabric_version %}</a>
+				<br/>
+				<span class="skwi">SKWI</span><span class="ssh">SSH</span> v{% get_skwissh_version %} - {% trans 'Développé par' %} <a target="_blank" href="mailto:contact@skwissh.com">Roland SAIKALI</a>
+			</ul>
+		</div>
+	</div>
+</footer>

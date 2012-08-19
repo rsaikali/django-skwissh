@@ -1,0 +1,468 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-19 13:42+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+#: forms.py:10 models.py:29 templates/section-probe.html:45
+msgid "Utilise 'sudo' ?"
+msgstr ""
+
+#: forms.py:10 templates/modal-delete-probe.html:21
+#: templates/modal-delete-server-group.html:18
+#: templates/modal-delete-server.html:21 templates/section-probe.html:49
+msgid "Oui"
+msgstr ""
+
+#: forms.py:10 templates/modal-delete-probe.html:22
+#: templates/modal-delete-server-group.html:19
+#: templates/modal-delete-server.html:22 templates/section-probe.html:51
+msgid "Non"
+msgstr ""
+
+#: forms.py:18 templates/index.html:19
+msgid "Mot de passe"
+msgstr ""
+
+#: models.py:8
+msgid "Nom"
+msgstr ""
+
+#: models.py:9
+msgid "Options jqPlot"
+msgstr ""
+
+#: models.py:10 models.py:34 models.py:54 models.py:72
+msgid "Date de création"
+msgstr ""
+
+#: models.py:11 models.py:35 models.py:55 models.py:73
+msgid "Date de modification"
+msgstr ""
+
+#: models.py:26
+msgid "Nom de la sonde"
+msgstr ""
+
+#: models.py:27
+msgid "Infos complémentaires (version linux...)"
+msgstr ""
+
+#: models.py:28 templates/section-probe.html:37
+msgid "Commande SSH"
+msgstr ""
+
+#: models.py:30
+msgid "Commande Python de parsing"
+msgstr ""
+
+#: models.py:31
+msgid "Type de visualisation"
+msgstr ""
+
+#: models.py:32
+msgid "Unité"
+msgstr ""
+
+#: models.py:33
+msgid "Labels des valeurs"
+msgstr ""
+
+#: models.py:49
+msgid "Nom du serveur"
+msgstr ""
+
+#: models.py:50
+msgid "Adresse IP"
+msgstr ""
+
+#: models.py:51
+msgid "Serveur accessible ?"
+msgstr ""
+
+#: models.py:52
+msgid "Nom d'utilisateur SSH"
+msgstr ""
+
+#: models.py:53
+msgid "Mot de passe SSH"
+msgstr ""
+
+#: models.py:56 templates/base/navigation.html:64
+msgid "Sondes"
+msgstr ""
+
+#: models.py:71
+msgid "Nom du groupe"
+msgstr ""
+
+#: models.py:74
+msgid "Serveurs"
+msgstr ""
+
+#: models.py:86 models.py:100 models.py:114 models.py:128
+msgid "Date et heure"
+msgstr ""
+
+#: models.py:87 models.py:101 models.py:115 models.py:129
+msgid "Serveur"
+msgstr ""
+
+#: models.py:88 models.py:102 models.py:116 models.py:130
+msgid "Sonde"
+msgstr ""
+
+#: models.py:89 models.py:103 models.py:117 models.py:131
+msgid "Valeur mesurée"
+msgstr ""
+
+#: settings.py:28
+msgid "Français"
+msgstr ""
+
+#: settings.py:29
+msgid "Anglais"
+msgstr ""
+
+#: templates/404.html:8
+msgid "Erreur 404 - Ressource non trouvée"
+msgstr ""
+
+#: templates/404.html:18
+msgid "La page à laquelle vous tentez d'accéder n'existe pas."
+msgstr ""
+
+#: templates/404.html:21
+msgid ""
+"Si un lien du site vous a mené à cette page, merci de nous contacter afin de "
+"corriger cette erreur."
+msgstr ""
+
+#: templates/500.html:8
+msgid "Erreur 500 - Erreur interne du serveur"
+msgstr ""
+
+#: templates/500.html:18
+msgid ""
+"Une erreur interne du serveur est survenue alors que vous tentiez d'accéder "
+"à une fonctionnalité."
+msgstr ""
+
+#: templates/500.html:21
+msgid ""
+"Si cette erreur se reproduit, merci de nous contacter afin que nous "
+"puissions la corriger."
+msgstr ""
+
+#: templates/index.html:8 templates/base/navigation.html:112
+msgid "Connexion"
+msgstr ""
+
+#: templates/index.html:13
+msgid "Veuillez vous identifier pour accéder à Skwissh."
+msgstr ""
+
+#: templates/index.html:17
+msgid "Nom d'utilisateur"
+msgstr ""
+
+#: templates/index.html:21 templates/base/navigation.html:121
+msgid "Se connecter"
+msgstr ""
+
+#: templates/modal-add-probe.html:5 templates/base/navigation.html:87
+msgid "Ajouter une sonde"
+msgstr ""
+
+#: templates/modal-add-probe.html:12 templates/modal-add-server-group.html:12
+#: templates/modal-add-server.html:12 templates/modal-edit-server.html:12
+#: templates/modal-update-probe.html:16
+#: templates/modal-update-server-group.html:14
+msgid "Sauvegarder"
+msgstr ""
+
+#: templates/modal-add-probe.html:13 templates/modal-add-server-group.html:13
+#: templates/modal-add-server.html:13 templates/modal-edit-server.html:13
+#: templates/modal-update-probe.html:17
+#: templates/modal-update-server-group.html:15
+msgid "Annuler"
+msgstr ""
+
+#: templates/modal-add-server-group.html:5
+msgid "Ajout d'un groupe de serveurs"
+msgstr ""
+
+#: templates/modal-add-server.html:5
+msgid "Ajout d'un serveur"
+msgstr ""
+
+#: templates/modal-delete-probe.html:5
+#, python-format
+msgid "Supprimer la sonde '%(name)s' ?"
+msgstr ""
+
+#: templates/modal-delete-probe.html:11
+msgid ""
+"La suppression de cette sonde entraînera la suppression de toutes les "
+"mesures associées."
+msgstr ""
+
+#: templates/modal-delete-probe.html:14 templates/modal-delete-server.html:13
+#, python-format
+msgid "%(count)s mesures seront définitivement perdues."
+msgstr ""
+
+#: templates/modal-delete-probe.html:15 templates/modal-delete-server.html:14
+msgid "Cette opération est irréversible."
+msgstr ""
+
+#: templates/modal-delete-probe.html:18
+#, python-format
+msgid "Voulez vous vraiment supprimer la sonde '%(name)s' ?"
+msgstr ""
+
+#: templates/modal-delete-server-group.html:5
+#, python-format
+msgid "Supprimer le groupe de serveurs '%(name)s' ?"
+msgstr ""
+
+#: templates/modal-delete-server-group.html:10
+msgid "Les serveurs inclus dans ce groupe ne seront pas supprimés."
+msgstr ""
+
+#: templates/modal-delete-server-group.html:11
+msgid "Vous pourrez les retrouver dans la zone 'Non Classés'."
+msgstr ""
+
+#: templates/modal-delete-server-group.html:14
+#, python-format
+msgid "Etes-vous sûr de vouloir supprimer le groupe de serveurs '%(name)s' ?"
+msgstr ""
+
+#: templates/modal-delete-server.html:5
+#, python-format
+msgid "Supprimer le serveur '%(name)s' ?"
+msgstr ""
+
+#: templates/modal-delete-server.html:10
+msgid ""
+"La suppression de ce serveur entraînera la suppression de toutes les mesures "
+"associées."
+msgstr ""
+
+#: templates/modal-delete-server.html:17
+#, python-format
+msgid "Voulez vous vraiment supprimer le serveur '%(name)s' ?"
+msgstr ""
+
+#: templates/modal-edit-server.html:5
+#, python-format
+msgid "Editer le serveur '%(name)s'"
+msgstr ""
+
+#: templates/modal-update-probe.html:9
+#, python-format
+msgid "Editer la sonde '%(name)s'"
+msgstr ""
+
+#: templates/modal-update-server-group.html:8
+#, python-format
+msgid "Editer le groupe de serveurs '%(name)s'"
+msgstr ""
+
+#: templates/section-graph.html:6
+msgid "Dernière mesure"
+msgstr ""
+
+#: templates/section-graph.html:7
+msgid "Dernière heure"
+msgstr ""
+
+#: templates/section-graph.html:8
+msgid "Dernière journée"
+msgstr ""
+
+#: templates/section-graph.html:9
+msgid "Dernière semaine"
+msgstr ""
+
+#: templates/section-graph.html:10
+msgid "Dernier mois"
+msgstr ""
+
+#: templates/section-graph.html:16
+msgid "Min."
+msgstr ""
+
+#: templates/section-graph.html:17
+msgid "Max."
+msgstr ""
+
+#: templates/section-graph.html:18
+msgid "Moy."
+msgstr ""
+
+#: templates/section-graph.html:19
+msgid "Dernière"
+msgstr ""
+
+#: templates/section-graph.html:23
+msgid "Chargement des données en cours..."
+msgstr ""
+
+#: templates/section-group.html:6 templates/base/navigation.html:22
+msgid "Non classé"
+msgstr ""
+
+#: templates/section-group.html:15
+msgid "Editer ce groupe de serveurs"
+msgstr ""
+
+#: templates/section-group.html:15 templates/section-probe.html:9
+msgid "Editer"
+msgstr ""
+
+#: templates/section-group.html:18
+msgid "Supprimer ce groupe de serveurs"
+msgstr ""
+
+#: templates/section-group.html:18 templates/section-probe.html:10
+msgid "Supprimer"
+msgstr ""
+
+#: templates/section-group.html:33
+msgid "Supprimer le serveur"
+msgstr ""
+
+#: templates/section-group.html:37
+msgid "Aucun serveur dans ce groupe"
+msgstr ""
+
+#: templates/section-probe.html:9
+msgid "Editer cette sonde"
+msgstr ""
+
+#: templates/section-probe.html:10
+msgid "Supprimer cette sonde"
+msgstr ""
+
+#: templates/section-probe.html:22
+msgid "Graphique ligne"
+msgstr ""
+
+#: templates/section-probe.html:23
+msgid "Graphique camembert"
+msgstr ""
+
+#: templates/section-probe.html:24
+msgid "Sortie texte"
+msgstr ""
+
+#: templates/section-probe.html:27
+msgid "mesures effectuées"
+msgstr ""
+
+#: templates/section-probe.html:30
+msgid "Actuellement sur"
+msgstr ""
+
+#: templates/section-probe.html:30
+msgid "serveurs"
+msgstr ""
+
+#: templates/section-probe.html:56
+msgid "Commande Python"
+msgstr ""
+
+#: templates/section-probe.html:65
+msgid "Unités"
+msgstr ""
+
+#: templates/base/footer.html:12
+msgid "Développé par"
+msgstr ""
+
+#: templates/base/header.html:10
+msgid "Gardez un oeil sur vos serveurs..."
+msgstr ""
+
+#: templates/base/navigation.html:7
+msgid "Accueil"
+msgstr ""
+
+#: templates/base/navigation.html:39
+#, python-format
+msgid "%(nb)s sonde disponible"
+msgid_plural "%(nb)s sondes disponibles"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/base/navigation.html:44 templates/base/navigation.html.py:46
+msgid "mesures"
+msgstr ""
+
+#: templates/base/navigation.html:50
+msgid "Dernière mesure à"
+msgstr ""
+
+#: templates/base/navigation.html:58
+msgid "Configuration"
+msgstr ""
+
+#: templates/base/navigation.html:72
+msgid "Voir la liste des sondes"
+msgstr ""
+
+#: templates/base/navigation.html:72
+msgid "Liste des sondes"
+msgstr ""
+
+#: templates/base/navigation.html:80
+msgid "Ajouter un serveur"
+msgstr ""
+
+#: templates/base/navigation.html:83
+msgid "Ajouter un groupe de serveurs"
+msgstr ""
+
+#: templates/base/navigation.html:83
+msgid "Ajouter un groupe"
+msgstr ""
+
+#: templates/base/navigation.html:92
+msgid "Editer le serveur actuel"
+msgstr ""
+
+#: templates/base/navigation.html:92
+msgid "Editer ce serveur"
+msgstr ""
+
+#: templates/base/navigation.html:97
+msgid "Langue"
+msgstr ""
+
+#: templates/base/navigation.html:117
+msgid "Se déconnecter de Skwissh"
+msgstr ""
+
+#: templates/base/navigation.html:117
+msgid "Se déconnecter"
+msgstr ""
+
+#: templates/base/navigation.html:121
+msgid "Se connecter de Skwissh"
+msgstr ""

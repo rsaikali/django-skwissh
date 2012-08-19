@@ -11,6 +11,7 @@ bin
 var
 sdist
 develop-eggs
+migrations
 .installed.cfg
 
 # Installer logs
@@ -20,8 +21,6 @@ pip-log.txt
 .coverage
 .tox
 
-#Translations
-*.mo
-
-#Mr Developer
-.mr.developer.cfg
+.project
+.pydevproject
+.settings

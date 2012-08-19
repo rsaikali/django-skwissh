@@ -1,0 +1,63 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% include "base/navigation.html" %}
+{% with ng_length=nogroup_servers|length %}
+{% if groups|length|add:ng_length == 1 %}
+	{% for group in groups %}
+		{% include "section-group.html" with servers=group.servers.all %}
+	{% endfor %}
+	{% if nogroup_servers %}
+		{% include "section-group.html" with servers=nogroup_servers %}
+	{% endif %}
+{% else %}
+<div id="servergroup-list">
+	{% for group in groups %}
+		{% include "section-group.html" with servers=group.servers.all %}
+	{% endfor %}
+	{% if nogroup_servers %}
+		{% include "section-group.html" with servers=nogroup_servers %}
+	{% endif %}
+</div>
+{% endif %}
+{% endwith %}
+{% ifequal groups|length 0 %}
+{% ifequal nogroup_servers|length 0 %}
+{% load i18n %}
+<section>
+	<ul class="nav-bar">
+		<li><a class="bigger" href="#">{% trans 'Aucun groupe' %}</a></li>
+	</ul>
+	<div class="panel">
+		<div class="row">
+			<p>{% trans "Aucun serveur n'est actuellement configuré." %}</p>
+			<p>{% trans "Veuillez ajouter un serveur via le menu 'Options' puis 'Ajouter un serveur'." %}</p>
+		</div>
+	</div>
+</section>
+{% endifequal %}
+{% endifequal %}
+{% endblock content %}
+
+{% block container %}
+{% if user.is_staff %}
+	{% include "modal-add-server.html" %}
+	{% include "modal-add-server-group.html" %}
+	{% include "modal-update-server-group.html" %}
+	{% for group in groups %}
+		{% include "modal-delete-server-group.html" %}
+		{% for server in group.servers.all %}
+			{% include "modal-delete-server.html" %}
+		{% endfor %}
+	{% endfor %}
+	{% for server in nogroup_servers %}
+		{% include "modal-delete-server.html" %}
+	{% endfor %}
+{% endif %}
+{% endblock container %}
+
+{% block javascript %}
+<script type="text/javascript" src="{{ STATIC_URL }}skwissh/javascripts/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}skwissh/javascripts/skwissh.isotope.js"></script>
+{% endblock javascript %}

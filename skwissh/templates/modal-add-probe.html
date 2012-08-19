@@ -1,0 +1,16 @@
+{% load i18n %}
+<div id="add-probe" class="reveal-modal medium add">
+	<ul class="nav-bar">
+		<li>
+			<a class="bigger nolink" href="#">{% trans 'Ajouter une sonde' %}</a>
+		</li>
+	</ul>
+	<div class="panel">
+		<form action="{% url add-probe %}" method="post">
+			{% csrf_token %}
+			{{ probe_form.as_table }}
+			<input class="right small success button radius" type="submit" value="{% trans 'Sauvegarder' %}" />
+			<a href="#" class="right small alert button radius" onclick="javascript:$('.reveal-modal-bg').click();">{% trans 'Annuler' %}</a>
+		</form>
+	</div>
+</div>

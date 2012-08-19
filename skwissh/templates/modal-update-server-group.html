@@ -1,0 +1,19 @@
+{% load i18n %}
+<form method="post" action="{% url update-group %}">
+	{{ server_group_formset.management_form }}
+	{% for form in server_group_formset %}
+	<div id='edit-server-group-{{ form.id.value }}' class="reveal-modal medium update">
+		<ul class="nav-bar">
+			<li>
+				<a class="bigger nolink" href="#">{% blocktrans with name=form.name.value %}Editer le groupe de serveurs '{{ name }}'{% endblocktrans %}</a>
+			</li>
+		</ul>
+		<div class="panel">
+			{% csrf_token %}
+			{{ form.as_table }}
+			<input class="right small success button radius" type="submit" value="{% trans 'Sauvegarder' %}" />
+			<a href="#" class="right small alert button radius" onclick="javascript:$('.reveal-modal-bg').click();">{% trans 'Annuler' %}</a>
+		</div>
+	</div>
+	{% endfor %}
+</form>

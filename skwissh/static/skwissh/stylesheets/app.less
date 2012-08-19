@@ -1,0 +1,603 @@
+/*
+ * Thème couleurs sur Kuler (kuler.adobe.com) : Milan Week
+ */
+
+@import "inc.less";
+
+@bgColor: #D6D6D6;
+//@bgColor: url('/static/images/background.png') repeat;
+@bgColor2: #EEEEEE;
+@titleBgColor1: #877963;
+@titleBgColor2: #DEDCC3;
+@textFont: 'Oxygen', sans-serif;
+
+/******************************************************************************
+ * SKWISSH
+ ******************************************************************************/
+.skwi {
+	color: #41434A !important;
+	text-shadow: 2px 2px 7px #666;
+}
+.ssh {
+	color: #7FAE00 !important;
+	text-shadow: 2px 2px 5px #666;
+	
+}
+/******************************************************************************
+ * GENERAL
+ ******************************************************************************/
+body {
+	font-family: @textFont;
+	background: @bgColor;
+	color: #41434A;
+}
+.row {
+	max-width: 1400px !important;
+}
+.main {
+  width: 80%;
+}
+hr {
+	border: solid #BBB;
+	margin: 12px 0 18px;
+	border-width: 1px 0 0;
+}
+h1, h2, h3, h4, h5, h6 {
+	color: #41434A;
+	margin-top: -5px;
+	margin-bottom: 10px;
+}
+a {
+  color: #41434A;
+}
+/******************************************************************************
+ * ALERT BOX
+ ******************************************************************************/
+.alert-box.error {
+  background: #D5383B;
+}
+/******************************************************************************
+ * PANEL
+ ******************************************************************************/
+@panelRadius: 5px;
+@panelShadow: none;
+div .panel {
+  background: @bgColor2 !important;
+  -moz-border-radius: @panelRadius;
+  border-radius: @panelRadius;
+  -webkit-box-shadow: @panelShadow;
+  -moz-box-shadow: @panelShadow;
+  box-shadow: @panelShadow;
+  border: none !important;
+}
+/******************************************************************************
+ * HEADER
+ ******************************************************************************/
+@headerShadow: inset 0px -15px 10px -15px #000000;
+header {
+	padding-top: 30px;
+}
+header .panel {
+  background: #EEE url('/static/images/logo.svg') no-repeat 34px 25px !important;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  .background-size(9%);
+}
+header a, header a:hover {
+	color: #41434A;
+}
+header hr {
+	margin-left: 160px;
+	margin-top: -10px;
+}
+
+header p {
+  font-variant: small-caps;
+  font-size: 1.4em !important;
+  padding-left: 160px;
+  margin-top: -13px;
+}
+header h2 {
+  font-family: 'Days One', sans-serif;
+	font-size: 6em;
+	padding-left: 158px;
+	margin-top: -7px;
+}
+/******************************************************************************
+ * FOOTER
+ ******************************************************************************/
+footer {
+	z-index: 50;
+	width: 100%;
+	color: #DEDCC3;
+	padding-top: 20px;
+}
+footer h4 {
+	color: #DEDCC3;
+	padding-bottom: 12px;
+}
+footer li {
+	list-style-type: circle;
+	margin-left: 18px;
+}
+footer a {
+	color: #DEDCC3 !important;
+}
+footer a:hover {
+	color: #6E9489 !important;
+}
+footer p {
+	margin-bottom: 3px;
+}
+.copyright hr {
+	border: solid #877963;
+	margin-bottom: 5px;
+	border-width: 1px 0 0;
+}
+.copyright {
+	text-align: center;
+	padding-bottom: 5px;
+	font-variant: small-caps;
+	font-size: 1.1em;
+}
+/******************************************************************************
+ * CONTENT
+ ******************************************************************************/
+div .panel {
+	background: #F2F1E9;
+}
+div .panel p {
+	font-size: 1.1em;
+}
+div .panel h5 {
+	margin-bottom: 20px;
+}
+.container a {
+	color: #41434A;
+}
+.container a:hover {
+	color: #877963;
+}
+/******************************************************************************
+ * IMAGES
+ ******************************************************************************/
+.admin-sondes {
+	display: block;
+	margin: 0 auto;
+	height: 156px;
+	width: 388px;
+}
+.admin-sondes-list {
+	display: block;
+	margin: 0 auto;
+	height: 96px;
+	width: 577px;
+}
+.admin-serveurs {
+	display: block;
+	margin: 0 auto;
+	height: 247px;
+	width: 337px;
+}
+.admin-mesures-list {
+	display: block;
+	margin: 0 auto;
+	height: 516px;
+	width: 499px;
+}
+.waiting {
+  background: url('/static/images/ajax-loader.gif') no-repeat 5px 0px;
+  display: block;
+  margin: 0 auto;
+  height: 35px;
+  width: 35px;
+  padding-right: 10px;
+}
+.waiting-title {
+	text-align: center;
+	margin-bottom: -5px !important;
+	margin-top: 20px;
+}
+.jqplot-title {
+	font-family: @textFont;
+	color: #41434A;
+}
+.jqplot-axis div {
+  font-size: 1.1em !important;
+  line-height: 14px;
+}
+td.jqplot-table-legend {
+  vertical-align: middle;
+  font-size: 1.2em;
+}
+.jqplot-pie-series.jqplot-data-label {
+  font-size: 1.2em;
+  color: #333333;
+  font-variant: bold;
+}
+/******************************************************************************
+ * GRAPH
+ ******************************************************************************/
+.graph {
+	padding-bottom: 20px !important;
+}
+.line-server {
+  margin-left: 68px !important;
+  list-style: none;
+  h6 {
+    line-height: 40px;
+    margin-bottom: 0px;
+    .server {
+      padding: 3px 0 3px 35px;
+      .background-size(20px 20px);
+      font-size: 1.2em;
+      &.up {
+        background: url("/static/images/server-up.svg") no-repeat 0px 2px;
+      }
+      &.down {
+        background: url("/static/images/server-down.svg") no-repeat 0px 1px;
+      }
+    }
+  }
+}
+.server-info {
+  text-align: center;
+}
+.mesures h6 {
+  margin-top: 10px;
+  padding-left: 35px;
+  line-height: 20px;
+  padding-top: 2px;
+  background: url("/static/images/right.svg") no-repeat 6px 6px;
+  .background-size(14px 14px);
+  &.opened {
+    background: url("/static/images/down.svg") no-repeat 6px 6px;
+    .background-size(14px 14px);
+  }
+}
+.mesures table {
+  display: none;
+  width: 100%;
+}
+.mesures th {
+  text-align: center;
+}
+.mesures td {
+  text-align: center;
+  line-height: 0.5em;
+}
+/******************************************************************************
+ * FIL D'ARIANE'
+ ******************************************************************************/
+ul.breadcrumbs {
+  padding: 6px 22px 6px 22px;
+  background: @bgColor2 !important;
+  border: 0px !important;
+  -moz-border-radius: @panelRadius;
+  border-radius: @panelRadius;
+  -webkit-box-shadow: @panelShadow;
+  -moz-box-shadow: @panelShadow;
+  box-shadow: @panelShadow;  
+  margin-bottom: 20px;
+}
+ul.breadcrumbs li a, ul.breadcrumbs li span {
+  text-transform: uppercase;
+  font-size: 12px;
+  padding-left: 6px;
+}
+ul.breadcrumbs span {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+/******************************************************************************
+ * PERIOD
+ ******************************************************************************/
+dl.sub-nav {
+font-family: @textFont !important;
+}
+dl.sub-nav dd.active a {
+  background: #7FAE00;
+  color: white;
+  padding: 3px 9px;
+}
+dl.sub-nav dt {
+  color: #41434A;
+  font-weight: normal;
+}
+.sondes-count {
+  background: url("/static/images/sonde.svg") no-repeat 10px 7px !important;
+  .background-size(22px 20px);
+  font-size: 1.1em !important;
+  font-family: 'Oxygen', sans-serif;
+  font-weight: normal;
+  text-align: center;
+  display: block;
+}
+.mesures-count {
+  background: url("/static/images/mesure.svg") no-repeat 12px 7px !important;
+  .background-size(12px 21px);
+  font-size: 1.1em !important;
+  font-family: 'Oxygen', sans-serif;
+  font-weight: normal;
+  text-align: center;
+  display: block;
+  pointer-events: none;
+  cursor: default;
+}
+.monitored-servers ul li a {
+  pointer-events: auto;
+  cursor: auto;
+  font-size: 15px !important;
+}
+.monitored-servers ul li a:hover {
+  pointer-events: auto;
+  cursor: auto;
+  background: #E2FFE2;
+}
+.monitored-servers a {
+  pointer-events: none;
+  cursor: default;
+}
+.monitored-servers h6 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background: #EEE;
+  border-top: 1px solid darkGray;
+  border-bottom: 1px solid darkGray;
+}
+.monitored-servers h6 a {
+  text-align: center !important;
+}
+.monitored-servers {
+  background: url("/static/images/mesure.svg") no-repeat 12px 7px !important;
+  .background-size(12px 21px);
+  font-size: 1.1em !important;
+  font-family: 'Oxygen', sans-serif;
+  font-weight: normal;
+  text-align: center;
+  display: block;
+}
+
+.monitored-servers li {
+width: 100% !important;
+}
+
+.last-update {
+  background: url("/static/images/horloge.svg") no-repeat 8px 7px !important;
+  .background-size(22px 22px);
+  font-size: 1.1em !important;
+  font-family: 'Oxygen', sans-serif;
+  font-weight: normal;
+  text-align: center;
+  display: block;
+  pointer-events: none;
+  cursor: default;
+}
+.edit-server {
+	background: url("/static/images/settings.svg") no-repeat 50px 5px !important;
+  .background-size(20px 20px);
+  width: 25% !important;
+  padding-left: 28px !important;
+  top: -43px !important;
+  font-size: 14px !important;
+  font-family: @textFont;
+  font-weight: normal;
+}
+
+.edit-server-group {
+  background: url("/static/images/settings.svg") no-repeat 29px 5px !important;
+  .background-size(20px 20px);
+  width: 25% !important;
+  padding-left: 42px !important;
+  padding-right: 5px !important;
+  margin-top: -40px !important;
+  font-size: 14px !important;
+  font-family: @textFont;
+  font-weight: normal;
+  margin-right: 328px;
+}
+.delete-server {
+  background: url("/static/images/delete.svg") no-repeat 0px 12px !important;
+  .background-size(16px 16px);
+  width: 30px;
+  height: 30px;
+}
+.delete-group {
+  background: url("/static/images/delete.svg") no-repeat 0px 12px !important;
+  .background-size(16px 16px);
+  width: 30px;
+  height: 30px;
+  margin-top: -43px;
+}
+.delete-probe {
+  background: url("/static/images/delete.svg") no-repeat 0px 1px !important;
+  .background-size(16px 16px);
+  width: 30px;
+  height: 30px;
+}
+form.edit-server-form {
+  margin-bottom: 0px;
+}
+form .helptext {
+  display: none;
+}
+.edit-server-form #id_probes {
+  height: 120px;
+}
+form .button.right {
+  color: white;
+  margin-left: 15px;
+  margin-top: 20px;
+}
+form ul {
+  list-style: none;
+}
+.small-disconnect {
+  background: url("/static/images/on.svg") no-repeat 4px 2px !important;
+  .background-size(15px 15px);
+  padding: 4px 10px !important;
+  margin-top: 0px;
+  margin-left: 10px;
+}
+.small-disconnect:hover {
+  background: url("/static/images/off.svg") no-repeat 4px 2px !important;
+}
+.small-connect {
+  background: url("/static/images/off.svg") no-repeat 4px 2px !important;
+  .background-size(15px 15px);
+  padding: 4px 10px !important;
+  margin-top: 0px;
+  margin-left: 10px;
+  border-color: darkgrey;
+}
+.small-connect:hover {
+  background: url("/static/images/on.svg") no-repeat 4px 2px !important;
+  .background-size(15px 15px);
+  padding: 4px 10px !important;
+  margin-top: 0px;
+  margin-left: 10px;
+}
+div.alert-box {
+  font-weight: normal;
+  font-size: 14px;
+  text-align: center !important;
+}
+.single-mesure {
+  text-align: center;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 15px;
+  margin-right: 60px;
+  border: 1px solid darkgrey;
+  padding: 8px;
+  background: #171717 !important;
+  color: #7FAE00;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: monospace;
+  width: 98% !important;
+}
+/******************************************************************************
+ * TEXT-OUTPUT
+ ******************************************************************************/
+.text-output {
+  width: 100%;
+  height: 280px;
+  background: #171717 !important;
+  color: #7FAE00;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: monospace;
+}
+/******************************************************************************
+ * FORMS
+ ******************************************************************************/
+form fieldset input {
+  margin-left: 15px;
+}
+form fieldset select {
+  margin-left: 15px;
+  margin-top: 5px;
+}
+form fieldset {
+  padding: 20px;
+}
+form ul {
+  margin-bottom: 0px !important;
+}
+/******************************************************************************
+ * SONDES
+ ******************************************************************************/
+.probe-list {
+  margin-top: 15px;
+}
+.probe-title {
+  padding-left: 40px !important;
+}
+.probe-title h4 {
+  padding-bottom: 15px !important;
+}
+.linegraph {
+  background: url("/static/images/chart_line.svg") no-repeat 11px 2px !important;
+  .background-size(22px 20px);
+}
+.pie {
+  background: url("/static/images/pie.svg") no-repeat 11px 2px !important;
+  .background-size(22px 20px);
+}
+.text {
+  background: url("/static/images/text.svg") no-repeat 11px 2px !important;
+  .background-size(22px 20px);
+}
+.probe-title ul {
+  margin-top: -8px;
+}
+.probe-infos {
+  margin-left: 35px;
+}
+.code p {
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 15px;
+  padding: 8px;
+  background: #1B1B1B !important;
+  color: #7FAE00;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: monospace;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.reveal-modal p {
+  font-size: 1.4rem;
+}
+.server-group {
+  background: url("/static/images/server-group.svg") no-repeat 1px -3px !important;
+  .background-size(30px 30px);
+  padding-left: 40px;
+}
+.lang-form {
+  margin-top: -100px;
+  margin-right: 21px;
+}
+.lang-form a.active {
+  font-weight: bold;
+  color: #7FAE00;
+}
+/*****************
+ * Configuration 
+ *****************/
+.config-button {
+  background-color: inherit;
+  font-size: 1.1em !important;
+  font-family: 'Oxygen', sans-serif;
+  font-weight: normal;
+  text-align: center;
+  display: block;
+}
+.config-button:hover { 
+  background: #d0d0d0 !important;
+}
+.configuration {
+  padding-bottom: 15px !important;
+}
+.configuration-panel {
+  background: url("/static/images/settings.svg") no-repeat 1px 1px !important;
+  .background-size(25px);
+  padding-left: 40px;
+  line-height: 30px;
+}
+.panel ul {
+  margin-left: 15px;
+  margin-right: 15px;
+  list-style: none;
+}
+.probe-value {
+  background-color: inherit;
+  font-size: 1.1em !important;
+  font-family: 'Oxygen', sans-serif;
+  font-weight: normal;
+  pointer-events: none;
+  cursor: default;
+}

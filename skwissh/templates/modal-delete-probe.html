@@ -1,0 +1,25 @@
+{% load i18n %}
+<div id="delete-probe-{{ probe.id }}" class="reveal-modal medium delete">
+	<ul class="nav-bar">
+		<li>
+			<a class="bigger nolink" href="#">{% blocktrans with name=probe.display_name %}Supprimer la sonde '{{ name }}' ?{% endblocktrans %}</a>
+		</li>
+	</ul>
+	<div class="panel">
+		<form action="{% url delete-probe probe.id %}" method="post">
+			<p>
+				{% trans 'La suppression de cette sonde entraînera la suppression de toutes les mesures associées.' %}
+			</p>
+			<p>
+				{% blocktrans with count=probe.measure_set.count %}{{ count }} mesures seront définitivement perdues.{% endblocktrans %}
+				{% trans 'Cette opération est irréversible.' %}
+			</p>
+			<p>
+				{% blocktrans with name=probe.display_name %}Voulez vous vraiment supprimer la sonde '{{ name }}' ?{% endblocktrans %}
+			</p>
+			{% csrf_token %}
+			<input class="right small success button radius" type="submit" value="{% trans 'Oui' %}" />
+			<a href="#" class="right small alert button radius" onclick="javascript:$('.reveal-modal-bg').click();">{% trans 'Non' %}</a>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,19 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+
+{% block content %}
+	{% include "base/navigation.html" %}
+	{% for probe in probes %}
+		{% include "section-probe.html" %}
+	{% endfor %}
+{% endblock content %}
+
+{% block container %}
+	{% if user.is_staff %}
+		{% include "modal-update-probe.html" %}
+		{% for probe in probes %}
+			{% include "modal-delete-probe.html" %}
+		{% endfor %}
+		{% include "modal-add-probe.html" %}
+	{% endif %}
+{% endblock container %}

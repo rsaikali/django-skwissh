@@ -1,0 +1,29 @@
+{% load i18n %}
+<section id='section-{{ probe.id }}'>
+	<ul class="nav-bar">
+		<li><a class="bigger" href="#section-{{ probe.id }}">{{ probe.display_name }}</a></li>
+		{% ifequal probe.graph_type.name 'linegraph' %}
+		<li><a class='period period-{{ probe.id }}' data-period='last' href="#">{% trans 'Dernière mesure' %}</a></li>
+		<li class="active"><a class='period period-{{ probe.id }}' data-period='hour' href="#">{% trans 'Dernière heure' %}</a></li>
+		<li><a class='period period-{{ probe.id }}' data-period='day' href="#">{% trans 'Dernière journée' %}</a></li>
+		<li><a class='period period-{{ probe.id }}' data-period='week' href="#">{% trans 'Dernière semaine' %}</a></li>
+		<li><a class='period period-{{ probe.id }}' data-period='month' href="#">{% trans 'Dernier mois' %}</a></li>
+		{% endifequal %}
+	</ul>
+	<div class="panel graph">
+		{% ifequal probe.graph_type.name 'linegraph' %}
+		<div class="display">
+			<div class="three columns">{% trans 'Min.' %} : <span id="min-{{ probe.id }}">0</span></div>
+			<div class="three columns">{% trans 'Max.' %} : <span id="max-{{ probe.id }}">0</span></div>
+			<div class="three columns">{% trans 'Moy.' %} : <span id="avg-{{ probe.id }}">0</span></div>
+			<div class="three columns">{% trans 'Dernière' %} : <span id="last-{{ probe.id }}">0</span></div>
+		</div>
+		{% endifequal %}
+		<div id="detail-{{ probe.id }}">
+			<p class="waiting-title">{% trans 'Chargement des données en cours...' %}<p>
+			<div class="waiting"></div>
+			<div id="graph-{{ probe.id }}"></div>
+		</div>
+		<div class="mesures" id="measures-{{ probe.id }}"></div>
+	</div>
+</section>

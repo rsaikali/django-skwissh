@@ -1,0 +1,76 @@
+{% load i18n %}
+<section class="probe" id="probe-{{ probe.id }}">
+	<ul class="nav-bar">
+		{% if user.is_staff %}
+		<li class="has-flyout">
+			<a class="bigger" href="#probe-{{ probe.id }}">{{ probe.display_name }}{% ifnotequal probe.addon_name "" %}{% ifnotequal probe.addon_name None %} ({{ probe.addon_name }}){% endifnotequal %}{% endifnotequal %}</a>
+			<a href="#" class="flyout-toggle"><span></span></a>
+			<ul class="flyout">
+				<li class="edit"><a title="{% trans 'Editer cette sonde' %}..." href="#" data-reveal-id="edit-probe-{{ probe.id }}">{% trans 'Editer' %}...</a></li>
+				<li class="delete"><a title="{% trans 'Supprimer cette sonde' %}..." href="#" data-reveal-id="delete-probe-{{ probe.id }}">{% trans 'Supprimer' %}...</a></li>
+			</ul>
+		</li>
+		{% else %}
+		<li><a class="bigger" href="#probe-{{ probe.id }}">{{ probe.display_name }}{% ifnotequal probe.addon_name "" %}{% ifnotequal probe.addon_name None %} ({{ probe.addon_name }}){% endifnotequal %}{% endifnotequal %}</a></li>
+		{% endif %}
+	</ul>
+	<div class="panel">
+		<div class="row">
+			<div class="two columns">
+				<div class="probe-type {{ probe.graph_type.name }}"></div>
+				<div class="graph-type-text">
+					{% ifequal probe.graph_type.name "linegraph" %}{% trans 'Graphique ligne' %}{% endifequal %}
+					{% ifequal probe.graph_type.name "pie" %}{% trans 'Graphique camembert' %}{% endifequal %}
+					{% ifequal probe.graph_type.name "text" %}{% trans 'Sortie texte' %}{% endifequal %}
+				</div>
+				<div class="probe-mesures-count">
+					{{ probe.measure_set.count }} {% trans 'mesures effectuées'%}
+				</div>
+				<div class="probe-servers-count">
+					{% trans 'Actuellement sur'%} {{ probe.server_set.count }} {% trans 'serveurs'%}
+				</div>
+			</div>
+			<div class="ten columns">
+				<form class="custom">
+					<div class="row">
+						<div class="two columns">
+							<label class="inline" for="ssh-{{ probe.id }}">{% trans 'Commande SSH' %}</label>
+						</div>
+						<div class="ten columns">
+							<input id="ssh-{{ probe.id }}" type="text" disabled value="$ {{ probe.ssh_command }}"/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="two columns">
+							<label class="inline" for="sudo-{{ probe.id }}">{% trans "Utilise 'sudo' ?" %}</label>
+						</div>
+						<div class="ten columns">
+							<input class="custom checkbox yes" id="sudo-{{ probe.id }}" type="checkbox" disabled {% if probe.use_sudo %}checked{% endif %}/>
+							{% trans 'Oui' %}
+							<input class="custom checkbox no" id="sudo-{{ probe.id }}" type="checkbox" disabled {% if not probe.use_sudo %}checked{% endif %}/>
+							{% trans 'Non' %}
+						</div>
+					</div>
+					<div class="row">
+						<div class="two columns">
+							<label class="inline" for="python-{{ probe.id }}">{% trans 'Commande Python' %}</label>
+						</div>
+						<div class="ten columns">
+							<textarea id="python-{{ probe.id }}" disabled>&gt;&gt;&gt; {{ probe.python_parse }}</textarea>
+						</div>
+					</div>
+					{% ifnotequal probe.graph_type.name "text" %}
+					<div class="row">
+						<div class="two columns">
+							<label class="inline" for="unit-{{ probe.id }}">{% trans 'Unités' %}</label>
+						</div>
+						<div class="ten columns">
+							<input id="unit-{{ probe.id }}" type="text" disabled value="{{ probe.probe_unit }}"/>
+						</div>
+					</div>
+					{% endifnotequal %}
+				</form>
+			</div>
+		</div>
+	</div>
+</section>

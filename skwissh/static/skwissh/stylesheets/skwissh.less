@@ -1,0 +1,617 @@
+@import "inc.less";
+/******************************************************************************
+ * VARIABLES
+ ******************************************************************************/
+@bgColor: #D6D6D6;
+@textColor: #4D4D4D;
+
+@greenColor: #7FAE00;
+@orangeColor: #EAA228;
+@redColor: #D5383B;
+@blueColor: #4EA5B5;
+
+@titleFont: 'Days One', sans-serif !important;
+@textFont: 'Oxygen', sans-serif !important;
+@consoleFont: 'Ubuntu Mono', sans-serif !important;
+/******************************************************************************
+ * GENERAL
+ ******************************************************************************/
+body {
+	font-family: @textFont;
+	background: @bgColor;
+	color: @textColor;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: @textFont;
+  color: @textColor;
+}
+p {
+  font-family: @textFont;
+  color: @textColor;
+}
+a.nolink {
+  cursor: default !important;
+}
+.row { 
+  width: 1400px !important;
+  max-width: 100% !important;
+  min-width: 300px !important;
+  margin: 0 auto !important;
+ }
+.button {
+  font-family: @textFont;
+  font-size: 0.9em !important;
+  font-weight: normal !important;
+}
+.button.success {
+  background-color: @greenColor !important;
+  border: 1px solid darken(@greenColor, 15%) !important;
+}
+.button.alert {
+  background-color: @redColor !important;
+  border: 1px solid darken(@redColor, 15%) !important;
+}
+.button.alert:hover {
+  background-color: darken(@redColor, 10%) !important;
+}
+.button.success:hover {
+  background-color: darken(@greenColor, 10%) !important;
+}
+/******************************************************************************
+ * HEADER
+ ******************************************************************************/
+header .skwi {
+  color: @textColor !important;
+  text-shadow: 2px 2px 7px #666;
+}
+header .ssh {
+  color: @greenColor !important;
+  text-shadow: 2px 2px 5px #4d4d4d;
+}
+header .maintitle {
+  font-family: @titleFont;
+}
+header .row {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+  background: url('/static/skwissh/images/skwissh/logo.svg') no-repeat 25px 16px !important;
+}
+header .subtitle {
+  font-size: 1.2em;
+  font-family: @titleFont;
+  font-variant: small-caps;
+  color: @textColor;
+}
+@media (min-width: 767px) {
+  header .maintitle {
+    font-size: 6em;
+  }
+  header .title {
+    padding-left: 115px;
+  }
+  header .row {
+    .background-size(87px);
+  }
+}
+@media (max-width: 767px) {
+  header .maintitle {
+    font-size: 5em;
+  }
+  header .title {
+    padding-left: 100px;
+  }
+  header .row {
+    .background-size(72px);
+  }
+}
+@media (max-width: 550px) {
+  header .maintitle {
+    font-size: 2.5em;
+  }
+  header .title {
+    padding-left: 70px;
+  }
+  header .row {
+    background: url('/static/skwissh/images/skwissh/logo.svg') no-repeat 25px 10px !important;
+    .background-size(46px);
+  }
+  header .subtitle {
+    font-size: 0.9em;
+  }
+}
+/******************************************************************************
+ * NAVIGATION
+ ******************************************************************************/
+.nav-bar {
+  .radiuses(5px,0,0,5px) !important;
+}
+nav .nav-bar, footer .nav-bar {
+  .radiuses(5px,5px,5px,5px) !important;
+}
+.nav-bar > li:first-child {
+  .radiuses(0,0,0,5px) !important;
+}
+nav .nav-bar > li:first-child {
+  .radiuses(0,0,5px,5px) !important;
+}
+.nav-bar > li.active, .nav-bar > li.active:hover {
+  background: @greenColor;
+  border-color: #638703;
+}
+section .nav-bar > li.active, section .nav-bar > li.active:hover {
+  border-bottom: 1px solid @greenColor;
+  border-top: 1px solid darken(@greenColor, 5%);
+}
+.nav-bar .flyout li a {
+  line-height: 0px !important;
+}
+nav .flyout li h6 a {
+  background: #EAEAEA !important;
+  border-top: 1px solid #CCCCCC;
+  border-bottom: 1px solid #CCCCCC;
+}
+nav .nav-bar > li.active.offline, nav .nav-bar > li.active.offline:hover {
+  background: @redColor;
+  border-color: darken(@redColor, 5%) !important;
+}
+nav .flyout .online a {
+  background: url("/static/skwissh/images/skwissh/server-up.svg") no-repeat 15px 8px !important;
+  .background-size(12px);
+  padding-left: 40px !important;
+}
+nav .flyout .online a:hover {
+  background: #ebebeb url("/static/skwissh/images/skwissh/server-up.svg") no-repeat 15px 8px !important;
+  .background-size(12px);
+  padding-left: 40px !important;  
+}
+nav .flyout .offline a {
+  background: url("/static/skwissh/images/skwissh/server-down.svg") no-repeat 15px 8px !important;
+  .background-size(12px);
+  padding-left: 38px !important;
+}
+.nav-bar .flyout li h6 {
+  text-align: center;
+}
+.nav-bar .flyout a:hover {
+  background-color: #ebebeb !important;
+}
+.nav-bar .flyout a {
+  padding-left: 40px;
+}
+.nav-bar .flyout li h6 a {
+  padding-left: 20px;
+}
+nav .nav-bar > li.has-flyout > a:first-child, nav .nav-bar > li.has-flyout > a.flyout-toggle {
+  cursor: pointer !important;
+}
+.nav-bar ul.flyout li, .nav-bar li ul li {
+  border-left: solid 3px @greenColor;
+}
+/******************************************************************************
+ * ICONES DES MENUS
+ ******************************************************************************/
+.nav-bar .edit a {
+  background: url("/static/skwissh/images/skwissh/edit.svg") no-repeat 10px 6px !important;
+  .background-size(16px);
+}
+.nav-bar .delete a {
+  background: url("/static/skwissh/images/skwissh/delete.svg") no-repeat 10px 6px !important;
+  .background-size(16px);
+}
+.nav-bar .server a {
+  background: url("/static/skwissh/images/skwissh/server.svg") no-repeat 11px 8px !important;
+  .background-size(15px);
+}
+.nav-bar .server-group a {
+  background: url("/static/skwissh/images/skwissh/server-group.svg") no-repeat 8px 5px !important;
+  .background-size(20px);
+}
+.nav-bar .probe a {
+  background: url("/static/skwissh/images/skwissh/probe.svg") no-repeat 10px 8px !important;
+  .background-size(16px);
+}
+.nav-bar .login a {
+  background: url("/static/skwissh/images/skwissh/login.svg") no-repeat 12px 7px !important;
+  .background-size(13px);
+}
+.nav-bar .logout a {
+  background: url("/static/skwissh/images/skwissh/logout.svg") no-repeat 12px 7px !important;
+  .background-size(13px);
+}
+.nav-bar .fr a {
+  background: url("/static/skwissh/images/skwissh/fr.svg") no-repeat 10px 10px !important;
+  .background-size(16px);
+}
+.nav-bar .en a {
+  background: url("/static/skwissh/images/skwissh/en.svg") no-repeat 10px 8px !important;
+  .background-size(17px);
+}
+/******************************************************************************
+ * SECTION
+ ******************************************************************************/
+.reveal-modal-bg {
+  background: rgba(0, 0, 0, 0.9) !important;
+}
+section .nav-bar, .reveal-modal .nav-bar {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+section .panel {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-top: 5px solid @greenColor;
+}
+.reveal-modal .panel {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+.reveal-modal.add .panel {
+  border-top: 5px solid @greenColor;
+}
+.reveal-modal.update .panel {
+  border-top: 5px solid @orangeColor;
+}
+.reveal-modal.delete .panel {
+  border-top: 5px solid @redColor;
+}
+section .panel a {
+  color: @textColor !important;
+}
+.reveal-modal {
+  padding: 0 0 15px 0 !important;
+  top: 150px !important;
+  position: fixed;
+  border-radius: 5px;
+}
+.servergroup-list section.server-group {
+  width: 49.2%;
+}
+@media (max-width: 800px) {
+  .servergroup-list section.server-group {
+    width: 100%;
+  }
+}
+/******************************************************************************
+ * FORMULAIRES
+ ******************************************************************************/
+form ul {
+  margin-bottom: 0px !important;
+}
+form .button.right {
+  color: white;
+  margin-left: 15px;
+  margin-top: 20px;
+}
+form ul {
+  list-style: none;
+  padding-top: 10px;
+}
+form .helptext {
+  display: none;
+}
+.reveal-modal textarea {
+  height: 75px !important;
+  font-family: @consoleFont;
+  font-size: 15px;
+}
+.reveal-modal input[type='checkbox'] {
+  margin-bottom: 12px !important;
+  margin-left: 40px !important;
+}
+.reveal-modal select {
+  margin-bottom: 12px !important;
+  font-family: @textFont;
+  font-size: 14px;
+  background-color: #FAFAFA;
+}
+.reveal-modal[id*='probe'] label[for*='use_sudo'] {
+  float: left;
+  margin-right: 30px;
+  display: inline;
+}
+.reveal-modal[id*='probe'] li label[for*='use_sudo'] {
+  margin-right: 10px;
+  margin-top: -14px !important;
+}
+.reveal-modal[id*='probe'] form li label[for*='use_sudo'] {
+  margin-right: 10px;
+  margin-top: -4px !important;
+}
+.reveal-modal[id*='probe'] input[id*='use_sudo'] {
+  margin-top: 0 !important;
+}
+.reveal-modal[id*='probe'] form ul {
+  padding-top: 0px !important;
+  margin-bottom: 42px !important;
+  margin-top: 0px !important;
+}
+.reveal-modal[id*='probe'] label[for*='python_parse'] {
+  margin-top: 20px;
+}
+.reveal-modal[id*='probe'] label[for*='graph_type'] {
+  float: left !important;
+  width: 20% !important;
+  padding-top: 7px;
+  display: inline;
+}
+.reveal-modal[id*='probe'] select[id*='graph_type'] {
+  width: 80% !important;
+  display: inline;
+  height: 28px;
+  border-color: #CCC;
+  color: @textColor;
+}
+input.custom.checkbox.no + span {
+  margin-left: 15px !important
+}
+/******************************************************************************
+ * jqPlot
+ ******************************************************************************/
+section .jqplot-title {
+  font-family: @textFont;
+  color: #41434A;
+}
+section table.jqplot-table-legend, table.jqplot-cursor-legend {
+  background-color: #F2F2F2 !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  display: block;
+  font-size: 0.95em !important;
+  margin-right: 0px !important;
+}
+section td.jqplot-table-legend {
+  background-color: #F2F2F2 !important;
+  padding: 0 5px 0 5px !important;
+  line-height: 20px;
+  color: #666 !important;
+
+}
+div.jqplot-table-legend-swatch-outline {
+  border: none !important;
+}
+section .jqplot-axis div {
+  font-size: 1em !important;
+}
+section .jqplot-axis {
+  font-family: @textFont;
+}
+section td.jqplot-table-legend {
+  font-size: 1em;
+  font-family: @textFont;
+  color: #41434A;
+}
+section .jqplot-table-legend-label {
+}
+
+section .jqplot-pie-series.jqplot-data-label {
+  font-size: 1em;
+  color: #333333;
+  font-variant: bold;
+}
+section .jqplot-highlighter-tooltip {
+  font-family: @textFont;
+  font-size: 0.8em !important;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.9) !important;
+  padding: 5px !important;
+}
+@media (max-width: 550px) {
+  section .jqplot-yaxis {
+    display: none;
+  }
+  section .jqplot-target {
+    height: 150px !important;
+  }
+}
+/******************************************************************************
+ * MESURES
+ ******************************************************************************/
+.nav-bar .bigger {
+  font-size: 1.2em !important;
+}
+.nav-bar .red {
+  background: @redColor !important;
+  border-color: darken(@redColor, 15%) !important;
+  border-bottom:  1px solid @redColor !important;
+  border-top: 1px solid darken(@redColor, 5%) !important;
+}
+section .single-mesure {
+  text-align: center;
+  font-size: 4em;
+}
+section .mesures table {
+  display: none;
+  width: 100%;
+}
+section .mesures th {
+  text-align: center;
+}
+section .mesures td {
+  text-align: center;
+  line-height: 0.5em;
+}
+section .mesures h6 {
+  cursor: pointer;
+  margin-top: 20px;
+  padding-left: 25px;
+  line-height: 20px;
+  background: url("/static/skwissh/images/skwissh/arrow-right.svg") no-repeat 0px 2px;
+  .background-size(14px 14px);
+  &.opened {
+    background: url("/static/skwissh/images/skwissh/arrow-down.svg") no-repeat 0px 2px;
+    .background-size(14px 14px);
+  }
+}
+section .display div {
+  text-align: center;
+  margin-bottom: -10px;
+  height: 35px;
+}
+section .line-server {
+  list-style: none;
+}
+section .line-server h6 {
+  font-size: 15px !important;
+}
+section .line-server .delete-server {
+  background: url("/static/skwissh/images/skwissh/delete.svg") no-repeat 5px 3px !important;
+  .background-size(13px);
+  margin-right: 30px;
+  line-height: 8px;
+  padding-left: 11px !important;
+  margin-right: 20px;
+  margin-top: -3px;
+}
+section .line-server .delete-server:hover {
+  background-color: #D0D0D0 !important;
+}
+section .server.down {
+  background: url("/static/skwissh/images/skwissh/server-down.svg") no-repeat 20px 1px !important;
+  .background-size(14px);
+  padding-left: 50px !important;
+  font-weight: normal;
+}
+section .server.up {
+  background: url("/static/skwissh/images/skwissh/server-up.svg") no-repeat 20px 1px !important;
+  .background-size(14px);
+  padding-left: 50px !important;
+  font-weight: normal;
+}
+/******************************************************************************
+ * WAITING GIF AJAX LOADER
+ ******************************************************************************/
+section .waiting {
+  background: url('/static/skwissh/images/skwissh/ajax-loader.gif') no-repeat 0px 0px;
+  display: block;
+  margin: 0 auto;
+  height: 150px;
+  width: 128px;
+  padding-right: 10px;
+}
+section .waiting-title {
+  text-align: center;
+  height: 150px;
+  padding-top: 140px;
+}
+/******************************************************************************
+ * CONSOLE SORTIE SONDE TEXTE
+ ******************************************************************************/
+section .text-output {
+  width: 100%;
+  height: 300px;
+  background: #303030 !important;
+  color: @greenColor;
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: @consoleFont;
+}
+section .text-output[disabled] {
+  width: 100%;
+  height: 300px;
+  background: #303030 !important;
+  color: @greenColor;
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: @consoleFont;
+}
+section .alert-box.alert {
+  background: @redColor !important;
+}
+/******************************************************************************
+ * PROBES
+ ******************************************************************************/
+section.probe div.linegraph {
+  background: url("/static/skwissh/images/skwissh/linegraph.svg") no-repeat center 0 !important;
+  .background-size(73px);
+  height: 64px !important;
+  margin-top: 32px;
+}
+section.probe div.pie {
+  background: url("/static/skwissh/images/skwissh/pie.svg") no-repeat center 0 !important;
+  .background-size(70px);
+  height: 73px !important;
+  margin-top: 25px;
+}
+section.probe div.text {
+  background: url("/static/skwissh/images/skwissh/text.svg") no-repeat center 0 !important;
+  .background-size(65px);
+  height: 75px !important;
+  margin-top: 5px;
+}
+section.probe div.graph-type-text {
+  text-align: center;
+  font-size: 1em;
+}
+section.probe div.probe-mesures-count, section.probe div.probe-servers-count {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 1em;
+}
+section.probe label {
+  text-align: center;
+}
+section.probe form.custom span.checkbox {
+  margin-top: 6px;
+  margin-right: 2px;
+}
+section.probe input[type='text'], section.probe textarea {
+  font-size: 1.1em;
+  font-family: @consoleFont;
+}
+section.probe input[type='text'][disabled], section.probe textarea[disabled] {
+  background: #FAFAFA !important;
+}
+section.probe .custom.disabled {
+  background-color: #FAFAFA !important;
+}
+section.probe textarea {
+  height: 70px;
+}
+/******************************************************************************
+ * FOOTER
+ ******************************************************************************/
+footer .nav-bar {
+  margin-top: 0px;
+  padding: 3px;
+  height: auto;
+}
+footer ul {
+  text-align: center; 
+  font-family: @textFont;
+  font-size: 0.85em;
+  color: #E6E6E6;
+}
+footer ul a {
+  color: #E6E6E6;
+}
+footer ul a:hover {
+  color: @greenColor;
+}
+footer .skwi {
+  font-family: @titleFont;
+  color: #E6E6E6 !important;
+}
+footer .ssh {
+  font-family: @titleFont;
+  color: @greenColor !important;
+}
+/******************************************************************************
+ * 404 / 500
+ ******************************************************************************/
+section .panel.red{
+  border: none;
+  border-bottom: 5px solid @redColor;
+  height: 150px;
+  padding-top: 35px;
+  padding-bottom: 0px;
+  margin-bottom: 22px;
+}
+section .panel.red .warning{
+  background: url("/static/skwissh/images/skwissh/warning.svg") no-repeat center 0 !important;
+  .background-size(70px);
+  height: 70px;
+}

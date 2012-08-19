@@ -1,0 +1,22 @@
+{% load i18n %}
+<div id="delete-group-{{ group.id }}" class="reveal-modal medium delete">
+	<ul class="nav-bar">
+		<li>
+			<a class="bigger nolink" href="#">{% blocktrans with name=group.name %}Supprimer le groupe de serveurs '{{ name }}' ?{% endblocktrans %}</a>
+		</li>
+	</ul>
+	<div class="panel">
+		<p>
+			{% trans 'Les serveurs inclus dans ce groupe ne seront pas supprimés.' %}
+			{% trans "Vous pourrez les retrouver dans la zone 'Non Classés'." %}
+		</p>
+		<p>
+			{% blocktrans with name=group.name %}Etes-vous sûr de vouloir supprimer le groupe de serveurs '{{ name }}' ?{% endblocktrans %}
+		</p>
+		<form action="{% url delete-group group.id %}" method="post">
+			{% csrf_token %}
+			<input class="right small success button radius" type="submit" value="{% trans 'Oui' %}" />
+			<a href="#" class="right small alert button radius" onclick="javascript:$('.reveal-modal-bg').click();">{% trans 'Non' %}</a>
+		</form>
+	</div>
+</div>

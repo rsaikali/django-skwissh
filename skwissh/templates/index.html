@@ -1,0 +1,33 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% block content %}
+{% include "base/navigation.html" with is_home=1 %}
+<section>
+	<ul class="nav-bar">
+		<li class="nolink">
+			<a href="#">{% trans 'Connexion' %}</a>
+		</li>
+	</ul>
+	<div class="panel">
+		<p>
+			{% trans "Veuillez vous identifier pour accéder à Skwissh." %}
+		</p>
+		<form method="post" action="{% url django.contrib.auth.views.login %}">
+			{% csrf_token %}
+			<label for="username">{% trans "Nom d'utilisateur" %}</label>
+			<input type="text" class="input-text" id="username" name="username" />
+			<label for="password">{% trans 'Mot de passe' %}</label>
+			<input type="password" class="input-text" id="password" name="password" />
+			<input class="small secondary button radius" type="submit" value="{% trans "Se connecter" %}..." />
+			<input type="hidden" name="next" value="{% url server-list %}" />
+			{% if form.errors %}
+			{% for error, desc in form.errors.iteritems %}
+			<div class="alert-box alert">
+				{{ desc }}
+			</div>
+			{% endfor %}
+			{% endif %}
+		</form>
+	</div>
+</section>
+{% endblock content %}

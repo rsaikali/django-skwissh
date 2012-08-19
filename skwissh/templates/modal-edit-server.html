@@ -1,0 +1,16 @@
+{% load i18n %}
+<div id="edit-server" class="reveal-modal medium add">
+	<ul class="nav-bar">
+		<li>
+			<a class="bigger nolink" href="#">{% blocktrans with name=server.hostname %}Editer le serveur '{{ name }}'{% endblocktrans %}</a>
+		</li>
+	</ul>
+	<div class="panel">
+		<form action="{% url update-server server.pk %}" method="post">
+			{% csrf_token %}
+			{{ server_form.as_table }}
+			<input class="right small success button radius" type="submit" value="{% trans 'Sauvegarder' %}" />
+			<a href="#" class="right small alert button radius" onclick="javascript:$('.reveal-modal-bg').click();">{% trans 'Annuler' %}</a>
+		</form>
+	</div>
+</div>

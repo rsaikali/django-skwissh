@@ -1,0 +1,42 @@
+{% load i18n %}
+<section class="server-group" id="group-{{ group.id }}">
+	<ul class="nav-bar">
+		{% if not group %}
+		<li>
+			<a class="bigger" href="#group-undefined">{% trans 'Non classé' %}{{ servers|length|pluralize }}</a>
+		</li>
+		{% else %}
+		{% if user.is_staff %}
+		<li class="has-flyout">
+			<a class="bigger" href="#">{{ group.name }}</a>
+			<a href="#" class="flyout-toggle"><span></span></a>
+			<ul class="flyout">
+				<li class="edit">
+					<a title="{% trans 'Editer ce groupe de serveurs' %}..." href="#" data-reveal-id="edit-server-group-{{ group.id }}">{% trans 'Editer' %}...</a>
+				</li>
+				<li class="delete">
+					<a title="{% trans 'Supprimer ce groupe de serveurs' %}..." href="#" data-reveal-id="delete-group-{{ group.id }}">{% trans 'Supprimer' %}...</a>
+				</li>
+			</ul>
+		</li>
+		{% else %}
+		<li>
+			<a class="bigger" href="#group-{{ group.id }}">{{ group.name }}</a>
+		</li>
+		{% endif %}
+		{% endif %}
+	</ul>
+	<div class="panel">
+		<ul>
+			{% for server in servers %}
+			<li class="line-server">
+				<h6><a class="server {% if server.state %}up{% else %}down{% endif %}" href="{% url server-detail server.id %}">{{ server.hostname }}</a> {% if user.is_staff %}<a title="{% trans 'Supprimer le serveur' %} '{{ server.hostname }}'..." href="#" class="delete-server right tiny secondary button radius" data-reveal-id="delete-server-{{ server.id }}">&nbsp;</a>{% endif %}</h6>
+			</li>
+			{% empty %}
+			<li>
+				{% trans 'Aucun serveur dans ce groupe' %}.
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+</section>
