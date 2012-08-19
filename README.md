@@ -43,24 +43,24 @@ More information on [Skwissh website](http://skwissh.com/ "Skwissh website") (un
 
 Configure your Django project in a normal way (database, etc...).
 
-Add ``skwissh`` and ``kronos`` to your Django ``INSTALLED_APPS`` :
-
+Add ``skwissh`` and ``kronos`` to your Django ``INSTALLED_APPS``:
     INSTALLED_APPS = (
         ...
         'kronos',
         'skwissh',
     )
 
-Synchronize your database (this command will load defaut sensors through fixtures):
+Add Skwissh to your ``urls.py``:
+    # Skwissh
+    url(r'^skwissh/', include('skwissh.urls')),
 
+Synchronize your database (this command will load defaut sensors through fixtures):
     ./manage.py syncdb
     
 Install Skwissh tasks (will write to your user crontab, thanks to 'django-kronos'):
-
     ./manage.py installtasks
     
-Check that 4 crontab job have been configured:
-
+You can check that 4 crontab job have been configured:
     crontab -l
 
 You're ready to go ! 
