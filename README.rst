@@ -25,11 +25,11 @@ More information on `our website <http://skwissh.com>`_ (under construction...).
 Screenshots
 ***********
 
-![Disk Usage](https://raw.github.com/rsaikali/django-skwissh/master/doc/images/diskusage-screenshot.png)
+![](http://github.com/rsaikali/django-skwissh/raw/master/doc/images/loads-screenshot.png)
 
-![Load averages](https://raw.github.com/rsaikali/django-skwissh/master/doc/images/loads-screenshot.png)
+![](http://github.com/rsaikali/django-skwissh/raw/master/doc/images/diskusage-screenshot.png)
 
-![Top](https://raw.github.com/rsaikali/django-skwissh/master/doc/images/top-screenshot.png)
+![](http://github.com/rsaikali/django-skwissh/raw/master/doc/images/top-screenshot.png)
 
 ************
 Installation
