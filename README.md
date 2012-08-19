@@ -1,4 +1,4 @@
-# Skwissh
+![Skwissh logo](http://github.com/rsaikali/django-skwissh/raw/master/doc/images/skwissh-logo.png)
 
 ## Introduction
 
