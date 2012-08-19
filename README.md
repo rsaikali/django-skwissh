@@ -20,7 +20,7 @@ Default sensors available (tested on Ubuntu 12.04) :
 
 But you can easily add your own ones !!
 
-More information on [Skwissh website](http://skwissh.com/ "Skwissh website") (under construction...). 
+Visit the [Skwissh demo](http://skwissh.com/skwissh "Skwissh demo") (username ``test`` / password ``test``).
 
 ## Screenshots
 
@@ -41,15 +41,20 @@ More information on [Skwissh website](http://skwissh.com/ "Skwissh website") (un
 
 ## Installation
 
-Configure your Django project (database, etc...).
+Configure your Django project in a normal way (database, etc...).
 
-Add ``skwissh`` and ``kronos`` to your Django ``INSTALLED_APPS`` :
+Add ``skwissh`` and ``kronos`` to your Django ``INSTALLED_APPS``:
 
-	INSTALLED_APPS = (
-		...
-		'kronos',
-		'skwissh',
-	)
+    INSTALLED_APPS = (
+        ...
+        'kronos',
+        'skwissh',
+    )
+
+Add Skwissh to your ``urls.py``:
+
+    # Skwissh
+    url(r'^skwissh/', include('skwissh.urls')),
 
 Synchronize your database (this command will load defaut sensors through fixtures):
 
@@ -59,12 +64,12 @@ Install Skwissh tasks (will write to your user crontab, thanks to 'django-kronos
 
     ./manage.py installtasks
     
-Check that 4 crontab job have been configured:
+You can check that 4 crontab job have been configured:
 
-	crontab -l
+    crontab -l
 
 You're ready to go ! 
-Connect to the application and start configure your servers !
+Connect to the application and start configure your servers and sensors !
 
 ## Credits
 
