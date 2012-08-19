@@ -1,10 +1,13 @@
-#######
 Skwissh
-#######
+=======
+
+Introduction
+------------
 
 A Django application for remotely monitoring servers using SSH.
 
-In background (crontabed jobs) Skwissh uses `Python Fabric <http://fabfile.org>`_ to execute SSH commands, aka. "sensors", get the output and store timestamped values.
+In background (crontabed jobs) Skwissh uses [Python Fabric](http://fabfile.org/ "Python Fabric") to execute SSH commands, aka. "sensors", get the output and store timestamped values.
+Measures are taken every minute.
 
 On the other side, Skwissh is able to display nice charts (linechart, piechart or simple text) with aggregated measures. 
 
@@ -21,19 +24,20 @@ But you can easily add your own ones !!
 
 More information on `our website <http://skwissh.com>`_ (under construction...). 
 
-***********
 Screenshots
-***********
+-----------
 
+Load averages
 ![](http://github.com/rsaikali/django-skwissh/raw/master/doc/images/loads-screenshot.png)
 
+Disk usage
 ![](http://github.com/rsaikali/django-skwissh/raw/master/doc/images/diskusage-screenshot.png)
 
+Top output
 ![](http://github.com/rsaikali/django-skwissh/raw/master/doc/images/top-screenshot.png)
 
-************
 Installation
-************
+------------
 
 Configure a Django project (database, etc...)
 
@@ -60,9 +64,8 @@ Check that 4 crontab job have been configured::
 You're ready to go ! 
 Connect to the application and start configure your servers !
 
-*******
 Credits
-*******
+-------
 
 * Uses `Django 1.4.1 <https://www.djangoproject.com/>`_.
 * Uses Django applications and addons :
