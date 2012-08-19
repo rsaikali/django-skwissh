@@ -86,7 +86,7 @@ class Measure(models.Model):
     timestamp = models.DateTimeField(verbose_name=_(u"Date et heure"))
     server = models.ForeignKey(Server, verbose_name=_(u"Serveur"))
     probe = models.ForeignKey(Probe, verbose_name=_(u"Sonde"))
-    value = models.CharField(max_length=255, verbose_name=_(u"Valeur mesurée"))
+    value = models.CharField(max_length=4096, verbose_name=_(u"Valeur mesurée"))
 
     def __unicode__(self):
         return u"%s" % self.value
@@ -100,7 +100,7 @@ class MeasureDay(models.Model):
     timestamp = models.DateTimeField(verbose_name=_(u"Date et heure"))
     server = models.ForeignKey(Server, verbose_name=_(u"Serveur"))
     probe = models.ForeignKey(Probe, verbose_name=_(u"Sonde"))
-    value = models.CharField(max_length=255, verbose_name=_(u"Valeur mesurée"))
+    value = models.CharField(max_length=4096, verbose_name=_(u"Valeur mesurée"))
 
     def __unicode__(self):
         return u"%s" % self.value
@@ -114,7 +114,7 @@ class MeasureWeek(models.Model):
     timestamp = models.DateTimeField(verbose_name=_(u"Date et heure"))
     server = models.ForeignKey(Server, verbose_name=_(u"Serveur"))
     probe = models.ForeignKey(Probe, verbose_name=_(u"Sonde"))
-    value = models.CharField(max_length=255, verbose_name=_(u"Valeur mesurée"))
+    value = models.CharField(max_length=4096, verbose_name=_(u"Valeur mesurée"))
 
     def __unicode__(self):
         return u"%s" % self.value
@@ -128,7 +128,7 @@ class MeasureMonth(models.Model):
     timestamp = models.DateTimeField(verbose_name=_(u"Date et heure"))
     server = models.ForeignKey(Server, verbose_name=_(u"Serveur"))
     probe = models.ForeignKey(Probe, verbose_name=_(u"Sonde"))
-    value = models.CharField(max_length=255, verbose_name=_(u"Valeur mesurée"))
+    value = models.CharField(max_length=4096, verbose_name=_(u"Valeur mesurée"))
 
     def __unicode__(self):
         return u"%s" % self.value
