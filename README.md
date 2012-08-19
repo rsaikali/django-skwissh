@@ -33,6 +33,12 @@ More information on [Skwissh website](http://skwissh.com/ "Skwissh website") (un
 ### Top output
 ![Top output](http://github.com/rsaikali/django-skwissh/raw/master/doc/images/top-screenshot.png)
 
+### Server edition
+![Server edition](http://github.com/rsaikali/django-skwissh/raw/master/doc/images/editserver-screenshot.png)
+
+### Sensor edition
+![Sensor edition](http://github.com/rsaikali/django-skwissh/raw/master/doc/images/editsensor-screenshot.png)
+
 ## Installation
 
 Configure a Django project (database, etc...)
