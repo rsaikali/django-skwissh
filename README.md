@@ -20,7 +20,7 @@ Default sensors available (tested on Ubuntu 12.04) :
 
 But you can easily add your own ones !!
 
-More information on [Skwissh website](http://skwissh.com/ "Skwissh website") (under construction...). 
+Visit the [Skwissh demo](http://skwissh.com/skwissh "Skwissh demo") (username ``test`` / password ``test``).
 
 ## Screenshots
 
