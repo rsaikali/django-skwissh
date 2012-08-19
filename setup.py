@@ -22,7 +22,7 @@ setup(
     name='django-skwissh',
     version=skwissh.__version__,
     description='SSH monitoring application',
-    long_description=open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
+    long_description=open(os.path.join(os.path.dirname(__file__), 'README.md')).read(),
     url='http://skwissh.com/',
     license='GNU General Public License',
     platforms=['OS Independent'],
