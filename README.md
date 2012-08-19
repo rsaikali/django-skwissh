@@ -22,6 +22,8 @@ But you can easily add your own ones !!
 
 Visit the [Skwissh demo](http://skwissh.com/ "Skwissh demo") (username ``test`` / password ``test``).
 
+Follow @skwissh on [Twitter](https://twitter.com/skwissh/ "@skwissh") to see our latest updates.
+
 ## Screenshots
 
 ### Load averages
