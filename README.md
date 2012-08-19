@@ -1,8 +1,6 @@
-Skwissh
-=======
+# Skwissh
 
-Introduction
-------------
+## Introduction
 
 A Django application for remotely monitoring servers using SSH.
 
@@ -22,26 +20,24 @@ Default sensors available (tested on Ubuntu 12.04) :
 
 But you can easily add your own ones !!
 
-More information on `our website <http://skwissh.com>`_ (under construction...). 
+More information on [Skwissh website](http://skwissh.com/ "Skwissh website") (under construction...). 
 
-Screenshots
------------
+## Screenshots
 
-Load averages
-![](http://github.com/rsaikali/django-skwissh/raw/master/doc/images/loads-screenshot.png)
+### Load averages
+![Load averages](http://github.com/rsaikali/django-skwissh/raw/master/doc/images/loads-screenshot.png)
 
-Disk usage
-![](http://github.com/rsaikali/django-skwissh/raw/master/doc/images/diskusage-screenshot.png)
+### Disk usage
+![Disk usage](http://github.com/rsaikali/django-skwissh/raw/master/doc/images/diskusage-screenshot.png)
 
-Top output
-![](http://github.com/rsaikali/django-skwissh/raw/master/doc/images/top-screenshot.png)
+### Top output
+![Top output](http://github.com/rsaikali/django-skwissh/raw/master/doc/images/top-screenshot.png)
 
-Installation
-------------
+## Installation
 
 Configure a Django project (database, etc...)
 
-Add ``skwissh`` and ``kronos`` to your Django ``INSTALLED_APPS`` ::
+Add ``skwissh`` and ``kronos`` to your Django ``INSTALLED_APPS`` :
 
 	INSTALLED_APPS = (
 		...
@@ -49,30 +45,29 @@ Add ``skwissh`` and ``kronos`` to your Django ``INSTALLED_APPS`` ::
 		'skwissh',
 	)
 
-Synchronize your database (this command will load defaut sensors through fixtures)::
+Synchronize your database (this command will load defaut sensors through fixtures):
 
     ./manage.py syncdb
     
-Install Skwissh tasks (will write to your user crontab, thanks to 'django-kronos')::
+Install Skwissh tasks (will write to your user crontab, thanks to 'django-kronos'):
 
     ./manage.py installtasks
     
-Check that 4 crontab job have been configured::
+Check that 4 crontab job have been configured:
 
 	crontab -l
 
 You're ready to go ! 
 Connect to the application and start configure your servers !
 
-Credits
--------
+## Credits
 
-* Uses `Django 1.4.1 <https://www.djangoproject.com/>`_.
+* Uses [Django 1.4.1](https://www.djangoproject.com/ "Django 1.4.1").
 * Uses Django applications and addons :
 
-  * `django-kronos <https://github.com/jgorset/django-kronos>`_ from `Johannes Gorset <https://github.com/jgorset>`_.
-  * `django-extra-views <https://github.com/AndrewIngram/django-extra-views>`_ from `Andrew Ingram <https://github.com/AndrewIngram>`_. 
-* Uses `Fabric <http://fabfile.org/>`_ SSH Python library.
-* Uses `jqPlot <http://www.jqplot.com/>`_ jQuery plotting and charting library.
-* Uses `Zurb Foundation <http://foundation.zurb.com/>`_ responsive CSS/JS/HTML bootstrap.
-* Includes icons from `TheNounProject <http://thenounproject.com/>`_.
+  * [django-kronos](https://github.com/jgorset/django-kronos "django-kronos") from [Johannes Gorset](https://github.com/jgorset "Johannes Gorset").
+  * [django-extra-views](https://github.com/AndrewIngram/django-extra-views "django-extra-views") from [Andrew Ingram](https://github.com/AndrewIngram "Andrew Ingram"). 
+* Uses [Fabric](http://fabfile.org/ "Fabric") SSH Python library.
+* Uses [jqPlot](http://www.jqplot.com/ "jqPlot") jQuery plotting and charting library.
+* Uses [Zurb Foundation](http://foundation.zurb.com/ "Zurb Foundation") responsive CSS/JS/HTML bootstrap.
+* Includes icons from [TheNounProject](http://thenounproject.com "TheNounProject").
