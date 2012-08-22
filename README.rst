@@ -28,6 +28,12 @@ Follow @skwissh on Twitter.
 Installation
 ============
 
+Skwissh can be installed from Pypi:
+
+::
+
+    pip install django-skwissh
+
 Configure your Django project in a normal way (database, etc...).
 
 Add ``skwissh`` and ``kronos`` to your Django ``INSTALLED_APPS``:
