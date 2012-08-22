@@ -1,3 +1,7 @@
+==== 0.0.3 (2012-08-23) ====
+
+- Pypi compliance : now available through 'pip install django-skwissh'.
+
 ==== 0.0.2 (2012-08-22) ====
 
 - Not logging to syslog anymore (don't have access to /var/log/syslog on a shared web hosting). Use tempfile.gettempdir() to write the cron.log logfile.
