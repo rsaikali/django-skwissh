@@ -48,7 +48,7 @@ def getMeasures():
                     Measure.objects.create(timestamp=now, server=server, probe=probe, value=outputs[probe.id])
     except Exception, e:
         logger.error(str(e))
-    logger.info("GETTING MESURES DURATION : " + datetime.datetime.now() - timestamp)
+    logger.info("GETTING MESURES DURATION : " + str(datetime.datetime.now() - timestamp))
     fabric.network.disconnect_all()
     return 0
 
