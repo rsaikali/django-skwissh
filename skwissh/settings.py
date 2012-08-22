@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
+import os
+import tempfile
+from logging.handlers import WatchedFileHandler
 try:
     from django.conf import settings
-    from logging.handlers import SysLogHandler
-    from django.utils.translation import ugettext as _
     import logging
 except:
     pass
@@ -21,34 +22,15 @@ MONTH_AVERAGE_PERIOD = 60  # Month is displayed with 60 minutes average samples
 ###############################################################################
 def patch_settings():
     """
-    Patches default project settings.
+    Patches default project settings LOGIN_URL.
     Don't know if it's the best way to do it... but it works...
-    I do that because I don't want to force users to manually edit lots of settings, except 'skissh' in INSTALLED_APPS.
     """
     settings.LOGIN_URL = "/skwissh/login"
 
-    settings.LANGUAGES = (
-        ('fr', _(u'Français')),
-        ('en', _(u'Anglais')),
-    )
-
-    settings.CACHES = {
-        'default': {
-            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-            'LOCATION': 'skwissh-cache'
-        }
-    }
-
-    settings.MIDDLEWARE_CLASSES += (
-        'django.middleware.locale.LocaleMiddleware',
-        'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        'django.middleware.gzip.GZipMiddleware',
-        'django.middleware.http.ConditionalGetMiddleware',
-    )
-
     logger = logging.getLogger('skwissh')
     logger.setLevel(logging.DEBUG)
-    syslog = SysLogHandler(address='/dev/log')
-    formatter = logging.Formatter('%(name)s: %(levelname)s %(message)s')
-    syslog.setFormatter(formatter)
-    logger.addHandler(syslog)
+    log_filename = os.path.join(tempfile.gettempdir(), "cron.log")
+    log_handler = WatchedFileHandler(filename=log_filename)
+    formatter = logging.Formatter('%(asctime)s - %(name)s: %(levelname)s %(message)s')
+    log_handler.setFormatter(formatter)
+    logger.addHandler(log_handler)
