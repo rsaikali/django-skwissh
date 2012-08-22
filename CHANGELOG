@@ -1,5 +1,7 @@
 ==== 0.0.2 (2012-08-22) ====
 
+- Not logging to syslog anymore (don't have access to /var/log/syslog on a shared web hosting). Use tempfile.gettempdir() to write the cron.log logfile.
+- Cleaned application settings.py : Middleware definition (GZipMiddleware, ...) is a project responsability. Added a README topic on how to activate i18n properly.
 - Python parsing command is now splited before execution (PostgreSQL issue with '\r\n').
 - Issue #1 : Cron task logging error corrected : GetMeasures was failing because of a str + datetime concatenation.
 
