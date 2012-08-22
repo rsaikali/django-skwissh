@@ -71,7 +71,8 @@ def launch_command(probes):
                     output = sudo(probe.ssh_command, shell=False, pty=False)
                 else:
                     output = run(probe.ssh_command, shell=False, pty=False)
-                exec(probe.python_parse)
+                for python_command in probe.python_parse.splitlines():
+                    exec(python_command)
             except:
                 if probe.graph_type.name == 'linegraph':
                     output = 0
