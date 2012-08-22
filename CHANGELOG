@@ -1,3 +1,8 @@
+==== 0.0.2 (2012-08-22) ====
+
+- Python parsing command is now splited before execution (PostgreSQL issue with '\r\n').
+- Issue #1 : Cron task logging error corrected : GetMeasures was failing because of a str + datetime concatenation.
+
 ==== 0.0.1 (2012-08-20) ====
 
 - Initial release.
