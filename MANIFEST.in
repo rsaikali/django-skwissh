@@ -1,0 +1,5 @@
+include README.md
+include CHANGELOG
+include AUTHORS
+include LICENSE
+recursive-include skwissh *.txt *.py *.js *.less *.po *.mo *.png *.gif *.svg *.html
