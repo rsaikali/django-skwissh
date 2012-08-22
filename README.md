@@ -70,6 +70,21 @@ You can check that 4 crontab job have been configured:
 
     crontab -l
 
+If you want to activate i18n (French & English currently supported), follow the next steps:
+
+In your project ``settings.py``, add the Django ``LocaleMiddleware`` and set the ``LANGUAGES`` variable:
+
+	MIDDLEWARE_CLASSES = (
+		...
+        'django.middleware.locale.LocaleMiddleware',
+        ...
+    )
+
+    LANGUAGES = (
+        ('fr', 'Français'),
+        ('en', 'English'),
+    )
+
 You're ready to go ! 
 Connect to the application and start configure your servers and sensors !
 
