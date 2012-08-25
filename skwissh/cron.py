@@ -22,7 +22,6 @@ logger = logging.getLogger('skwissh')
 ###############################################################################
 @kronos.register('*/1 * * * *')
 def getMeasures():
-#    timestamp = datetime.datetime.now()
     with hide('everything'):
         timestamp = datetime.datetime.utcnow().replace(tzinfo=utc)
         now = timestamp - datetime.timedelta(seconds=timestamp.second, microseconds=timestamp.microsecond)
@@ -50,7 +49,7 @@ def getMeasures():
                         Measure.objects.create(timestamp=now, server=server, probe=probe, value=outputs[probe.id])
         except Exception, e:
             logger.error(str(e))
-        logger.info("GETTING MESURES DURATION : " + str(datetime.datetime.utcnow().replace(tzinfo=utc) - timestamp))
+        logger.info("getMeasures duration : " + str(datetime.datetime.utcnow().replace(tzinfo=utc) - timestamp))
     return 0
 
 
@@ -71,9 +70,7 @@ def launch_command(probes):
             logger.debug("---> Sensor '%s'" % probe.display_name.encode('utf-8'))
             try:
                 if env.host_string == "127.0.0.1":
-                    logger.debug("Using local")
                     output = local(probe.ssh_command, capture=True)
-                    logger.debug("Output : " + output)
                 elif probe.use_sudo:
                     output = sudo(probe.ssh_command, shell=False, pty=False)
                 else:
@@ -101,7 +98,7 @@ def launch_command(probes):
 
 
 def calculateAveragesForPeriod(period, classname, server, probe):
-    now = datetime.datetime.now()
+    now = datetime.datetime.utcnow().replace(tzinfo=utc)
     measures = Measure.objects.filter(server=server, probe=probe, timestamp__gte=now - datetime.timedelta(minutes=period))
     all_values = []
     for i in range(len(measures[0].value.split(";"))):
@@ -129,7 +126,7 @@ def calculateAverage(period, classname):
 def averageDay():
     logger.info("Calculating average values for day / averaging each %d minutes" % DAY_AVERAGE_PERIOD)
     calculateAverage(DAY_AVERAGE_PERIOD, MeasureDay)
-    old_measures = MeasureDay.objects.filter(timestamp__lt=datetime.datetime.now() - datetime.timedelta(days=1))
+    old_measures = MeasureDay.objects.filter(timestamp__lt=datetime.datetime.utcnow().replace(tzinfo=utc) - datetime.timedelta(days=1))
     logger.info("Deleting %d daily measures..." % len(old_measures))
     old_measures.delete()
 
@@ -138,7 +135,7 @@ def averageDay():
 def averageWeek():
     logger.info("Calculating average values for week / averaging each %d minutes" % WEEK_AVERAGE_PERIOD)
     calculateAverage(WEEK_AVERAGE_PERIOD, MeasureWeek)
-    old_measures = MeasureWeek.objects.filter(timestamp__lt=datetime.datetime.now() - datetime.timedelta(days=7))
+    old_measures = MeasureWeek.objects.filter(timestamp__lt=datetime.datetime.utcnow().replace(tzinfo=utc) - datetime.timedelta(days=7))
     logger.info("Deleting %d weekly measures..." % len(old_measures))
     old_measures.delete()
 
@@ -147,9 +144,9 @@ def averageWeek():
 def averageMonth():
     logger.info("Calculating average values for month / averaging each %d minutes" % MONTH_AVERAGE_PERIOD)
     calculateAverage(MONTH_AVERAGE_PERIOD, MeasureMonth)
-    old_measures = MeasureMonth.objects.filter(timestamp__lt=datetime.datetime.now() - datetime.timedelta(days=31))
+    old_measures = MeasureMonth.objects.filter(timestamp__lt=datetime.datetime.utcnow().replace(tzinfo=utc) - datetime.timedelta(days=31))
     logger.info("Deleting %d monthly measures..." % len(old_measures))
     old_measures.delete()
-    old_measures = Measure.objects.filter(timestamp__lt=datetime.datetime.now() - datetime.timedelta(minutes=MONTH_AVERAGE_PERIOD))
+    old_measures = Measure.objects.filter(timestamp__lt=datetime.datetime.utcnow().replace(tzinfo=utc) - datetime.timedelta(minutes=MONTH_AVERAGE_PERIOD))
     logger.info("Deleting %d single measures..." % len(old_measures))
     old_measures.delete()
