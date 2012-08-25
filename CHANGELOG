@@ -1,3 +1,20 @@
+==== 0.0.4 (2012-08-25) ====
+
+- Various timestamps : Corrected naive datetime error.
+- cron.py : Added a local() execution if server IP is 127.0.0.1 (faster).
+- views.py : Corrected some views to return 404 error when no data found.
+- urls.py : Added a name for login URL.
+- tests.py : Added some unittests (still need to test more things).
+- Javascript : Timeout added for Ajax calls (1000ms).
+- Javascript : Display a nice error when no data available.
+- Templates : 'No server' displayed when no servers configured (was 'No group').
+- settings.py : Added version number in logfile name.
+- models.py : Allow no username/password, as 127.0.0.1 will be executed as Fabric local() and not SSH.
+- Initial JSON fixtures : Corrected used/available colors and order.
+- Initial JSON fixtures : Default server created 'localhost'.
+- setup.py : Removed 'migrations' exclusion (as I don't have migrations anymore).
+- MANIFEST.in : Added CSS files.
+
 ==== 0.0.3 (2012-08-23) ====
 
 - Pypi compliance : now available through 'pip install django-skwissh'.
