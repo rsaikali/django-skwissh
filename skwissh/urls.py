@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     url(r'^i18n/', include('django.conf.urls.i18n'), name="i18n"),
 
     # Login / logout.
-    url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'skwissh_login.html'}),
+    url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'skwissh_login.html'}, name="login"),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {"next_page": reverse_lazy('index')}),
 
     # Server
