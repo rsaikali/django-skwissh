@@ -1,5 +1,7 @@
 .. image:: http://github.com/rsaikali/django-skwissh/raw/master/doc/images/skwissh-logo.png
 
+**DEMO SITE** : Visit the `Skwissh demo <http://skwissh.com>`_ (username ``test`` / password ``test``) to see Skiwssh in action.
+
 ============
 Introduction
 ============
@@ -21,8 +23,6 @@ Default sensors available (tested on Ubuntu 12.04) :
 * Top
 
 But you can easily add your own ones !!
-
-**DEMO SITE** : Visit the `Skwissh demo <http://skwissh.com>`_ (username ``test`` / password ``test``) to see Skiwssh in action.
 
 Follow @skwissh on `Twitter <https://twitter.com/skwissh>`_ to see latest updates.
 
