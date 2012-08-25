@@ -2,6 +2,8 @@
 
 **DEMO SITE** : Visit the `Skwissh demo <http://skwissh.com>`_ (username ``test`` / password ``test``) to see Skwissh in action.
 
+**Travis build status** : `Last build status <http://travis-ci.org/#!/rsaikali/django-skwissh>`_
+
 .. image:: https://secure.travis-ci.org/rsaikali/django-skwissh.png?branch=master
 
 ============
