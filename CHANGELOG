@@ -1,5 +1,6 @@
 ==== 0.0.4 (2012-08-25) ====
 
+- Corrected 'pip install' (sorry guys... 0.0.3 wasn't working)
 - Various timestamps : Corrected naive datetime error.
 - cron.py : Added a local() execution if server IP is 127.0.0.1 (faster).
 - views.py : Corrected some views to return 404 error when no data found.
@@ -8,7 +9,9 @@
 - Javascript : Timeout added for Ajax calls (1000ms).
 - Javascript : Display a nice error when no data available.
 - Templates : 'No server' displayed when no servers configured (was 'No group').
+- settings.py : Added logdir for logfiles.
 - settings.py : Added version number in logfile name.
+- settings.py : Use a RotatingFileHandler for logging (10 files of 100Kb)
 - models.py : Allow no username/password, as 127.0.0.1 will be executed as Fabric local() and not SSH.
 - Initial JSON fixtures : Corrected used/available colors and order.
 - Initial JSON fixtures : Default server created 'localhost'.
