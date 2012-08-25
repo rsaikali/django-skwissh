@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-25 20:26+0200\n"
+"POT-Creation-Date: 2012-08-25 21:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "Non"
 msgstr ""
 
-#: forms.py:18 templates/index.html:19
+#: forms.py:18 templates/index.html:24
 msgid "Mot de passe"
 msgstr ""
 
@@ -169,11 +169,51 @@ msgid "Veuillez vous identifier pour accéder à Skwissh."
 msgstr ""
 
 #: templates/index.html:17
+msgid "Sur ce site de demo, vous pouvez vous connecter avec "
+msgstr ""
+
+#: templates/index.html:22
 msgid "Nom d'utilisateur"
 msgstr ""
 
-#: templates/index.html:21 templates/base/navigation.html:123
+#: templates/index.html:26 templates/base/navigation.html:123
 msgid "Se connecter"
+msgstr ""
+
+#: templates/index.html:43
+msgid "Qu'est ce que Skwissh ?"
+msgstr ""
+
+#: templates/index.html:48
+msgid ""
+"Skwissh est une application Django pour monitorer vos serveurs à distance en "
+"utilisant du SSH."
+msgstr ""
+
+#: templates/index.html:51
+msgid ""
+"En arrière plan, Skwissh utilise Python Fabric (http://fabfile.org) pour "
+"exécuter des commandes SSH, récupérer leurs sorties et historiser les "
+"résultats. Les mesures sont prises toutes les minutes."
+msgstr ""
+
+#: templates/index.html:54
+msgid ""
+"Côté application web, Skwissh permet de présenter toutes les historiques des "
+"mesures sous différentes formes (graphiques en ligne, camembert, sortie "
+"texte)."
+msgstr ""
+
+#: templates/index.html:57
+msgid "Vous pouvez également ajouter vos propres sondes personnalisées"
+msgstr ""
+
+#: templates/index.html:66
+msgid "Plus d'informations"
+msgstr ""
+
+#: templates/index.html:71
+msgid "Plus d'informations sur Skwissh :"
 msgstr ""
 
 #: templates/modal-add-probe.html:5 templates/base/navigation.html:89
