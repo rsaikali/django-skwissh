@@ -1,11 +1,12 @@
 .. image:: http://github.com/rsaikali/django-skwissh/raw/master/doc/images/skwissh-logo.png
 
+============
 Introduction
 ============
 
 A Django application for remotely monitoring servers using SSH.
 
-In background (crontabed jobs) Skwissh uses Python Fabric (http://fabfile.org/) to execute SSH commands, aka. "sensors", get the output and store timestamped values.
+In background (crontabed jobs) Skwissh uses `Python Fabric <http://fabfile.org>`_ to execute SSH commands, aka. "sensors", get the output and store timestamped values.
 Measures are taken every minute.
 
 On the other side, Skwissh is able to display nice charts (linechart, piechart or simple text) with aggregated measures. 
@@ -21,10 +22,11 @@ Default sensors available (tested on Ubuntu 12.04) :
 
 But you can easily add your own ones !!
 
-Visit the Skwissh demo at http://skwissh.com/ (username ``test`` / password ``test``).
+**DEMO SITE** : Visit the `Skwissh demo <http://skwissh.com>`_ (username ``test`` / password ``test``) to see Skiwssh in action.
 
-Follow @skwissh on Twitter.
+Follow @skwissh on `Twitter <https://twitter.com/skwissh>`_ to see latest updates.
 
+============
 Installation
 ============
 
@@ -50,26 +52,26 @@ Add Skwissh to your ``urls.py``:
 
 ::
 
-    # Skwissh
-    url(r'^skwissh/', include('skwissh.urls')),
+   # Skwissh
+   url(r'^skwissh/', include('skwissh.urls')),
 
 Synchronize your database (this command will load defaut sensors through fixtures):
 
 ::
 
-    ./manage.py syncdb
+   ./manage.py syncdb
     
 Install Skwissh tasks (will write to your user crontab, thanks to 'django-kronos'):
 
 ::
 
-    ./manage.py installtasks
+   ./manage.py installtasks
     
 You can check that 4 crontab job have been configured:
 
 ::
 
-    crontab -l
+   crontab -l
 
 If you want to activate i18n (French & English currently supported), follow the next steps:
 
@@ -77,20 +79,21 @@ In your project ``settings.py``, add the Django ``LocaleMiddleware`` and set the
 
 ::
 
-	MIDDLEWARE_CLASSES = (
-		...
-        'django.middleware.locale.LocaleMiddleware',
-        ...
-    )
+   MIDDLEWARE_CLASSES = (
+      ...
+      'django.middleware.locale.LocaleMiddleware',
+      ...
+   )
 
-    LANGUAGES = (
-        ('fr', 'Français'),
-        ('en', 'English'),
-    )
+   LANGUAGES = (
+      ('fr', 'Français'),
+      ('en', 'English'),
+   )
 
 You're ready to go ! 
 Connect to the application and start configure your servers and sensors !
 
+===========
 Screenshots
 ===========
 
@@ -114,6 +117,7 @@ Sensor edition
 ~~~~~~~~~~~~~~
 .. image:: http://github.com/rsaikali/django-skwissh/raw/master/doc/images/editsensor-screenshot.png
 
+=======
 Credits
 =======
 
