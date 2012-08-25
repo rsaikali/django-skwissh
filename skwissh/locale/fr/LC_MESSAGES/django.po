@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-19 13:42+0200\n"
+"POT-Creation-Date: 2012-08-25 20:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -102,7 +102,7 @@ msgstr ""
 msgid "Mot de passe SSH"
 msgstr ""
 
-#: models.py:56 templates/base/navigation.html:64
+#: models.py:56 templates/base/navigation.html:66
 msgid "Sondes"
 msgstr ""
 
@@ -128,14 +128,6 @@ msgstr ""
 
 #: models.py:89 models.py:103 models.py:117 models.py:131
 msgid "Valeur mesurée"
-msgstr ""
-
-#: settings.py:28
-msgid "Français"
-msgstr ""
-
-#: settings.py:29
-msgid "Anglais"
 msgstr ""
 
 #: templates/404.html:8
@@ -168,7 +160,7 @@ msgid ""
 "puissions la corriger."
 msgstr ""
 
-#: templates/index.html:8 templates/base/navigation.html:112
+#: templates/index.html:8 templates/base/navigation.html:114
 msgid "Connexion"
 msgstr ""
 
@@ -180,11 +172,11 @@ msgstr ""
 msgid "Nom d'utilisateur"
 msgstr ""
 
-#: templates/index.html:21 templates/base/navigation.html:121
+#: templates/index.html:21 templates/base/navigation.html:123
 msgid "Se connecter"
 msgstr ""
 
-#: templates/modal-add-probe.html:5 templates/base/navigation.html:87
+#: templates/modal-add-probe.html:5 templates/base/navigation.html:89
 msgid "Ajouter une sonde"
 msgstr ""
 
@@ -392,6 +384,19 @@ msgstr ""
 msgid "Unités"
 msgstr ""
 
+#: templates/server-list.html:30
+msgid "Aucun serveur"
+msgstr ""
+
+#: templates/server-list.html:34
+msgid "Aucun serveur n'est actuellement configuré."
+msgstr ""
+
+#: templates/server-list.html:35
+msgid ""
+"Veuillez ajouter un serveur via le menu 'Options' puis 'Ajouter un serveur'."
+msgstr ""
+
 #: templates/base/footer.html:12
 msgid "Développé par"
 msgstr ""
@@ -415,54 +420,54 @@ msgstr[1] ""
 msgid "mesures"
 msgstr ""
 
-#: templates/base/navigation.html:50
+#: templates/base/navigation.html:51
 msgid "Dernière mesure à"
 msgstr ""
 
-#: templates/base/navigation.html:58
+#: templates/base/navigation.html:60
 msgid "Configuration"
 msgstr ""
 
-#: templates/base/navigation.html:72
+#: templates/base/navigation.html:74
 msgid "Voir la liste des sondes"
 msgstr ""
 
-#: templates/base/navigation.html:72
+#: templates/base/navigation.html:74
 msgid "Liste des sondes"
 msgstr ""
 
-#: templates/base/navigation.html:80
+#: templates/base/navigation.html:82
 msgid "Ajouter un serveur"
 msgstr ""
 
-#: templates/base/navigation.html:83
+#: templates/base/navigation.html:85
 msgid "Ajouter un groupe de serveurs"
 msgstr ""
 
-#: templates/base/navigation.html:83
+#: templates/base/navigation.html:85
 msgid "Ajouter un groupe"
 msgstr ""
 
-#: templates/base/navigation.html:92
+#: templates/base/navigation.html:94
 msgid "Editer le serveur actuel"
 msgstr ""
 
-#: templates/base/navigation.html:92
+#: templates/base/navigation.html:94
 msgid "Editer ce serveur"
 msgstr ""
 
-#: templates/base/navigation.html:97
+#: templates/base/navigation.html:99
 msgid "Langue"
 msgstr ""
 
-#: templates/base/navigation.html:117
+#: templates/base/navigation.html:119
 msgid "Se déconnecter de Skwissh"
 msgstr ""
 
-#: templates/base/navigation.html:117
+#: templates/base/navigation.html:119
 msgid "Se déconnecter"
 msgstr ""
 
-#: templates/base/navigation.html:121
+#: templates/base/navigation.html:123
 msgid "Se connecter de Skwissh"
 msgstr ""
