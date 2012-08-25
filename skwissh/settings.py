@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from logging.handlers import WatchedFileHandler
+from logging.handlers import RotatingFileHandler
 import os
 import skwissh
 import tempfile
@@ -30,8 +30,11 @@ def patch_settings():
 
     logger = logging.getLogger('skwissh')
     logger.setLevel(logging.DEBUG)
-    log_filename = os.path.join(tempfile.gettempdir(), "skwissh_%s_cron.log" % skwissh.__version__)
-    log_handler = WatchedFileHandler(filename=log_filename)
+    log_dir = os.path.join(tempfile.gettempdir(), "skwissh_%s_logs" % skwissh.__version__)
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+    log_filename = os.path.join(log_dir, "skwissh_%s_cron.log" % skwissh.__version__)
+    log_handler = RotatingFileHandler(filename=log_filename, maxBytes=1024 * 100, backupCount=10)
     formatter = logging.Formatter('%(asctime)s - %(name)s: %(levelname)s %(message)s')
     log_handler.setFormatter(formatter)
     logger.addHandler(log_handler)
