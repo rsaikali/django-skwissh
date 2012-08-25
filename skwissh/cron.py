@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
+from django.utils.timezone import utc
 from fabric.context_managers import hide
-from fabric.decorators import task, parallel
-from fabric.operations import run, sudo
+from fabric.decorators import task
+from fabric.operations import run, sudo, local
 from fabric.state import env
 from fabric.tasks import execute
 from skwissh.models import Server, Measure, MeasureDay, MeasureWeek, \
@@ -9,7 +10,6 @@ from skwissh.models import Server, Measure, MeasureDay, MeasureWeek, \
 from skwissh.settings import DAY_AVERAGE_PERIOD, WEEK_AVERAGE_PERIOD, \
     MONTH_AVERAGE_PERIOD
 import datetime
-import fabric
 import kronos
 import logging
 import threading
@@ -22,52 +22,59 @@ logger = logging.getLogger('skwissh')
 ###############################################################################
 @kronos.register('*/1 * * * *')
 def getMeasures():
-    timestamp = datetime.datetime.now()
-    now = timestamp - datetime.timedelta(seconds=timestamp.second, microseconds=timestamp.microsecond)
-    env.skip_bad_hosts = True
-    env.parallel = True
-    env.timeout = 2
-    env.connection_attempts = 1
-    try:
-        for server in Server.objects.all().select_related():
-            logger.info("Getting measures for server '%s'" % server.hostname.encode('utf-8'))
-            probes = server.probes.all()
-            if len(probes) == 0:
-                continue
-            env.hosts = [server.ip]
-            env.user = server.username
-            env.password = server.password
-            with hide('running', 'stdout', 'stderr', 'user'):
-                value = execute(launch_command, probes)
-                outputs = value[server.ip]
-                server.state = outputs[-1]
-                server.save()
-                for probe in probes:
-                    if probe.graph_type.name in ['pie', 'text']:
-                        Measure.objects.filter(server=server, probe=probe).delete()
-                    Measure.objects.create(timestamp=now, server=server, probe=probe, value=outputs[probe.id])
-    except Exception, e:
-        logger.error(str(e))
-    logger.info("GETTING MESURES DURATION : " + str(datetime.datetime.now() - timestamp))
-    fabric.network.disconnect_all()
+#    timestamp = datetime.datetime.now()
+    with hide('everything'):
+        timestamp = datetime.datetime.utcnow().replace(tzinfo=utc)
+        now = timestamp - datetime.timedelta(seconds=timestamp.second, microseconds=timestamp.microsecond)
+        env.skip_bad_hosts = True
+        env.parallel = False
+        env.timeout = 2
+        env.connection_attempts = 1
+        try:
+            for server in Server.objects.all().select_related():
+                logger.info("Getting measures for server '%s'" % server.hostname.encode('utf-8'))
+                probes = server.probes.all()
+                if len(probes) == 0:
+                    continue
+                env.hosts = [server.ip]
+                env.user = server.username
+                env.password = server.password
+                with hide('running', 'stdout', 'stderr', 'user'):
+                    value = execute(launch_command, probes)
+                    outputs = value[server.ip]
+                    server.state = outputs[-1]
+                    server.save()
+                    for probe in probes:
+                        if probe.graph_type.name in ['pie', 'text']:
+                            Measure.objects.filter(server=server, probe=probe).delete()
+                        Measure.objects.create(timestamp=now, server=server, probe=probe, value=outputs[probe.id])
+        except Exception, e:
+            logger.error(str(e))
+        logger.info("GETTING MESURES DURATION : " + str(datetime.datetime.utcnow().replace(tzinfo=utc) - timestamp))
     return 0
 
 
 @task
-@parallel
 def launch_command(probes):
     outputs = {}
 
-    try:
-        server_up = run("echo", shell=False, pty=False).succeeded
-    except:
-        server_up = False
+    if env.host_string == "127.0.0.1":
+        server_up = True
+    else:
+        try:
+            server_up = run("echo", shell=False, pty=False).succeeded
+        except:
+            server_up = False
 
     for probe in probes:
         if server_up:
             logger.debug("---> Sensor '%s'" % probe.display_name.encode('utf-8'))
             try:
-                if probe.use_sudo:
+                if env.host_string == "127.0.0.1":
+                    logger.debug("Using local")
+                    output = local(probe.ssh_command, capture=True)
+                    logger.debug("Output : " + output)
+                elif probe.use_sudo:
                     output = sudo(probe.ssh_command, shell=False, pty=False)
                 else:
                     output = run(probe.ssh_command, shell=False, pty=False)
