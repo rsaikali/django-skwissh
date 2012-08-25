@@ -4,4 +4,4 @@ python:
 env:
   - DJANGO=1.4 DB=mysql
 install: "pip install . --use-mirrors"
-script: python manage.py test skwissh
+script: django-admin.py test skwissh
