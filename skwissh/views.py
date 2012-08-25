@@ -79,8 +79,6 @@ def server_detail(request, server_id):
 @cache_page(60)
 def mesures(request, server_id, probe_id, period):
     if request.is_ajax():
-#        now = datetime.datetime.now()
-
         try:
             probe = Probe.objects.get(id=probe_id)
             server = Server.objects.get(id=server_id)
