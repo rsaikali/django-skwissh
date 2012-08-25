@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-import os
-import tempfile
 from logging.handlers import WatchedFileHandler
+import os
+import skwissh
+import tempfile
 try:
     from django.conf import settings
     import logging
@@ -29,7 +30,7 @@ def patch_settings():
 
     logger = logging.getLogger('skwissh')
     logger.setLevel(logging.DEBUG)
-    log_filename = os.path.join(tempfile.gettempdir(), "cron.log")
+    log_filename = os.path.join(tempfile.gettempdir(), "skwissh_%s_cron.log" % skwissh.__version__)
     log_handler = WatchedFileHandler(filename=log_filename)
     formatter = logging.Formatter('%(asctime)s - %(name)s: %(levelname)s %(message)s')
     log_handler.setFormatter(formatter)
