@@ -2,6 +2,10 @@ language: python
 python:
   - "2.7"
 env:
-  - DJANGO=1.4 DB=mysql
-install: "pip install . --use-mirrors"
-script: django-admin.py test skwissh
+  - DJANGO=1.4
+install:
+  - pip install -q Django==$DJANGO
+  - django-admin.py startproject django_$DJANGO
+  - pip install . --use-mirrors
+  - sed -i -e"s/# 'django.contrib.admindocs',/\'kronos\',\\n    \'skwissh\',/" django_$DJANGO/django_$DJANGO/settings.py
+script: export DJANGO_SETTINGS_MODULE=django_$DJANGO.settings && django-admin.py test skwissh
