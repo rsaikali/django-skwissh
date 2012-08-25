@@ -31,11 +31,11 @@ setup(
     install_requires=[
         'Django==1.4.1',
         'Fabric==1.4.3',
-        'nose',
+        'nose==1.1.2',
         'django-extra-views==0.2.5',
         'django-kronos==0.3',
     ],
-    packages=find_packages(exclude=['skwissh.migrations', ]),
+    packages=find_packages(),
     package_data={'': [
         'templates/*.html',
         'templates/*.js',
