@@ -29,9 +29,7 @@ setup(
     platforms=['OS Independent'],
     classifiers=CLASSIFIERS,
     install_requires=[
-        'Django==1.4.1',
         'Fabric==1.4.3',
-        'nose==1.1.2',
         'django-extra-views==0.2.5',
         'django-kronos==0.3',
     ],
