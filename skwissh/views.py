@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.forms.models import modelformset_factory
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect
+from django.utils.timezone import utc
 from django.views.decorators.cache import cache_page
 from django.views.generic.edit import UpdateView, CreateView, DeleteView
 from extra_views.formsets import ModelFormSetView
@@ -50,7 +51,11 @@ def probe_list(request):
 
 @login_required
 def server_detail(request, server_id):
-    server = Server.objects.get(pk=server_id)
+    try:
+        server = Server.objects.get(pk=server_id)
+    except:
+        raise Http404
+
     form = ServerForm(instance=server)
     data = {
             'server_form': form,
@@ -68,18 +73,26 @@ def server_detail(request, server_id):
 @cache_page(60)
 def mesures(request, server_id, probe_id, period):
     if request.is_ajax():
-        now = datetime.datetime.now()
+#        now = datetime.datetime.now()
+
+        try:
+            probe = Probe.objects.get(id=probe_id)
+            server = Server.objects.get(id=server_id)
+        except:
+            raise Http404
+
+        now = datetime.datetime.utcnow().replace(tzinfo=utc)
         now = now - datetime.timedelta(seconds=now.second, microseconds=now.microsecond)
         if period == 'last':           # Each minute
-            data = Measure.objects.filter(server=server_id, probe=probe_id)[0:1]
+            data = Measure.objects.filter(server=server, probe=probe)[0:1]
         elif period == 'hour':         # Each minute
-            data = Measure.objects.filter(server=server_id, probe=probe_id, timestamp__gte=now - datetime.timedelta(hours=1))
+            data = Measure.objects.filter(server=server, probe=probe, timestamp__gte=now - datetime.timedelta(hours=1))
         elif period == 'day':          # Each 5 minutes
-            data = MeasureDay.objects.filter(server=server_id, probe=probe_id, timestamp__gte=now - datetime.timedelta(days=1))
+            data = MeasureDay.objects.filter(server=server, probe=probe, timestamp__gte=now - datetime.timedelta(days=1))
         elif period == 'week':         # Each 30 minutes
-            data = MeasureWeek.objects.filter(server=server_id, probe=probe_id, timestamp__gte=now - datetime.timedelta(days=7))
+            data = MeasureWeek.objects.filter(server=server, probe=probe, timestamp__gte=now - datetime.timedelta(days=7))
         elif period == 'month':        # Each hour
-            data = MeasureMonth.objects.filter(server=server_id, probe=probe_id, timestamp__gte=now - datetime.timedelta(days=31))
+            data = MeasureMonth.objects.filter(server=server, probe=probe, timestamp__gte=now - datetime.timedelta(days=31))
         return HttpResponse(serializers.serialize('json', data), 'application/javascript')
     else:
         raise Http404
