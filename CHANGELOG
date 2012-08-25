@@ -1,5 +1,6 @@
 ==== 0.0.4 (2012-08-25) ====
 
+- Added Continuous Integration Testing thanks to TravisBot. 
 - Corrected 'pip install' (sorry guys... 0.0.3 wasn't working)
 - Various timestamps : Corrected naive datetime error.
 - cron.py : Added a local() execution if server IP is 127.0.0.1 (faster).
