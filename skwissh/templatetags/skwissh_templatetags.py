@@ -2,7 +2,7 @@
 from django import template
 from django.db.models.aggregates import Max
 from django.utils import timezone
-from fabfile import env
+from fabric.api import env
 from skwissh.models import Measure
 import django
 import skwissh
