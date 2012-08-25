@@ -12,12 +12,17 @@
 		<p>
 			{% trans "Veuillez vous identifier pour accéder à Skwissh." %}
 		</p>
-		<form method="post" action="{% url django.contrib.auth.views.login %}">
+		{% if skwissh_demo %}
+		<p>
+			{% trans "Sur ce site de demo, vous pouvez vous connecter avec " %}  <code>test</code> / <code>test</code>.
+		</p>
+		{% endif %}
+		<form method="post" action="{% url login %}">
 			{% csrf_token %}
 			<label for="username">{% trans "Nom d'utilisateur" %}</label>
-			<input type="text" class="input-text" id="username" name="username" />
+			<input type="text" class="input-text" id="username" name="username" {% if skwissh_demo %}value='test'{% endif %}/>
 			<label for="password">{% trans 'Mot de passe' %}</label>
-			<input type="password" class="input-text" id="password" name="password" />
+			<input type="password" class="input-text" id="password" name="password" {% if skwissh_demo %}value='test'{% endif %}/>
 			<input class="small secondary button radius" type="submit" value="{% trans "Se connecter" %}..." />
 			<input type="hidden" name="next" value="{% url server-list %}" />
 			{% if form.errors %}
@@ -30,4 +35,54 @@
 		</form>
 	</div>
 </section>
+{% if skwissh_demo %}
+<div class="eight columns" style="padding-left: 0 !important">
+	<section>
+		<ul class="nav-bar">
+			<li class="nolink">
+				<a href="#">{% trans "Qu'est ce que Skwissh ?" %}</a>
+			</li>
+		</ul>
+		<div class="panel">
+			<p>
+				{% trans "Skwissh est une application Django pour monitorer vos serveurs à distance en utilisant du SSH." %}
+			</p>
+			<p>
+				{% trans "En arrière plan, Skwissh utilise Python Fabric (http://fabfile.org) pour exécuter des commandes SSH, récupérer leurs sorties et historiser les résultats. Les mesures sont prises toutes les minutes." %}
+			</p>
+			<p>
+				{% trans "Côté application web, Skwissh permet de présenter toutes les historiques des mesures sous différentes formes (graphiques en ligne, camembert, sortie texte)." %}
+			</p>
+			<p>
+				{% trans "Vous pouvez également ajouter vos propres sondes personnalisées" %} !
+			</p>
+		</div>
+	</section>
+</div>
+<div class="four columns" style="padding-right: 0 !important">
+	<section>
+		<ul class="nav-bar">
+			<li class="nolink">
+				<a href="#">{% trans "Plus d'informations" %}</a>
+			</li>
+		</ul>
+		<div class="panel">
+			<p>
+				{% trans "Plus d'informations sur Skwissh :" %}
+				<ul style="padding-left:50px;">
+					<li>
+						<a style="color: #638703 !important;" href="https://github.com/rsaikali/django-skwissh" target="_blank">Github</a>
+					</li>
+					<li>
+						<a style="color: #638703 !important;" href="http://pypi.python.org/pypi/django-skwissh/" target="_blank">Python Package Index</a>
+					</li>
+					<li>
+						<a style="color: #638703 !important;" href="https://twitter.com/skwissh" target="_blank">Twitter</a>
+					</li>
+				</ul>
+			</p>
+		</div>
+	</section>
+</div>
+{% endif %}
 {% endblock content %}

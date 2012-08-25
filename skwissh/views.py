@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import login
 from django.core import serializers
 from django.core.urlresolvers import reverse_lazy
 from django.forms.models import modelformset_factory
@@ -23,6 +25,10 @@ def index(request):
     return redirect('server-list')
 
 
+def login_skwissh(request):
+    return login(request, 'skwissh_login.html', extra_context={'skwissh_demo': getattr(settings, "SKWISSH_DEMO", False)})
+
+
 @login_required
 def server_list(request):
     ServerGroupFormSet = modelformset_factory(ServerGroup, form=ServerGroupForm)
@@ -31,7 +37,7 @@ def server_list(request):
             'server_group_form': ServerGroupForm(),
             'server_group_formset': ServerGroupFormSet(queryset=ServerGroup.objects.all().select_related()),
             'groups': ServerGroup.objects.all().order_by('name'),
-            'nogroup_servers': Server.objects.filter(servergroup__isnull=True).order_by('hostname')
+            'nogroup_servers': Server.objects.filter(servergroup__isnull=True).order_by('hostname'),
     }
     return render(request, 'server-list.html', data)
 
