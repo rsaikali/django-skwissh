@@ -1,6 +1,6 @@
 .. image:: http://github.com/rsaikali/django-skwissh/raw/master/doc/images/skwissh-logo.png
 
-**DEMO SITE** : Visit the `Skwissh demo <http://skwissh.com>`_ (username ``test`` / password ``test``) to see Skiwssh in action.
+**DEMO SITE** : Visit the `Skwissh demo <http://skwissh.com>`_ (username ``test`` / password ``test``) to see Skwissh in action.
 
 ============
 Introduction
