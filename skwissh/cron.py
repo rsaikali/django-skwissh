@@ -126,8 +126,9 @@ def calculateAverage(period, classname):
 def averageDay():
     logger.info("Calculating average values for day / averaging each %d minutes" % DAY_AVERAGE_PERIOD)
     calculateAverage(DAY_AVERAGE_PERIOD, MeasureDay)
-    old_measures = MeasureDay.objects.filter(timestamp__lt=datetime.datetime.utcnow().replace(tzinfo=utc) - datetime.timedelta(days=1))
-    logger.info("Deleting %d daily measures..." % len(old_measures))
+    daily_period = datetime.datetime.utcnow().replace(tzinfo=utc) - datetime.timedelta(days=1)
+    old_measures = MeasureDay.objects.filter(timestamp__lt=daily_period)
+    logger.info("Deleting %d daily measures (before %s)..." % (len(old_measures), daily_period))
     old_measures.delete()
 
 
@@ -135,8 +136,9 @@ def averageDay():
 def averageWeek():
     logger.info("Calculating average values for week / averaging each %d minutes" % WEEK_AVERAGE_PERIOD)
     calculateAverage(WEEK_AVERAGE_PERIOD, MeasureWeek)
-    old_measures = MeasureWeek.objects.filter(timestamp__lt=datetime.datetime.utcnow().replace(tzinfo=utc) - datetime.timedelta(days=7))
-    logger.info("Deleting %d weekly measures..." % len(old_measures))
+    weekly_period = datetime.datetime.utcnow().replace(tzinfo=utc) - datetime.timedelta(days=7)
+    old_measures = MeasureWeek.objects.filter(timestamp__lt=weekly_period)
+    logger.info("Deleting %d weekly measures (before %s)..." % (len(old_measures), weekly_period))
     old_measures.delete()
 
 
@@ -144,9 +146,11 @@ def averageWeek():
 def averageMonth():
     logger.info("Calculating average values for month / averaging each %d minutes" % MONTH_AVERAGE_PERIOD)
     calculateAverage(MONTH_AVERAGE_PERIOD, MeasureMonth)
-    old_measures = MeasureMonth.objects.filter(timestamp__lt=datetime.datetime.utcnow().replace(tzinfo=utc) - datetime.timedelta(days=31))
-    logger.info("Deleting %d monthly measures..." % len(old_measures))
+    monthly_period = datetime.datetime.utcnow().replace(tzinfo=utc) - datetime.timedelta(days=31)
+    old_measures = MeasureMonth.objects.filter(timestamp__lt=monthly_period)
+    logger.info("Deleting %d monthly measures (before %s)..." % (len(old_measures), monthly_period))
     old_measures.delete()
-    old_measures = Measure.objects.filter(timestamp__lt=datetime.datetime.utcnow().replace(tzinfo=utc) - datetime.timedelta(minutes=MONTH_AVERAGE_PERIOD))
-    logger.info("Deleting %d single measures..." % len(old_measures))
+    max_period = datetime.datetime.utcnow().replace(tzinfo=utc) - datetime.timedelta(minutes=MONTH_AVERAGE_PERIOD)
+    old_measures = Measure.objects.filter(timestamp__lt=max_period)
+    logger.info("Deleting %d single measures (before %s)..." % (len(old_measures), max_period))
     old_measures.delete()
