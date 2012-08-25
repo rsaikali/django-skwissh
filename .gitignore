@@ -24,6 +24,5 @@ pip-log.txt
 .project
 .pydevproject
 .settings
-
 fabfile.py
 README.rst
