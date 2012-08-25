@@ -35,14 +35,22 @@ function refreshGraph_{{ probe.id }}(period, element) {
 		async : true,
 		url : "{% url mesures server.id probe.id 'period' %}".replace('period', period),
 		dataType : "json",
+		timeout: 1000,
 		success : function(mesures) {
+			if (mesures.length === 0) {
+				showError_{{ probe.id }}("{% blocktrans %}Aucune mesure n'a été trouvée pour la sonde{% endblocktrans %} \'{{ probe.display_name }}\'.");
+			}
 			updateGraph_{{ probe.id }}(mesures, period);
 		},
 		error : function(mesures) {
-			$("#detail-{{ probe.id }} .waiting, #detail-{{ probe.id }} .waiting-title").hide();
-			$("#graph-{{ probe.id }}").html('<div class="alert-box alert">{% blocktrans %}Une erreur s\'est produite lors de la construction du graphique{% endblocktrans %} \'{{ probe.display_name }}\'.</div>');
+			showError_{{ probe.id }}("{% blocktrans %}Une erreur s\'est produite lors de la construction du graphique{% endblocktrans %} \'{{ probe.display_name }}\'.");
 		}
 	});
+};
+
+function showError_{{ probe.id }}(message) {
+	$("#detail-{{ probe.id }} .waiting, #detail-{{ probe.id }} .waiting-title").hide();
+	$("#graph-{{ probe.id }}").html('<div class="alert-box alert">' + message + '</div>');
 };
 
 
