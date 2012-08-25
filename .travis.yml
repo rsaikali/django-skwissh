@@ -9,3 +9,7 @@ install:
   - pip install -q Django==$DJANGO
   - pip install -q . --use-mirrors
 script: python testproject/manage.py test skwissh
+notifications:
+  email:
+    on_success: always
+    on_failure: always
