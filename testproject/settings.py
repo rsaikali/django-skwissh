@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Django settings for test_project_0_0_4 project.
+# Django settings for testproject.
 
 import os
 PROJECT_ROOT = os.path.dirname(__file__)
