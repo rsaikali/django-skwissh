@@ -5,7 +5,7 @@ env:
   - DJANGO=1.4
 install:
   - pip install -q Django==$DJANGO
-  - django-admin.py startproject django_$DJANGO
+  - django-admin.py startproject test_skwissh
   - pip install . --use-mirrors
-  - sed -i -e"s/# 'django.contrib.admindocs',/\'kronos\',\\n    \'skwissh\',/" django_$DJANGO/django_$DJANGO/settings.py
-script: export DJANGO_SETTINGS_MODULE=django_$DJANGO.settings && django-admin.py test skwissh
+  - sed -i -e"s/# 'django.contrib.admindocs',/\'kronos\',\\n    \'skwissh\',/" test_skwissh/test_skwissh/settings.py
+script: export DJANGO_SETTINGS_MODULE=test_skwissh.settings && django-admin.py test skwissh
