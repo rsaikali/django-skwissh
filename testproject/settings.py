@@ -47,7 +47,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
 )
-
 ROOT_URLCONF = 'testproject.urls'
 WSGI_APPLICATION = 'testproject.wsgi.application'
 TEMPLATE_DIRS = ()
