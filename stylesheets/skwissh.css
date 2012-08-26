@@ -10,6 +10,9 @@ header h1 {
 pre code {
 	font-family: monospace;
 }
+code, pre {
+	border-radius: 10px;
+}
 #container .inner img {
 	display: block;
 	margin: auto;
