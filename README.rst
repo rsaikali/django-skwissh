@@ -1,4 +1,4 @@
-.. image:: http://github.com/rsaikali/django-skwissh/raw/master/doc/images/skwissh-logo.png
+.. image:: http://rsaikali.github.com/django-skwissh/images/skwissh/skwissh-logo.png
 
 **DEMO SITE** : Visit the `Skwissh demo <http://skwissh.com>`_ (username ``test`` / password ``test``) to see Skwissh in action.
 
@@ -103,23 +103,23 @@ Screenshots
 
 Load averages
 ~~~~~~~~~~~~~
-.. image:: http://github.com/rsaikali/django-skwissh/raw/master/doc/images/loads-screenshot.png
+.. image:: http://rsaikali.github.com/django-skwissh/images/skwissh/loads-screenshot.png
 
 Disk usage
 ~~~~~~~~~~
-.. image:: http://github.com/rsaikali/django-skwissh/raw/master/doc/images/diskusage-screenshot.png
+.. image:: http://rsaikali.github.com/django-skwissh/images/skwissh/diskusage-screenshot.png
 
 Top output
 ~~~~~~~~~~
-.. image:: http://github.com/rsaikali/django-skwissh/raw/master/doc/images/top-screenshot.png
+.. image:: http://rsaikali.github.com/django-skwissh/images/skwissh/top-screenshot.png
 
 Server edition
 ~~~~~~~~~~~~~~
-.. image:: http://github.com/rsaikali/django-skwissh/raw/master/doc/images/editserver-screenshot.png
+.. image:: http://rsaikali.github.com/django-skwissh/images/skwissh/editserver-screenshot.png
 
 Sensor edition
 ~~~~~~~~~~~~~~
-.. image:: http://github.com/rsaikali/django-skwissh/raw/master/doc/images/editsensor-screenshot.png
+.. image:: http://rsaikali.github.com/django-skwissh/images/skwissh/editsensor-screenshot.png
 
 =======
 Credits
