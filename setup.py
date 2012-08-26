@@ -46,4 +46,5 @@ setup(
         'fixtures/*.json',
     ]},
     include_package_data=True,
+    test_suite="testproject.runtests.runtests",
 )

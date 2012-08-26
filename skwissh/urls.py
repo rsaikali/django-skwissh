@@ -3,7 +3,7 @@ from django.conf import settings
 from django.conf.urls import patterns, url, include
 from django.contrib.auth.decorators import user_passes_test
 from django.core.urlresolvers import reverse_lazy
-from skwissh.views import AddServerView, DeleteServerView, UpdateServerView, \
+from skwissh.generic_views import AddServerView, DeleteServerView, UpdateServerView, \
     DeleteGroupView, AddServerGroupView, UpdateServerGroupView, DeleteProbeView, \
     UpdateProbeView, AddProbeView
 
@@ -18,7 +18,6 @@ urlpatterns = patterns('',
     url(r'^i18n/', include('django.conf.urls.i18n'), name="i18n"),
 
     # Login / logout.
-#    url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'skwissh_login.html'}, name="login"),
     url(r'^login/$', 'skwissh.views.login_skwissh', name="login"),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {"next_page": reverse_lazy('index')}),
 

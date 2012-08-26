@@ -8,7 +8,7 @@ env:
 install:
   - pip install -q Django==$DJANGO
   - pip install -q . --use-mirrors
-script: python testproject/manage.py test skwissh
+script: python testproject/manage.py test skwissh --verbosity=2
 notifications:
   email:
     on_success: always

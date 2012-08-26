@@ -35,6 +35,6 @@ def patch_settings():
         os.makedirs(log_dir)
     log_filename = os.path.join(log_dir, "skwissh_%s_cron.log" % skwissh.__version__)
     log_handler = RotatingFileHandler(filename=log_filename, maxBytes=1024 * 100, backupCount=10)
-    formatter = logging.Formatter('%(asctime)s - %(name)s: %(levelname)s %(message)s')
+    formatter = logging.Formatter('%(asctime)s   %(name)s  %(levelname)s  %(message)s')
     log_handler.setFormatter(formatter)
     logger.addHandler(log_handler)

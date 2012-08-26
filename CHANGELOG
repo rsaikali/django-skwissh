@@ -1,3 +1,9 @@
+==== 0.0.5 (2012-08-26) ====
+
+- Improved tests.
+- Tests available via 'python setup.py test'.
+- Included 'testproject'.
+
 ==== 0.0.4 (2012-08-25) ====
 
 - Added Continuous Integration Testing thanks to TravisBot. 

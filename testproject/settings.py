@@ -15,10 +15,10 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'skwissh.db',
-    }
+        'NAME': os.path.join(PROJECT_ROOT, 'skwissh.db'),
+        'TEST_NAME': os.path.join(PROJECT_ROOT, 'skwissh_unittests.db'),
+    },
 }
-
 TIME_ZONE = 'Europe/Paris'
 LANGUAGE_CODE = 'fr'
 SITE_ID = 1
@@ -26,8 +26,8 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
-MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ()
 STATICFILES_FINDERS = (

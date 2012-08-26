@@ -49,6 +49,7 @@ class Server(models.Model):
     hostname = models.CharField(max_length=255, verbose_name=_(u"Nom du serveur"))
     ip = models.IPAddressField(verbose_name=_(u"Adresse IP"), blank=True)
     state = models.BooleanField(verbose_name=_(u"Serveur accessible ?"), default=False)
+    is_measuring = models.BooleanField(verbose_name=_(u"Serveur en cours de mesures ?"), default=False)
     username = models.CharField(max_length=50, verbose_name=_(u"Nom d'utilisateur SSH"), blank=True, default="")
     password = models.CharField(max_length=50, verbose_name=_(u"Mot de passe SSH"), blank=True, default="")
     date_created = models.DateTimeField(verbose_name=_(u"Date de création"), null=True, auto_now_add=True, default=datetime.datetime.now())

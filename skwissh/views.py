@@ -3,14 +3,11 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import login
 from django.core import serializers
-from django.core.urlresolvers import reverse_lazy
 from django.forms.models import modelformset_factory
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseServerError
 from django.shortcuts import render, redirect
 from django.utils.timezone import utc
 from django.views.decorators.cache import cache_page
-from django.views.generic.edit import UpdateView, CreateView, DeleteView
-from extra_views.formsets import ModelFormSetView
 from skwissh.forms import ServerForm, ServerGroupForm, ProbeForm
 from skwissh.models import Server, Measure, ServerGroup, Probe, MeasureDay, \
     MeasureWeek, MeasureMonth
@@ -99,79 +96,4 @@ def mesures(request, server_id, probe_id, period):
             data = MeasureMonth.objects.filter(server=server, probe=probe, timestamp__gte=now - datetime.timedelta(days=31))
         return HttpResponse(serializers.serialize('json', data), 'application/javascript')
     else:
-        raise Http404
-
-
-###############################################################################
-# Generic views
-###############################################################################
-
-#------------------------------------------------------------------------------
-# Server
-#------------------------------------------------------------------------------
-class AddServerView(CreateView):
-    model = Server
-    form_class = ServerForm
-
-    def get_success_url(self):
-        return reverse_lazy('server-list')
-
-
-class UpdateServerView(UpdateView):
-    model = Server
-    form_class = ServerForm
-
-
-class DeleteServerView(DeleteView):
-    model = Server
-
-    def get_success_url(self):
-        return reverse_lazy('server-list')
-
-
-#------------------------------------------------------------------------------
-# Server Group
-#------------------------------------------------------------------------------
-class AddServerGroupView(CreateView):
-    model = ServerGroup
-    form_class = ServerGroupForm
-
-    def get_success_url(self):
-        return reverse_lazy('server-list')
-
-
-class UpdateServerGroupView(ModelFormSetView):
-    model = ServerGroup
-    form_class = ServerGroupForm
-    success_url = reverse_lazy('server-list')
-
-
-class DeleteGroupView(DeleteView):
-    model = ServerGroup
-
-    def get_success_url(self):
-        return reverse_lazy('server-list')
-
-
-#------------------------------------------------------------------------------
-# Probes
-#------------------------------------------------------------------------------
-class AddProbeView(CreateView):
-    model = Probe
-    form_class = ProbeForm
-
-    def get_success_url(self):
-        return reverse_lazy('probe-list')
-
-
-class UpdateProbeView(ModelFormSetView):
-    model = Probe
-    form_class = ProbeForm
-    success_url = reverse_lazy('probe-list')
-
-
-class DeleteProbeView(DeleteView):
-    model = Probe
-
-    def get_success_url(self):
-        return reverse_lazy('probe-list')
+        return HttpResponseServerError()
