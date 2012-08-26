@@ -1,6 +1,5 @@
 include README.rst
 include CHANGELOG
-include AUTHORS
 include LICENSE
 recursive-include skwissh *.txt *.py *.js *.css *.less *.mo *.png *.gif *.svg *.html *.json
 recursive-include testproject *.py
