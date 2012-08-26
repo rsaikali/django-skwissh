@@ -100,7 +100,7 @@ url(r'^skwissh/', include('skwissh.urls')),</code></pre>
 					</p>
 					<pre><code>python manage.py installtasks</code></pre>
 					<p>
-						<em>crontab</em> should have been set automatically, you can check that 4 crontab job have been configured :
+						<em>crontab</em> should have been set automatically, you can check that 4 crontab jobs have been configured :
 					</p>
 					<pre><code>crontab -l</code></pre>
 					<p>
@@ -140,7 +140,7 @@ LANGUAGES = (
 					</p>
 					<h4>Linechart and Piechart sensors</h4>
 					<p>
-						Let's have an example with a <em>load averages</em> sensor, displayed as <em>linechart</em>. We'll base on the following SSH command output, to get the 1/5/15min values in <em>/proc/loadavg</em>
+						Let's have an example with a <em>load averages</em> sensor, displayed as <em>linechart</em>. We'll start with the following SSH command output, to get the 1/5/15min values from <em>/proc/loadavg</em>
 						<pre><code>$ cat /proc/loadavg 
 0.22 0.30 0.31 1/517 11628</code></pre>
 					</p>
