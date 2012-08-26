@@ -1,0 +1,22 @@
+header h1 {
+	background: url('../images/skwissh/logo.png') no-repeat 5px 9px;
+	background-size: 40px;
+	padding-left: 55px;
+}
+/* header {
+ background: url('https://secure.travis-ci.org/rsaikali/django-skwissh.png?branch=master') no-repeat right center;
+ margin-top: 10px;
+ } */
+pre code {
+	font-family: monospace;
+}
+#container .inner img {
+	display: block;
+	margin: auto;
+}
+.inner {
+	width: 650px;
+}
+body, h3, h4, h5, h6, p {
+	font-family: 'Ubuntu', sans-serif !important;
+}
