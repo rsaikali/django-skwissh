@@ -21,7 +21,7 @@ setup(
     author_email="contact@skwissh.com",
     name='django-skwissh',
     version=skwissh.__version__,
-    description='SSH monitoring application',
+    description='SSH monitoring Django application',
     long_description=open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
     url='http://skwissh.com/',
     download_url='https://github.com/rsaikali/django-skwissh',
