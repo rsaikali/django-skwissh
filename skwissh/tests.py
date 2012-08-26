@@ -24,13 +24,13 @@ class SkwisshTest(TestCase):
     # Count fixtures
     #
     def test_0001_count_fixtures_sensors(self):
-        self.assertTrue(Probe.objects.count() > 0, "No default sensors loaded. Check fictures.")
+        self.assertGreater(Probe.objects.count(), 0, "No default sensors loaded. Check fictures.")
 
     def test_0002_count_fixtures_graphtypes(self):
-        self.assertTrue(GraphType.objects.count() > 0, "No default chart types loaded. Check fixtures.")
+        self.assertGreater(GraphType.objects.count(), 0, "No default chart types loaded. Check fixtures.")
 
     def test_0003_count_fixtures_servers(self):
-        self.assertTrue(Server.objects.count() > 0, "No default server loaded. Check fixtures.")
+        self.assertGreater(Server.objects.count(), 0, "No default server loaded. Check fixtures.")
 
     #
     # Cron Commands
