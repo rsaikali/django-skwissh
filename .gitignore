@@ -3,3 +3,9 @@
 .settings
 skwissh
 testproject
+bin
+dist
+django_skwissh.egg-info
+skwissh/templatetags
+skwissh
+bin/fabfile.py
