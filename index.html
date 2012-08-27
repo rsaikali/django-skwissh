@@ -152,7 +152,9 @@ LANGUAGES = (
 0.22 0.30 0.31 1/517 11628</code></pre>
 					</p>
 					<p>
-						We'll have to store multiple values, here <em>0.22 0.30 0.31</em>, with CSV syntax. So we need to apply the following Python command on the <em>output</em> variable to format the SSH return value.
+						We'll have to store multiple values, here <em>0.22 0.30 0.31</em>, with CSV syntax.
+						We could use a 'complex' shell command to format this as a CSV string, but as I'm not a 'sed' king neither a 'awk' master, I prefer the use of Python to format measures.
+						So we need to apply the following Python command on the <em>output</em> variable to format the SSH return value.
 					</p>
 					<pre><code>>>> output = ";".join(output.strip().split()[0:3])</code></pre>
 					<p>
