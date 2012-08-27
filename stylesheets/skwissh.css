@@ -27,3 +27,6 @@ h3 img {
 	display: inline !important;
 	margin-left: 20px !important;
 }
+#downloads {
+	margin-bottom: 0 !important;
+}
