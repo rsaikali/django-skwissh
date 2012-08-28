@@ -15,7 +15,7 @@ class ProbeForm(ModelForm):
 
 
 class ServerForm(ModelForm):
-    password = CharField(label=_(u'Mot de passe'), widget=PasswordInput(render_value=False))
+    password = CharField(label=_(u'Mot de passe'), widget=PasswordInput(render_value=False), required=False)
 
     class Meta:
         model = Server
