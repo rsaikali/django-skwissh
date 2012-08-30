@@ -16,6 +16,7 @@ class GraphType(models.Model):
     class Meta:
         verbose_name = u"type de graphique"
         verbose_name_plural = u"types de graphiques"
+        ordering = ['name']
 
 
 def get_default_graph_type():
@@ -50,8 +51,8 @@ class Server(models.Model):
     ip = models.IPAddressField(verbose_name=_(u"Adresse IP"), blank=True)
     state = models.BooleanField(verbose_name=_(u"Serveur accessible ?"), default=False)
     is_measuring = models.BooleanField(verbose_name=_(u"Serveur en cours de mesures ?"), default=False)
-    username = models.CharField(max_length=50, verbose_name=_(u"Nom d'utilisateur SSH"), blank=True, default="")
-    password = models.CharField(max_length=50, verbose_name=_(u"Mot de passe SSH"), blank=True, default="")
+    username = models.CharField(max_length=50, verbose_name=_(u"Nom d'utilisateur SSH"), null=True, blank=True, default="")
+    password = models.CharField(max_length=50, verbose_name=_(u"Mot de passe SSH"), null=True, blank=True, default="")
     date_created = models.DateTimeField(verbose_name=_(u"Date de création"), null=True, auto_now_add=True, default=datetime.datetime.now())
     date_modified = models.DateTimeField(verbose_name=_(u"Date de modification"), null=True, auto_now=True, default=datetime.datetime.now())
     probes = models.ManyToManyField(Probe, verbose_name=_(u"Sondes"), blank=True, null=True)

@@ -83,7 +83,6 @@ def mesures(request, server_id, probe_id, period):
             raise Http404
 
         now = datetime.datetime.utcnow().replace(tzinfo=utc)
-        now = now - datetime.timedelta(seconds=now.second, microseconds=now.microsecond)
         if period == 'last':           # Each minute
             data = Measure.objects.filter(server=server, probe=probe)[0:1]
         elif period == 'hour':         # Each minute

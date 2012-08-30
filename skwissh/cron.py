@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.utils.timezone import utc
-from fabric.context_managers import hide
+from fabric.context_managers import hide, settings
 from fabric.decorators import task
 from fabric.operations import run, sudo, local
 from fabric.state import env
@@ -42,10 +42,10 @@ def getMeasures():
                 env.user = server.username
                 env.password = server.password
                 with hide('running', 'stdout', 'stderr', 'user'):
-                    value = execute(launch_command, probes)
+                    value = execute(launch_command, probes, server)
                     outputs = value[server.ip]
                     for probe in probes:
-                        if probe.graph_type.name in ['pie', 'text']:
+                        if probe.graph_type.name == 'text':
                             Measure.objects.filter(server=server, probe=probe).delete()
                         Measure.objects.create(timestamp=now, server=server, probe=probe, value=outputs[probe.id])
                     server.state = outputs[-1]
@@ -59,45 +59,54 @@ def getMeasures():
 
 
 @task
-def launch_command(probes):
+def launch_command(probes, server):
     outputs = {}
 
     if env.host_string == "127.0.0.1":
         server_up = True
     else:
-        try:
-            server_up = run("echo", shell=False, pty=False).succeeded
-        except:
-            server_up = False
+        with settings(warn_only=True):
+            server_up = run("test 1", shell=False, pty=False).succeeded
+
+    logger.debug(server_up)
 
     for probe in probes:
         if server_up:
             logger.debug("---> Sensor '%s'" % probe.display_name.encode('utf-8'))
             try:
-                if env.host_string == "127.0.0.1":
-                    output = local(probe.ssh_command, capture=True)
-                elif probe.use_sudo:
-                    output = sudo(probe.ssh_command, shell=False, pty=False)
+                with settings(warn_only=True):
+                    if env.host_string == "127.0.0.1":
+                        output = local(probe.ssh_command, capture=True)
+                    elif probe.use_sudo:
+                        output = sudo(probe.ssh_command, shell=False, pty=False)
+                    else:
+                        output = run(probe.ssh_command, shell=False, pty=False)
+                if output.failed:
+                    if probe.graph_type.name in ['linegraph', 'bargraph']:
+                        output = "0"
+                    elif probe.graph_type.name == 'pie':
+                        output = "100"
+                    else:
+                        output = "No data"
                 else:
-                    output = run(probe.ssh_command, shell=False, pty=False)
-                for python_command in probe.python_parse.splitlines():
-                    exec(python_command)
+                    for python_command in probe.python_parse.splitlines():
+                        exec(python_command)
             except Exception, e:
                 logger.exception(e)
-                if probe.graph_type.name == 'linegraph':
-                    output = 0
+                if probe.graph_type.name in ['linegraph', 'bargraph']:
+                    output = "0"
                 elif probe.graph_type.name == 'pie':
-                    output = "Inconnu;100"
+                    output = "100"
                 else:
-                    output = "Aucune donnée"
+                    output = "No data"
         else:
             logger.debug("---> Sensor '%s' : server is unreachable..." % probe.display_name.encode('utf-8'))
-            if probe.graph_type.name == 'linegraph':
-                output = 0
+            if probe.graph_type.name in ['linegraph', 'bargraph']:
+                output = "0"
             elif probe.graph_type.name == 'pie':
-                output = "Inconnu;100"
+                output = "100"
             else:
-                output = "Aucune donnée"
+                output = "No data"
         outputs[probe.id] = output
     outputs[-1] = server_up
     return outputs
@@ -123,7 +132,7 @@ def calculateAveragesForPeriod(period, classname, server, probe):
 def calculateAverage(period, classname):
     threads = []
     for server in Server.objects.all():
-        for probe in server.probes.all().filter(graph_type__name='linegraph'):
+        for probe in server.probes.all().filter(graph_type__name__in=['linegraph', 'bargraph']):
             thread = threading.Thread(target=calculateAveragesForPeriod, args=[period, classname, server, probe], name="SkwisshAverage.%s.%s" % (classname.__name__, probe.display_name.encode('utf-8').replace(" ", "_")))
             thread.setDaemon(False)
             thread.start()

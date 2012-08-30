@@ -20,6 +20,7 @@
 				<div class="probe-type {{ probe.graph_type.name }}"></div>
 				<div class="graph-type-text">
 					{% ifequal probe.graph_type.name "linegraph" %}{% trans 'Graphique ligne' %}{% endifequal %}
+					{% ifequal probe.graph_type.name "bargraph" %}{% trans 'Histogramme' %}{% endifequal %}
 					{% ifequal probe.graph_type.name "pie" %}{% trans 'Graphique camembert' %}{% endifequal %}
 					{% ifequal probe.graph_type.name "text" %}{% trans 'Sortie texte' %}{% endifequal %}
 				</div>

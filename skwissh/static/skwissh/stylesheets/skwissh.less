@@ -14,6 +14,17 @@
 @textFont: 'Oxygen', sans-serif !important;
 @consoleFont: 'Ubuntu Mono', sans-serif !important;
 /******************************************************************************
+ * SELECTION
+ ******************************************************************************/
+::-moz-selection {
+  background-color: lighten(@orangeColor, 70%);
+  color: #000;
+}
+::selection {
+  background-color: lighten(@orangeColor, 70%);
+  color: #000;
+}
+/******************************************************************************
  * GENERAL
  ******************************************************************************/
 body {
@@ -384,9 +395,10 @@ section td.jqplot-table-legend {
   font-family: @textFont;
   color: #41434A;
 }
-section .jqplot-table-legend-label {
+section table.jqplot-table-legend, table.jqplot-cursor-legend {
+  border-radius: 10px;
+  z-index: 1;
 }
-
 section .jqplot-pie-series.jqplot-data-label {
   font-size: 1em;
   color: #333333;
@@ -432,7 +444,8 @@ section .mesures th {
 }
 section .mesures td {
   text-align: center;
-  line-height: 0.5em;
+  line-height: 0px;
+  font-size: 0.8em;
 }
 section .mesures h6 {
   cursor: pointer;
@@ -446,10 +459,21 @@ section .mesures h6 {
     .background-size(14px 14px);
   }
 }
-section .display div {
+section .summary {
+  padding-left: 12%;
+  margin-top: -15px !important;
+}
+section .summary div {
   text-align: center;
-  margin-bottom: -10px;
-  height: 35px;
+  margin-bottom: -15px;
+  height: 31px;
+  font-size: 0.85em;
+}
+section .summary div.border {
+  border: 1px dotted #CCCCCC;
+  margin: auto;
+  height: auto;
+  line-height: 14px;
 }
 section .line-server {
   list-style: none;
