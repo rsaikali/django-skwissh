@@ -6,12 +6,13 @@ from fabric.operations import run, sudo, local
 from fabric.state import env
 from fabric.tasks import execute
 from skwissh.models import Server, Measure, MeasureDay, MeasureWeek, \
-    MeasureMonth
+    MeasureMonth, CronLog
 from skwissh.settings import DAY_AVERAGE_PERIOD, WEEK_AVERAGE_PERIOD, \
     MONTH_AVERAGE_PERIOD
 import datetime
 import kronos
 import logging
+import thread
 import threading
 
 logger = logging.getLogger('skwissh')
@@ -27,40 +28,27 @@ def getMeasures():
         now = timestamp - datetime.timedelta(seconds=timestamp.second, microseconds=timestamp.microsecond)
         env.skip_bad_hosts = True
         env.parallel = False
-        env.timeout = 2
+        env.timeout = 5
         env.connection_attempts = 1
         servers = Server.objects.filter(is_measuring=False).select_related()
         for server in servers:
             try:
-                server.is_measuring = True
-                server.save(force_update=True)
-                logger.info("Getting measures for server '%s'" % server.hostname.encode('utf-8'))
-                probes = server.probes.all()
-                if len(probes) == 0:
-                    continue
                 env.hosts = [server.ip]
                 env.user = server.username
                 env.password = server.password
                 with hide('running', 'stdout', 'stderr', 'user'):
-                    value = execute(launch_command, probes, server)
-                    outputs = value[server.ip]
-                    for probe in probes:
-                        if probe.graph_type.name == 'text':
-                            Measure.objects.filter(server=server, probe=probe).delete()
-                        Measure.objects.create(timestamp=now, server=server, probe=probe, value=outputs[probe.id])
-                    server.state = outputs[-1]
+                    execute(launch_command, server, now)
             except Exception, e:
                 logger.exception(e)
-            finally:
-                server.is_measuring = False
-                server.save(force_update=True)
-        logger.info("getMeasures duration : " + str(datetime.datetime.utcnow().replace(tzinfo=utc) - timestamp))
+        logger.info("--- duration : " + str(datetime.datetime.utcnow().replace(tzinfo=utc) - timestamp))
     return 0
 
 
 @task
-def launch_command(probes, server):
-    outputs = {}
+def launch_command(server, timestamp):
+
+    server.is_measuring = True
+    server.save(force_update=True)
 
     if env.host_string == "127.0.0.1":
         server_up = True
@@ -68,48 +56,58 @@ def launch_command(probes, server):
         with settings(warn_only=True):
             server_up = run("test 1", shell=False, pty=False).succeeded
 
-    logger.debug(server_up)
+    for probe in server.probes.all():
+        storeValue(server, probe, timestamp, server_up)
 
-    for probe in probes:
-        if server_up:
-            logger.debug("---> Sensor '%s'" % probe.display_name.encode('utf-8'))
-            try:
-                with settings(warn_only=True):
-                    if env.host_string == "127.0.0.1":
-                        output = local(probe.ssh_command, capture=True)
-                    elif probe.use_sudo:
-                        output = sudo(probe.ssh_command, shell=False, pty=False)
-                    else:
-                        output = run(probe.ssh_command, shell=False, pty=False)
-                if output.failed:
-                    if probe.graph_type.name in ['linegraph', 'bargraph']:
-                        output = "0"
-                    elif probe.graph_type.name == 'pie':
-                        output = "100"
-                    else:
-                        output = "No data"
+    server.state = server_up
+    server.is_measuring = False
+    server.save(force_update=True)
+
+
+def storeValue(server, probe, timestamp, server_up):
+
+    start = datetime.datetime.utcnow().replace(tzinfo=utc)
+    success = False
+    if server_up:
+        try:
+            with settings(warn_only=True):
+                if env.host_string == "127.0.0.1":
+                    output = local(probe.ssh_command, capture=True)
+                elif probe.use_sudo:
+                    output = sudo(probe.ssh_command, shell=False, pty=False)
                 else:
-                    for python_command in probe.python_parse.splitlines():
-                        exec(python_command)
-            except Exception, e:
-                logger.exception(e)
-                if probe.graph_type.name in ['linegraph', 'bargraph']:
-                    output = "0"
-                elif probe.graph_type.name == 'pie':
-                    output = "100"
-                else:
+                    output = run(probe.ssh_command, shell=False, pty=False)
+            success = output.succeeded
+            if not success:
+                if probe.graph_type.name == 'text':
                     output = "No data"
-        else:
-            logger.debug("---> Sensor '%s' : server is unreachable..." % probe.display_name.encode('utf-8'))
-            if probe.graph_type.name in ['linegraph', 'bargraph']:
-                output = "0"
-            elif probe.graph_type.name == 'pie':
-                output = "100"
+                else:
+                    output = "0"
             else:
+                for python_command in probe.python_parse.splitlines():
+                    exec(python_command)
+        except Exception, e:
+            logger.exception(e)
+            success = False
+            if probe.graph_type.name == 'text':
                 output = "No data"
-        outputs[probe.id] = output
-    outputs[-1] = server_up
-    return outputs
+            else:
+                output = "0"
+    else:
+        if probe.graph_type.name == 'text':
+            output = "No data"
+        else:
+            output = "0"
+
+    total_time = datetime.datetime.utcnow().replace(tzinfo=utc) - start
+    duration = (total_time.seconds * 1000000) + total_time.microseconds
+    try:
+        if probe.graph_type.name == 'text':
+            Measure.objects.filter(server=server, probe=probe).delete()
+        measure = Measure.objects.create(timestamp=timestamp, server=server, probe=probe, value=str(output))
+        CronLog.objects.create(timestamp=timestamp, server=server, probe=probe, measure=measure, success=success, duration=duration)
+    except Exception, e:
+        logger.exception(e)
 
 
 def calculateAveragesForPeriod(period, classname, server, probe):

@@ -2,7 +2,7 @@
 from django.contrib import admin
 from skwissh.forms import ServerForm
 from skwissh.models import Probe, Server, Measure, ServerGroup, GraphType, \
-    MeasureDay, MeasureWeek, MeasureMonth
+    MeasureDay, MeasureWeek, MeasureMonth, CronLog
 
 
 class GraphTypeAdmin(admin.ModelAdmin):
@@ -27,7 +27,13 @@ admin.site.register(Probe, ProbeAdmin)
 
 class MeasureAdmin(admin.ModelAdmin):
     list_display = ('timestamp', 'server', 'probe', 'value')
+
+
+class CronLogAdmin(admin.ModelAdmin):
+    list_display = ('timestamp', 'server', 'probe', 'success', 'duration')
+
 admin.site.register(Measure, MeasureAdmin)
 admin.site.register(MeasureDay, MeasureAdmin)
 admin.site.register(MeasureWeek, MeasureAdmin)
 admin.site.register(MeasureMonth, MeasureAdmin)
+admin.site.register(CronLog, CronLogAdmin)

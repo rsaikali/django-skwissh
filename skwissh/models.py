@@ -48,11 +48,11 @@ class Probe(models.Model):
 
 class Server(models.Model):
     hostname = models.CharField(max_length=255, verbose_name=_(u"Nom du serveur"))
-    ip = models.IPAddressField(verbose_name=_(u"Adresse IP"), blank=True)
+    ip = models.CharField(max_length=255, verbose_name=_(u"Adresse IP"), blank=True)
     state = models.BooleanField(verbose_name=_(u"Serveur accessible ?"), default=False)
     is_measuring = models.BooleanField(verbose_name=_(u"Serveur en cours de mesures ?"), default=False)
-    username = models.CharField(max_length=50, verbose_name=_(u"Nom d'utilisateur SSH"), null=True, blank=True, default="")
-    password = models.CharField(max_length=50, verbose_name=_(u"Mot de passe SSH"), null=True, blank=True, default="")
+    username = models.CharField(max_length=50, verbose_name=_(u"Nom d'utilisateur SSH"), blank=True, default="")
+    password = models.CharField(max_length=50, verbose_name=_(u"Mot de passe SSH"), blank=True, default="")
     date_created = models.DateTimeField(verbose_name=_(u"Date de création"), null=True, auto_now_add=True, default=datetime.datetime.now())
     date_modified = models.DateTimeField(verbose_name=_(u"Date de modification"), null=True, auto_now=True, default=datetime.datetime.now())
     probes = models.ManyToManyField(Probe, verbose_name=_(u"Sondes"), blank=True, null=True)
@@ -91,10 +91,11 @@ class Measure(models.Model):
     value = models.CharField(max_length=4096, verbose_name=_(u"Valeur mesurée"))
 
     def __unicode__(self):
-        return u"%s" % self.value
+        return u"%s %s %s" % (self.timestamp, self.server.hostname, self.probe.display_name)
 
     class Meta:
         verbose_name = "mesure"
+        verbose_name_plural = u"mesures"
         ordering = ['-timestamp', 'server', 'probe']
 
 
@@ -108,7 +109,8 @@ class MeasureDay(models.Model):
         return u"%s" % self.value
 
     class Meta:
-        verbose_name = "mesureDay"
+        verbose_name = "mesure (vue journalière)"
+        verbose_name_plural = u"mesures (vue journalière)"
         ordering = ['-timestamp', 'server', 'probe']
 
 
@@ -122,7 +124,8 @@ class MeasureWeek(models.Model):
         return u"%s" % self.value
 
     class Meta:
-        verbose_name = "mesureWeek"
+        verbose_name = "mesure (vue hebdomadaire)"
+        verbose_name_plural = u"mesures (vue hebdomadaire)"
         ordering = ['-timestamp', 'server', 'probe']
 
 
@@ -136,5 +139,23 @@ class MeasureMonth(models.Model):
         return u"%s" % self.value
 
     class Meta:
-        verbose_name = "mesureMonth"
+        verbose_name = "mesure (vue mensuelle)"
+        verbose_name_plural = u"mesures (vue mensuelle)"
         ordering = ['-timestamp', 'server', 'probe']
+
+
+class CronLog(models.Model):
+    timestamp = models.DateTimeField(verbose_name=_(u"Date et heure"))
+    server = models.ForeignKey(Server, verbose_name=_(u"Serveur"))
+    probe = models.ForeignKey(Probe, verbose_name=_(u"Sonde"))
+    measure = models.ForeignKey(Measure, verbose_name=_(u"Mesure"))
+    success = models.BooleanField(verbose_name=_(u"Succès de l'exécution ?"), default=False)
+    duration = models.IntegerField(verbose_name=_(u"Durée en microsecondes"), default=0)
+
+    def __unicode__(self):
+        return u"%s %s %s %s %s" % (self.timestamp, self.server.hostname, self.probe.display_name, self.success, self.duration)
+
+    class Meta:
+        verbose_name = u"exécution de tâches cron"
+        verbose_name_plural = u"exécutions de tâches cron"
+        ordering = ['-timestamp', 'server', '-duration']
