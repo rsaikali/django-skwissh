@@ -11,14 +11,13 @@
 		{% endif %}
 	</ul>
 	<div class="panel graph">
-		{% if probe.graph_type.name == 'linegraph' or probe.graph_type.name == 'bargraph' %}
-		<div class="display summary" id="summary-{{ probe.id }}"></div>
-		{% endif %}
 		<div id="detail-{{ probe.id }}">
 			<p class="waiting-title">{% trans 'Chargement des données en cours...' %}<p>
 			<div class="waiting"></div>
 			<div id="graph-{{ probe.id }}"></div>
 		</div>
-		<div class="mesures" id="measures-{{ probe.id }}"></div>
+		{% if probe.graph_type.name == 'linegraph' or probe.graph_type.name == 'bargraph' %}
+		<div class="display summary" id="summary-{{ probe.id }}"></div>
+		{% endif %}		
 	</div>
 </section>

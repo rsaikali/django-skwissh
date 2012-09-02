@@ -30,7 +30,7 @@ class MeasureAdmin(admin.ModelAdmin):
 
 
 class CronLogAdmin(admin.ModelAdmin):
-    list_display = ('timestamp', 'server', 'probe', 'success', 'duration')
+    list_display = ('timestamp', 'server', 'success', 'duration', 'message')
 
 admin.site.register(Measure, MeasureAdmin)
 admin.site.register(MeasureDay, MeasureAdmin)

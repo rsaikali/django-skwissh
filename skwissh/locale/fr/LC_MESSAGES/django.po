@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-26 13:21+0200\n"
+"POT-Creation-Date: 2012-09-02 18:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,19 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
-#: forms.py:10 models.py:29 templates/section-probe.html:45
+#: forms.py:10 models.py:30 templates/section-probe.html:46
 msgid "Utilise 'sudo' ?"
 msgstr ""
 
 #: forms.py:10 templates/modal-delete-probe.html:21
 #: templates/modal-delete-server-group.html:18
-#: templates/modal-delete-server.html:21 templates/section-probe.html:49
+#: templates/modal-delete-server.html:21 templates/section-probe.html:50
 msgid "Oui"
 msgstr ""
 
 #: forms.py:10 templates/modal-delete-probe.html:22
 #: templates/modal-delete-server-group.html:19
-#: templates/modal-delete-server.html:22 templates/section-probe.html:51
+#: templates/modal-delete-server.html:22 templates/section-probe.html:52
 msgid "Non"
 msgstr ""
 
@@ -46,92 +46,105 @@ msgstr ""
 msgid "Options jqPlot"
 msgstr ""
 
-#: models.py:10 models.py:34 models.py:55 models.py:73
+#: models.py:10 models.py:35 models.py:56 models.py:74
 msgid "Date de création"
 msgstr ""
 
-#: models.py:11 models.py:35 models.py:56 models.py:74
+#: models.py:11 models.py:36 models.py:57 models.py:75
 msgid "Date de modification"
 msgstr ""
 
-#: models.py:26
+#: models.py:27
 msgid "Nom de la sonde"
 msgstr ""
 
-#: models.py:27
+#: models.py:28
 msgid "Infos complémentaires (version linux...)"
 msgstr ""
 
-#: models.py:28 templates/section-probe.html:37
+#: models.py:29 templates/section-probe.html:38
 msgid "Commande SSH"
 msgstr ""
 
-#: models.py:30
+#: models.py:31
 msgid "Commande Python de parsing"
 msgstr ""
 
-#: models.py:31
+#: models.py:32
 msgid "Type de visualisation"
 msgstr ""
 
-#: models.py:32
+#: models.py:33
 msgid "Unité"
 msgstr ""
 
-#: models.py:33
+#: models.py:34
 msgid "Labels des valeurs"
 msgstr ""
 
-#: models.py:49
+#: models.py:50
 msgid "Nom du serveur"
 msgstr ""
 
-#: models.py:50
+#: models.py:51
 msgid "Adresse IP"
 msgstr ""
 
-#: models.py:51
+#: models.py:52
 msgid "Serveur accessible ?"
 msgstr ""
 
-#: models.py:52
+#: models.py:53
 msgid "Serveur en cours de mesures ?"
 msgstr ""
 
-#: models.py:53
+#: models.py:54
 msgid "Nom d'utilisateur SSH"
 msgstr ""
 
-#: models.py:54
+#: models.py:55
 msgid "Mot de passe SSH"
 msgstr ""
 
-#: models.py:57 templates/base/navigation.html:66
+#: models.py:58 templates/base/navigation.html:61
 msgid "Sondes"
 msgstr ""
 
-#: models.py:72
+#: models.py:73
 msgid "Nom du groupe"
 msgstr ""
 
-#: models.py:75
+#: models.py:76
 msgid "Serveurs"
 msgstr ""
 
-#: models.py:87 models.py:101 models.py:115 models.py:129
+#: models.py:88 models.py:103 models.py:118 models.py:133 models.py:148
 msgid "Date et heure"
 msgstr ""
 
-#: models.py:88 models.py:102 models.py:116 models.py:130
+#: models.py:89 models.py:104 models.py:119 models.py:134 models.py:149
+#: models.py:150 templates/cronlog_list.html:32
 msgid "Serveur"
 msgstr ""
 
-#: models.py:89 models.py:103 models.py:117 models.py:131
+#: models.py:90 models.py:105 models.py:120 models.py:135
 msgid "Sonde"
 msgstr ""
 
-#: models.py:90 models.py:104 models.py:118 models.py:132
+#: models.py:91 models.py:106 models.py:121 models.py:136
 msgid "Valeur mesurée"
+msgstr ""
+
+#: models.py:151
+msgid "Succès de l'exécution ?"
+msgstr ""
+
+#: models.py:152
+msgid "Message"
+msgstr ""
+
+#: models.py:153
+msgid "Durée en secondes"
 msgstr ""
 
 #: templates/404.html:8
@@ -164,7 +177,43 @@ msgid ""
 "puissions la corriger."
 msgstr ""
 
-#: templates/index.html:8 templates/base/navigation.html:114
+#: templates/cronlog_list.html:9 templates/base/navigation.html:68
+msgid "Rapport des sondes"
+msgstr ""
+
+#: templates/cronlog_list.html:31
+msgid "Date / heure"
+msgstr ""
+
+#: templates/cronlog_list.html:33
+msgid "Action"
+msgstr ""
+
+#: templates/cronlog_list.html:34
+msgid "Durée totale"
+msgstr ""
+
+#: templates/cronlog_list.html:35
+msgid "Status"
+msgstr ""
+
+#: templates/cronlog_list.html:43
+msgid "secondes"
+msgstr ""
+
+#: templates/cronlog_list.html:45
+msgid "OK"
+msgstr ""
+
+#: templates/cronlog_list.html:48
+msgid "Erreur"
+msgstr ""
+
+#: templates/cronlog_list.html:51
+msgid "Voir les détails..."
+msgstr ""
+
+#: templates/index.html:8 templates/base/navigation.html:112
 msgid "Connexion"
 msgstr ""
 
@@ -180,7 +229,7 @@ msgstr ""
 msgid "Nom d'utilisateur"
 msgstr ""
 
-#: templates/index.html:26 templates/base/navigation.html:123
+#: templates/index.html:26 templates/base/navigation.html:121
 msgid "Se connecter"
 msgstr ""
 
@@ -220,7 +269,7 @@ msgstr ""
 msgid "Plus d'informations sur Skwissh :"
 msgstr ""
 
-#: templates/modal-add-probe.html:5 templates/base/navigation.html:89
+#: templates/modal-add-probe.html:5 templates/base/navigation.html:87
 msgid "Ajouter une sonde"
 msgstr ""
 
@@ -340,23 +389,7 @@ msgstr ""
 msgid "Dernier mois"
 msgstr ""
 
-#: templates/section-graph.html:16
-msgid "Min."
-msgstr ""
-
-#: templates/section-graph.html:17
-msgid "Max."
-msgstr ""
-
-#: templates/section-graph.html:18
-msgid "Moy."
-msgstr ""
-
-#: templates/section-graph.html:19
-msgid "Dernière"
-msgstr ""
-
-#: templates/section-graph.html:23
+#: templates/section-graph.html:15
 msgid "Chargement des données en cours..."
 msgstr ""
 
@@ -401,30 +434,34 @@ msgid "Graphique ligne"
 msgstr ""
 
 #: templates/section-probe.html:23
-msgid "Graphique camembert"
+msgid "Histogramme"
 msgstr ""
 
 #: templates/section-probe.html:24
+msgid "Graphique camembert"
+msgstr ""
+
+#: templates/section-probe.html:25
 msgid "Sortie texte"
 msgstr ""
 
-#: templates/section-probe.html:27
+#: templates/section-probe.html:28
 msgid "mesures effectuées"
 msgstr ""
 
-#: templates/section-probe.html:30
+#: templates/section-probe.html:31
 msgid "Actuellement sur"
 msgstr ""
 
-#: templates/section-probe.html:30
+#: templates/section-probe.html:31
 msgid "serveurs"
 msgstr ""
 
-#: templates/section-probe.html:56
+#: templates/section-probe.html:57
 msgid "Commande Python"
 msgstr ""
 
-#: templates/section-probe.html:65
+#: templates/section-probe.html:66
 msgid "Unités"
 msgstr ""
 
@@ -464,54 +501,54 @@ msgstr[1] ""
 msgid "mesures"
 msgstr ""
 
-#: templates/base/navigation.html:51
-msgid "Dernière mesure à"
-msgstr ""
-
-#: templates/base/navigation.html:60
+#: templates/base/navigation.html:55
 msgid "Configuration"
 msgstr ""
 
-#: templates/base/navigation.html:74
+#: templates/base/navigation.html:68
+msgid "Voir le rapport des sondes"
+msgstr ""
+
+#: templates/base/navigation.html:71
 msgid "Voir la liste des sondes"
 msgstr ""
 
-#: templates/base/navigation.html:74
+#: templates/base/navigation.html:71
 msgid "Liste des sondes"
 msgstr ""
 
-#: templates/base/navigation.html:82
+#: templates/base/navigation.html:77
 msgid "Ajouter un serveur"
 msgstr ""
 
-#: templates/base/navigation.html:85
+#: templates/base/navigation.html:82
 msgid "Ajouter un groupe de serveurs"
 msgstr ""
 
-#: templates/base/navigation.html:85
+#: templates/base/navigation.html:82
 msgid "Ajouter un groupe"
 msgstr ""
 
-#: templates/base/navigation.html:94
+#: templates/base/navigation.html:92
 msgid "Editer le serveur actuel"
 msgstr ""
 
-#: templates/base/navigation.html:94
+#: templates/base/navigation.html:92
 msgid "Editer ce serveur"
 msgstr ""
 
-#: templates/base/navigation.html:99
+#: templates/base/navigation.html:97
 msgid "Langue"
 msgstr ""
 
-#: templates/base/navigation.html:119
+#: templates/base/navigation.html:117
 msgid "Se déconnecter de Skwissh"
 msgstr ""
 
-#: templates/base/navigation.html:119
+#: templates/base/navigation.html:117
 msgid "Se déconnecter"
 msgstr ""
 
-#: templates/base/navigation.html:123
+#: templates/base/navigation.html:121
 msgid "Se connecter de Skwissh"
 msgstr ""

@@ -5,7 +5,7 @@
 	<ul class="nav-bar">
 		<li class="has-flyout{% if not server and not probes %} active{% endif %}">
 			<a href="{% url index %}">{% trans 'Accueil' %}</a>
-			<a href="#" class="flyout-toggle"><span></span></a>
+			<a href="{% url index %}" class="flyout-toggle"><span></span></a>
 			<ul class="flyout">
 				{% for group in groups %}
 				<li>
@@ -41,16 +41,11 @@
 		{% endif %}
 		<li>
 			{% if nb_mesures %}
-			<a class="nolink" href="#">{{ nb_mesures }} {% trans 'mesures' %}</a>
+			<a href="{% url logs-list %}">{{ nb_mesures }} {% trans 'mesures' %}</a>
 			{% else %}
-			<a class="nolink" href="#">{% get_nb_mesures %} {% trans 'mesures' %}</a>
+			<a href="{% url logs-list %}">{% get_nb_mesures %} {% trans 'mesures' %}</a>
 			{% endif %}
 		</li>
-		{% if get_last_mesure %}
-		<li>
-			<a class="nolink" href="#">{% trans 'Dernière mesure à' %} {% get_last_mesure %}</a>
-		</li>
-		{% endif %}
 		<li class="has-flyout">
 			<a href="#">Options</a>
 			<a href="#" class="flyout-toggle"><span></span></a>
@@ -69,27 +64,30 @@
 				{% endif %}
 				{% endif %}
 				{% if user.is_authenticated %}
-				{% if not probes %}
+				<li class="logs">
+					<a title="{% trans 'Voir le rapport des sondes' %}..." href="{% url logs-list %}">{% trans 'Rapport des sondes' %}...</a>
+				</li>
 				<li class="probe">
 					<a title="{% trans 'Voir la liste des sondes' %}..." href="{% url probe-list %}">{% trans 'Liste des sondes' %}...</a>
 				</li>
 				{% endif %}
-				{% endif %}
 				{% if user.is_staff %}
-				{% if not server %}
-				{% if not probes %}
+				{% if server_form %}
 				<li class="server">
 					<a title="{% trans 'Ajouter un serveur' %}..." href="#" onclick="javascript:$('#add-server').reveal();">{% trans 'Ajouter un serveur' %}...</a>
 				</li>
+				{% endif %}
+				{% if server_group_form %}
 				<li class="server-group">
 					<a title="{% trans 'Ajouter un groupe de serveurs' %}..." href="#"  onclick="javascript:$('#add-server-group').reveal();">{% trans 'Ajouter un groupe' %}...</a>
 				</li>
-				{% else %}
+				{% endif %}
+				{% if probe_form %}
 				<li class="probe">
 					<a title="{% trans 'Ajouter une sonde' %}..." href="#" data-reveal-id="add-probe">{% trans 'Ajouter une sonde' %}...</a>
 				</li>
 				{% endif %}
-				{% else %}
+				{% if server_form %}
 				<li class="edit">
 					<a title="{% trans 'Editer le serveur actuel' %}..." href="#" data-reveal-id="edit-server">{% trans 'Editer ce serveur' %}...</a>
 				</li>

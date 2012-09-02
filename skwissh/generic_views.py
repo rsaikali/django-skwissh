@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import ListView
 from extra_views.formsets import ModelFormSetView
 from skwissh.forms import ServerForm, ServerGroupForm, ProbeForm
-from skwissh.models import Server, ServerGroup, Probe
+from skwissh.models import Server, ServerGroup, Probe, CronLog
 
 
 #------------------------------------------------------------------------------

@@ -146,16 +146,16 @@ class MeasureMonth(models.Model):
 
 class CronLog(models.Model):
     timestamp = models.DateTimeField(verbose_name=_(u"Date et heure"))
-    server = models.ForeignKey(Server, verbose_name=_(u"Serveur"))
-    probe = models.ForeignKey(Probe, verbose_name=_(u"Sonde"))
-    measure = models.ForeignKey(Measure, verbose_name=_(u"Mesure"))
+    action = models.CharField(max_length=50, verbose_name=_(u"Serveur"), blank=True)
+    server = models.ForeignKey(Server, verbose_name=_(u"Serveur"), null=True)
     success = models.BooleanField(verbose_name=_(u"Succès de l'exécution ?"), default=False)
-    duration = models.IntegerField(verbose_name=_(u"Durée en microsecondes"), default=0)
+    message = models.TextField(verbose_name=_(u"Message"), null=True, default="")
+    duration = models.FloatField(verbose_name=_(u"Durée en secondes"), default=0)
 
     def __unicode__(self):
-        return u"%s %s %s %s %s" % (self.timestamp, self.server.hostname, self.probe.display_name, self.success, self.duration)
+        return u"%s %s %s %s" % (self.timestamp, self.server.hostname, self.success, self.duration)
 
     class Meta:
         verbose_name = u"exécution de tâches cron"
         verbose_name_plural = u"exécutions de tâches cron"
-        ordering = ['-timestamp', 'server', '-duration']
+        ordering = ['-timestamp', '-server', '-action', ]

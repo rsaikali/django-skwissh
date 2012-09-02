@@ -43,12 +43,3 @@ def get_fabric_version():
 @register.simple_tag(name='get_nb_mesures')
 def get_nb_mesures():
     return Measure.objects.count()
-
-
-@register.simple_tag(name='get_last_mesure')
-def get_last_mesure():
-    try:
-        last_mesure = Measure.objects.all().aggregate(Max('timestamp'))['timestamp__max'].astimezone(timezone.get_current_timezone()).strftime("%H:%M")
-    except:
-        last_mesure = ""
-    return last_mesure

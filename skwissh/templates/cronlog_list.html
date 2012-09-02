@@ -1,0 +1,88 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% include "base/navigation.html" %}
+
+<section>
+	<ul class="nav-bar">
+		<li><a class="bigger">{% trans "Rapport des sondes" %}</a></li>
+	</ul>
+	<div class="panel">
+	    {% if is_paginated %}
+		        <ul class="pagination">
+		        	{% if page_obj.has_previous %}
+		        	<li class="arrow"><a href="{% url logs-list %}?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+		        	{% else %}
+		        	<li class="arrow inactive">&laquo;</li>
+		        	{% endif %}
+		        	{% for i in page_obj.paginator.page_range %}
+	  				<li {% ifequal i page_obj.number %}class="current"{% endifequal %}><a href="{% url logs-list %}?page={{ i }}">{{ i }}</a></li>
+	  				{% endfor %}
+	  				{% if page_obj.has_next %}
+	  				<li class="arrow"><a href="{% url logs-list %}?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+		        	{% else %}
+		        	<li class="arrow inactive">&raquo;</li>
+		        	{% endif %}
+				</ul>
+    	{% endif %}		
+	    <table id="cronlogs-table">
+	    	<thead>
+	    		<th>{% trans "Date / heure" %}</th>
+	    		<th>{% trans "Serveur" %}</th>
+	    		<th>{% trans "Action" %}</th>
+	    		<th>{% trans "Durée totale" %}</th>
+	    		<th colspan="3">{% trans "Status" %}</th>
+	    	</thead>
+	    	<tbody>
+	        {% for log in object_list %}
+	            <tr>
+	                <td>{% ifchanged %}{{ log.timestamp }}{% endifchanged %}</td>
+	                <td>{{ log.server.hostname }}</td>
+	                <td>{{ log.action }}</td>
+	                <td>{{ log.duration|floatformat:2 }} {% trans 'secondes' %}</td>
+	                {% if log.success %}
+	                <td>{% trans 'OK'%}</td>
+	                <td class="log up">&nbsp;</td>
+	                {% else %}
+	                <td>{% trans 'Erreur'%}</td>
+	                <td class="log down">&nbsp;</td>
+	                {% endif %}
+	                <td><a data-id="{{ log.id }}" class="show-details" href="#">{% trans 'Voir les détails...' %}</a></td>
+	            </tr>
+	            <tr class="log-details" id="details-{{ log.id }}">
+	            	<td></td>
+	            	<td colspan="6"><textarea disabled>{{ log.message }}</textarea></td>
+	            </tr>
+	        {% endfor %}
+	        </tbody>
+	    </table>	        
+	    {% if is_paginated %}
+		        <ul class="pagination">
+		        	{% if page_obj.has_previous %}
+		        	<li class="arrow"><a href="{% url logs-list %}?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+		        	{% else %}
+		        	<li class="arrow inactive">&laquo;</li>
+		        	{% endif %}
+		        	{% for i in page_obj.paginator.page_range %}
+	  				<li {% ifequal i page_obj.number %}class="current"{% endifequal %}><a href="{% url logs-list %}?page={{ i }}">{{ i }}</a></li>
+	  				{% endfor %}
+	  				{% if page_obj.has_next %}
+	  				<li class="arrow"><a href="{% url logs-list %}?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+		        	{% else %}
+		        	<li class="arrow inactive">&raquo;</li>
+		        	{% endif %}
+				</ul>
+    	{% endif %}
+    </div>
+</section>
+{% endblock content %}
+
+{% block javascript %}
+<script type="text/javascript">
+$('#cronlogs-table').delegate('.show-details', 'click', function(e){
+	e.preventDefault();
+	$("#details-" + $(this).data("id")).toggle();
+});
+</script>
+{% endblock javascript %}

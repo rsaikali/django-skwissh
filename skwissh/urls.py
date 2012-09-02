@@ -1,13 +1,32 @@
 # -*- coding: utf-8 -*-
 from django.conf import settings
 from django.conf.urls import patterns, url, include
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 from django.core.urlresolvers import reverse_lazy
-from skwissh.generic_views import AddServerView, DeleteServerView, UpdateServerView, \
-    DeleteGroupView, AddServerGroupView, UpdateServerGroupView, DeleteProbeView, \
-    UpdateProbeView, AddProbeView
+from django.views.generic import list_detail
+from skwissh.generic_views import AddServerView, DeleteServerView, \
+    UpdateServerView, DeleteGroupView, AddServerGroupView, UpdateServerGroupView, \
+    DeleteProbeView, UpdateProbeView, AddProbeView
+from skwissh.models import CronLog, ServerGroup, Server
 
 staff_required = user_passes_test(lambda u: u.is_staff)
+
+
+def get_nogroups():
+    return Server.objects.filter(servergroup__isnull=True).order_by('hostname')
+
+
+def get_groups():
+    return ServerGroup.objects.all().order_by('name')
+
+logs_info = {"queryset": CronLog.objects.all(),
+             "template_name": 'cronlog_list.html',
+             "paginate_by": 50,
+             "extra_context": {
+                               'groups': get_groups,
+                               'nogroup_servers': get_nogroups,
+                               }
+}
 
 urlpatterns = patterns('',
 
@@ -38,6 +57,10 @@ urlpatterns = patterns('',
     url(r'^add_probe/$', staff_required(AddProbeView.as_view()), name='add-probe'),
     url(r'^update_probe/$', staff_required(UpdateProbeView.as_view()), name='update-probe'),
     url(r'^delete_probe/(?P<pk>[\w-]+)$', staff_required(DeleteProbeView.as_view()), name='delete-probe'),
+
+    # Logs
+    #url(r'^logs/$', CronLogListView.as_view(), name='logs-list'),
+    url(r'^logs/$', login_required(list_detail.object_list), logs_info, name='logs-list'),
 
     # Ajax
     url(r'^mesures/(\d+)/(\d+)/(\w+)/$', 'skwissh.views.mesures', name='mesures'),
