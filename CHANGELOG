@@ -1,3 +1,18 @@
+==== 0.0.6 (2012-09-02) ====
+
+- Sensors report page (no more logfile).
+- Better display graphs when not enough data (predictive array).
+- No more measures array below graphs.
+- New bargraph graphtype.
+- New periods for crontab averages :
+	- day : 10 minutes
+	- week : 1 hour
+	- month : 3 hours
+- JQuery 1.8.1
+- Zoom on graphs
+- Min/Max/Avg/Last for each label
+- Minor bug fixes
+
 ==== 0.0.5 (2012-08-26) ====
 
 - Improved tests.
