@@ -69,6 +69,14 @@
 							<input id="unit-{{ probe.id }}" type="text" disabled value="{{ probe.probe_unit }}"/>
 						</div>
 					</div>
+					<div class="row">
+						<div class="two columns">
+							<label class="inline" for="labels-{{ probe.id }}">{% trans 'Libéllés' %}</label>
+						</div>
+						<div class="ten columns">
+							<input id="unit-{{ probe.id }}" type="text" disabled value="{{ probe.probe_labels }}"/>
+						</div>
+					</div>					
 					{% endifnotequal %}
 				</form>
 			</div>

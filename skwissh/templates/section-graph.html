@@ -11,6 +11,9 @@
 		{% endif %}
 	</ul>
 	<div class="panel graph">
+		{% if probe.graph_type.name == 'linegraph' or probe.graph_type.name == 'bargraph' or probe.graph_type.name == 'pie' %}
+		<a class='right download' href="#" onclick="javascript: window.location.href = $('#graph-{{ probe.id }}').jqplotToImageStr({x_offset:50,y_offset:50})">{% trans 'Télécharger le graphique...' %}</a>
+		{% endif %}	
 		<div id="detail-{{ probe.id }}">
 			<p class="waiting-title">{% trans 'Chargement des données en cours...' %}<p>
 			<div class="waiting"></div>
@@ -18,6 +21,6 @@
 		</div>
 		{% if probe.graph_type.name == 'linegraph' or probe.graph_type.name == 'bargraph' %}
 		<div class="display summary" id="summary-{{ probe.id }}"></div>
-		{% endif %}		
+		{% endif %}
 	</div>
 </section>

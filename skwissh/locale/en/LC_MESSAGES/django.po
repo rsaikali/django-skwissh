@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Skwissh-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-02 18:04+0200\n"
+"POT-Creation-Date: 2012-09-03 00:06+0200\n"
 "PO-Revision-Date: 2012-08-12 10:35+0200\n"
 "Last-Translator: Roland SAIKALI <roland@saikali.fr>\n"
 "Language-Team: Roland SAIKALI <roland@saikali.fr>\n"
@@ -40,7 +40,7 @@ msgid "Non"
 msgstr "No"
 
 #: forms.py:18
-#: templates/index.html:24
+#: templates/index.html:27
 msgid "Mot de passe"
 msgstr "Password"
 
@@ -246,39 +246,43 @@ msgstr "Error"
 msgid "Voir les détails..."
 msgstr "See details..."
 
-#: templates/index.html:8
+#: templates/index.html:11
 #: templates/base/navigation.html:112
 msgid "Connexion"
 msgstr "Connexion"
 
-#: templates/index.html:13
+#: templates/index.html:16
 msgid "Veuillez vous identifier pour accéder à Skwissh."
 msgstr "Please enter your credentials to access Skwissh."
 
-#: templates/index.html:17
+#: templates/index.html:20
 msgid "Sur ce site de demo, vous pouvez vous connecter avec "
 msgstr "On this demo site, you can connect with credentials"
 
-#: templates/index.html:22
+#: templates/index.html:25
 msgid "Nom d'utilisateur"
 msgstr "Username"
 
-#: templates/index.html:26
+#: templates/index.html:29
 #: templates/base/navigation.html:121
 msgid "Se connecter"
 msgstr "Login"
 
-#: templates/index.html:43
+#: templates/index.html:63
+msgid "Skwissh en action"
+msgstr "Skwissh in action"
+
+#: templates/index.html:86
 msgid "Qu'est ce que Skwissh ?"
 msgstr "What is Skwissh ?"
 
-#: templates/index.html:48
+#: templates/index.html:91
 msgid ""
 "Skwissh est une application Django pour monitorer vos serveurs à distance en "
 "utilisant du SSH."
 msgstr "Skwissh is a Django application for remotely monitoring servers using SSH."
 
-#: templates/index.html:51
+#: templates/index.html:94
 msgid ""
 "En arrière plan, Skwissh utilise Python Fabric (http://fabfile.org) pour "
 "exécuter des commandes SSH, récupérer leurs sorties et historiser les "
@@ -287,25 +291,17 @@ msgstr "In background (crontabed jobs) Skwissh uses Python Fabric (http://fabfil
 "org) to execute SSH commands, aka. \"sensors\", get the output and store "
 "timestamped values. Measures are taken every minute."
 
-#: templates/index.html:54
+#: templates/index.html:97
 msgid ""
 "Côté application web, Skwissh permet de présenter toutes les historiques des "
-"mesures sous différentes formes (graphiques en ligne, camembert, sortie "
-"texte)."
+"mesures sous différentes formes (graphiques en ligne, histogrammes, "
+"camemberts, sorties textuelles)."
 msgstr "On the web application side, Skwissh is able to display nice charts "
-"(linechart, piechart or simple text) with aggregated measures."
+"(linechart, barchart, piechart or simple text) with aggregated measures."
 
-#: templates/index.html:57
+#: templates/index.html:100
 msgid "Vous pouvez également ajouter vos propres sondes personnalisées"
 msgstr "You can also easily add your own custom sensors"
-
-#: templates/index.html:66
-msgid "Plus d'informations"
-msgstr "More information"
-
-#: templates/index.html:71
-msgid "Plus d'informations sur Skwissh :"
-msgstr "More information about Skwissh :"
 
 #: templates/modal-add-probe.html:5
 #: templates/base/navigation.html:87
@@ -512,6 +508,10 @@ msgstr "Python command"
 #: templates/section-probe.html:66
 msgid "Unités"
 msgstr "Units"
+
+#: templates/section-probe.html:74
+msgid "Libéllés"
+msgstr "Labels"
 
 #: templates/server-list.html:30
 msgid "Aucun serveur"

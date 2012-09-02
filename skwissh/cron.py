@@ -113,6 +113,8 @@ def storeValue(server, probe, timestamp, server_up):
             else:
                 output = "0"
 
+        if probe.graph_type.name == 'text':
+            Measure.objects.filter(server=server, probe=probe).delete()
         Measure.objects.create(timestamp=timestamp, server=server, probe=probe, value=str(output))
     except:
         messages.append(traceback.format_exc())
