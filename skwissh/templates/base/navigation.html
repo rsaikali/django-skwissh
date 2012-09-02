@@ -72,7 +72,7 @@
 				</li>
 				{% endif %}
 				{% if user.is_staff %}
-				{% if server_form %}
+				{% if not server and server_form %}
 				<li class="server">
 					<a title="{% trans 'Ajouter un serveur' %}..." href="#" onclick="javascript:$('#add-server').reveal();">{% trans 'Ajouter un serveur' %}...</a>
 				</li>
@@ -87,7 +87,7 @@
 					<a title="{% trans 'Ajouter une sonde' %}..." href="#" data-reveal-id="add-probe">{% trans 'Ajouter une sonde' %}...</a>
 				</li>
 				{% endif %}
-				{% if server_form %}
+				{% if server %}
 				<li class="edit">
 					<a title="{% trans 'Editer le serveur actuel' %}..." href="#" data-reveal-id="edit-server">{% trans 'Editer ce serveur' %}...</a>
 				</li>

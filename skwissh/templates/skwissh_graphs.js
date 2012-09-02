@@ -133,9 +133,11 @@ $(document).ready(function() {
 		};
 		var maxDate = graph_data[0][0][0];
 		var minDate = graph_data[0][graph_data[0].length-1][0];
-		var bMgin = 2;
-		if (period === 'hour')
+		var bMgin = 1;
+		if (period === 'hour') {
 			var tickInt = '5 minutes';
+			bMgin = 2;	
+		}
 		else if (period === 'day')
 			var tickInt = '2 hours';
 		else if (period === 'week')
