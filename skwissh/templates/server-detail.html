@@ -10,10 +10,23 @@
 
 {% block container %}
 	{% if user.is_staff %}
-		{% include "modal-edit-server.html" %}
+		{% if form.errors %}
+			{% with server_form=form %}
+			{% include "modal-edit-server.html" %}
+			{% endwith %}
+		{% else %}
+			{% include "modal-edit-server.html" %}
+		{% endif %}
 	{% endif %}
 {% endblock container %}
 
 {% block javascript %}
+	{% if form.errors %}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#edit-server').reveal();
+		}); 
+	</script>
+	{% endif %}	
 	{% include "skwissh_graphs.js" %}
 {% endblock javascript %}

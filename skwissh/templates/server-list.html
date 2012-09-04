@@ -41,6 +41,7 @@
 {% endblock content %}
 
 {% block container %}
+
 {% if user.is_staff %}
 	{% include "modal-add-server.html" %}
 	{% include "modal-add-server-group.html" %}
@@ -58,6 +59,29 @@
 {% endblock container %}
 
 {% block javascript %}
+	{% if server_form.errors %}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#add-server').reveal();
+		}); 
+	</script>
+	{% endif %}	
+	{% if server_group_form.errors %}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#add-server-group').reveal();
+		}); 
+	</script>
+	{% endif %}	
+	{% for form in server_group_formset %}
+		{% if form.errors %}
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$('#edit-server-group-{{ form.id.value }}').reveal();
+				}); 
+			</script>
+    	{% endif %}
+	{% endfor %}
 <script type="text/javascript" src="{{ STATIC_URL }}skwissh/javascripts/jquery.isotope.min.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}skwissh/javascripts/skwissh.isotope.js"></script>
 {% endblock javascript %}

@@ -558,8 +558,11 @@ section table#cronlogs-table tr.log-details {
 }
 section table#cronlogs-table tr.log-details textarea {
   height: 300px;
+  background: #303030 !important;
+  color: @greenColor;
+  font-size: 1.2em !important;
   font-weight: bold;
-  font-size: 0.95em;
+  font-family: @consoleFont;  
 }
 section table#cronlogs-table td.log.up {
   background: url("/static/skwissh/images/skwissh/server-up.svg") no-repeat 5px 2px !important;
@@ -735,4 +738,18 @@ section .panel.red .warning{
 }
 #slidemo.orbit img {
   display: block;
+}
+.reveal-modal[id*="probe"] form ul.errorlist {
+  margin-top: -22px !important;
+  margin-bottom: 0px !important;
+  color: red !important;
+  font-weight: bold !important;
+  float: right !important;
+}
+form ul.errorlist {
+  margin-top: -30px !important;
+  margin-bottom: 0px !important;
+  color: red !important;
+  font-weight: bold !important;
+  float: right !important;
 }

@@ -17,3 +17,22 @@
 		{% include "modal-add-probe.html" %}
 	{% endif %}
 {% endblock container %}
+
+{% block javascript %}
+	{% if probe_form.errors %}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#add-probe').reveal();
+		}); 
+	</script>
+	{% endif %}
+	{% for form in probe_formset %}
+		{% if form.errors %}
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$('#edit-probe-{{ form.id.value }}').reveal();
+				}); 
+			</script>
+    	{% endif %}
+	{% endfor %}	
+{% endblock javascript %}

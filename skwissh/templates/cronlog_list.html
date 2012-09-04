@@ -38,7 +38,11 @@
 	        {% for log in object_list %}
 	            <tr>
 	                <td>{% ifchanged %}{{ log.timestamp }}{% endifchanged %}</td>
-	                <td>{{ log.server.hostname }}</td>
+	                {% if log.server %}
+	                <td><a href="{% url server-detail log.server.id %}">{{ log.server.hostname }}</a></td>
+	                {% else %}
+	                <td></td>
+	                {% endif %}
 	                <td>{{ log.action }}</td>
 	                <td>{{ log.duration|floatformat:2 }} {% trans 'secondes' %}</td>
 	                {% if log.success %}

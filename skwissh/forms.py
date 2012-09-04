@@ -7,7 +7,7 @@ from skwissh.models import Server, ServerGroup, Probe
 
 
 class ProbeForm(ModelForm):
-    use_sudo = forms.ChoiceField(label=_("Utilise 'sudo' ?"), choices=((True, _('Oui')), (False, _('Non'))), widget=forms.RadioSelect)
+    use_sudo = forms.ChoiceField(label=_("Utilise 'sudo' ?"), choices=((True, _('Oui')), (False, _('Non'))), widget=forms.RadioSelect, initial=False)
 
     class Meta:
         model = Probe
