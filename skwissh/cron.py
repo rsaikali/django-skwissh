@@ -115,6 +115,9 @@ def storeValue(server, probe, timestamp, server_up):
 
         if probe.graph_type.name == 'text':
             Measure.objects.filter(server=server, probe=probe).delete()
+            messages.append("\t-> Extracted value is %d characters long" % len(output))
+        else:
+            messages.append("\t-> Extracted values : %s" % output)
         Measure.objects.create(timestamp=timestamp, server=server, probe=probe, value=str(output))
     except:
         messages.append(traceback.format_exc())
