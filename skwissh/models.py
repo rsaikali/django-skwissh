@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from skwissh.fields import EncryptedCharField
 import datetime
 
 
@@ -24,9 +25,9 @@ def get_default_graph_type():
 
 
 class Probe(models.Model):
-    display_name = models.CharField(max_length=255, verbose_name=_(u"Nom de la sonde"), null=True, blank=True)
+    display_name = models.CharField(max_length=255, verbose_name=_(u"Nom de la sonde"))
     addon_name = models.CharField(max_length=255, verbose_name=_(u"Infos complémentaires (version linux...)"), null=True, blank=True)
-    ssh_command = models.TextField(verbose_name=_(u"Commande SSH"), null=True, blank=True)
+    ssh_command = models.TextField(verbose_name=_(u"Commande SSH"))
     use_sudo = models.BooleanField(verbose_name=_(u"Utilise 'sudo' ?"), default=False)
     python_parse = models.TextField(verbose_name=_(u"Commande Python de parsing"), null=True, blank=True, default="output = output")
     graph_type = models.ForeignKey(GraphType, verbose_name=_(u"Type de visualisation"), default=get_default_graph_type)
@@ -52,7 +53,7 @@ class Server(models.Model):
     state = models.BooleanField(verbose_name=_(u"Serveur accessible ?"), default=False)
     is_measuring = models.BooleanField(verbose_name=_(u"Serveur en cours de mesures ?"), default=False)
     username = models.CharField(max_length=50, verbose_name=_(u"Nom d'utilisateur SSH"), blank=True, default="")
-    password = models.CharField(max_length=50, verbose_name=_(u"Mot de passe SSH"), blank=True, default="")
+    password = EncryptedCharField(max_length=50, verbose_name=_(u"Mot de passe SSH"), blank=True, default="")
     date_created = models.DateTimeField(verbose_name=_(u"Date de création"), null=True, auto_now_add=True, default=datetime.datetime.now())
     date_modified = models.DateTimeField(verbose_name=_(u"Date de modification"), null=True, auto_now=True, default=datetime.datetime.now())
     probes = models.ManyToManyField(Probe, verbose_name=_(u"Sondes"), blank=True, null=True)
