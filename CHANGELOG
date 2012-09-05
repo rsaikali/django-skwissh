@@ -1,6 +1,9 @@
-==== 0.0.6 (2012-09-02) ====
+==== 0.0.6 (2012-09-05) ====
 
-- Sensors report page (no more logfile).
+- Issue #7 : Corrected forms errors handling.
+- Issue #6 : Sensors report page (no more logfile).
+- Ability to export graphs as images.
+- Encrypted passwords fields in database (uses settings.SECRET_KEY).
 - Better display graphs when not enough data (predictive array).
 - No more measures array below graphs.
 - New bargraph graphtype.
@@ -11,7 +14,8 @@
 - JQuery 1.8.1
 - Zoom on graphs
 - Min/Max/Avg/Last for each label
-- New homepage (screenshots slider)
+- New homepage (screenshots slide with Zurb Orbit).
+- Translation updates
 - Minor bug fixes
 
 ==== 0.0.5 (2012-08-26) ====
