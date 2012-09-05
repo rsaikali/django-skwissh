@@ -5,7 +5,7 @@ from django.contrib.auth.views import login
 from django.core import serializers
 from django.forms.models import modelformset_factory
 from django.http import HttpResponse, Http404, HttpResponseServerError
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.timezone import utc
 from django.views.decorators.cache import cache_page
 from skwissh.forms import ServerForm, ServerGroupForm, ProbeForm
@@ -76,22 +76,18 @@ def server_detail(request, server_id):
 @cache_page(60)
 def mesures(request, server_id, probe_id, period):
     if request.is_ajax():
-        try:
-            probe = Probe.objects.get(id=probe_id)
-            server = Server.objects.get(id=server_id)
-        except:
-            raise Http404
-
+        probe = get_object_or_404(Probe, pk=probe_id)
+        server = get_object_or_404(Server, pk=server_id)
         now = datetime.datetime.utcnow().replace(tzinfo=utc)
-        if period == 'last':           # Each minute
+        if period == 'last':
             data = Measure.objects.filter(server=server, probe=probe)[0:1]
-        elif period == 'hour':         # Each minute
+        elif period == 'hour':
             data = Measure.objects.filter(server=server, probe=probe, timestamp__gte=now - datetime.timedelta(hours=1))
-        elif period == 'day':          # Each 5 minutes
+        elif period == 'day':
             data = MeasureDay.objects.filter(server=server, probe=probe, timestamp__gte=now - datetime.timedelta(days=1))
-        elif period == 'week':         # Each 30 minutes
+        elif period == 'week':
             data = MeasureWeek.objects.filter(server=server, probe=probe, timestamp__gte=now - datetime.timedelta(days=7))
-        elif period == 'month':        # Each hour
+        elif period == 'month':
             data = MeasureMonth.objects.filter(server=server, probe=probe, timestamp__gte=now - datetime.timedelta(days=31))
         return HttpResponse(serializers.serialize('json', data), 'application/javascript')
     else:

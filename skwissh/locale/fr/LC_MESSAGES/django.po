@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-03 00:06+0200\n"
+"POT-Creation-Date: 2012-09-05 23:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
-#: forms.py:10 models.py:30 templates/section-probe.html:46
+#: forms.py:10 models.py:31 templates/section-probe.html:46
 msgid "Utilise 'sudo' ?"
 msgstr ""
 
@@ -38,112 +38,112 @@ msgstr ""
 msgid "Mot de passe"
 msgstr ""
 
-#: models.py:8
+#: models.py:9
 msgid "Nom"
 msgstr ""
 
-#: models.py:9
+#: models.py:10
 msgid "Options jqPlot"
 msgstr ""
 
-#: models.py:10 models.py:35 models.py:56 models.py:74
+#: models.py:11 models.py:36 models.py:57 models.py:75
 msgid "Date de création"
 msgstr ""
 
-#: models.py:11 models.py:36 models.py:57 models.py:75
+#: models.py:12 models.py:37 models.py:58 models.py:76
 msgid "Date de modification"
 msgstr ""
 
-#: models.py:27
+#: models.py:28
 msgid "Nom de la sonde"
 msgstr ""
 
-#: models.py:28
+#: models.py:29
 msgid "Infos complémentaires (version linux...)"
 msgstr ""
 
-#: models.py:29 templates/section-probe.html:38
+#: models.py:30 templates/section-probe.html:38
 msgid "Commande SSH"
 msgstr ""
 
-#: models.py:31
+#: models.py:32
 msgid "Commande Python de parsing"
 msgstr ""
 
-#: models.py:32
+#: models.py:33
 msgid "Type de visualisation"
 msgstr ""
 
-#: models.py:33
+#: models.py:34
 msgid "Unité"
 msgstr ""
 
-#: models.py:34
+#: models.py:35
 msgid "Labels des valeurs"
 msgstr ""
 
-#: models.py:50
+#: models.py:51
 msgid "Nom du serveur"
 msgstr ""
 
-#: models.py:51
+#: models.py:52
 msgid "Adresse IP"
 msgstr ""
 
-#: models.py:52
+#: models.py:53
 msgid "Serveur accessible ?"
 msgstr ""
 
-#: models.py:53
+#: models.py:54
 msgid "Serveur en cours de mesures ?"
 msgstr ""
 
-#: models.py:54
+#: models.py:55
 msgid "Nom d'utilisateur SSH"
 msgstr ""
 
-#: models.py:55
+#: models.py:56
 msgid "Mot de passe SSH"
 msgstr ""
 
-#: models.py:58 templates/base/navigation.html:61
+#: models.py:59 templates/base/navigation.html:61
 msgid "Sondes"
 msgstr ""
 
-#: models.py:73
+#: models.py:74
 msgid "Nom du groupe"
 msgstr ""
 
-#: models.py:76
+#: models.py:77
 msgid "Serveurs"
 msgstr ""
 
-#: models.py:88 models.py:103 models.py:118 models.py:133 models.py:148
+#: models.py:89 models.py:104 models.py:119 models.py:134 models.py:149
 msgid "Date et heure"
 msgstr ""
 
-#: models.py:89 models.py:104 models.py:119 models.py:134 models.py:149
-#: models.py:150 templates/cronlog_list.html:32
+#: models.py:90 models.py:105 models.py:120 models.py:135 models.py:150
+#: models.py:151 templates/cronlog_list.html:32
 msgid "Serveur"
 msgstr ""
 
-#: models.py:90 models.py:105 models.py:120 models.py:135
+#: models.py:91 models.py:106 models.py:121 models.py:136
 msgid "Sonde"
 msgstr ""
 
-#: models.py:91 models.py:106 models.py:121 models.py:136
+#: models.py:92 models.py:107 models.py:122 models.py:137
 msgid "Valeur mesurée"
 msgstr ""
 
-#: models.py:151
+#: models.py:152
 msgid "Succès de l'exécution ?"
 msgstr ""
 
-#: models.py:152
+#: models.py:153
 msgid "Message"
 msgstr ""
 
-#: models.py:153
+#: models.py:154
 msgid "Durée en secondes"
 msgstr ""
 
@@ -197,19 +197,19 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: templates/cronlog_list.html:43
+#: templates/cronlog_list.html:47
 msgid "secondes"
 msgstr ""
 
-#: templates/cronlog_list.html:45
+#: templates/cronlog_list.html:49
 msgid "OK"
 msgstr ""
 
-#: templates/cronlog_list.html:48
+#: templates/cronlog_list.html:52
 msgid "Erreur"
 msgstr ""
 
-#: templates/cronlog_list.html:51
+#: templates/cronlog_list.html:55
 msgid "Voir les détails..."
 msgstr ""
 
@@ -233,35 +233,35 @@ msgstr ""
 msgid "Se connecter"
 msgstr ""
 
-#: templates/index.html:63
+#: templates/index.html:66
 msgid "Skwissh en action"
 msgstr ""
 
-#: templates/index.html:86
+#: templates/index.html:89
 msgid "Qu'est ce que Skwissh ?"
 msgstr ""
 
-#: templates/index.html:91
+#: templates/index.html:94
 msgid ""
 "Skwissh est une application Django pour monitorer vos serveurs à distance en "
 "utilisant du SSH."
 msgstr ""
 
-#: templates/index.html:94
+#: templates/index.html:97
 msgid ""
 "En arrière plan, Skwissh utilise Python Fabric (http://fabfile.org) pour "
 "exécuter des commandes SSH, récupérer leurs sorties et historiser les "
 "résultats. Les mesures sont prises toutes les minutes."
 msgstr ""
 
-#: templates/index.html:97
+#: templates/index.html:100
 msgid ""
 "Côté application web, Skwissh permet de présenter toutes les historiques des "
 "mesures sous différentes formes (graphiques en ligne, histogrammes, "
 "camemberts, sorties textuelles)."
 msgstr ""
 
-#: templates/index.html:100
+#: templates/index.html:103
 msgid "Vous pouvez également ajouter vos propres sondes personnalisées"
 msgstr ""
 
@@ -386,6 +386,10 @@ msgid "Dernier mois"
 msgstr ""
 
 #: templates/section-graph.html:15
+msgid "Télécharger le graphique..."
+msgstr ""
+
+#: templates/section-graph.html:18
 msgid "Chargement des données en cours..."
 msgstr ""
 

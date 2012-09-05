@@ -743,13 +743,29 @@ section .panel.red .warning{
   margin-top: -22px !important;
   margin-bottom: 0px !important;
   color: red !important;
-  font-weight: bold !important;
   float: right !important;
 }
 form ul.errorlist {
   margin-top: -30px !important;
   margin-bottom: 0px !important;
   color: red !important;
-  font-weight: bold !important;
   float: right !important;
+}
+form div.alert {
+  margin-top: 10px;
+  padding-top: 0px;
+}
+form div.alert ul.errorlist {
+  margin: 0 0 0 0 !important;
+  color: white !important;
+  float: none !important;
+}
+form div.alert ul.errorlist li {
+  font-size: 1em !important;
+}
+form ul.errorlist li {
+  font-size: 0.8em;
+}
+form ul.errorlist + input, form ul.errorlist + textarea {
+  background: #FFD6D6 !important;
 }

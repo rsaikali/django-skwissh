@@ -23,7 +23,7 @@ def getMeasures():
         timestamp = datetime.datetime.utcnow().replace(tzinfo=utc)
         now = timestamp - datetime.timedelta(seconds=timestamp.second, microseconds=timestamp.microsecond)
         env.skip_bad_hosts = True
-        env.timeout = 5
+        env.timeout = 10
         env.connection_attempts = 1
         servers = Server.objects.filter(is_measuring=False)
         if servers:
@@ -32,7 +32,9 @@ def getMeasures():
             with hide('everything'):
                 execute(launch_command, now)
     except:
-        pass
+        total_time = datetime.datetime.utcnow().replace(tzinfo=utc) - timestamp
+        duration = float(int((total_time.seconds * 1000000) + total_time.microseconds) / 1000000.0)
+        CronLog.objects.create(timestamp=timestamp, action="sensors", server=None, success=False, duration=duration, message=traceback.format_exc())
     return 0
 
 
