@@ -2,7 +2,7 @@
 
 **DEMO SITE** : Visit the `Skwissh demo <http://skwissh.com>`_ (username ``test`` / password ``test``) to see Skwissh in action.
 
-**More info** : `github Pages for Skwissh <http://rsaikali.github.com/django-skwissh/>`_
+**More info** : `Github Pages for Skwissh <http://rsaikali.github.com/django-skwissh/>`_
 
 **Python Package Index** : `django-skwissh <http://pypi.python.org/pypi?:action=display&name=django-skwissh>`_
 
