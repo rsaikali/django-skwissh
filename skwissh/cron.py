@@ -151,6 +151,8 @@ def calculateAveragesForPeriod(period, classname, server, probe):
             values = [float(measure.value.split(";")[i]) for measure in measures]
             all_values.append(str(round(float(sum(values) / len(values)), 2)))
         classname.objects.create(timestamp=round_now, server=server, probe=probe, value=";".join(all_values))
+    else:
+        classname.objects.create(timestamp=round_now, server=server, probe=probe, value="0")
 
 
 def calculateAverage(period, classname):
