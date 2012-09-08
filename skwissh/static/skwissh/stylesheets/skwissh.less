@@ -687,16 +687,19 @@ footer .nav-bar {
   padding: 3px;
   height: auto;
 }
-footer ul {
+footer {
   text-align: center; 
   font-family: @textFont;
+  color: #E6E6E6;
+}
+footer .nav-bar {
   font-size: 0.85em;
+  line-height: 20px;
+}
+footer a {
   color: #E6E6E6;
 }
-footer ul a {
-  color: #E6E6E6;
-}
-footer ul a:hover {
+footer a:hover {
   color: @greenColor;
 }
 footer .skwi {
@@ -706,6 +709,19 @@ footer .skwi {
 footer .ssh {
   font-family: @titleFont;
   color: @greenColor !important;
+}
+footer #html5badge img {
+  float: left;
+  margin-top: 8px;
+  height: 25px;
+  width: 25px;
+  margin-left: 8px;
+}
+footer #djangobadge img {
+  float: right;
+  margin-top: 8px;
+  margin-right: 8px;
+  margin-left: -100px;
 }
 /******************************************************************************
  * 404 / 500
@@ -768,4 +784,7 @@ form ul.errorlist li {
 }
 form ul.errorlist + input, form ul.errorlist + textarea {
   background: #FFD6D6 !important;
+}
+#langform ul {
+  margin-left: -3px;
 }

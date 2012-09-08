@@ -3,14 +3,16 @@
 <footer>
 	<div class="row copyright">
 		<div class="twelve columns">
-			<ul class="nav-bar">
+			<div class="nav-bar">
+				<a id="html5badge" target="_blank" href="http://validator.w3.org/check?uri=http://skwissh.com"><img src="{{ STATIC_URL }}skwissh/images/skwissh/HTML5_Badge.svg" alt="HTML5 compliant" /></a>
 				<a target="_blank" href="https://www.djangoproject.com/">Django {% get_django_version %}</a><span> - </span>
 				<a target="_blank" href="http://foundation.zurb.com/">Zurb Foundation 3.0</a><span> - </span>
 				<a target="_blank" href="http://www.jqplot.com/">jqPlot 1.0.2</a><span> - </span>
 				<a target="_blank" href="http://fabfile.org">Fabric {% get_fabric_version %}</a>
+				<a id="djangobadge" target="_blank" href="http://www.djangoproject.com/"><img src="https://www.djangoproject.com/m/img/badges/djangomade124x25.gif" border="0" alt="Made with Django." title="Made with Django." /></a>
 				<br/>
 				<span class="skwi">SKWI</span><span class="ssh">SSH</span> v{% get_skwissh_version %} - {% trans 'Développé par' %} <a target="_blank" href="mailto:contact@skwissh.com">Roland SAIKALI</a>
-			</ul>
+			</div>
 		</div>
 	</div>
 </footer>
