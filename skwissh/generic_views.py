@@ -20,12 +20,8 @@ class AddServerView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(AddServerView, self).get_context_data(**kwargs)
-        ServerGroupFormSet = modelformset_factory(ServerGroup, form=ServerGroupForm)
+        context.update(get_server_list_context_data())
         context['server_form'] = context['form']
-        context['server_group_form'] = ServerGroupForm()
-        context['server_group_formset'] = ServerGroupFormSet(queryset=ServerGroup.objects.all().select_related())
-        context['groups'] = ServerGroup.objects.all().order_by('name')
-        context['nogroup_servers'] = Server.objects.filter(servergroup__isnull=True).order_by('hostname')
         return context
 
 
@@ -55,12 +51,8 @@ class AddServerGroupView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(AddServerGroupView, self).get_context_data(**kwargs)
-        ServerGroupFormSet = modelformset_factory(ServerGroup, form=ServerGroupForm)
-        context['server_form'] = ServerForm()
+        context.update(get_server_list_context_data())
         context['server_group_form'] = context['form']
-        context['server_group_formset'] = ServerGroupFormSet(queryset=ServerGroup.objects.all().select_related())
-        context['groups'] = ServerGroup.objects.all().order_by('name')
-        context['nogroup_servers'] = Server.objects.filter(servergroup__isnull=True).order_by('hostname')
         return context
 
 
@@ -72,11 +64,8 @@ class UpdateServerGroupView(ModelFormSetView):
 
     def get_context_data(self, **kwargs):
         context = super(UpdateServerGroupView, self).get_context_data(**kwargs)
-        context['server_form'] = ServerForm()
-        context['server_group_form'] = ServerGroupForm()
+        context.update(get_server_list_context_data())
         context['server_group_formset'] = context['formset']
-        context['groups'] = ServerGroup.objects.all().order_by('name')
-        context['nogroup_servers'] = Server.objects.filter(servergroup__isnull=True).order_by('hostname')
         return context
 
 
@@ -100,12 +89,8 @@ class AddProbeView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(AddProbeView, self).get_context_data(**kwargs)
-        ProbeFormSet = modelformset_factory(Probe, form=ProbeForm)
+        context.update(get_probe_list_context_data())
         context['probe_form'] = context['form']
-        context['probe_formset'] = ProbeFormSet(queryset=Probe.objects.all().select_related())
-        context['probes'] = Probe.objects.all()
-        context['groups'] = ServerGroup.objects.all().order_by('name')
-        context['nogroup_servers'] = Server.objects.filter(servergroup__isnull=True).order_by('hostname')
         return context
 
 
@@ -117,11 +102,8 @@ class UpdateProbeView(ModelFormSetView):
 
     def get_context_data(self, **kwargs):
         context = super(UpdateProbeView, self).get_context_data(**kwargs)
-        context['probe_form'] = ProbeForm()
+        context.update(get_probe_list_context_data())
         context['probe_formset'] = context['formset']
-        context['probes'] = Probe.objects.all()
-        context['groups'] = ServerGroup.objects.all().order_by('name')
-        context['nogroup_servers'] = Server.objects.filter(servergroup__isnull=True).order_by('hostname')
         return context
 
 
@@ -130,3 +112,28 @@ class DeleteProbeView(DeleteView):
 
     def get_success_url(self):
         return reverse_lazy('probe-list')
+
+
+#------------------------------------------------------------------------------
+# Context data
+#------------------------------------------------------------------------------
+def get_server_list_context_data():
+    ServerGroupFormSet = modelformset_factory(ServerGroup, form=ServerGroupForm)
+    return {
+            'server_form': ServerForm(),
+            'server_group_form': ServerGroupForm(),
+            'server_group_formset': ServerGroupFormSet(queryset=ServerGroup.objects.all().select_related()),
+            'groups': ServerGroup.objects.all().order_by('name'),
+            'nogroup_servers': Server.objects.filter(servergroup__isnull=True).order_by('hostname'),
+    }
+
+
+def get_probe_list_context_data():
+    ProbeFormSet = modelformset_factory(Probe, form=ProbeForm)
+    return {
+            'probe_form': ProbeForm(),
+            'probe_formset': ProbeFormSet(queryset=Probe.objects.all().select_related()),
+            'probes': Probe.objects.all(),
+            'groups': ServerGroup.objects.all().order_by('name'),
+            'nogroup_servers': Server.objects.filter(servergroup__isnull=True).order_by('hostname')
+    }

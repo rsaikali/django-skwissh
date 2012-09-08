@@ -3,14 +3,15 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import login
 from django.core import serializers
-from django.forms.models import modelformset_factory
 from django.http import HttpResponse, Http404, HttpResponseServerError
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.timezone import utc
 from django.views.decorators.cache import cache_page
-from skwissh.forms import ServerForm, ServerGroupForm, ProbeForm
+from skwissh.forms import ServerForm
+from skwissh.generic_views import get_server_list_context_data, \
+    get_probe_list_context_data
 from skwissh.models import Server, Measure, ServerGroup, Probe, MeasureDay, \
-    MeasureWeek, MeasureMonth
+    MeasureWeek, MeasureMonth, GraphType
 import datetime
 
 
@@ -28,28 +29,12 @@ def login_skwissh(request):
 
 @login_required
 def server_list(request):
-    ServerGroupFormSet = modelformset_factory(ServerGroup, form=ServerGroupForm)
-    data = {
-            'server_form': ServerForm(),
-            'server_group_form': ServerGroupForm(),
-            'server_group_formset': ServerGroupFormSet(queryset=ServerGroup.objects.all().select_related()),
-            'groups': ServerGroup.objects.all().order_by('name'),
-            'nogroup_servers': Server.objects.filter(servergroup__isnull=True).order_by('hostname'),
-    }
-    return render(request, 'server-list.html', data)
+    return render(request, 'server-list.html', get_server_list_context_data())
 
 
 @login_required
 def probe_list(request):
-    ProbeFormSet = modelformset_factory(Probe, form=ProbeForm)
-    data = {
-            'probe_form': ProbeForm(),
-            'probe_formset': ProbeFormSet(queryset=Probe.objects.all().select_related()),
-            'probes': Probe.objects.all(),
-            'groups': ServerGroup.objects.all().order_by('name'),
-            'nogroup_servers': Server.objects.filter(servergroup__isnull=True).order_by('hostname')
-    }
-    return render(request, 'probe-list.html', data)
+    return render(request, 'probe-list.html', get_probe_list_context_data())
 
 
 @login_required
@@ -61,6 +46,7 @@ def server_detail(request, server_id):
 
     form = ServerForm(instance=server)
     data = {
+            'graphtypes': GraphType.objects.all(),
             'server_form': form,
             'server': server,
             'groups': ServerGroup.objects.all().order_by('name'),

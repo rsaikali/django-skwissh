@@ -4,34 +4,34 @@
 		"model": "skwissh.graphtype",
 		"fields": {
 			"date_created": "2012-05-20T10:07:47Z",
-			"date_modified": "2012-08-31T13:31:29.488Z",
+			"date_modified": "2012-09-08T14:29:10Z",
 			"name": "bargraph",
-			"options": "seriesColors: [ \"#7FAE00\", \"#EAA228\", \"#D5383B\", \"#4EA5B5\" ],\r\naxes: {\r\n    xaxis: {\r\n        renderer: $.jqplot.DateAxisRenderer,\r\n        min: minDate,\r\n        max: maxDate,\r\n        tickInterval: tickInt,\r\n        tickOptions: {\r\n            formatString: \"<center>%R<br/>%d %b</center>\",\r\n        },\r\n    },\r\n    yaxis: {\r\n        min:0,\r\n        autoscale: true,\r\n        tickOptions: {\r\n            formatString: \"<center>%.2f @UNITS@</center>\",\r\n        },\r\n    },\r\n},\r\nseriesDefaults: {\r\n    renderer:$.jqplot.BarRenderer,\r\n    shadow: false,\r\n    showMarker: false,\r\n    rendererOptions: {\r\n        barMargin: bMgin,\r\n    },\r\n    markerOptions: {\r\n        show: false,\r\n        size: 0,\r\n    },\r\n},\r\nhighlighter: {\r\n    show: true, \r\n    showLabel: true, \r\n    sizeAdjust: 1,\r\n    tooltipLocation : 'n',\r\n    useAxesFormatters: true,\r\n    tooltipAxes: 'both',\r\n    tooltipSeparator: '',\r\n},\r\ngrid: {\r\n    background: '#F2F2F2',\r\n},\r\ncursor: { \r\n    zoom: true, \r\n    style: 'default',\r\n    show: true,\r\n    constrainZoomTo: 'x',\r\n    constrainOutsideZoom: true,\r\n    showTooltip: false,\r\n},\r\n@SERIES@,\r\nanimate: true,\r\nanimateReplot: false,\r\nstackSeries: true,"
+			"options": "seriesColors: [ \"#7FAE00\", \"#EAA228\", \"#D5383B\", \"#4EA5B5\" ],\r\naxes: {\r\n    xaxis: {\r\n        renderer: $.jqplot.DateAxisRenderer,\r\n        tickOptions: {\r\n            formatString: \"<center>%R<br/>%d %b</center>\",\r\n        },\r\n    },\r\n    yaxis: {\r\n        min:0,\r\n        autoscale: true,\r\n        tickOptions: {\r\n            formatString: \"<center>%.2f @UNITS@</center>\",\r\n        },\r\n    },\r\n},\r\nseriesDefaults: {\r\n    renderer:$.jqplot.BarRenderer,\r\n    shadow: false,\r\n    showMarker: false,\r\n    markerOptions: {\r\n        show: false,\r\n        size: 0,\r\n    },\r\n},\r\nhighlighter: {\r\n    show: true, \r\n    showLabel: true, \r\n    sizeAdjust: 1,\r\n    tooltipLocation : 'n',\r\n    useAxesFormatters: true,\r\n    tooltipAxes: 'both',\r\n    tooltipSeparator: '',\r\n},\r\ngrid: {\r\n    background: '#F2F2F2',\r\n},\r\ncursor: { \r\n    zoom: true, \r\n    style: 'default',\r\n    show: true,\r\n    constrainZoomTo: 'x',\r\n    constrainOutsideZoom: true,\r\n    showTooltip: false,\r\n},\r\nanimate: true,\r\nanimateReplot: false,\r\nstackSeries: true,"
 		}
 	}, {
 		"pk": 1,
 		"model": "skwissh.graphtype",
 		"fields": {
 			"date_created": "2012-05-17T18:01:01Z",
-			"date_modified": "2012-08-30T16:55:11.368Z",
+			"date_modified": "2012-09-08T14:29:21Z",
 			"name": "linegraph",
-			"options": "seriesColors: [ \"#7FAE00\", \"#EAA228\", \"#D5383B\", \"#4EA5B5\" ],\r\naxes: {\r\n    xaxis: {\r\n        renderer: $.jqplot.DateAxisRenderer,\r\n        min: minDate,\r\n        max: maxDate,\r\n        tickInterval: tickInt,\r\n        tickOptions: {\r\n            formatString: \"<center>%R<br/>%d %b</center>\",\r\n        },\r\n    },\r\n    yaxis: {\r\n        min:0,\r\n        autoscale: true,\r\n        tickOptions: {\r\n            formatString: \"<center>%.2f @UNITS@</center>\",\r\n        },\r\n    },\r\n},\r\nseriesDefaults: {\r\n    lineWidth:2,\r\n    shadow: false,\r\n    markerOptions: {\r\n        show: false,\r\n    },\r\n    rendererOptions: {\r\n        smooth: true,\r\n    },\r\n},\r\nhighlighter: {\r\n    show: true, \r\n    showLabel: true, \r\n    sizeAdjust: 1,\r\n    tooltipLocation : 'n',\r\n    useAxesFormatters: true,\r\n    tooltipAxes: 'both',\r\n    tooltipSeparator: '',\r\n},\r\ngrid: {\r\n    background: '#F2F2F2',\r\n},\r\ncursor: { \r\n    zoom: true, \r\n    style: 'default',\r\n    show: true,\r\n    constrainZoomTo: 'x',\r\n    constrainOutsideZoom: true,\r\n    showTooltip: false,\r\n},\r\n@SERIES@,\r\nanimate: true,\r\nanimateReplot: false,"
+			"options": "seriesColors: [ \"#7FAE00\", \"#EAA228\", \"#D5383B\", \"#4EA5B5\" ],\r\naxes: {\r\n    xaxis: {\r\n        renderer: $.jqplot.DateAxisRenderer,\r\n        tickOptions: {\r\n            formatString: \"<center>%R<br/>%d %b</center>\",\r\n        },\r\n    },\r\n    yaxis: {\r\n        min:0,\r\n        autoscale: true,\r\n        tickOptions: {\r\n            formatString: \"<center>%.2f @UNITS@</center>\",\r\n        },\r\n    },\r\n},\r\nseriesDefaults: {\r\n    lineWidth:2,\r\n    shadow: false,\r\n    markerOptions: {\r\n        show: false,\r\n    },\r\n    rendererOptions: {\r\n        smooth: true,\r\n    },\r\n},\r\nhighlighter: {\r\n    show: true, \r\n    showLabel: true, \r\n    sizeAdjust: 1,\r\n    tooltipLocation : 'n',\r\n    useAxesFormatters: true,\r\n    tooltipAxes: 'both',\r\n    tooltipSeparator: '',\r\n},\r\ngrid: {\r\n    background: '#F2F2F2',\r\n},\r\ncursor: { \r\n    zoom: true, \r\n    style: 'default',\r\n    show: true,\r\n    constrainZoomTo: 'x',\r\n    constrainOutsideZoom: true,\r\n    showTooltip: false,\r\n},\r\nanimate: true,\r\nanimateReplot: false,"
 		}
 	}, {
 		"pk": 2,
 		"model": "skwissh.graphtype",
 		"fields": {
 			"date_created": "2012-05-17T18:06:27Z",
-			"date_modified": "2012-08-31T09:04:44.235Z",
+			"date_modified": "2012-09-08T14:27:50Z",
 			"name": "pie",
-			"options": "seriesColors: [ \"#7FAE00\", \"#EAA228\", \"#D5383B\", \"#4EA5B5\" ],\r\nseriesDefaults: {\r\n    renderer: jQuery.jqplot.PieRenderer, \r\n    shadow: false,\r\n    rendererOptions: {\r\n        showDataLabels: true,\r\n        sliceMargin: 3,\r\n    },\r\n},\r\nhighlighter: {\r\n    show: true, \r\n    showTooltip: false,\r\n},\r\ncursor: {\r\n    show: false,\r\n},\r\ngrid: {\r\n    background: '#F2F2F2',\r\n},\r\n@SERIES@,"
+			"options": "seriesColors: [ \"#7FAE00\", \"#EAA228\", \"#D5383B\", \"#4EA5B5\" ],\r\nseriesDefaults: {\r\n    renderer: jQuery.jqplot.PieRenderer, \r\n    shadow: false,\r\n    rendererOptions: {\r\n        showDataLabels: true,\r\n        sliceMargin: 3,\r\n    },\r\n},\r\nhighlighter: {\r\n    show: true, \r\n    showTooltip: false,\r\n},\r\ncursor: {\r\n    show: false,\r\n},\r\ngrid: {\r\n    background: '#F2F2F2',\r\n},"
 		}
 	}, {
 		"pk": 3,
 		"model": "skwissh.graphtype",
 		"fields": {
 			"date_created": "2012-05-20T10:07:47Z",
-			"date_modified": "2012-08-30T11:33:24.279Z",
+			"date_modified": "2012-08-30T11:33:24Z",
 			"name": "text",
 			"options": ""
 		}
@@ -39,7 +39,7 @@
 		"pk": 3,
 		"model": "skwissh.probe",
 		"fields": {
-			"date_modified": "2012-08-31T12:08:16.877Z",
+			"date_modified": "2012-08-31T12:08:16Z",
 			"addon_name": "",
 			"display_name": "CPU (Usage)",
 			"ssh_command": "top -d0.2 -bn2 | grep \"Cpu\"",
@@ -54,7 +54,7 @@
 		"pk": 6,
 		"model": "skwissh.probe",
 		"fields": {
-			"date_modified": "2012-08-29T10:11:26.369Z",
+			"date_modified": "2012-08-29T10:11:26Z",
 			"addon_name": "",
 			"display_name": "CPU (Wait IO)",
 			"ssh_command": "top -d0.2 -bn2 | grep \"Cpu\"",
@@ -69,7 +69,7 @@
 		"pk": 4,
 		"model": "skwissh.probe",
 		"fields": {
-			"date_modified": "2012-08-29T12:32:18.372Z",
+			"date_modified": "2012-08-29T12:32:18Z",
 			"addon_name": "Ubuntu 12.04",
 			"display_name": "Disk Usage",
 			"ssh_command": "df -h / | tail -1",
@@ -84,7 +84,7 @@
 		"pk": 2,
 		"model": "skwissh.probe",
 		"fields": {
-			"date_modified": "2012-08-29T10:08:49.029Z",
+			"date_modified": "2012-08-29T10:08:49Z",
 			"addon_name": "",
 			"display_name": "Load",
 			"ssh_command": "cat /proc/loadavg",
@@ -99,37 +99,22 @@
 		"pk": 8,
 		"model": "skwissh.probe",
 		"fields": {
-			"date_modified": "2012-08-30T07:48:32.459Z",
+			"date_modified": "2012-08-30T07:48:32Z",
 			"addon_name": "",
 			"display_name": "Memory",
 			"ssh_command": "cat /proc/meminfo",
 			"probe_labels": "Free memory;Buffers;Used memory",
 			"use_sudo": false,
 			"probe_unit": "Mo",
-			"date_created": "2012-08-29T08:20:23.631Z",
+			"date_created": "2012-08-29T08:20:23Z",
 			"graph_type": 4,
 			"python_parse": "meminfos = dict([(info.split(':')[0].strip(), int(info.split()[1].strip())/1024) for info in output.splitlines()])\r\noutput = \";\".join([str(meminfos['MemFree']), str(meminfos['Buffers']), str(meminfos['MemTotal'] - meminfos['MemFree'] - meminfos['Buffers'])])"
-		}
-	}, {
-		"pk": 9,
-		"model": "skwissh.probe",
-		"fields": {
-			"date_modified": "2012-08-30T09:17:37.221Z",
-			"addon_name": "",
-			"display_name": "Memory (Swap)",
-			"ssh_command": "cat /proc/meminfo",
-			"probe_labels": "Free swap;Used swap",
-			"use_sudo": false,
-			"probe_unit": "Mo",
-			"date_created": "2012-08-29T08:42:29.645Z",
-			"graph_type": 4,
-			"python_parse": "meminfos = dict([(info.split(':')[0].strip(), int(info.split()[1].strip()) / 1024) for info in output.splitlines()])\r\noutput = \";\".join([str(meminfos['SwapFree']), str(meminfos['SwapTotal'] - meminfos['SwapFree'])])"
 		}
 	}, {
 		"pk": 7,
 		"model": "skwissh.probe",
 		"fields": {
-			"date_modified": "2012-08-31T09:02:39.186Z",
+			"date_modified": "2012-08-31T09:02:39Z",
 			"addon_name": "",
 			"display_name": "Memory (pie)",
 			"ssh_command": "cat /proc/meminfo",
@@ -141,17 +126,32 @@
 			"python_parse": "meminfos = dict([(info.split(':')[0].strip(), int(info.split()[1].strip())) for info in output.splitlines()])\r\noutput = \";\".join([str(meminfos['MemFree']), str(meminfos['Buffers']), str(meminfos['MemTotal'] - meminfos['MemFree'] - meminfos['Buffers'])])"
 		}
 	}, {
+		"pk": 9,
+		"model": "skwissh.probe",
+		"fields": {
+			"date_modified": "2012-08-30T09:17:37Z",
+			"addon_name": "",
+			"display_name": "Memory (Swap)",
+			"ssh_command": "cat /proc/meminfo",
+			"probe_labels": "Free swap;Used swap",
+			"use_sudo": false,
+			"probe_unit": "Mo",
+			"date_created": "2012-08-29T08:42:29Z",
+			"graph_type": 4,
+			"python_parse": "meminfos = dict([(info.split(':')[0].strip(), int(info.split()[1].strip()) / 1024) for info in output.splitlines()])\r\noutput = \";\".join([str(meminfos['SwapFree']), str(meminfos['SwapTotal'] - meminfos['SwapFree'])])"
+		}
+	}, {
 		"pk": 11,
 		"model": "skwissh.probe",
 		"fields": {
-			"date_modified": "2012-08-31T13:04:55.729Z",
+			"date_modified": "2012-08-31T13:04:55Z",
 			"addon_name": "",
 			"display_name": "Network data",
 			"ssh_command": "nstat | grep \"IpExt\"",
 			"probe_labels": "Received;Sent",
 			"use_sudo": false,
 			"probe_unit": "Ko",
-			"date_created": "2012-08-29T11:26:06.849Z",
+			"date_created": "2012-08-29T11:26:06Z",
 			"graph_type": 4,
 			"python_parse": "bdwth = dict([(info.split()[0].strip(), int(info.split()[1].strip()) / 1024) for info in output.splitlines()])\r\noutput = \";\".join([str(bdwth['IpExtInOctets']), str(bdwth['IpExtOutOctets'])])"
 		}
@@ -159,14 +159,14 @@
 		"pk": 10,
 		"model": "skwissh.probe",
 		"fields": {
-			"date_modified": "2012-08-29T10:04:52.393Z",
+			"date_modified": "2012-08-29T10:04:52Z",
 			"addon_name": "",
 			"display_name": "System idle time",
 			"ssh_command": "cat /proc/uptime",
 			"probe_labels": "Idle;Working",
 			"use_sudo": false,
 			"probe_unit": "",
-			"date_created": "2012-08-29T09:59:16.827Z",
+			"date_created": "2012-08-29T09:59:16Z",
 			"graph_type": 2,
 			"python_parse": "uptime = output.strip().split()\r\nuptime.reverse()\r\noutput = \";\".join(uptime)"
 		}
@@ -191,13 +191,13 @@
 		"fields": {
 			"username": "",
 			"is_measuring": false,
-			"date_modified": "2012-08-31T16:18:07.893Z",
+			"date_modified": "2012-09-08T16:01:03Z",
 			"ip": "127.0.0.1",
-			"hostname": "localhost",
+			"hostname": "Django Skwissh webserver",
 			"state": true,
 			"date_created": "2012-08-19T18:57:21Z",
 			"password": "",
-			"probes": [3, 6, 4, 2, 8, 9, 7, 11, 10, 5]
+			"probes": [3, 6, 4, 2, 8, 7, 9, 11, 10, 5]
 		}
 	}
 ]

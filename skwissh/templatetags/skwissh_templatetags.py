@@ -1,28 +1,11 @@
 # -*- coding: utf-8 -*-
 from django import template
-from django.db.models.aggregates import Max
-from django.utils import timezone
 from fabric.api import env
 from skwissh.models import Measure
 import django
 import skwissh
 
 register = template.Library()
-
-
-@register.filter(name='addunits')
-def addunits(value, units):
-    return value.replace("@UNITS@", units)
-
-
-@register.filter(name='addlegend')
-def addlegend(value, labels):
-    if labels:
-        legend_options = "series:[ %s ]," % ",".join(["{label: '%s'}" % label for label in labels.split(';')])
-        legend_options += "legend: {show: true, location: 'w', placement: 'inside'}"
-        return value.replace("@SERIES@", legend_options)
-    else:
-        return value.replace("@SERIES@,", "")
 
 
 @register.simple_tag(name='get_skwissh_version')

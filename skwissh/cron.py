@@ -110,10 +110,7 @@ def storeValue(server, probe, timestamp, server_up):
             success = False
 
         if not success:
-            if probe.graph_type.name == 'text':
-                output = "No data"
-            else:
-                output = "0"
+            output = "No data" if probe.graph_type.name == 'text' else "0"
 
         if probe.graph_type.name == 'text':
             Measure.objects.filter(server=server, probe=probe).delete()
@@ -161,7 +158,7 @@ def calculateAverage(period, classname):
     for server in Server.objects.all().select_related():
         try:
             threads = []
-            for probe in server.probes.filter(graph_type__name__in=['linegraph', 'bargraph', 'pie']):
+            for probe in server.probes.exclude(graph_type__name__in=['text']):
                 thread = threading.Thread(target=calculateAveragesForPeriod, args=[period, classname, server, probe], name="SkwisshAverage.%s.%s" % (classname.__name__, probe.display_name.encode('utf-8').replace(" ", "_")))
                 thread.setDaemon(False)
                 thread.start()

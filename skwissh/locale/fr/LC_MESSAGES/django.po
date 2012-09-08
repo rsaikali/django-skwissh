@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-05 23:06+0200\n"
+"POT-Creation-Date: 2012-09-08 14:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -213,7 +213,7 @@ msgstr ""
 msgid "Voir les détails..."
 msgstr ""
 
-#: templates/index.html:11 templates/base/navigation.html:112
+#: templates/index.html:11 templates/base/navigation.html:116
 msgid "Connexion"
 msgstr ""
 
@@ -229,40 +229,46 @@ msgstr ""
 msgid "Nom d'utilisateur"
 msgstr ""
 
-#: templates/index.html:29 templates/base/navigation.html:121
+#: templates/index.html:29 templates/base/navigation.html:125
 msgid "Se connecter"
 msgstr ""
 
-#: templates/index.html:66
+#: templates/index.html:64
 msgid "Skwissh en action"
 msgstr ""
 
-#: templates/index.html:89
+#: templates/index.html:87
 msgid "Qu'est ce que Skwissh ?"
 msgstr ""
 
-#: templates/index.html:94
+#: templates/index.html:92
 msgid ""
 "Skwissh est une application Django pour monitorer vos serveurs à distance en "
 "utilisant du SSH."
 msgstr ""
 
-#: templates/index.html:97
+#: templates/index.html:95
 msgid ""
 "En arrière plan, Skwissh utilise Python Fabric (http://fabfile.org) pour "
 "exécuter des commandes SSH, récupérer leurs sorties et historiser les "
 "résultats. Les mesures sont prises toutes les minutes."
 msgstr ""
 
-#: templates/index.html:100
+#: templates/index.html:98
 msgid ""
 "Côté application web, Skwissh permet de présenter toutes les historiques des "
 "mesures sous différentes formes (graphiques en ligne, histogrammes, "
 "camemberts, sorties textuelles)."
 msgstr ""
 
-#: templates/index.html:103
-msgid "Vous pouvez également ajouter vos propres sondes personnalisées"
+#: templates/index.html:101
+msgid ""
+"Plusieurs sondes sont fournies avec Skwissh (testées sous Ubuntu 12.04) : "
+"CPU, Swap, WaitIO, mémoire, réseau..."
+msgstr ""
+
+#: templates/index.html:104
+msgid "Mais vous pouvez également ajouter vos propres sondes personnalisées"
 msgstr ""
 
 #: templates/modal-add-probe.html:5 templates/base/navigation.html:87
@@ -482,7 +488,7 @@ msgid ""
 "Veuillez ajouter un serveur via le menu 'Options' puis 'Ajouter un serveur'."
 msgstr ""
 
-#: templates/base/footer.html:12
+#: templates/base/footer.html:14
 msgid "Développé par"
 msgstr ""
 
@@ -545,14 +551,14 @@ msgstr ""
 msgid "Langue"
 msgstr ""
 
-#: templates/base/navigation.html:117
+#: templates/base/navigation.html:121
 msgid "Se déconnecter de Skwissh"
 msgstr ""
 
-#: templates/base/navigation.html:117
+#: templates/base/navigation.html:121
 msgid "Se déconnecter"
 msgstr ""
 
-#: templates/base/navigation.html:121
+#: templates/base/navigation.html:125
 msgid "Se connecter de Skwissh"
 msgstr ""

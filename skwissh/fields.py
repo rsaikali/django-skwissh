@@ -27,7 +27,7 @@ class BaseEncryptedField(models.Field):
         if value is not None and not isinstance(value, EncryptedString):
             padding = self.cipher.block_size - len(value) % self.cipher.block_size
             if padding and padding < self.cipher.block_size:
-                value += "\0" + ''.join([random.choice(string.printable) for i in range(padding - 1)])
+                value += "\0" + ''.join([random.choice(string.printable) for i in range(padding - 1)])  # @UnusedVariable 'i'
             value = EncryptedString(binascii.b2a_hex(self.cipher.encrypt(value)))
         return value
 
