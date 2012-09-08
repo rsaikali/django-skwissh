@@ -19,13 +19,28 @@ graphtypes['{{ graphtype.name }}'] = { {{ graphtype.options|safe }} };
 $(document).ready(function() {
 	$.jqplot.config.enablePlugins = true; 	
 	{% for probe in server.probes.all %}
-	refreshGraph(get_mesures_url.replace('period', 'hour').replace('999', {{ probe.id }}), 'hour', '{{ probe.graph_type.name }}', {{ probe.id }}, '{{ probe.display_name }}', '{{ probe.probe_labels }}', '{{ probe.probe_unit }}');
+	var graphtype = 'text';
+	$("#graphtypeDropdown-{{ probe.id }} option:selected").each(function () {		
+		graphtype = $(this).text();
+	});
+	refreshGraph(get_mesures_url.replace('period', 'hour').replace('999', {{ probe.id }}), 'hour', graphtype, {{ probe.id }}, '{{ probe.display_name }}', '{{ probe.probe_labels }}', '{{ probe.probe_unit }}');
 	{% endfor %}
 });
 {% for probe in server.probes.all %}{% ifnotequal probe.graph_type.name 'text' %}
 $('.period-{{ probe.id }}').click(function(e){
 	e.preventDefault();
-	refreshGraph(get_mesures_url.replace('period', $(this).data("period")).replace('999', {{ probe.id }}), $(this).data("period"), '{{ probe.graph_type.name }}', {{ probe.id }}, '{{ probe.display_name }}', '{{ probe.probe_labels }}', '{{ probe.probe_unit }}', $(this));
+	$("#graphtypeDropdown-{{ probe.id }} option:selected").each(function () {		
+		graphtype = $(this).text();
+	});	
+	refreshGraph(get_mesures_url.replace('period', $(this).data("period")).replace('999', {{ probe.id }}), $(this).data("period"), graphtype, {{ probe.id }}, '{{ probe.display_name }}', '{{ probe.probe_labels }}', '{{ probe.probe_unit }}', $(this));
+});
+$("#graphtypeDropdown-{{ probe.id }}").change(function() {
+	var probe_id = $(this).data("probe-id");
+	var period = $('#section-' + probe_id + ' .nav-bar .active .period-' + probe_id).data("period");
+	$("#graphtypeDropdown-{{ probe.id }} option:selected").each(function () {		
+		graphtype = $(this).text();
+	});
+	refreshGraph(get_mesures_url.replace('period', period).replace('999', {{ probe.id }}), period, graphtype, {{ probe.id }}, '{{ probe.display_name }}', '{{ probe.probe_labels }}', '{{ probe.probe_unit }}');
 });
 {% endifnotequal %}{% endfor %}	
 </script>

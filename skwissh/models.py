@@ -30,7 +30,7 @@ class Probe(models.Model):
     ssh_command = models.TextField(verbose_name=_(u"Commande SSH"))
     use_sudo = models.BooleanField(verbose_name=_(u"Utilise 'sudo' ?"), default=False)
     python_parse = models.TextField(verbose_name=_(u"Commande Python de parsing"), null=True, blank=True, default="output = output")
-    graph_type = models.ForeignKey(GraphType, verbose_name=_(u"Type de visualisation"), default=get_default_graph_type)
+    graph_type = models.ForeignKey(GraphType, verbose_name=_(u"Type de graphique par défaut"), default=get_default_graph_type)
     probe_unit = models.CharField(max_length=10, verbose_name=_(u"Unité"), null=True, blank=True)
     probe_labels = models.CharField(max_length=255, verbose_name=_(u"Labels des valeurs"), null=True, blank=True)
     date_created = models.DateTimeField(verbose_name=_(u"Date de création"), null=True, auto_now_add=True, default=datetime.datetime.now())

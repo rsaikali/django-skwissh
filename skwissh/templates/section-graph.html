@@ -12,6 +12,28 @@
 	</ul>
 	<div class="panel graph">
 		{% if probe.graph_type.name == 'linegraph' or probe.graph_type.name == 'bargraph' or probe.graph_type.name == 'pie' %}
+		<div class="right graphtypes">
+			<form class="custom">
+				<span for="customDropdown-{{ probe.id }}">Type de graphique</span>
+				
+				<select style="display:none;" data-probe-id="{{ probe.id }}" id="graphtypeDropdown-{{ probe.id }}">
+					{% for graphtype in graphtypes %}
+					{% ifnotequal graphtype.name "text" %}
+					<option {% ifequal graphtype.name probe.graph_type.name %}selected{% endifequal %}>{{ graphtype.name }}</option>
+					{% endifnotequal %}
+					{% endfor %}
+				</select>
+				<div class="custom dropdown">
+	  				<a href="#" class="current">{{ probe.graph_type.name }}</a>
+	  				<a href="#" class="selector"></a>
+	  				<ul>
+	  					{% for graphtype in graphtypes %}
+	    				<li>{{ graphtype.name }}</li>
+	    				{% endfor %}
+	  				</ul>
+				</div>				
+			</form>
+		</div>
 		<a class='right download' href="#" onclick="javascript: window.open(jqplotToImg($('#graph-{{ probe.id }}')))">{% trans 'Télécharger le graphique...' %}</a>
 		{% endif %}	
 		<div id="detail-{{ probe.id }}">

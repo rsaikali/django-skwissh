@@ -11,9 +11,8 @@ function refreshGraph(url, period, graphtype, probe_id, display_name, labels, un
 		url : url,
 		dataType : "json",
 		success : function(mesures) {
-			if (mesures.length === 0) {
+			if (mesures.length === 0)
 				showError("No data found for sensor \'" + display_name + "\'.", probe_id);
-			}
 			updateGraph(mesures, graphtype, probe_id, labels, units, period);
 		},
 		error : function(mesures) {
@@ -35,9 +34,7 @@ function updateGraph(mesures, graphtype, probe_id, labels, units, period) {
 			for (var i = 0; i < str_labels.length; i++) {
 				if ( typeof graph_options.series === "undefined")
 					graph_options.series = new Array();
-				graph_options.series.push({
-					label : str_labels[i]
-				});
+				graph_options.series.push({label : str_labels[i]});
 			}
 			graph_options.legend = {
 				show : true,
@@ -249,3 +246,8 @@ $(window).resize(function() {
 	for (id in plots)
 		plots[id].replot({ resetAxes: false });
 });
+
+
+
+
+

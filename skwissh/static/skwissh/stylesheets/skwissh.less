@@ -421,7 +421,7 @@ section .jqplot-target {
 section .download {
   background: url("/static/skwissh/images/skwissh/download.svg") no-repeat 0px 1px;
   .background-size(16px);
-  padding-right: 12px;
+  padding-right: 50px;
   padding-left: 25px !important;  
 }
 @media (max-width: 550px) {
@@ -431,6 +431,14 @@ section .download {
   section .jqplot-target {
     height: 150px !important;
   }
+}
+section div.graphtypes {
+  margin-top: -9px !important;
+  margin-right: 10px;
+}
+section div.graphtypes .custom.dropdown {
+  display: inline-block;
+  margin-left: 10px;
 }
 /******************************************************************************
  * MESURES
@@ -446,7 +454,8 @@ section .download {
 }
 section .single-mesure {
   text-align: center;
-  font-size: 4em;
+  font-size: 3em;
+  margin-top: 40px !important;  
 }
 section .mesures table {
   display: none;
