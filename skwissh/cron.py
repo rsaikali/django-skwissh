@@ -190,12 +190,12 @@ def averageDay():
     calculateAverage(DAY_AVERAGE_PERIOD, MeasureDay)
     daily_period = datetime.datetime.utcnow().replace(tzinfo=utc) - datetime.timedelta(days=1)
     old_measures = MeasureDay.objects.filter(timestamp__lt=daily_period)
+    message = "Deleting %d averages values for last %d minutes created before %s" % (len(old_measures), DAY_AVERAGE_PERIOD, daily_period)
     old_measures.delete()
 
     end = datetime.datetime.utcnow().replace(tzinfo=utc)
     total_time = end - now
     duration = float(int((total_time.seconds * 1000000) + total_time.microseconds) / 1000000.0)
-    message = "Deleting %d averages values for last %d minutes created before %s" % (len(old_measures), DAY_AVERAGE_PERIOD, daily_period)
     CronLog.objects.create(timestamp=round_now, action="purge %dmin" % DAY_AVERAGE_PERIOD, server=None, success=True, duration=duration, message=message)
 
 
@@ -207,12 +207,12 @@ def averageWeek():
     calculateAverage(WEEK_AVERAGE_PERIOD, MeasureWeek)
     weekly_period = datetime.datetime.utcnow().replace(tzinfo=utc) - datetime.timedelta(days=7)
     old_measures = MeasureWeek.objects.filter(timestamp__lt=weekly_period)
+    message = "Deleting %d averages values for last %d minutes created before %s" % (len(old_measures), WEEK_AVERAGE_PERIOD, weekly_period)
     old_measures.delete()
 
     end = datetime.datetime.utcnow().replace(tzinfo=utc)
     total_time = end - now
     duration = float(int((total_time.seconds * 1000000) + total_time.microseconds) / 1000000.0)
-    message = "Deleting %d averages values for last %d minutes created before %s" % (len(old_measures), WEEK_AVERAGE_PERIOD, weekly_period)
     CronLog.objects.create(timestamp=round_now, action="purge %dmin" % WEEK_AVERAGE_PERIOD, server=None, success=True, duration=duration, message=message)
 
 
@@ -224,12 +224,12 @@ def averageMonth():
     calculateAverage(MONTH_AVERAGE_PERIOD, MeasureMonth)
     monthly_period = datetime.datetime.utcnow().replace(tzinfo=utc) - datetime.timedelta(days=31)
     old_measures = MeasureMonth.objects.filter(timestamp__lt=monthly_period)
+    message = "Deleting %d averages values for last %d minutes created before %s" % (len(old_measures), MONTH_AVERAGE_PERIOD, monthly_period)
     old_measures.delete()
 
     end = datetime.datetime.utcnow().replace(tzinfo=utc)
     total_time = end - now
     duration = float(int((total_time.seconds * 1000000) + total_time.microseconds) / 1000000.0)
-    message = "Deleting %d averages values for last %d minutes created before %s" % (len(old_measures), MONTH_AVERAGE_PERIOD, monthly_period)
     CronLog.objects.create(timestamp=round_now, action="purge %dmin" % MONTH_AVERAGE_PERIOD, server=None, success=True, duration=duration, message=message)
 
     now = datetime.datetime.utcnow().replace(tzinfo=utc)
@@ -237,6 +237,7 @@ def averageMonth():
 
     max_period = datetime.datetime.utcnow().replace(tzinfo=utc) - datetime.timedelta(minutes=MONTH_AVERAGE_PERIOD)
     old_measures = Measure.objects.filter(timestamp__lt=max_period)
+    message = "Deleting %d sensors values created before %s" % (len(old_measures), max_period)
     old_measures.delete()
     old_logs = CronLog.objects.filter(timestamp__lt=max_period)
     old_logs.delete()
@@ -244,5 +245,4 @@ def averageMonth():
     end = datetime.datetime.utcnow().replace(tzinfo=utc)
     total_time = end - now
     duration = float(int((total_time.seconds * 1000000) + total_time.microseconds) / 1000000.0)
-    message = "Deleting %d sensors values created before %s" % (len(old_measures), max_period)
     CronLog.objects.create(timestamp=round_now, action="purge sensors", server=None, success=True, duration=duration, message=message)

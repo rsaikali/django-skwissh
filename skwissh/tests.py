@@ -119,6 +119,11 @@ class SkwisshTest(TestCase):
         self.assertEqual(response.status_code, 302, "POST on delete sensor URL by anonymous user should return a HTTP 302 (redirect).")
         self.assertTrue(response['Location'].find("login") != -1, "POST on delete sensor URL by anonymous user should redirect to login URL.")
 
+    def test_0213_security_logslist_anonymous(self):
+        response = self.client.get(reverse('logs-list'))
+        self.assertEqual(response.status_code, 302, "Logs list URL by anonymous user should return a HTTP 302 (redirect).")
+        self.assertTrue(response['Location'].find("login") != -1, "Logs list URL by anonymous user should redirect to login URL.")
+
     #
     # Security : registered user.
     #
@@ -149,6 +154,11 @@ class SkwisshTest(TestCase):
         self.client.login(username=self.user.username, password=self.user_password)
         response = self.client.get(reverse('server-detail', args=(999,)))
         self.assertEqual(response.status_code, 404, "Servers detail URL by registered user with unknown server ID should return a HTTP 404 (Not Found).")
+
+    def test_0254_security_logslist_registered(self):
+        self.client.login(username=self.user.username, password=self.user_password)
+        response = self.client.get(reverse('logs-list'))
+        self.assertEqual(response.status_code, 200, "Logs list URL by registered user should return a HTTP 200.")
 
     def test_0280_security_ajax_withoutxhr(self):
         self.client.login(username=self.user.username, password=self.user_password)
