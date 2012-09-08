@@ -11,5 +11,7 @@ install:
 script: python setup.py test
 notifications:
   email:
+    recipients:
+      - contact@skwissh.com
     on_success: always
     on_failure: always
