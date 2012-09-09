@@ -12,6 +12,7 @@ from skwissh.generic_views import get_server_list_context_data, \
     get_probe_list_context_data
 from skwissh.models import Server, Measure, ServerGroup, Probe, MeasureDay, \
     MeasureWeek, MeasureMonth, GraphType
+from skwissh.urls import staff_required
 import datetime
 
 
@@ -81,10 +82,6 @@ def mesures(request, server_id, probe_id, period):
         return HttpResponseServerError()
 
 
-@login_required
+#@staff_required
 def servers(request):
     return HttpResponse(serializers.serialize('json', Server.objects.all().select_related()), 'application/javascript')
-    if request.is_ajax():
-        return HttpResponse(serializers.serialize('json', Server.objects.all()), 'application/javascript')
-    else:
-        return HttpResponseServerError()
