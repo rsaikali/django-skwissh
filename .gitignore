@@ -4,3 +4,5 @@
 bin
 dist
 *.egg-info
+/fabfile.py
+/fabfile.pyc
