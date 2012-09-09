@@ -12,7 +12,7 @@ from skwissh.models import Probe, GraphType, Server, Measure, MeasureDay, \
 class SkwisshTest(TestCase):
 
     def setUp(self):
-        self.test_server = Server.objects.get(hostname="localhost")
+        self.test_server = Server.objects.get(ip="127.0.0.1")
         self.client = Client(HTTP_USER_AGENT='Mozilla/5.0')
         self.user_password = "unittest_password"
         try:
