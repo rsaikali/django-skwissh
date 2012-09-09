@@ -3,12 +3,12 @@
 	<ul class="nav-bar">
 		<li><a class="bigger" href="#section-{{ probe.id }}">{{ probe.display_name }}</a></li>
 		{% ifnotequal probe.graph_type.name 'text' %}
-		<li><a class='period period-{{ probe.id }}' data-period='last' href="#">{% trans 'Dernière mesure' %}</a></li>
-		<li class="active"><a class='period period-{{ probe.id }}' data-period='hour' href="#">{% trans 'Dernière heure' %}</a></li>
-		<li><a class='period period-{{ probe.id }}' data-period='day' href="#">{% trans 'Dernière journée' %}</a></li>
-		<li><a class='period period-{{ probe.id }}' data-period='week' href="#">{% trans 'Dernière semaine' %}</a></li>
-		<li><a class='period period-{{ probe.id }}' data-period='month' href="#">{% trans 'Dernier mois' %}</a></li>
-		{% endifnotequal %}	
+		<li{% if default_view == "last" %} class="active"{% endif %}><a class='period period-{{ probe.id }}' data-period='last' href="#">{% trans 'Dernière mesure' %}</a></li>
+		<li{% if default_view == "hour" %} class="active"{% endif %}><a class='period period-{{ probe.id }}' data-period='hour' href="#">{% trans 'Dernière heure' %}</a></li>
+		<li{% if default_view == "day" %} class="active"{% endif %}><a class='period period-{{ probe.id }}' data-period='day' href="#">{% trans 'Dernière journée' %}</a></li>
+		<li{% if default_view == "week" %} class="active"{% endif %}><a class='period period-{{ probe.id }}' data-period='week' href="#">{% trans 'Dernière semaine' %}</a></li>
+		<li{% if default_view == "month" %} class="active"{% endif %}><a class='period period-{{ probe.id }}' data-period='month' href="#">{% trans 'Dernier mois' %}</a></li>
+		{% endifnotequal %}
 	</ul>
 	<div class="panel graph">
 		{% ifnotequal probe.graph_type.name 'text' %}
@@ -29,11 +29,11 @@
 	    				<li>{{ graphtype.name }}</li>
 	    				{% endfor %}
 	  				</ul>
-				</div>				
+				</div>
 			</form>
 		</div>
 		<a class='right download' href="#" onclick="javascript: window.open(jqplotToImg($('#graph-{{ probe.id }}')))">{% trans 'Télécharger le graphique...' %}</a>
-		{% endifnotequal %}	
+		{% endifnotequal %}
 		<div id="detail-{{ probe.id }}">
 			<p class="waiting-title">{% trans 'Chargement des données en cours...' %}<p>
 			<div class="waiting"></div>

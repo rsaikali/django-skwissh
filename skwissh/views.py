@@ -50,7 +50,8 @@ def server_detail(request, server_id):
             'server_form': form,
             'server': server,
             'groups': ServerGroup.objects.all().order_by('name'),
-            'nogroup_servers': Server.objects.filter(servergroup__isnull=True).order_by('hostname')
+            'nogroup_servers': Server.objects.filter(servergroup__isnull=True).order_by('hostname'),
+            'default_view': getattr(settings, "SKWISSH_DEFAULT_VIEW", 'hour') in ('last', 'hour', 'day', 'week', 'month') and getattr(settings, "SKWISSH_DEFAULT_VIEW", 'hour') or 'hour'
     }
     return render(request, 'server-detail.html', data)
 
