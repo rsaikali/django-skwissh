@@ -20,7 +20,7 @@ $(document).ready(function() {
 	$.jqplot.config.enablePlugins = true; 	
 	{% for probe in server.probes.all %}
 	var graphtype = '{{ probe.graph_type.name }}';
-	refreshGraph(get_mesures_url.replace('period', 'hour').replace('999', {{ probe.id }}), 'hour', graphtype, {{ probe.id }}, '{{ probe.display_name }}', '{{ probe.probe_labels }}', '{{ probe.probe_unit }}');
+	refreshGraph(get_mesures_url.replace('period', '{{default_view}}').replace('999', {{ probe.id }}), '{{default_view}}', graphtype, {{ probe.id }}, '{{ probe.display_name }}', '{{ probe.probe_labels }}', '{{ probe.probe_unit }}');
 	{% endfor %}
 });
 {% for probe in server.probes.all %}{% ifnotequal probe.graph_type.name 'text' %}
