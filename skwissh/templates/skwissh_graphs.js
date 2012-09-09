@@ -19,10 +19,7 @@ graphtypes['{{ graphtype.name }}'] = { {{ graphtype.options|safe }} };
 $(document).ready(function() {
 	$.jqplot.config.enablePlugins = true; 	
 	{% for probe in server.probes.all %}
-	var graphtype = 'text';
-	$("#graphtypeDropdown-{{ probe.id }} option:selected").each(function () {		
-		graphtype = $(this).text();
-	});
+	var graphtype = '{{ probe.graph_type.name }}';
 	refreshGraph(get_mesures_url.replace('period', 'hour').replace('999', {{ probe.id }}), 'hour', graphtype, {{ probe.id }}, '{{ probe.display_name }}', '{{ probe.probe_labels }}', '{{ probe.probe_unit }}');
 	{% endfor %}
 });
@@ -37,6 +34,8 @@ $('.period-{{ probe.id }}').click(function(e){
 $("#graphtypeDropdown-{{ probe.id }}").change(function() {
 	var probe_id = $(this).data("probe-id");
 	var period = $('#section-' + probe_id + ' .nav-bar .active .period-' + probe_id).data("period");
+	if (typeof(period) === "undefined")
+		period = 'hour';
 	$("#graphtypeDropdown-{{ probe.id }} option:selected").each(function () {		
 		graphtype = $(this).text();
 	});

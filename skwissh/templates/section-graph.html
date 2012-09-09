@@ -2,20 +2,18 @@
 <section id='section-{{ probe.id }}'>
 	<ul class="nav-bar">
 		<li><a class="bigger" href="#section-{{ probe.id }}">{{ probe.display_name }}</a></li>
-		{% if probe.graph_type.name == 'linegraph' or probe.graph_type.name == 'bargraph' %}
+		{% ifnotequal probe.graph_type.name 'text' %}
 		<li><a class='period period-{{ probe.id }}' data-period='last' href="#">{% trans 'Dernière mesure' %}</a></li>
 		<li class="active"><a class='period period-{{ probe.id }}' data-period='hour' href="#">{% trans 'Dernière heure' %}</a></li>
 		<li><a class='period period-{{ probe.id }}' data-period='day' href="#">{% trans 'Dernière journée' %}</a></li>
 		<li><a class='period period-{{ probe.id }}' data-period='week' href="#">{% trans 'Dernière semaine' %}</a></li>
 		<li><a class='period period-{{ probe.id }}' data-period='month' href="#">{% trans 'Dernier mois' %}</a></li>
-		{% endif %}
+		{% endifnotequal %}	
 	</ul>
 	<div class="panel graph">
-		{% if probe.graph_type.name == 'linegraph' or probe.graph_type.name == 'bargraph' or probe.graph_type.name == 'pie' %}
+		{% ifnotequal probe.graph_type.name 'text' %}
 		<div class="right graphtypes">
 			<form class="custom">
-				<span for="customDropdown-{{ probe.id }}">Type de graphique</span>
-				
 				<select style="display:none;" data-probe-id="{{ probe.id }}" id="graphtypeDropdown-{{ probe.id }}">
 					{% for graphtype in graphtypes %}
 					{% ifnotequal graphtype.name "text" %}
@@ -35,14 +33,14 @@
 			</form>
 		</div>
 		<a class='right download' href="#" onclick="javascript: window.open(jqplotToImg($('#graph-{{ probe.id }}')))">{% trans 'Télécharger le graphique...' %}</a>
-		{% endif %}	
+		{% endifnotequal %}	
 		<div id="detail-{{ probe.id }}">
 			<p class="waiting-title">{% trans 'Chargement des données en cours...' %}<p>
 			<div class="waiting"></div>
 			<div id="graph-{{ probe.id }}"></div>
 		</div>
-		{% if probe.graph_type.name == 'linegraph' or probe.graph_type.name == 'bargraph' %}
+		{% ifnotequal probe.graph_type.name 'text' %}
 		<div class="display summary" id="summary-{{ probe.id }}"></div>
-		{% endif %}
+		{% endifnotequal %}
 	</div>
 </section>

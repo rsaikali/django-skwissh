@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-08 14:18+0200\n"
+"POT-Creation-Date: 2012-09-09 12:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,19 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
-#: forms.py:10 models.py:31 templates/section-probe.html:46
+#: forms.py:10 models.py:31 templates/section-probe.html:48
 msgid "Utilise 'sudo' ?"
 msgstr ""
 
 #: forms.py:10 templates/modal-delete-probe.html:21
 #: templates/modal-delete-server-group.html:18
-#: templates/modal-delete-server.html:21 templates/section-probe.html:50
+#: templates/modal-delete-server.html:21 templates/section-probe.html:52
 msgid "Oui"
 msgstr ""
 
 #: forms.py:10 templates/modal-delete-probe.html:22
 #: templates/modal-delete-server-group.html:19
-#: templates/modal-delete-server.html:22 templates/section-probe.html:52
+#: templates/modal-delete-server.html:22 templates/section-probe.html:54
 msgid "Non"
 msgstr ""
 
@@ -62,7 +62,7 @@ msgstr ""
 msgid "Infos complémentaires (version linux...)"
 msgstr ""
 
-#: models.py:30 templates/section-probe.html:38
+#: models.py:30 templates/section-probe.html:40
 msgid "Commande SSH"
 msgstr ""
 
@@ -71,7 +71,7 @@ msgid "Commande Python de parsing"
 msgstr ""
 
 #: models.py:33
-msgid "Type de visualisation"
+msgid "Type de graphique par défaut"
 msgstr ""
 
 #: models.py:34
@@ -391,11 +391,11 @@ msgstr ""
 msgid "Dernier mois"
 msgstr ""
 
-#: templates/section-graph.html:15
+#: templates/section-graph.html:35
 msgid "Télécharger le graphique..."
 msgstr ""
 
-#: templates/section-graph.html:18
+#: templates/section-graph.html:38
 msgid "Chargement des données en cours..."
 msgstr ""
 
@@ -436,42 +436,50 @@ msgid "Supprimer cette sonde"
 msgstr ""
 
 #: templates/section-probe.html:22
-msgid "Graphique ligne"
+msgid "Graphique en lignes"
 msgstr ""
 
 #: templates/section-probe.html:23
-msgid "Histogramme"
+msgid "Graphique en lignes empilées"
 msgstr ""
 
 #: templates/section-probe.html:24
-msgid "Graphique camembert"
+msgid "Histogramme empilé"
 msgstr ""
 
 #: templates/section-probe.html:25
+msgid "Histogramme par groupe"
+msgstr ""
+
+#: templates/section-probe.html:26
+msgid "Graphique camembert"
+msgstr ""
+
+#: templates/section-probe.html:27
 msgid "Sortie texte"
 msgstr ""
 
-#: templates/section-probe.html:28
+#: templates/section-probe.html:30
 msgid "mesures effectuées"
 msgstr ""
 
-#: templates/section-probe.html:31
+#: templates/section-probe.html:33
 msgid "Actuellement sur"
 msgstr ""
 
-#: templates/section-probe.html:31
+#: templates/section-probe.html:33
 msgid "serveurs"
 msgstr ""
 
-#: templates/section-probe.html:57
+#: templates/section-probe.html:59
 msgid "Commande Python"
 msgstr ""
 
-#: templates/section-probe.html:66
+#: templates/section-probe.html:68
 msgid "Unités"
 msgstr ""
 
-#: templates/section-probe.html:74
+#: templates/section-probe.html:76
 msgid "Libéllés"
 msgstr ""
 

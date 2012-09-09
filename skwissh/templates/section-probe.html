@@ -19,8 +19,10 @@
 			<div class="two columns">
 				<div class="probe-type {{ probe.graph_type.name }}"></div>
 				<div class="graph-type-text">
-					{% ifequal probe.graph_type.name "linegraph" %}{% trans 'Graphique ligne' %}{% endifequal %}
-					{% ifequal probe.graph_type.name "bargraph" %}{% trans 'Histogramme' %}{% endifequal %}
+					{% ifequal probe.graph_type.name "linegraph" %}{% trans 'Graphique en lignes' %}{% endifequal %}
+					{% ifequal probe.graph_type.name "linegraph_stacked" %}{% trans 'Graphique en lignes empilées' %}{% endifequal %}
+					{% ifequal probe.graph_type.name "bargraph" %}{% trans 'Histogramme empilé' %}{% endifequal %}
+					{% ifequal probe.graph_type.name "bargraph_groups" %}{% trans 'Histogramme par groupe' %}{% endifequal %}
 					{% ifequal probe.graph_type.name "pie" %}{% trans 'Graphique camembert' %}{% endifequal %}
 					{% ifequal probe.graph_type.name "text" %}{% trans 'Sortie texte' %}{% endifequal %}
 				</div>

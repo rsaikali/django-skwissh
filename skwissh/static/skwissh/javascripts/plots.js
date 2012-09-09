@@ -28,18 +28,22 @@ function updateGraph(mesures, graphtype, probe_id, labels, units, period) {
 		$("#graph-" + probe_id).html(html);
 		return;
 	} else {
-		var graph_options = jQuery.extend(true, {}, graphtypes[graphtype]);;
+		var graph_options = jQuery.extend(true, {}, graphtypes[graphtype]);
+		;
 		if (labels.length != 0) {
 			str_labels = labels.split(";");
 			for (var i = 0; i < str_labels.length; i++) {
 				if ( typeof graph_options.series === "undefined")
 					graph_options.series = new Array();
-				graph_options.series.push({label : str_labels[i]});
+				graph_options.series.push({
+					label : str_labels[i]
+				});
 			}
 			graph_options.legend = {
 				show : true,
 				location : 'w',
-				placement : 'inside'
+				placement : 'inside',
+				preDraw : true,
 			};
 		}
 		$("#section-" + probe_id + " .display").show();
@@ -123,6 +127,9 @@ function updateGraph(mesures, graphtype, probe_id, labels, units, period) {
 			else if (period === 'month')
 				var tickInt = '3 days';
 
+			graph_options.animate = true;
+			graph_options.animateReplot = false;
+
 			graph_options.axes.yaxis.tickOptions.formatString = graph_options.axes.yaxis.tickOptions.formatString.replace("@UNITS@", units);
 			graph_options.axes.xaxis.min = minDate;
 			graph_options.axes.xaxis.max = maxDate;
@@ -130,6 +137,12 @@ function updateGraph(mesures, graphtype, probe_id, labels, units, period) {
 			if ( typeof graph_options.seriesDefaults.rendererOptions === "undefined")
 				graph_options.seriesDefaults.rendererOptions = new Object();
 			graph_options.seriesDefaults.rendererOptions.barMargin = bMgin;
+
+			if (graphtype.indexOf("groups") != -1) {
+				graph_options.seriesDefaults.rendererOptions.barMargin = 0;
+				graph_options.seriesDefaults.rendererOptions.barPadding = 2;
+				graph_options.seriesDefaults.rendererOptions.barWidth = 3;
+			}
 		} else if (graphtype == "pie") {
 			var lbls = labels.split(';')
 			var data = mesures[0].fields.value.split(';');
@@ -244,10 +257,8 @@ function showError(message, probe_id) {
 };
 $(window).resize(function() {
 	for (id in plots)
-		plots[id].replot({ resetAxes: false });
+	plots[id].replot({
+		resetAxes : false
+	});
 });
-
-
-
-
 

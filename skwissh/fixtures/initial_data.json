@@ -4,25 +4,43 @@
 		"model": "skwissh.graphtype",
 		"fields": {
 			"date_created": "2012-05-20T10:07:47Z",
-			"date_modified": "2012-09-08T14:29:10Z",
+			"date_modified": "2012-09-09T09:18:29Z",
 			"name": "bargraph",
-			"options": "seriesColors: [ \"#7FAE00\", \"#EAA228\", \"#D5383B\", \"#4EA5B5\" ],\r\naxes: {\r\n    xaxis: {\r\n        renderer: $.jqplot.DateAxisRenderer,\r\n        tickOptions: {\r\n            formatString: \"<center>%R<br/>%d %b</center>\",\r\n        },\r\n    },\r\n    yaxis: {\r\n        min:0,\r\n        autoscale: true,\r\n        tickOptions: {\r\n            formatString: \"<center>%.2f @UNITS@</center>\",\r\n        },\r\n    },\r\n},\r\nseriesDefaults: {\r\n    renderer:$.jqplot.BarRenderer,\r\n    shadow: false,\r\n    showMarker: false,\r\n    markerOptions: {\r\n        show: false,\r\n        size: 0,\r\n    },\r\n},\r\nhighlighter: {\r\n    show: true, \r\n    showLabel: true, \r\n    sizeAdjust: 1,\r\n    tooltipLocation : 'n',\r\n    useAxesFormatters: true,\r\n    tooltipAxes: 'both',\r\n    tooltipSeparator: '',\r\n},\r\ngrid: {\r\n    background: '#F2F2F2',\r\n},\r\ncursor: { \r\n    zoom: true, \r\n    style: 'default',\r\n    show: true,\r\n    constrainZoomTo: 'x',\r\n    constrainOutsideZoom: true,\r\n    showTooltip: false,\r\n},\r\nanimate: true,\r\nanimateReplot: false,\r\nstackSeries: true,"
+			"options": "seriesColors: [ \"#7FAE00\", \"#EAA228\", \"#D5383B\", \"#4EA5B5\" ],\r\naxes: {\r\n    xaxis: {\r\n        renderer: $.jqplot.DateAxisRenderer,\r\n        tickOptions: {\r\n            formatString: \"<center>%R<br/>%d %b</center>\",\r\n        },\r\n    },\r\n    yaxis: {\r\n        min:0,\r\n        autoscale: true,\r\n        tickOptions: {\r\n            formatString: \"<center>%.2f @UNITS@</center>\",\r\n        },\r\n    },\r\n},\r\nseriesDefaults: {\r\n    renderer:$.jqplot.BarRenderer,\r\n    shadow: false,\r\n    showMarker: false,\r\n    rendererOptions: {\r\n        animation: {\r\n            speed: 1500,\r\n        },\r\n    },\r\n    markerOptions: {\r\n        show: false,\r\n        size: 0,\r\n    },\r\n},\r\nhighlighter: {\r\n    show: true, \r\n    showLabel: true, \r\n    sizeAdjust: 1,\r\n    tooltipLocation : 'n',\r\n    useAxesFormatters: true,\r\n    tooltipAxes: 'both',\r\n    tooltipSeparator: '',\r\n},\r\ngrid: {\r\n    background: '#F2F2F2',\r\n},\r\ncursor: { \r\n    zoom: true, \r\n    style: 'default',\r\n    show: true,\r\n    constrainZoomTo: 'x',\r\n    constrainOutsideZoom: true,\r\n    showTooltip: false,\r\n},\r\nstackSeries: true,"
+		}
+	}, {
+		"pk": 6,
+		"model": "skwissh.graphtype",
+		"fields": {
+			"date_created": "2012-09-08T20:20:58Z",
+			"date_modified": "2012-09-09T09:17:09Z",
+			"name": "bargraph_groups",
+			"options": "seriesColors: [ \"#7FAE00\", \"#EAA228\", \"#D5383B\", \"#4EA5B5\" ],\r\naxes: {\r\n    xaxis: {\r\n        renderer: $.jqplot.DateAxisRenderer,\r\n        tickOptions: {\r\n            formatString: \"<center>%R<br/>%d %b</center>\",\r\n        },\r\n    },\r\n    yaxis: {\r\n        min:0,\r\n        autoscale: true,\r\n        tickOptions: {\r\n            formatString: \"<center>%.2f @UNITS@</center>\",\r\n        },\r\n    },\r\n},\r\nseriesDefaults: {\r\n    renderer:$.jqplot.BarRenderer,\r\n    shadow: false,\r\n    showMarker: false,\r\n    rendererOptions: {\r\n        animation: {\r\n            speed: 1500,\r\n        },\r\n    },\r\n    markerOptions: {\r\n        show: false,\r\n        size: 0,\r\n    },\r\n},\r\nhighlighter: {\r\n    show: true, \r\n    showLabel: true, \r\n    sizeAdjust: 1,\r\n    tooltipLocation : 'n',\r\n    useAxesFormatters: true,\r\n    tooltipAxes: 'both',\r\n    tooltipSeparator: '',\r\n},\r\ngrid: {\r\n    background: '#F2F2F2',\r\n},\r\ncursor: { \r\n    zoom: true, \r\n    style: 'default',\r\n    show: true,\r\n    constrainZoomTo: 'x',\r\n    constrainOutsideZoom: true,\r\n    showTooltip: false,\r\n},\r\nstackSeries: false,"
 		}
 	}, {
 		"pk": 1,
 		"model": "skwissh.graphtype",
 		"fields": {
 			"date_created": "2012-05-17T18:01:01Z",
-			"date_modified": "2012-09-08T14:29:21Z",
+			"date_modified": "2012-09-09T09:17:16Z",
 			"name": "linegraph",
-			"options": "seriesColors: [ \"#7FAE00\", \"#EAA228\", \"#D5383B\", \"#4EA5B5\" ],\r\naxes: {\r\n    xaxis: {\r\n        renderer: $.jqplot.DateAxisRenderer,\r\n        tickOptions: {\r\n            formatString: \"<center>%R<br/>%d %b</center>\",\r\n        },\r\n    },\r\n    yaxis: {\r\n        min:0,\r\n        autoscale: true,\r\n        tickOptions: {\r\n            formatString: \"<center>%.2f @UNITS@</center>\",\r\n        },\r\n    },\r\n},\r\nseriesDefaults: {\r\n    lineWidth:2,\r\n    shadow: false,\r\n    markerOptions: {\r\n        show: false,\r\n    },\r\n    rendererOptions: {\r\n        smooth: true,\r\n    },\r\n},\r\nhighlighter: {\r\n    show: true, \r\n    showLabel: true, \r\n    sizeAdjust: 1,\r\n    tooltipLocation : 'n',\r\n    useAxesFormatters: true,\r\n    tooltipAxes: 'both',\r\n    tooltipSeparator: '',\r\n},\r\ngrid: {\r\n    background: '#F2F2F2',\r\n},\r\ncursor: { \r\n    zoom: true, \r\n    style: 'default',\r\n    show: true,\r\n    constrainZoomTo: 'x',\r\n    constrainOutsideZoom: true,\r\n    showTooltip: false,\r\n},\r\nanimate: true,\r\nanimateReplot: false,"
+			"options": "seriesColors: [ \"#7FAE00\", \"#EAA228\", \"#D5383B\", \"#4EA5B5\" ],\r\naxes: {\r\n    xaxis: {\r\n        renderer: $.jqplot.DateAxisRenderer,\r\n        tickOptions: {\r\n            formatString: \"<center>%R<br/>%d %b</center>\",\r\n        },\r\n    },\r\n    yaxis: {\r\n        min:0,\r\n        autoscale: true,\r\n        tickOptions: {\r\n            formatString: \"<center>%.2f @UNITS@</center>\",\r\n        },\r\n    },\r\n},\r\nseriesDefaults: {\r\n    lineWidth:2,\r\n    shadow: false,\r\n    markerOptions: {\r\n        show: false,\r\n    },\r\n    rendererOptions: {\r\n        smooth: true,\r\n        animation: {\r\n            speed: 1500,\r\n        },\r\n    },\r\n},\r\nhighlighter: {\r\n    show: true, \r\n    showLabel: true, \r\n    sizeAdjust: 1,\r\n    tooltipLocation : 'n',\r\n    useAxesFormatters: true,\r\n    tooltipAxes: 'both',\r\n    tooltipSeparator: '',\r\n},\r\ngrid: {\r\n    background: '#F2F2F2',\r\n},\r\ncursor: { \r\n    zoom: true, \r\n    style: 'default',\r\n    show: true,\r\n    constrainZoomTo: 'x',\r\n    constrainOutsideZoom: true,\r\n    showTooltip: false,\r\n},"
+		}
+	}, {
+		"pk": 5,
+		"model": "skwissh.graphtype",
+		"fields": {
+			"date_created": "2012-09-08T17:49:01Z",
+			"date_modified": "2012-09-09T09:17:26Z",
+			"name": "linegraph_stacked",
+			"options": "seriesColors: [ \"#7FAE00\", \"#EAA228\", \"#D5383B\", \"#4EA5B5\" ],\r\naxes: {\r\n    xaxis: {\r\n        renderer: $.jqplot.DateAxisRenderer,\r\n        tickOptions: {\r\n            formatString: \"<center>%R<br/>%d %b</center>\",\r\n        },\r\n    },\r\n    yaxis: {\r\n        min:0,\r\n        autoscale: true,\r\n        tickOptions: {\r\n            formatString: \"<center>%.2f @UNITS@</center>\",\r\n        },\r\n    },\r\n},\r\nseriesDefaults: {\r\n    lineWidth:2,\r\n    fill: true,\r\n    fillAndStroke: true,\r\n    shadow: false,\r\n    markerOptions: {\r\n        show: false,\r\n    },\r\n    rendererOptions: {\r\n        smooth: true,\r\n        animation: {\r\n            speed: 1500,\r\n        },\r\n    },\r\n},\r\nhighlighter: {\r\n    show: true, \r\n    showLabel: true, \r\n    sizeAdjust: 1,\r\n    tooltipLocation : 'n',\r\n    useAxesFormatters: true,\r\n    tooltipAxes: 'both',\r\n    tooltipSeparator: '',\r\n},\r\ngrid: {\r\n    background: '#F2F2F2',\r\n},\r\ncursor: { \r\n    zoom: true, \r\n    style: 'default',\r\n    show: true,\r\n    constrainZoomTo: 'x',\r\n    constrainOutsideZoom: true,\r\n    showTooltip: false,\r\n},\r\nstackSeries: true,"
 		}
 	}, {
 		"pk": 2,
 		"model": "skwissh.graphtype",
 		"fields": {
 			"date_created": "2012-05-17T18:06:27Z",
-			"date_modified": "2012-09-08T14:27:50Z",
+			"date_modified": "2012-09-09T09:17:38Z",
 			"name": "pie",
 			"options": "seriesColors: [ \"#7FAE00\", \"#EAA228\", \"#D5383B\", \"#4EA5B5\" ],\r\nseriesDefaults: {\r\n    renderer: jQuery.jqplot.PieRenderer, \r\n    shadow: false,\r\n    rendererOptions: {\r\n        showDataLabels: true,\r\n        sliceMargin: 3,\r\n    },\r\n},\r\nhighlighter: {\r\n    show: true, \r\n    showTooltip: false,\r\n},\r\ncursor: {\r\n    show: false,\r\n},\r\ngrid: {\r\n    background: '#F2F2F2',\r\n},"
 		}
@@ -99,7 +117,7 @@
 		"pk": 8,
 		"model": "skwissh.probe",
 		"fields": {
-			"date_modified": "2012-08-30T07:48:32Z",
+			"date_modified": "2012-09-09T10:14:22Z",
 			"addon_name": "",
 			"display_name": "Memory",
 			"ssh_command": "cat /proc/meminfo",
@@ -107,7 +125,7 @@
 			"use_sudo": false,
 			"probe_unit": "Mo",
 			"date_created": "2012-08-29T08:20:23Z",
-			"graph_type": 4,
+			"graph_type": 5,
 			"python_parse": "meminfos = dict([(info.split(':')[0].strip(), int(info.split()[1].strip())/1024) for info in output.splitlines()])\r\noutput = \";\".join([str(meminfos['MemFree']), str(meminfos['Buffers']), str(meminfos['MemTotal'] - meminfos['MemFree'] - meminfos['Buffers'])])"
 		}
 	}, {
@@ -144,7 +162,7 @@
 		"pk": 11,
 		"model": "skwissh.probe",
 		"fields": {
-			"date_modified": "2012-08-31T13:04:55Z",
+			"date_modified": "2012-09-08T21:00:35Z",
 			"addon_name": "",
 			"display_name": "Network data",
 			"ssh_command": "nstat | grep \"IpExt\"",
@@ -152,14 +170,14 @@
 			"use_sudo": false,
 			"probe_unit": "Ko",
 			"date_created": "2012-08-29T11:26:06Z",
-			"graph_type": 4,
+			"graph_type": 6,
 			"python_parse": "bdwth = dict([(info.split()[0].strip(), int(info.split()[1].strip()) / 1024) for info in output.splitlines()])\r\noutput = \";\".join([str(bdwth['IpExtInOctets']), str(bdwth['IpExtOutOctets'])])"
 		}
 	}, {
 		"pk": 10,
 		"model": "skwissh.probe",
 		"fields": {
-			"date_modified": "2012-08-29T10:04:52Z",
+			"date_modified": "2012-09-09T10:14:15Z",
 			"addon_name": "",
 			"display_name": "System idle time",
 			"ssh_command": "cat /proc/uptime",
@@ -191,9 +209,9 @@
 		"fields": {
 			"username": "",
 			"is_measuring": false,
-			"date_modified": "2012-09-08T16:01:03Z",
+			"date_modified": "2012-09-09T10:26:04Z",
 			"ip": "127.0.0.1",
-			"hostname": "Django Skwissh webserver",
+			"hostname": "Skwissh Django webserver",
 			"state": true,
 			"date_created": "2012-08-19T18:57:21Z",
 			"password": "",

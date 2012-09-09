@@ -1,5 +1,7 @@
-==== 0.0.6 (2012-09-05) ====
+==== 0.0.7 (2012-09-05) ====
 
+- Ability to dynamically change graph type (sensors still have a default graph type).
+- jqPlot graphing simplification (less JS generated from Django template). 
 - W3C validation.
 - Added tests for logs list.
 
