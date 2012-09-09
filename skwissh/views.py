@@ -79,3 +79,12 @@ def mesures(request, server_id, probe_id, period):
         return HttpResponse(serializers.serialize('json', data), 'application/javascript')
     else:
         return HttpResponseServerError()
+
+
+@login_required
+def servers(request):
+    return HttpResponse(serializers.serialize('json', Server.objects.all().select_related()), 'application/javascript')
+    if request.is_ajax():
+        return HttpResponse(serializers.serialize('json', Server.objects.all()), 'application/javascript')
+    else:
+        return HttpResponseServerError()
