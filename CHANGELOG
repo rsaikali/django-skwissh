@@ -1,7 +1,9 @@
 ==== 0.0.7 (2012-09-05) ====
 
+
 - Ability to dynamically change graph type (sensors still have a default graph type).
-- jqPlot graphing simplification (less JS generated from Django template). 
+- jqPlot graphing simplification (less JS generated from Django template).
+- New graphtypes : linegraph_stacked and bargraph_groups. 
 - W3C validation.
 - Added tests for logs list.
 
