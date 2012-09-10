@@ -66,7 +66,7 @@ def mesures(request, server_id, probe_id, period):
         probe = get_object_or_404(Probe, pk=probe_id)
         server = get_object_or_404(Server, pk=server_id)
         now = datetime.datetime.utcnow().replace(tzinfo=utc)
-        if period == 'last':
+        if period == 'last' or probe.graph_type.name == "text":
             data = Measure.objects.filter(server=server, probe=probe)[0:1]
         elif period == 'hour':
             data = Measure.objects.filter(server=server, probe=probe, timestamp__gte=now - datetime.timedelta(hours=1))
@@ -77,14 +77,5 @@ def mesures(request, server_id, probe_id, period):
         elif period == 'month':
             data = MeasureMonth.objects.filter(server=server, probe=probe, timestamp__gte=now - datetime.timedelta(days=31))
         return HttpResponse(serializers.serialize('json', data), 'application/javascript')
-    else:
-        return HttpResponseServerError()
-
-
-@login_required
-def servers(request):
-    return HttpResponse(serializers.serialize('json', Server.objects.all().select_related()), 'application/javascript')
-    if request.is_ajax():
-        return HttpResponse(serializers.serialize('json', Server.objects.all()), 'application/javascript')
     else:
         return HttpResponseServerError()
