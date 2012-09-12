@@ -279,12 +279,22 @@ section .panel a {
 .reveal-modal {
   padding: 0 0 15px 0 !important;
   top: 150px !important;
+  top: 5% !important;
   position: fixed;
   border-radius: 5px;
 }
 section.server-group {
   width: 49.2%;
 }
+.reveal-modal.add .panel ul li {
+  display: inline-block;
+  width: 48%;
+
+  input[type="checkbox"] {
+    margin-left: 20px !important;
+  }
+}
+
 @media (max-width: 800px) {
   section.server-group {
     width: 100%;
