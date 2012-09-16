@@ -13,7 +13,8 @@ function refreshGraph(url, period, graphtype, probe_id, display_name, labels, un
 		success : function(mesures) {
 			if (mesures.length === 0)
 				showError("No data found for sensor \'" + display_name + "\'.", probe_id);
-			updateGraph(mesures, graphtype, probe_id, labels, units, period);
+			else
+				updateGraph(mesures, graphtype, probe_id, labels, units, period);
 		},
 		error : function(mesures) {
 			showError("An error occured while building sensor graph \'" + display_name + "\'.", probe_id);
