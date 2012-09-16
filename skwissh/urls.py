@@ -64,6 +64,12 @@ urlpatterns = patterns('',
 
     # Ajax
     url(r'^mesures/(\d+)/(\d+)/(\w+)/$', 'skwissh.views.mesures', name='mesures'),
+
+    # Ajax for Android
+    url(r'^graphtypes/$', 'skwissh.views.graphtypes', name='graphtypes'),
+    url(r'^server_groups/$', 'skwissh.views.server_groups', name='server-groups'),
+    url(r'^servers/(\d+)/$', 'skwissh.views.servers', name='servers'),
+    url(r'^sensors/(\d+)/$', 'skwissh.views.sensors', name='sensors'),
 )
 
 if settings.DEBUG:
