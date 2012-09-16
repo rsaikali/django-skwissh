@@ -15,8 +15,8 @@ class GraphType(models.Model):
         return u"%s" % self.name
 
     class Meta:
-        verbose_name = u"type de graphique"
-        verbose_name_plural = u"types de graphiques"
+        verbose_name = _(u"type de graphique")
+        verbose_name_plural = _(u"types de graphiques")
         ordering = ['name']
 
 
@@ -43,7 +43,7 @@ class Probe(models.Model):
             return u"%s" % self.display_name
 
     class Meta:
-        verbose_name = u"sonde"
+        verbose_name = _(u"sonde")
         ordering = ['display_name', 'addon_name']
 
 
@@ -66,7 +66,7 @@ class Server(models.Model):
         return ('server-detail', [self.id])
 
     class Meta:
-        verbose_name = u"serveur"
+        verbose_name = _(u"serveur")
         ordering = ['hostname', 'ip']
 
 
@@ -80,8 +80,8 @@ class ServerGroup(models.Model):
         return u"%s" % self.name
 
     class Meta:
-        verbose_name = u"groupe de serveurs"
-        verbose_name_plural = u"groupes de serveurs"
+        verbose_name = _(u"groupe de serveurs")
+        verbose_name_plural = _(u"groupes de serveurs")
         ordering = ['name']
 
 
@@ -95,8 +95,8 @@ class Measure(models.Model):
         return u"%s %s %s" % (self.timestamp, self.server.hostname, self.probe.display_name)
 
     class Meta:
-        verbose_name = "mesure"
-        verbose_name_plural = u"mesures"
+        verbose_name = _(u"mesure")
+        verbose_name_plural = _(u"mesures")
         ordering = ['-timestamp', 'server', 'probe']
 
 
@@ -110,8 +110,8 @@ class MeasureDay(models.Model):
         return u"%s" % self.value
 
     class Meta:
-        verbose_name = "mesure (vue journalière)"
-        verbose_name_plural = u"mesures (vue journalière)"
+        verbose_name = _(u"mesure (vue journalière)")
+        verbose_name_plural = _(u"mesures (vue journalière)")
         ordering = ['-timestamp', 'server', 'probe']
 
 
@@ -125,8 +125,8 @@ class MeasureWeek(models.Model):
         return u"%s" % self.value
 
     class Meta:
-        verbose_name = "mesure (vue hebdomadaire)"
-        verbose_name_plural = u"mesures (vue hebdomadaire)"
+        verbose_name = _(u"mesure (vue hebdomadaire)")
+        verbose_name_plural = _(u"mesures (vue hebdomadaire)")
         ordering = ['-timestamp', 'server', 'probe']
 
 
@@ -140,8 +140,8 @@ class MeasureMonth(models.Model):
         return u"%s" % self.value
 
     class Meta:
-        verbose_name = "mesure (vue mensuelle)"
-        verbose_name_plural = u"mesures (vue mensuelle)"
+        verbose_name = _(u"mesure (vue mensuelle)")
+        verbose_name_plural = _(u"mesures (vue mensuelle)")
         ordering = ['-timestamp', 'server', 'probe']
 
 
@@ -157,6 +157,6 @@ class CronLog(models.Model):
         return u"%s %s %s %s" % (self.timestamp, self.server.hostname, self.success, self.duration)
 
     class Meta:
-        verbose_name = u"exécution de tâches cron"
-        verbose_name_plural = u"exécutions de tâches cron"
+        verbose_name = _(u"exécution de tâches cron")
+        verbose_name_plural = _(u"exécutions de tâches cron")
         ordering = ['-timestamp', '-server', '-action', ]

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-09 12:26+0200\n"
+"POT-Creation-Date: 2012-09-16 21:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,6 +54,14 @@ msgstr ""
 msgid "Date de modification"
 msgstr ""
 
+#: models.py:18
+msgid "type de graphique"
+msgstr ""
+
+#: models.py:19
+msgid "types de graphiques"
+msgstr ""
+
 #: models.py:28
 msgid "Nom de la sonde"
 msgstr ""
@@ -80,6 +88,10 @@ msgstr ""
 
 #: models.py:35
 msgid "Labels des valeurs"
+msgstr ""
+
+#: models.py:46
+msgid "sonde"
 msgstr ""
 
 #: models.py:51
@@ -110,12 +122,24 @@ msgstr ""
 msgid "Sondes"
 msgstr ""
 
+#: models.py:69
+msgid "serveur"
+msgstr ""
+
 #: models.py:74
 msgid "Nom du groupe"
 msgstr ""
 
 #: models.py:77
 msgid "Serveurs"
+msgstr ""
+
+#: models.py:83
+msgid "groupe de serveurs"
+msgstr ""
+
+#: models.py:84
+msgid "groupes de serveurs"
 msgstr ""
 
 #: models.py:89 models.py:104 models.py:119 models.py:134 models.py:149
@@ -135,6 +159,39 @@ msgstr ""
 msgid "Valeur mesurée"
 msgstr ""
 
+#: models.py:98
+msgid "mesure"
+msgstr ""
+
+#: models.py:99 templates/base/navigation.html:44
+#: templates/base/navigation.html.py:46
+msgid "mesures"
+msgstr ""
+
+#: models.py:113
+msgid "mesure (vue journalière)"
+msgstr ""
+
+#: models.py:114
+msgid "mesures (vue journalière)"
+msgstr ""
+
+#: models.py:128
+msgid "mesure (vue hebdomadaire)"
+msgstr ""
+
+#: models.py:129
+msgid "mesures (vue hebdomadaire)"
+msgstr ""
+
+#: models.py:143
+msgid "mesure (vue mensuelle)"
+msgstr ""
+
+#: models.py:144
+msgid "mesures (vue mensuelle)"
+msgstr ""
+
 #: models.py:152
 msgid "Succès de l'exécution ?"
 msgstr ""
@@ -145,6 +202,14 @@ msgstr ""
 
 #: models.py:154
 msgid "Durée en secondes"
+msgstr ""
+
+#: models.py:160
+msgid "exécution de tâches cron"
+msgstr ""
+
+#: models.py:161
+msgid "exécutions de tâches cron"
 msgstr ""
 
 #: templates/404.html:8
@@ -514,10 +579,6 @@ msgid "%(nb)s sonde disponible"
 msgid_plural "%(nb)s sondes disponibles"
 msgstr[0] ""
 msgstr[1] ""
-
-#: templates/base/navigation.html:44 templates/base/navigation.html.py:46
-msgid "mesures"
-msgstr ""
 
 #: templates/base/navigation.html:55
 msgid "Configuration"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Skwissh-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-09 12:26+0200\n"
+"POT-Creation-Date: 2012-09-16 21:03+0200\n"
 "PO-Revision-Date: 2012-08-12 10:35+0200\n"
 "Last-Translator: Roland SAIKALI <roland@saikali.fr>\n"
 "Language-Team: Roland SAIKALI <roland@saikali.fr>\n"
@@ -17,23 +17,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: forms.py:10 models.py:31 templates/section-probe.html:48
+#: forms.py:10
+#: models.py:31
+#: templates/section-probe.html:48
 msgid "Utilise 'sudo' ?"
 msgstr "Use 'sudo' ?"
 
-#: forms.py:10 templates/modal-delete-probe.html:21
+#: forms.py:10
+#: templates/modal-delete-probe.html:21
 #: templates/modal-delete-server-group.html:18
-#: templates/modal-delete-server.html:21 templates/section-probe.html:52
+#: templates/modal-delete-server.html:21
+#: templates/section-probe.html:52
 msgid "Oui"
 msgstr "Yes"
 
-#: forms.py:10 templates/modal-delete-probe.html:22
+#: forms.py:10
+#: templates/modal-delete-probe.html:22
 #: templates/modal-delete-server-group.html:19
-#: templates/modal-delete-server.html:22 templates/section-probe.html:54
+#: templates/modal-delete-server.html:22
+#: templates/section-probe.html:54
 msgid "Non"
 msgstr "No"
 
-#: forms.py:18 templates/index.html:27
+#: forms.py:18
+#: templates/index.html:27
 msgid "Mot de passe"
 msgstr "Password"
 
@@ -45,13 +52,27 @@ msgstr "Name"
 msgid "Options jqPlot"
 msgstr "jqPlot options"
 
-#: models.py:11 models.py:36 models.py:57 models.py:75
+#: models.py:11
+#: models.py:36
+#: models.py:57
+#: models.py:75
 msgid "Date de création"
 msgstr "Creation date"
 
-#: models.py:12 models.py:37 models.py:58 models.py:76
+#: models.py:12
+#: models.py:37
+#: models.py:58
+#: models.py:76
 msgid "Date de modification"
 msgstr "Modification date"
+
+#: models.py:18
+msgid "type de graphique"
+msgstr "graph type"
+
+#: models.py:19
+msgid "types de graphiques"
+msgstr "graph types"
 
 #: models.py:28
 msgid "Nom de la sonde"
@@ -61,7 +82,8 @@ msgstr "Sensor name"
 msgid "Infos complémentaires (version linux...)"
 msgstr "Additional information (linux version...)"
 
-#: models.py:30 templates/section-probe.html:40
+#: models.py:30
+#: templates/section-probe.html:40
 msgid "Commande SSH"
 msgstr "SSH command"
 
@@ -80,6 +102,10 @@ msgstr "Unit"
 #: models.py:35
 msgid "Labels des valeurs"
 msgstr "Legend labels"
+
+#: models.py:46
+msgid "sonde"
+msgstr "sensor"
 
 #: models.py:51
 msgid "Nom du serveur"
@@ -105,9 +131,14 @@ msgstr "SSH username"
 msgid "Mot de passe SSH"
 msgstr "SSH password"
 
-#: models.py:59 templates/base/navigation.html:61
+#: models.py:59
+#: templates/base/navigation.html:61
 msgid "Sondes"
 msgstr "Sensors"
+
+#: models.py:69
+msgid "serveur"
+msgstr "server"
 
 #: models.py:74
 msgid "Nom du groupe"
@@ -117,22 +148,79 @@ msgstr "Group name"
 msgid "Serveurs"
 msgstr "Servers"
 
-#: models.py:89 models.py:104 models.py:119 models.py:134 models.py:149
+#: models.py:83
+msgid "groupe de serveurs"
+msgstr "servers group"
+
+#: models.py:84
+msgid "groupes de serveurs"
+msgstr "servers groups"
+
+#: models.py:89
+#: models.py:104
+#: models.py:119
+#: models.py:134
+#: models.py:149
 msgid "Date et heure"
 msgstr "Date & Time"
 
-#: models.py:90 models.py:105 models.py:120 models.py:135 models.py:150
-#: models.py:151 templates/cronlog_list.html:32
+#: models.py:90
+#: models.py:105
+#: models.py:120
+#: models.py:135
+#: models.py:150
+#: models.py:151
+#: templates/cronlog_list.html:32
 msgid "Serveur"
 msgstr "Server"
 
-#: models.py:91 models.py:106 models.py:121 models.py:136
+#: models.py:91
+#: models.py:106
+#: models.py:121
+#: models.py:136
 msgid "Sonde"
 msgstr "Sensor"
 
-#: models.py:92 models.py:107 models.py:122 models.py:137
+#: models.py:92
+#: models.py:107
+#: models.py:122
+#: models.py:137
 msgid "Valeur mesurée"
 msgstr "Sensor value"
+
+#: models.py:98
+msgid "mesure"
+msgstr "measure"
+
+#: models.py:99
+#: templates/base/navigation.html:44
+#: templates/base/navigation.html.py:46
+msgid "mesures"
+msgstr "measures"
+
+#: models.py:113
+msgid "mesure (vue journalière)"
+msgstr "measure (daily averages)"
+
+#: models.py:114
+msgid "mesures (vue journalière)"
+msgstr "measures (daily averages)"
+
+#: models.py:128
+msgid "mesure (vue hebdomadaire)"
+msgstr "measure (weekly averages)"
+
+#: models.py:129
+msgid "mesures (vue hebdomadaire)"
+msgstr "measures (weekly averages)"
+
+#: models.py:143
+msgid "mesure (vue mensuelle)"
+msgstr "measure (monthly averages)"
+
+#: models.py:144
+msgid "mesures (vue mensuelle)"
+msgstr "measures (monthly averages)"
 
 #: models.py:152
 msgid "Succès de l'exécution ?"
@@ -146,6 +234,14 @@ msgstr "Message"
 msgid "Durée en secondes"
 msgstr "Duration (seconds)"
 
+#: models.py:160
+msgid "exécution de tâches cron"
+msgstr "Sensors report"
+
+#: models.py:161
+msgid "exécutions de tâches cron"
+msgstr "Sensors reports"
+
 #: templates/404.html:8
 msgid "Erreur 404 - Ressource non trouvée"
 msgstr "404 Error - Not found"
@@ -158,8 +254,7 @@ msgstr "The page you're trying to access doesn't exist."
 msgid ""
 "Si un lien du site vous a mené à cette page, merci de nous contacter afin de "
 "corriger cette erreur."
-msgstr ""
-"If you arrived here through normal application navigation, please contact us "
+msgstr "If you arrived here through normal application navigation, please contact us "
 "so we can try to fix the problem."
 
 #: templates/500.html:8
@@ -170,19 +265,18 @@ msgstr "500 Error - Internal server error"
 msgid ""
 "Une erreur interne du serveur est survenue alors que vous tentiez d'accéder "
 "à une fonctionnalité."
-msgstr ""
-"An internal server error occured while you were trying to access a "
+msgstr "An internal server error occured while you were trying to access a "
 "functionality."
 
 #: templates/500.html:21
 msgid ""
 "Si cette erreur se reproduit, merci de nous contacter afin que nous "
 "puissions la corriger."
-msgstr ""
-"If this error happens again, please contact us so we could try to fix the "
+msgstr "If this error happens again, please contact us so we could try to fix the "
 "problem."
 
-#: templates/cronlog_list.html:9 templates/base/navigation.html:68
+#: templates/cronlog_list.html:9
+#: templates/base/navigation.html:68
 msgid "Rapport des sondes"
 msgstr "Sensors report"
 
@@ -218,7 +312,8 @@ msgstr "Error"
 msgid "Voir les détails..."
 msgstr "See details..."
 
-#: templates/index.html:11 templates/base/navigation.html:116
+#: templates/index.html:11
+#: templates/base/navigation.html:116
 msgid "Connexion"
 msgstr "Connexion"
 
@@ -234,7 +329,8 @@ msgstr "On this demo site, you can connect with credentials"
 msgid "Nom d'utilisateur"
 msgstr "Username"
 
-#: templates/index.html:29 templates/base/navigation.html:125
+#: templates/index.html:29
+#: templates/base/navigation.html:125
 msgid "Se connecter"
 msgstr "Login"
 
@@ -250,16 +346,14 @@ msgstr "What is Skwissh ?"
 msgid ""
 "Skwissh est une application Django pour monitorer vos serveurs à distance en "
 "utilisant du SSH."
-msgstr ""
-"Skwissh is a Django application for remotely monitoring servers using SSH."
+msgstr "Skwissh is a Django application for remotely monitoring servers using SSH."
 
 #: templates/index.html:95
 msgid ""
 "En arrière plan, Skwissh utilise Python Fabric (http://fabfile.org) pour "
 "exécuter des commandes SSH, récupérer leurs sorties et historiser les "
 "résultats. Les mesures sont prises toutes les minutes."
-msgstr ""
-"In background (crontabed jobs) Skwissh uses Python Fabric (http://fabfile."
+msgstr "In background (crontabed jobs) Skwissh uses Python Fabric (http://fabfile."
 "org) to execute SSH commands, aka. \"sensors\", get the output and store "
 "timestamped values. Measures are taken every minute."
 
@@ -268,35 +362,38 @@ msgid ""
 "Côté application web, Skwissh permet de présenter toutes les historiques des "
 "mesures sous différentes formes (graphiques en ligne, histogrammes, "
 "camemberts, sorties textuelles)."
-msgstr ""
-"On the web application side, Skwissh is able to display nice charts "
+msgstr "On the web application side, Skwissh is able to display nice charts "
 "(linechart, barchart, piechart or simple text) with aggregated measures."
 
 #: templates/index.html:101
 msgid ""
 "Plusieurs sondes sont fournies avec Skwissh (testées sous Ubuntu 12.04) : "
 "CPU, Swap, WaitIO, mémoire, réseau..."
-msgstr ""
-"Many sensors are available 'out of the box' (tested under Ubuntu 12.04) : "
+msgstr "Many sensors are available 'out of the box' (tested under Ubuntu 12.04) : "
 "CPU, Swap, WaitIO, memory, network..."
 
 #: templates/index.html:104
 msgid "Mais vous pouvez également ajouter vos propres sondes personnalisées"
 msgstr "But you can also easily add your own custom sensors"
 
-#: templates/modal-add-probe.html:5 templates/base/navigation.html:87
+#: templates/modal-add-probe.html:5
+#: templates/base/navigation.html:87
 msgid "Ajouter une sonde"
 msgstr "Add a sensor"
 
-#: templates/modal-add-probe.html:12 templates/modal-add-server-group.html:12
-#: templates/modal-add-server.html:12 templates/modal-edit-server.html:12
+#: templates/modal-add-probe.html:12
+#: templates/modal-add-server-group.html:12
+#: templates/modal-add-server.html:12
+#: templates/modal-edit-server.html:12
 #: templates/modal-update-probe.html:16
 #: templates/modal-update-server-group.html:14
 msgid "Sauvegarder"
 msgstr "Save"
 
-#: templates/modal-add-probe.html:13 templates/modal-add-server-group.html:13
-#: templates/modal-add-server.html:13 templates/modal-edit-server.html:13
+#: templates/modal-add-probe.html:13
+#: templates/modal-add-server-group.html:13
+#: templates/modal-add-server.html:13
+#: templates/modal-edit-server.html:13
 #: templates/modal-update-probe.html:17
 #: templates/modal-update-server-group.html:15
 msgid "Annuler"
@@ -321,12 +418,14 @@ msgid ""
 "mesures associées."
 msgstr "Deleting this sensor will automatically purge all associated measures."
 
-#: templates/modal-delete-probe.html:14 templates/modal-delete-server.html:13
+#: templates/modal-delete-probe.html:14
+#: templates/modal-delete-server.html:13
 #, python-format
 msgid "%(count)s mesures seront définitivement perdues."
 msgstr "%(count)s measures will be definitely lost."
 
-#: templates/modal-delete-probe.html:15 templates/modal-delete-server.html:14
+#: templates/modal-delete-probe.html:15
+#: templates/modal-delete-server.html:14
 msgid "Cette opération est irréversible."
 msgstr "This operation is irreversible."
 
@@ -412,7 +511,8 @@ msgstr "Download chart image..."
 msgid "Chargement des données en cours..."
 msgstr "Loading data..."
 
-#: templates/section-group.html:6 templates/base/navigation.html:22
+#: templates/section-group.html:6
+#: templates/base/navigation.html:22
 msgid "Non classé"
 msgstr "Uncategorized"
 
@@ -420,7 +520,8 @@ msgstr "Uncategorized"
 msgid "Editer ce groupe de serveurs"
 msgstr "Edit this server group"
 
-#: templates/section-group.html:15 templates/section-probe.html:9
+#: templates/section-group.html:15
+#: templates/section-probe.html:9
 msgid "Editer"
 msgstr "Edit"
 
@@ -428,7 +529,8 @@ msgstr "Edit"
 msgid "Supprimer ce groupe de serveurs"
 msgstr "Delete this server group"
 
-#: templates/section-group.html:18 templates/section-probe.html:10
+#: templates/section-group.html:18
+#: templates/section-probe.html:10
 msgid "Supprimer"
 msgstr "Delete"
 
@@ -507,8 +609,7 @@ msgstr "No server found"
 #: templates/server-list.html:35
 msgid ""
 "Veuillez ajouter un serveur via le menu 'Options' puis 'Ajouter un serveur'."
-msgstr ""
-"Please add a server by selecting 'Options' menu and then 'Add a server'."
+msgstr "Please add a server by selecting 'Options' menu and then 'Add a server'."
 
 #: templates/base/footer.html:14
 msgid "Développé par"
@@ -528,10 +629,6 @@ msgid "%(nb)s sonde disponible"
 msgid_plural "%(nb)s sondes disponibles"
 msgstr[0] "%(nb)s available sensor"
 msgstr[1] "%(nb)s available sensors"
-
-#: templates/base/navigation.html:44 templates/base/navigation.html.py:46
-msgid "mesures"
-msgstr "measures"
 
 #: templates/base/navigation.html:55
 msgid "Configuration"
@@ -584,3 +681,4 @@ msgstr "Logout"
 #: templates/base/navigation.html:125
 msgid "Se connecter de Skwissh"
 msgstr "Login to Skwissh"
+
