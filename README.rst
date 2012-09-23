@@ -10,6 +10,11 @@
 
 .. image:: https://secure.travis-ci.org/rsaikali/django-skwissh.png?branch=master
 
+**New Android application** : `Find Android Skwissh on Google Play <http://play.google.com/store/apps/details?id=com.saikali.android_skwissh>`_
+  
+.. image:: http://www.android.com/images/brand/android_app_on_play_logo_large.png
+
+
 ============
 Introduction
 ============
