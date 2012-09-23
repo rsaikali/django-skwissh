@@ -1,5 +1,9 @@
-==== 0.0.7 (2012-09-05) ====
+==== 0.0.8 (2012-09-23) ====
 
+- JSON views for android application.
+- models.py : models names english translations (i18n)
+
+==== 0.0.7 (2012-09-05) ====
 
 - Ability to dynamically change graph type (sensors still have a default graph type).
 - jqPlot graphing simplification (less JS generated from Django template).
