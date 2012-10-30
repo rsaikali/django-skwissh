@@ -1,0 +1,652 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Pablo Caro <correo@pablocaro.es>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: Skwissh-0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-23 17:18+0200\n"
+"PO-Revision-Date: 2012-10-30 09:01+0100\n"
+"Last-Translator: Pablo Caro <correo@pablocaro.es>\n"
+"Language-Team: Spanish <info@yaco.yes>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.4\n"
+
+#: forms.py:10 models.py:31 templates/section-probe.html:48
+msgid "Utilise 'sudo' ?"
+msgstr "Usar 'sudo' ?"
+
+#: forms.py:10 templates/modal-delete-probe.html:21
+#: templates/modal-delete-server-group.html:18
+#: templates/modal-delete-server.html:21 templates/section-probe.html:52
+msgid "Oui"
+msgstr "Sí"
+
+#: forms.py:10 templates/modal-delete-probe.html:22
+#: templates/modal-delete-server-group.html:19
+#: templates/modal-delete-server.html:22 templates/section-probe.html:54
+msgid "Non"
+msgstr "No"
+
+#: forms.py:18 templates/index.html:27
+msgid "Mot de passe"
+msgstr "Contraseña"
+
+#: models.py:9
+msgid "Nom"
+msgstr "Nombre"
+
+#: models.py:10
+msgid "Options jqPlot"
+msgstr "Opciones jqPlot"
+
+#: models.py:11 models.py:36 models.py:57 models.py:75
+msgid "Date de création"
+msgstr "Fecha de creación"
+
+#: models.py:12 models.py:37 models.py:58 models.py:76
+msgid "Date de modification"
+msgstr "Fecha de modificación"
+
+#: models.py:18
+msgid "type de graphique"
+msgstr "tipo de gráfico"
+
+#: models.py:19
+msgid "types de graphiques"
+msgstr "tipos de gráficos"
+
+#: models.py:28
+msgid "Nom de la sonde"
+msgstr "Nombre de la sonda"
+
+#: models.py:29
+msgid "Infos complémentaires (version linux...)"
+msgstr "Información complementaria (linux versión...)"
+
+#: models.py:30 templates/section-probe.html:40
+msgid "Commande SSH"
+msgstr "Comando SSH"
+
+#: models.py:32
+msgid "Commande Python de parsing"
+msgstr "Comando python de parseo"
+
+#: models.py:33
+msgid "Type de graphique par défaut"
+msgstr "Typo de gráfica por defecto"
+
+#: models.py:34
+msgid "Unité"
+msgstr "Unidad"
+
+#: models.py:35
+msgid "Labels des valeurs"
+msgstr "Etiquetas de los valores"
+
+#: models.py:46
+msgid "sonde"
+msgstr "sonda"
+
+#: models.py:51
+msgid "Nom du serveur"
+msgstr "Nombre del servidor"
+
+#: models.py:52
+msgid "Adresse IP"
+msgstr "Dirección IP"
+
+#: models.py:53
+msgid "Serveur accessible ?"
+msgstr "Servidor accesible ?"
+
+#: models.py:54
+msgid "Serveur en cours de mesures ?"
+msgstr "Servidor con métricas en marcha ?"
+
+#: models.py:55
+msgid "Nom d'utilisateur SSH"
+msgstr "Nombre de usuario de SSH"
+
+#: models.py:56
+msgid "Mot de passe SSH"
+msgstr "Contraseña SSH"
+
+#: models.py:59 templates/base/navigation.html:61
+msgid "Sondes"
+msgstr "Sondas"
+
+#: models.py:69
+msgid "serveur"
+msgstr "servidor"
+
+#: models.py:74
+msgid "Nom du groupe"
+msgstr "Nombre de grupo"
+
+#: models.py:77
+msgid "Serveurs"
+msgstr "Servidores"
+
+#: models.py:83
+msgid "groupe de serveurs"
+msgstr "grupo de servidores"
+
+#: models.py:84
+msgid "groupes de serveurs"
+msgstr "grupos de servidores"
+
+#: models.py:89 models.py:104 models.py:119 models.py:134 models.py:149
+msgid "Date et heure"
+msgstr "Fecha y Hora"
+
+#: models.py:90 models.py:105 models.py:120 models.py:135 models.py:150
+#: models.py:151 templates/cronlog_list.html:32
+msgid "Serveur"
+msgstr "Servidor"
+
+#: models.py:91 models.py:106 models.py:121 models.py:136
+msgid "Sonde"
+msgstr "Sonda"
+
+#: models.py:92 models.py:107 models.py:122 models.py:137
+msgid "Valeur mesurée"
+msgstr "Valor de medida"
+
+#: models.py:98
+msgid "mesure"
+msgstr "medida"
+
+#: models.py:99 templates/base/navigation.html:44
+#: templates/base/navigation.html.py:46
+msgid "mesures"
+msgstr "medidas"
+
+#: models.py:113
+msgid "mesure (vue journalière)"
+msgstr "medida (por día)"
+
+#: models.py:114
+msgid "mesures (vue journalière)"
+msgstr "medidas (por día)"
+
+#: models.py:128
+msgid "mesure (vue hebdomadaire)"
+msgstr "medida (por semana)"
+
+#: models.py:129
+msgid "mesures (vue hebdomadaire)"
+msgstr "medidas (por semana)"
+
+#: models.py:143
+msgid "mesure (vue mensuelle)"
+msgstr "medida (mensual)"
+
+#: models.py:144
+msgid "mesures (vue mensuelle)"
+msgstr "medidas (por mes)"
+
+#: models.py:152
+msgid "Succès de l'exécution ?"
+msgstr "Ejecución correcta ?"
+
+#: models.py:153
+msgid "Message"
+msgstr "Mensaje"
+
+#: models.py:154
+msgid "Durée en secondes"
+msgstr "Duración en segundos"
+
+#: models.py:160
+msgid "exécution de tâches cron"
+msgstr "ejecuión de tareas de cron"
+
+#: models.py:161
+msgid "exécutions de tâches cron"
+msgstr "Ejecuciones de tareas de cron"
+
+#: templates/404.html:8
+msgid "Erreur 404 - Ressource non trouvée"
+msgstr "Error 404 - Recurso no encontrado"
+
+#: templates/404.html:18
+msgid "La page à laquelle vous tentez d'accéder n'existe pas."
+msgstr "La página a la que intenta acceder no existe"
+
+#: templates/404.html:21
+msgid ""
+"Si un lien du site vous a mené à cette page, merci de nous contacter afin de "
+"corriger cette erreur."
+msgstr ""
+"Si alcanzó esta página a través de la navegación normal, por favor contacte "
+"con nosotros para corregir el error."
+
+#: templates/500.html:8
+msgid "Erreur 500 - Erreur interne du serveur"
+msgstr "Error 500 - Error interno del servidor"
+
+#: templates/500.html:18
+msgid ""
+"Une erreur interne du serveur est survenue alors que vous tentiez d'accéder "
+"à une fonctionnalité."
+msgstr ""
+"Un error interno ha ocurrido mientras intentaba acceder a una funcionalidad."
+
+#: templates/500.html:21
+msgid ""
+"Si cette erreur se reproduit, merci de nous contacter afin que nous "
+"puissions la corriger."
+msgstr ""
+"Si el error persistiera, por favor contacte con nosotros para arreglar el "
+"problema."
+
+#: templates/cronlog_list.html:9 templates/base/navigation.html:68
+msgid "Rapport des sondes"
+msgstr "Informe de las sondas"
+
+#: templates/cronlog_list.html:31
+msgid "Date / heure"
+msgstr "Fecha / Hora"
+
+#: templates/cronlog_list.html:33
+msgid "Action"
+msgstr "Acción"
+
+#: templates/cronlog_list.html:34
+msgid "Durée totale"
+msgstr "Duración total"
+
+#: templates/cronlog_list.html:35
+msgid "Status"
+msgstr "Estado"
+
+#: templates/cronlog_list.html:47
+msgid "secondes"
+msgstr "segundos"
+
+#: templates/cronlog_list.html:49
+msgid "OK"
+msgstr "OK"
+
+#: templates/cronlog_list.html:52
+msgid "Erreur"
+msgstr "Error"
+
+#: templates/cronlog_list.html:55
+msgid "Voir les détails..."
+msgstr "Ver los detalles..."
+
+#: templates/index.html:11 templates/base/navigation.html:116
+msgid "Connexion"
+msgstr "Conexión"
+
+#: templates/index.html:16
+msgid "Veuillez vous identifier pour accéder à Skwissh."
+msgstr "Por favor, introduzca sus credenciales para acceder"
+
+#: templates/index.html:20
+msgid "Sur ce site de demo, vous pouvez vous connecter avec "
+msgstr "En este sitio de prueba, puede acceder con las credenciales"
+
+#: templates/index.html:25
+msgid "Nom d'utilisateur"
+msgstr "Nombre de usuario"
+
+#: templates/index.html:29 templates/base/navigation.html:125
+msgid "Se connecter"
+msgstr "Acceso"
+
+#: templates/index.html:64
+msgid "Skwissh en action"
+msgstr "Skwissh en acción"
+
+#: templates/index.html:87
+msgid "Qu'est ce que Skwissh ?"
+msgstr "Qué es Skwissh ?"
+
+#: templates/index.html:92
+msgid ""
+"Skwissh est une application Django pour monitorer vos serveurs à distance en "
+"utilisant du SSH."
+msgstr ""
+"Skwissh es una aplicación  Django para monitorizar remotamente servidores "
+"usando SSH"
+
+#: templates/index.html:95
+msgid ""
+"En arrière plan, Skwissh utilise Python Fabric (http://fabfile.org) pour "
+"exécuter des commandes SSH, récupérer leurs sorties et historiser les "
+"résultats. Les mesures sont prises toutes les minutes."
+msgstr ""
+"En el fondo,  Skwissh utiliza Python Fabric (http://fabfile."
+"org) para  ejecutar comandos SSH commands, o \"sondas\", recuperar la salida "
+"y almacenar los resultados. Las medidas se toman cada minuto."
+
+#: templates/index.html:98
+msgid ""
+"Côté application web, Skwissh permet de présenter toutes les historiques des "
+"mesures sous différentes formes (graphiques en ligne, histogrammes, "
+"camemberts, sorties textuelles)."
+msgstr ""
+"En el lado de la aplicación, Skwissh puede presentar gráficos de las medidas "
+"en diferentes formas (líneas, barras, tarta o texto simple)"
+
+#: templates/index.html:101
+msgid ""
+"Plusieurs sondes sont fournies avec Skwissh (testées sous Ubuntu 12.04) : "
+"CPU, Swap, WaitIO, mémoire, réseau..."
+msgstr ""
+"Varias sondas se suministran con Skwissh (probado en Ubuntu 12.04):"
+"CPU, WaitIO, Swap, memoria, red ..."
+
+#: templates/index.html:104
+msgid "Mais vous pouvez également ajouter vos propres sondes personnalisées"
+msgstr "Además puede agregar fácilmente sus propias sondas"
+
+#: templates/modal-add-probe.html:5 templates/base/navigation.html:87
+msgid "Ajouter une sonde"
+msgstr "Añadir una sonda"
+
+#: templates/modal-add-probe.html:12 templates/modal-add-server-group.html:12
+#: templates/modal-add-server.html:12 templates/modal-edit-server.html:12
+#: templates/modal-update-probe.html:16
+#: templates/modal-update-server-group.html:14
+msgid "Sauvegarder"
+msgstr "Salvar"
+
+#: templates/modal-add-probe.html:13 templates/modal-add-server-group.html:13
+#: templates/modal-add-server.html:13 templates/modal-edit-server.html:13
+#: templates/modal-update-probe.html:17
+#: templates/modal-update-server-group.html:15
+msgid "Annuler"
+msgstr "Cancelar"
+
+#: templates/modal-add-server-group.html:5
+msgid "Ajout d'un groupe de serveurs"
+msgstr "Añadir un grupo de servidores"
+
+#: templates/modal-add-server.html:5
+msgid "Ajout d'un serveur"
+msgstr "Añadir un servidor"
+
+#: templates/modal-delete-probe.html:5
+#, python-format
+msgid "Supprimer la sonde '%(name)s' ?"
+msgstr "Borrar la sonda '%(name)s' ?"
+
+#: templates/modal-delete-probe.html:11
+msgid ""
+"La suppression de cette sonde entraînera la suppression de toutes les "
+"mesures associées."
+msgstr ""
+"El borrado de la sondad implica el borrado de todas las medidas asociadas."
+
+#: templates/modal-delete-probe.html:14 templates/modal-delete-server.html:13
+#, python-format
+msgid "%(count)s mesures seront définitivement perdues."
+msgstr "%(count)s mediadas serán borradas definitivamente"
+
+#: templates/modal-delete-probe.html:15 templates/modal-delete-server.html:14
+msgid "Cette opération est irréversible."
+msgstr "Esta operación es irreversible."
+
+#: templates/modal-delete-probe.html:18
+#, python-format
+msgid "Voulez vous vraiment supprimer la sonde '%(name)s' ?"
+msgstr "Realmente desea borrar la sonda '%(name)s' ?"
+
+#: templates/modal-delete-server-group.html:5
+#, python-format
+msgid "Supprimer le groupe de serveurs '%(name)s' ?"
+msgstr "Borrar el grupo de servidores  '%(name)s' ?"
+
+#: templates/modal-delete-server-group.html:10
+msgid "Les serveurs inclus dans ce groupe ne seront pas supprimés."
+msgstr "Los servidores incluidos en este grupo no serán borrados."
+
+#: templates/modal-delete-server-group.html:11
+msgid "Vous pourrez les retrouver dans la zone 'Non Classés'."
+msgstr "Los podrá encontrar en la zona de 'No clasificados'."
+
+#: templates/modal-delete-server-group.html:14
+#, python-format
+msgid "Etes-vous sûr de vouloir supprimer le groupe de serveurs '%(name)s' ?"
+msgstr "Desea realmente borrar el grupo de servidores '%(name)s' ?"
+
+#: templates/modal-delete-server.html:5
+#, python-format
+msgid "Supprimer le serveur '%(name)s' ?"
+msgstr "Borrar el servidor '%(name)s' ?"
+
+#: templates/modal-delete-server.html:10
+msgid ""
+"La suppression de ce serveur entraînera la suppression de toutes les mesures "
+"associées."
+msgstr ""
+"Al borrar este servidor también se borrarán automáticamente las medidas "
+"asociadas."
+
+#: templates/modal-delete-server.html:17
+#, python-format
+msgid "Voulez vous vraiment supprimer le serveur '%(name)s' ?"
+msgstr "Realmente desea borrar el servidor '%(name)s' ?"
+
+#: templates/modal-edit-server.html:5
+#, python-format
+msgid "Editer le serveur '%(name)s'"
+msgstr "Editar el servidor '%(name)s'"
+
+#: templates/modal-update-probe.html:9
+#, python-format
+msgid "Editer la sonde '%(name)s'"
+msgstr "Editar la  sonda '%(name)s'"
+
+#: templates/modal-update-server-group.html:8
+#, python-format
+msgid "Editer le groupe de serveurs '%(name)s'"
+msgstr "Editar el grupo de servidores '%(name)s'"
+
+#: templates/section-graph.html:6
+msgid "Dernière mesure"
+msgstr "Última medida"
+
+#: templates/section-graph.html:7
+msgid "Dernière heure"
+msgstr "Última hora"
+
+#: templates/section-graph.html:8
+msgid "Dernière journée"
+msgstr "Último día"
+
+#: templates/section-graph.html:9
+msgid "Dernière semaine"
+msgstr "Última semana"
+
+#: templates/section-graph.html:10
+msgid "Dernier mois"
+msgstr "Mes pasado"
+
+#: templates/section-graph.html:35
+msgid "Télécharger le graphique..."
+msgstr "Descargar el gráfico..."
+
+#: templates/section-graph.html:38
+msgid "Chargement des données en cours..."
+msgstr "Carga de datos en curso..."
+
+#: templates/section-group.html:6 templates/base/navigation.html:22
+msgid "Non classé"
+msgstr "Sin clasificar"
+
+#: templates/section-group.html:15
+msgid "Editer ce groupe de serveurs"
+msgstr "Editar este grupo de servidores"
+
+#: templates/section-group.html:15 templates/section-probe.html:9
+msgid "Editer"
+msgstr "Editar"
+
+#: templates/section-group.html:18
+msgid "Supprimer ce groupe de serveurs"
+msgstr "Borrar el grupo de servidores"
+
+#: templates/section-group.html:18 templates/section-probe.html:10
+msgid "Supprimer"
+msgstr "Borrar"
+
+#: templates/section-group.html:33
+msgid "Supprimer le serveur"
+msgstr "Borrar el servidor"
+
+#: templates/section-group.html:37
+msgid "Aucun serveur dans ce groupe"
+msgstr "Ningún servidor en este grupo"
+
+#: templates/section-probe.html:9
+msgid "Editer cette sonde"
+msgstr "Editar esta sonda"
+
+#: templates/section-probe.html:10
+msgid "Supprimer cette sonde"
+msgstr "Borrar esta sonda"
+
+#: templates/section-probe.html:22
+msgid "Graphique en lignes"
+msgstr "Gráfico de líneas"
+
+#: templates/section-probe.html:23
+msgid "Graphique en lignes empilées"
+msgstr "Gráfico de líneas apiladas"
+
+#: templates/section-probe.html:24
+msgid "Histogramme empilé"
+msgstr "Gráfico de barras"
+
+#: templates/section-probe.html:25
+msgid "Histogramme par groupe"
+msgstr "Gráfico de barras en grupos"
+
+#: templates/section-probe.html:26
+msgid "Graphique camembert"
+msgstr "Gráfico de tarta"
+
+#: templates/section-probe.html:27
+msgid "Sortie texte"
+msgstr "Texto de salida"
+
+#: templates/section-probe.html:30
+msgid "mesures effectuées"
+msgstr "medidas efectuadas"
+
+#: templates/section-probe.html:33
+msgid "Actuellement sur"
+msgstr "Actualmente"
+
+#: templates/section-probe.html:33
+msgid "serveurs"
+msgstr "servidores"
+
+#: templates/section-probe.html:59
+msgid "Commande Python"
+msgstr "Comando Python"
+
+#: templates/section-probe.html:68
+msgid "Unités"
+msgstr "Unidades"
+
+#: templates/section-probe.html:76
+msgid "Libéllés"
+msgstr "Etiquetas"
+
+#: templates/server-list.html:30
+msgid "Aucun serveur"
+msgstr "Ningún servidor"
+
+#: templates/server-list.html:34
+msgid "Aucun serveur n'est actuellement configuré."
+msgstr "El servidor no está configurado."
+
+#: templates/server-list.html:35
+msgid ""
+"Veuillez ajouter un serveur via le menu 'Options' puis 'Ajouter un serveur'."
+msgstr ""
+"Por favor agregue un servidor a través del menú 'Opciones' y luego en "
+"\"Añadir servidor\"."
+
+#: templates/base/footer.html:14
+msgid "Développé par"
+msgstr "Desarrollado por"
+
+#: templates/base/header.html:10
+msgid "Gardez un oeil sur vos serveurs..."
+msgstr "Un ojo en su servidores..."
+
+#: templates/base/navigation.html:7
+msgid "Accueil"
+msgstr "Bienvenido"
+
+#: templates/base/navigation.html:39
+#, python-format
+msgid "%(nb)s sonde disponible"
+msgid_plural "%(nb)s sondes disponibles"
+msgstr[0] "%(nb)s sondas disponibles"
+msgstr[1] "%(nb)s available sensors"
+
+#: templates/base/navigation.html:55
+msgid "Configuration"
+msgstr "Configuración"
+
+#: templates/base/navigation.html:68
+msgid "Voir le rapport des sondes"
+msgstr "Ver informe de sondas"
+
+#: templates/base/navigation.html:71
+msgid "Voir la liste des sondes"
+msgstr "Ver la lista de sondas"
+
+#: templates/base/navigation.html:71
+msgid "Liste des sondes"
+msgstr "Lista de sondas"
+
+#: templates/base/navigation.html:77
+msgid "Ajouter un serveur"
+msgstr "Añadir un servidor"
+
+#: templates/base/navigation.html:82
+msgid "Ajouter un groupe de serveurs"
+msgstr "Añadir un grupo de servidores"
+
+#: templates/base/navigation.html:82
+msgid "Ajouter un groupe"
+msgstr "Añadir un grupo"
+
+#: templates/base/navigation.html:92
+msgid "Editer le serveur actuel"
+msgstr "Editar el servidor actual"
+
+#: templates/base/navigation.html:92
+msgid "Editer ce serveur"
+msgstr "Editar este servidor"
+
+#: templates/base/navigation.html:97
+msgid "Langue"
+msgstr "Idioma"
+
+#: templates/base/navigation.html:121
+msgid "Se déconnecter de Skwissh"
+msgstr "Desconectar de Skwissh"
+
+#: templates/base/navigation.html:121
+msgid "Se déconnecter"
+msgstr "Salir"
+
+#: templates/base/navigation.html:125
+msgid "Se connecter de Skwissh"
+msgstr "Entar en Skwissh"
+
