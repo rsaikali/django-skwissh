@@ -11,7 +11,7 @@
 .. image:: https://secure.travis-ci.org/rsaikali/django-skwissh.png?branch=master
 
 **New Android application** : `Find Android Skwissh on Google Play <http://play.google.com/store/apps/details?id=com.saikali.android_skwissh>`_
-  
+
 .. image:: http://www.android.com/images/brand/android_app_on_play_logo_large.png
 
 
@@ -24,7 +24,7 @@ A Django application for remotely monitoring servers using SSH.
 In background (crontabed jobs) Skwissh uses `Python Fabric <http://fabfile.org>`_ to execute SSH commands, aka. "sensors", get the output and store timestamped values.
 Measures are taken every minute.
 
-On the other side, Skwissh is able to display nice charts (linechart, piechart or simple text) with aggregated measures. 
+On the other side, Skwissh is able to display nice charts (linechart, piechart or simple text) with aggregated measures.
 
 Default sensors available (tested on Ubuntu 12.04) :
 
@@ -61,6 +61,13 @@ Add ``skwissh`` and ``kronos`` to your Django ``INSTALLED_APPS``:
         'skwissh',
     )
 
+Change LOGIN_URL in settings.py in order to use skwissh integrated login:
+
+::
+
+    LOGIN_URL = "/skwissh/login"
+
+
 Add Skwissh to your ``urls.py``:
 
 ::
@@ -73,13 +80,13 @@ Synchronize your database (this command will load defaut sensors through fixture
 ::
 
    ./manage.py syncdb
-    
+
 Install Skwissh tasks (will write to your user crontab, thanks to 'django-kronos'):
 
 ::
 
    ./manage.py installtasks
-    
+
 You can check that 4 crontab job have been configured:
 
 ::
@@ -103,7 +110,7 @@ In your project ``settings.py``, add the Django ``LocaleMiddleware`` and set the
       ('en', 'English'),
    )
 
-You're ready to go ! 
+You're ready to go !
 Connect to the application and start configure your servers and sensors !
 
 ===========
@@ -138,7 +145,7 @@ Credits
 * Uses Django applications and addons :
 
   - django-kronos (https://github.com/jgorset/django-kronos) from Johannes Gorset (https://github.com/jgorset).
-  - django-extra-views (https://github.com/AndrewIngram/django-extra-views) from Andrew Ingram (https://github.com/AndrewIngram). 
+  - django-extra-views (https://github.com/AndrewIngram/django-extra-views) from Andrew Ingram (https://github.com/AndrewIngram).
 
 * Uses Fabric (http://fabfile.org) SSH Python library.
 * Uses jqPlot (http://www.jqplot.com) jQuery plotting and charting library.
