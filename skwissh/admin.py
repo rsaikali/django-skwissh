@@ -16,7 +16,7 @@ admin.site.register(ServerGroup, ServerGroupAdmin)
 
 
 class ServerAdmin(admin.ModelAdmin):
-    form = ServerForm
+    pass
 admin.site.register(Server, ServerAdmin)
 
 

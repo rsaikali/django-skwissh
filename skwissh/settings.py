@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from django.core.urlresolvers import reverse
+
 try:
     from django.conf import settings
 except:
@@ -13,4 +15,4 @@ def patch_settings():
     Patches default project settings LOGIN_URL.
     Don't know if it's the best way to do it... but it works...
     """
-    settings.LOGIN_URL = "/skwissh/login"
+    settings.LOGIN_URL = reverse("skwissh.views.login_skwissh")
