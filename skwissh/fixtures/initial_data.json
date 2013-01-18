@@ -121,12 +121,12 @@
 			"addon_name": "",
 			"display_name": "Memory",
 			"ssh_command": "cat /proc/meminfo",
-			"probe_labels": "Free memory;Buffers;Used memory",
+			"probe_labels": "Free memory;Buffers;Used memory;Cached",
 			"use_sudo": false,
 			"probe_unit": "Mo",
 			"date_created": "2012-08-29T08:20:23Z",
 			"graph_type": 5,
-			"python_parse": "meminfos = dict([(info.split(':')[0].strip(), int(info.split()[1].strip())/1024) for info in output.splitlines()])\r\noutput = \";\".join([str(meminfos['MemFree']), str(meminfos['Buffers']), str(meminfos['MemTotal'] - meminfos['MemFree'] - meminfos['Buffers'])])"
+			"python_parse": "meminfos = dict([(info.split(':')[0].strip(), int(info.split()[1].strip())/1024) for info in output.splitlines()])\r\noutput = \";\".join([str(meminfos['MemFree']), str(meminfos['Buffers']), str(meminfos['MemTotal'] - meminfos['MemFree'] - meminfos['Buffers'] - meminfos['Cached']), str(meminfos['Cached'])])"
 		}
 	}, {
 		"pk": 7,
@@ -136,12 +136,12 @@
 			"addon_name": "",
 			"display_name": "Memory (pie)",
 			"ssh_command": "cat /proc/meminfo",
-			"probe_labels": "Free memory;Buffers;Used memory",
+			"probe_labels": "Free memory;Buffers;Used memory;Cached",
 			"use_sudo": false,
 			"probe_unit": "Ko",
 			"date_created": "2012-08-14T08:02:58Z",
 			"graph_type": 2,
-			"python_parse": "meminfos = dict([(info.split(':')[0].strip(), int(info.split()[1].strip())) for info in output.splitlines()])\r\noutput = \";\".join([str(meminfos['MemFree']), str(meminfos['Buffers']), str(meminfos['MemTotal'] - meminfos['MemFree'] - meminfos['Buffers'])])"
+			"python_parse": "meminfos = dict([(info.split(':')[0].strip(), int(info.split()[1].strip())) for info in output.splitlines()])\r\noutput = \";\".join([str(meminfos['MemFree']), str(meminfos['Buffers']), str(meminfos['MemTotal'] - meminfos['MemFree'] - meminfos['Buffers'] - meminfos['Cached']), str(meminfos['Cached'])])"
 		}
 	}, {
 		"pk": 9,
