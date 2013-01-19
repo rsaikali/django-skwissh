@@ -22,11 +22,13 @@ def get_groups():
 logs_info = {"queryset": CronLog.objects.all(),
              "template_name": 'cronlog_list.html',
              "paginate_by": 50,
-             "extra_context": { 'groups': get_groups, 'nogroup_servers': get_nogroups },
+             "extra_context": {
+                               'groups': get_groups,
+                               'nogroup_servers': get_nogroups
+                               },
 }
 
 urlpatterns = patterns('',
-
     # Skwissh index
     url(r'^$', 'skwissh.views.index', name='index'),
 
