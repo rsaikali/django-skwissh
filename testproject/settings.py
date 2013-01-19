@@ -58,6 +58,16 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'kronos',
+    'django_jenkins',
+)
+PROJECT_APPS = (
     'skwissh',
+)
+INSTALLED_APPS += PROJECT_APPS
+JENKINS_TASKS = (
+        'django_jenkins.tasks.with_coverage',
+        'django_jenkins.tasks.django_tests',
+        'django_jenkins.tasks.run_pep8',
+        'django_jenkins.tasks.run_pyflakes',
 )
 LANGUAGES = (("fr", "Français"), ("en", "English"),)
