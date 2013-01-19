@@ -7,6 +7,7 @@ from django.test.client import Client
 from django.test.testcases import TestCase
 from skwissh.models import Probe, GraphType, Server, Measure, MeasureDay, \
     MeasureWeek, MeasureMonth
+import skwissh
 
 
 class SkwisshTest(TestCase):
@@ -15,10 +16,21 @@ class SkwisshTest(TestCase):
         self.test_server = Server.objects.get(ip="127.0.0.1")
         self.client = Client(HTTP_USER_AGENT='Mozilla/5.0')
         self.user_password = "unittest_password"
+        self.admin_password = "admin_password"
         try:
             self.user = User.objects.get(username='unittest_user')
         except:
             self.user = User.objects.create_user('unittest_user', 'unittest_user@test.com', self.user_password)
+        try:
+            self.admin_user = User.objects.get(username='admin_user')
+        except:
+            self.admin_user = User.objects.create_user('admin_user', 'unittest_admin@test.com', self.admin_password)
+
+    #
+    # Get version
+    #
+    def test_0000_version(self):
+        self.assertEqual(skwissh.__version__, ".".join([str(x) for x in skwissh.VERSION]), "Skwissh version error.")
 
     #
     # Count fixtures
@@ -176,5 +188,54 @@ class SkwisshTest(TestCase):
 
     def test_0282_security_ajax_badparameter(self):
         self.client.login(username=self.user.username, password=self.user_password)
+        response = self.client.get('/skwissh/mesures/%s/999/hour/' % self.test_server.id, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertEqual(response.status_code, 404, "XHR call to Ajax URL should work.")
+
+    #
+    # Security : admin user.
+    #
+    def test_0340_security_admin_login_logout(self):
+        self.client.login(username=self.admin_user.username, password=self.admin_password)
+        self.client.logout()
+        response = self.client.get(reverse('index'))
+        self.assertEqual(response.status_code, 302, "Base URL by registered user should return a HTTP 302 (redirect).")
+        self.assertTrue(response['Location'].find("login") != -1, "Base URL by logged in / logged out user should redirect to login URL.")
+
+    def test_0350_security_admin_index_registered(self):
+        self.client.login(username=self.admin_user.username, password=self.admin_password)
+        response = self.client.get(reverse('index'))
+        self.assertEqual(response.status_code, 302, "Base URL by registered user should return a HTTP 302 (redirect).")
+        self.assertTrue(response['Location'].find("server-list") != -1, "Base URL by registered user should redirect to servers list URL.")
+
+    def test_0351_security_admin_serverlist_registered(self):
+        self.client.login(username=self.admin_user.username, password=self.admin_password)
+        response = self.client.get(reverse('server-list'))
+        self.assertEqual(response.status_code, 200, "Servers list URL by registered user should return a HTTP 200.")
+
+    def test_0352_security_admin_serverdetail_registered(self):
+        self.client.login(username=self.admin_user.username, password=self.admin_password)
+        response = self.client.get(reverse('server-detail', args=(self.test_server.id,)))
+        self.assertEqual(response.status_code, 200, "Servers detail URL by registered user should return a HTTP 200.")
+
+    def test_0353_security_admin_serverdetail_registered_unknownid(self):
+        self.client.login(username=self.admin_user.username, password=self.admin_password)
+        response = self.client.get(reverse('server-detail', args=(999,)))
+        self.assertEqual(response.status_code, 404, "Servers detail URL by registered user with unknown server ID should return a HTTP 404 (Not Found).")
+
+    def test_0354_security_admin_logslist_registered(self):
+        self.client.login(username=self.admin_user.username, password=self.admin_password)
+        response = self.client.get(reverse('logs-list'))
+        self.assertEqual(response.status_code, 200, "Logs list URL by registered user should return a HTTP 200.")
+
+    def test_0381_security_admin_ajax_withxhr(self):
+        management.call_command('runtask', 'getMeasures')
+        self.client.login(username=self.admin_user.username, password=self.admin_password)
+        for probe in self.test_server.probes.all():
+            response = self.client.get(reverse('mesures', args=(self.test_server.id, probe.id, 'hour')), HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+            self.assertEqual(response.status_code, 200, "XHR call to Ajax URL should work.")
+            self.assertEqual(len(json.simplejson.loads(response.content)), 1, "Ajax call response length should be 1, got %d instead." % len(json.simplejson.loads(response.content)))
+
+    def test_0382_security_admin_ajax_badparameter(self):
+        self.client.login(username=self.admin_user.username, password=self.admin_password)
         response = self.client.get('/skwissh/mesures/%s/999/hour/' % self.test_server.id, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         self.assertEqual(response.status_code, 404, "XHR call to Ajax URL should work.")
