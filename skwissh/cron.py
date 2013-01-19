@@ -9,7 +9,6 @@ from skwissh.models import Server, Measure, MeasureDay, MeasureWeek, \
     MeasureMonth, CronLog
 import datetime
 import kronos
-import thread
 import threading
 import traceback
 
