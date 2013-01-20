@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from skwissh.settings import patch_settings
+import tasks.kronos_tasks as cron # kronos runtask looks for cron module
 
 ###############################################################################
 # Skwissh version

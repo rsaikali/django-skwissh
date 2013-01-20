@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from functools import wraps
 from django.utils.timezone import utc
 from fabric.context_managers import hide, settings
 from fabric.decorators import task, serial
@@ -8,16 +9,27 @@ from fabric.tasks import execute
 from skwissh.models import Server, Measure, MeasureDay, MeasureWeek, \
     MeasureMonth, CronLog
 import datetime
-import kronos
-import thread
 import threading
 import traceback
 
 
+def crontab(tab):
+    """Decorator - assigns crontab to function"""
+    def wrapper(func):
+
+        @wraps(func)
+        def wrapped_func(*args, **kwargs):
+            return func(*args, **kwargs)
+
+        wrapped_func.crontab = tab
+        return wrapped_func
+
+    return wrapper
+
 ###############################################################################
 # GET MEASURES
 ###############################################################################
-@kronos.register('*/1 * * * *')
+@crontab('*/1 * * * *')
 def getMeasures():
     try:
         timestamp = datetime.datetime.utcnow().replace(tzinfo=utc)
@@ -36,7 +48,6 @@ def getMeasures():
         duration = float(int((total_time.seconds * 1000000) + total_time.microseconds) / 1000000.0)
         CronLog.objects.create(timestamp=timestamp, action="sensors", server=None, success=False, duration=duration, message=traceback.format_exc())
     return 0
-
 
 @task
 @serial
@@ -178,8 +189,7 @@ def calculateAverage(period, classname):
 
         CronLog.objects.create(timestamp=round_now, action="average %dmin" % period, server=server, success=success, duration=duration, message=message)
 
-
-@kronos.register('*/10 * * * *')
+@crontab('*/10 * * * *')
 def averageDay():
     now = datetime.datetime.utcnow().replace(tzinfo=utc)
     round_now = now - datetime.timedelta(seconds=now.second, microseconds=now.microsecond)
@@ -195,8 +205,7 @@ def averageDay():
     duration = float(int((total_time.seconds * 1000000) + total_time.microseconds) / 1000000.0)
     CronLog.objects.create(timestamp=round_now, action="purge %dmin" % DAY_AVERAGE_PERIOD, server=None, success=True, duration=duration, message=message)
 
-
-@kronos.register('0 */1 * * *')
+@crontab('0 */1 * * *')
 def averageWeek():
     now = datetime.datetime.utcnow().replace(tzinfo=utc)
     round_now = now - datetime.timedelta(seconds=now.second, microseconds=now.microsecond)
@@ -212,8 +221,7 @@ def averageWeek():
     duration = float(int((total_time.seconds * 1000000) + total_time.microseconds) / 1000000.0)
     CronLog.objects.create(timestamp=round_now, action="purge %dmin" % WEEK_AVERAGE_PERIOD, server=None, success=True, duration=duration, message=message)
 
-
-@kronos.register('0 */3 * * *')
+@crontab('0 */3 * * *')
 def averageMonth():
     now = datetime.datetime.utcnow().replace(tzinfo=utc)
     round_now = now - datetime.timedelta(seconds=now.second, microseconds=now.microsecond)
