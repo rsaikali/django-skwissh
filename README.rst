@@ -78,7 +78,7 @@ Install Skwissh tasks (will write to your user crontab, thanks to 'django-kronos
 
 ::
 
-   ./manage.py installtasks
+   ./manage.py installsensors
     
 You can check that 4 crontab job have been configured:
 
