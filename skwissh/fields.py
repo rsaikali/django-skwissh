@@ -62,4 +62,3 @@ try:
     add_introspection_rules([], ["^skwissh\.fields\.EncryptedTextField"])
 except ImportError:
     pass
-

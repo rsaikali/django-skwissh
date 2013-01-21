@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from skwissh.forms import ServerForm
 from skwissh.models import Probe, Server, Measure, ServerGroup, GraphType, \
     MeasureDay, MeasureWeek, MeasureMonth, CronLog
 
