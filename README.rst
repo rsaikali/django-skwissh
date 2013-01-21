@@ -156,7 +156,7 @@ And add following lines to ``setup.py``:
 You must also choose and configure celery backend. If you don't know how
 please refer to `celery documentation <http://docs.celeryproject.org/en/latest/index.html>`_.
 
-To start using collecting data install new sensors in database schedule:
+To start collecting data install tasks in database schedule:
 
 ::
 
