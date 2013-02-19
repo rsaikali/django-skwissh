@@ -66,8 +66,7 @@
 			"probe_unit": "%",
 			"date_created": "2012-05-17T18:09:01Z",
 			"graph_type": 4,
-			"python_parse": "output = \";\".join([str(float(100) - float(i.split(',')[3].split(\"%\")[0])) for i in output.splitlines()[-(len(output.splitlines())/2):]])"
-		}
+			"python_parse": "output = \";\".join([str(float(100) - float(i.split(',')[3].split(\"%\")[0].replace(\" id\", \"\").replace(\",\",\".\"))) for i in output.splitlines()[-(len(output.splitlines())/2):]])"		}
 	}, {
 		"pk": 6,
 		"model": "skwissh.probe",
@@ -81,8 +80,7 @@
 			"probe_unit": "%",
 			"date_created": "2012-08-13T13:31:56Z",
 			"graph_type": 4,
-			"python_parse": "output = \";\".join([i.split(',')[4].split(\"%\")[0].strip() for i in output.splitlines()[-(len(output.splitlines())/2):]])"
-		}
+			"python_parse": "output = \";\".join([i.split(',')[4].split(\"%\")[0].strip().replace(\" wa\",\"\").replace(\",\",\".\") for i in output.splitlines()[-(len(output.splitlines())/2):]])"		}
 	}, {
 		"pk": 4,
 		"model": "skwissh.probe",
@@ -165,7 +163,7 @@
 			"date_modified": "2012-09-08T21:00:35Z",
 			"addon_name": "",
 			"display_name": "Network data",
-			"ssh_command": "nstat | grep \"IpExt\"",
+			"ssh_command": "/usr/sbin/nstat | grep \"IpExt\"",
 			"probe_labels": "Received;Sent",
 			"use_sudo": false,
 			"probe_unit": "Ko",
@@ -202,20 +200,6 @@
 			"date_created": "2012-05-20T10:09:41Z",
 			"graph_type": 3,
 			"python_parse": "output = output"
-		}
-	}, {
-		"pk": 1,
-		"model": "skwissh.server",
-		"fields": {
-			"username": "",
-			"is_measuring": false,
-			"date_modified": "2012-09-09T10:26:04Z",
-			"ip": "127.0.0.1",
-			"hostname": "Skwissh Django webserver",
-			"state": true,
-			"date_created": "2012-08-19T18:57:21Z",
-			"password": "",
-			"probes": [3, 6, 4, 2, 8, 7, 9, 11, 10, 5]
 		}
 	}
 ]
