@@ -147,7 +147,7 @@ class MeasureMonth(models.Model):
 
 class CronLog(models.Model):
     timestamp = models.DateTimeField(verbose_name=_(u"Date et heure"))
-    action = models.CharField(max_length=50, verbose_name=_(u"Serveur"), blank=True)
+    action = models.CharField(max_length=50, verbose_name=_(u"Action"), blank=True)
     server = models.ForeignKey(Server, verbose_name=_(u"Serveur"), null=True)
     success = models.BooleanField(verbose_name=_(u"Succès de l'exécution ?"), default=False)
     message = models.TextField(verbose_name=_(u"Message"), null=True, default="")
