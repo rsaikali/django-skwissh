@@ -154,7 +154,13 @@ class CronLog(models.Model):
     duration = models.FloatField(verbose_name=_(u"Durée en secondes"), default=0)
 
     def __unicode__(self):
-        return u"%s %s %s %s" % (self.timestamp, self.server.hostname, self.success, self.duration)
+        return u"%s %s" % (_(u'Measure'), self.id)
+
+    def __repr__(self):
+        hostname = ""
+        if not self.server:
+            hostname = _('All')
+        return u"%s %s %s %s" % (self.timestamp, hostname, self.success, self.duration)
 
     class Meta:
         verbose_name = _(u"exécution de tâches cron")
