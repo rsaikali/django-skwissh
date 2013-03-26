@@ -57,6 +57,9 @@ class Server(models.Model):
     date_created = models.DateTimeField(verbose_name=_(u"Date de création"), null=True, auto_now_add=True, default=datetime.datetime.now())
     date_modified = models.DateTimeField(verbose_name=_(u"Date de modification"), null=True, auto_now=True, default=datetime.datetime.now())
     probes = models.ManyToManyField(Probe, verbose_name=_(u"Sondes"), blank=True, null=True)
+    # Avoid this bug: https://code.djangoproject.com/ticket/9321
+    # We do not like "Hold down "Control", or "Command" on a Mac, to select more than one" in show_object view
+    probes.help_text = ""
 
     def __unicode__(self):
         return u"%s" % self.hostname
