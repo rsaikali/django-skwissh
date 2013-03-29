@@ -67,7 +67,11 @@ function updateGraph(mesures, graphtype, probe_id, labels, units, period) {
 		}
 		var graph_data = new Array();
 		if (graphtype.indexOf("graph") != -1) {
-			var nb_values = mesures[0].fields.value.split(";").length;
+			var nb_values;
+			if (isInt(mesures[0].fields.value))
+				nb_values = 1;
+			else
+				nb_values = mesures[0].fields.value.split(";").length;
 			$("#summary-" + probe_id).empty();
 			for (var i = 0; i < nb_values; i++) {
 				var just_values = new Array();
@@ -76,7 +80,11 @@ function updateGraph(mesures, graphtype, probe_id, labels, units, period) {
 				for (var k = 0, j = mesures.length; k < j; k++) {
 					var mesure = mesures[k];
 					var mesure_date = $.jsDate.strftime(new $.jsDate(new Date(mesure.fields.timestamp)), "%Y-%m-%d %H:%M:%S");
-					var mesure_value = parseFloat(mesure.fields.value.split(";")[i]);
+					var mesure_value;
+					if (isInt(mesure.fields.value))
+						mesure_value = parseFloat(mesure.fields.value)
+					else
+						mesure_value = parseFloat(mesure.fields.value.split(";")[i]);
 					if (isNaN(mesure_value))
 						mesure_value = 0;
 					graph_data[i].push([mesure_date, mesure_value]);
@@ -160,6 +168,13 @@ function updateGraph(mesures, graphtype, probe_id, labels, units, period) {
 		plots[probe_id] = $.jqplot('graph-' + probe_id, graph_data, graph_options);
 	}
 };
+
+function isInt(x) {
+  var y=parseInt(x);
+  if (isNaN(y)) return false;
+  return x==y && x.toString()==y.toString();
+}
+
 function average(l) {
 	var items = l.length;
 	var sum = 0;
