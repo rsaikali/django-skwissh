@@ -1,5 +1,5 @@
 {% load i18n %}
-<form method="post" action="{% url update-probe  %}">
+<form method="post" action="{% url 'update-probe'  %}">
 	{{ probe_formset.management_form }}
 	{% for form in probe_formset %}
 	<div id='edit-probe-{{ form.id.value }}' class="reveal-modal medium update">

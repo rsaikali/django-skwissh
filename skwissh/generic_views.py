@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 from django.core.urlresolvers import reverse_lazy
 from django.forms.models import modelformset_factory
+from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from extra_views.formsets import ModelFormSetView
 from skwissh.forms import ServerForm, ServerGroupForm, ProbeForm
-from skwissh.models import Server, ServerGroup, Probe
+from skwissh.models import Server, ServerGroup, Probe, CronLog
 
 
 #------------------------------------------------------------------------------
@@ -113,6 +114,17 @@ class DeleteProbeView(DeleteView):
     def get_success_url(self):
         return reverse_lazy('probe-list')
 
+
+class LogsView(ListView):
+    queryset = CronLog.objects.all()
+    template_name = 'cronlog_list.html'
+    paginate_by = 50
+
+    def get_context_data(self, **kwargs):
+        context = super(LogsView, self).get_context_data(**kwargs)
+        context['groups'] = ServerGroup.objects.all().order_by('name')
+        context['nogroup_servers'] = Server.objects.filter(servergroup__isnull=True).order_by('hostname')
+        return context
 
 #------------------------------------------------------------------------------
 # Context data

@@ -6,7 +6,7 @@
 		</li>
 	</ul>
 	<div class="panel">
-		<form action="{% url delete-probe probe.id %}" method="post">
+		<form action="{% url 'delete-probe' probe.id %}" method="post">
 			<p>
 				{% trans 'La suppression de cette sonde entraînera la suppression de toutes les mesures associées.' %}
 			</p>

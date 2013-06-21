@@ -16,7 +16,7 @@
 		<p>
 			{% blocktrans with name=server.hostname %}Voulez vous vraiment supprimer le serveur '{{ name }}' ?{% endblocktrans %}
 		</p>
-		<form action="{% url delete-server server.id %}" method="post">
+		<form action="{% url 'delete-server' server.id %}" method="post">
 			{% csrf_token %}
 			<input class="right small success button radius" type="submit" value="{% trans 'Oui' %}" />
 			<a href="#" class="right small alert button radius" onclick="javascript:$('.reveal-modal-bg').click();">{% trans 'Non' %}</a>

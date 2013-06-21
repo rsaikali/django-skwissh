@@ -1,5 +1,5 @@
 {% load i18n %}
-<form method="post" action="{% url update-group %}">
+<form method="post" action="{% url 'update-group' %}">
 	{{ server_group_formset.management_form }}
 	{% for form in server_group_formset %}
 	<div id='edit-server-group-{{ form.id.value }}' class="reveal-modal medium update">
