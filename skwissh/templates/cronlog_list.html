@@ -12,15 +12,15 @@
 	    {% if is_paginated %}
 		        <ul class="pagination">
 		        	{% if page_obj.has_previous %}
-		        	<li class="arrow"><a href="{% url logs-list %}?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+		        	<li class="arrow"><a href="{% url 'logs-list' %}?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
 		        	{% else %}
 		        	<li class="arrow inactive">&laquo;</li>
 		        	{% endif %}
 		        	{% for i in page_obj.paginator.page_range %}
-	  				<li {% ifequal i page_obj.number %}class="current"{% endifequal %}><a href="{% url logs-list %}?page={{ i }}">{{ i }}</a></li>
+	  				<li {% ifequal i page_obj.number %}class="current"{% endifequal %}><a href="{% url 'logs-list' %}?page={{ i }}">{{ i }}</a></li>
 	  				{% endfor %}
 	  				{% if page_obj.has_next %}
-	  				<li class="arrow"><a href="{% url logs-list %}?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+	  				<li class="arrow"><a href="{% url 'logs-list' %}?page={{ page_obj.next_page_number }}">&raquo;</a></li>
 		        	{% else %}
 		        	<li class="arrow inactive">&raquo;</li>
 		        	{% endif %}
@@ -39,7 +39,7 @@
 	            <tr>
 	                <td>{% ifchanged %}{{ log.timestamp }}{% endifchanged %}</td>
 	                {% if log.server %}
-	                <td><a href="{% url server-detail log.server.id %}">{{ log.server.hostname }}</a></td>
+	                <td><a href="{% url 'server-detail' log.server.id %}">{{ log.server.hostname }}</a></td>
 	                {% else %}
 	                <td></td>
 	                {% endif %}
@@ -64,15 +64,15 @@
 	    {% if is_paginated %}
 		        <ul class="pagination">
 		        	{% if page_obj.has_previous %}
-		        	<li class="arrow"><a href="{% url logs-list %}?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+		        	<li class="arrow"><a href="{% url 'logs-list' %}?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
 		        	{% else %}
 		        	<li class="arrow inactive">&laquo;</li>
 		        	{% endif %}
 		        	{% for i in page_obj.paginator.page_range %}
-	  				<li {% ifequal i page_obj.number %}class="current"{% endifequal %}><a href="{% url logs-list %}?page={{ i }}">{{ i }}</a></li>
+	  				<li {% ifequal i page_obj.number %}class="current"{% endifequal %}><a href="{% url 'logs-list' %}?page={{ i }}">{{ i }}</a></li>
 	  				{% endfor %}
 	  				{% if page_obj.has_next %}
-	  				<li class="arrow"><a href="{% url logs-list %}?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+	  				<li class="arrow"><a href="{% url 'logs-list' %}?page={{ page_obj.next_page_number }}">&raquo;</a></li>
 		        	{% else %}
 		        	<li class="arrow inactive">&raquo;</li>
 		        	{% endif %}

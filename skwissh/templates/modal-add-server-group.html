@@ -6,7 +6,7 @@
 		</li>
 	</ul>
 	<div class="panel">
-		<form action="{% url add-group %}" method="post">
+		<form action="{% url 'add-group' %}" method="post">
 			{% csrf_token %}
 			{{ server_group_form.as_table }}
 			<input class="right small success button radius" type="submit" value="{% trans 'Sauvegarder' %}" />

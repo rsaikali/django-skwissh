@@ -30,7 +30,7 @@
 		<ul>
 			{% for server in servers %}
 			<li class="line-server">
-				<h6><a class="server {% if server.state %}up{% else %}down{% endif %}" href="{% url server-detail server.id %}">{{ server.hostname }}</a> {% if user.is_staff %}<a title="{% trans 'Supprimer le serveur' %} '{{ server.hostname }}'..." href="#" class="delete-server right tiny secondary button radius" data-reveal-id="delete-server-{{ server.id }}">&nbsp;</a>{% endif %}</h6>
+				<h6><a class="server {% if server.state %}up{% else %}down{% endif %}" href="{% url 'server-detail' server.id %}">{{ server.hostname }}</a> {% if user.is_staff %}<a title="{% trans 'Supprimer le serveur' %} '{{ server.hostname }}'..." href="#" class="delete-server right tiny secondary button radius" data-reveal-id="delete-server-{{ server.id }}">&nbsp;</a>{% endif %}</h6>
 			</li>
 			{% empty %}
 			<li>

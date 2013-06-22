@@ -6,7 +6,7 @@
 		</li>
 	</ul>
 	<div class="panel">
-		<form action="{% url update-server server.pk %}" method="post">
+		<form action="{% url 'update-server' server.pk %}" method="post">
 			{% csrf_token %}
 			{{ server_form.as_table }}
 			<input class="right small success button radius" type="submit" value="{% trans 'Sauvegarder' %}" />

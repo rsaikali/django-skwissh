@@ -13,7 +13,7 @@
 		<p>
 			{% blocktrans with name=group.name %}Etes-vous sûr de vouloir supprimer le groupe de serveurs '{{ name }}' ?{% endblocktrans %}
 		</p>
-		<form action="{% url delete-group group.id %}" method="post">
+		<form action="{% url 'delete-group' group.id %}" method="post">
 			{% csrf_token %}
 			<input class="right small success button radius" type="submit" value="{% trans 'Oui' %}" />
 			<a href="#" class="right small alert button radius" onclick="javascript:$('.reveal-modal-bg').click();">{% trans 'Non' %}</a>

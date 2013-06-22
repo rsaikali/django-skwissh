@@ -4,16 +4,16 @@
 <nav>
 	<ul class="nav-bar">
 		<li class="has-flyout{% if not server and not probes %} active{% endif %}">
-			<a href="{% url index %}">{% trans 'Accueil' %}</a>
-			<a href="{% url index %}" class="flyout-toggle"><span></span></a>
+			<a href="{% url 'index' %}">{% trans 'Accueil' %}</a>
+			<a href="{% url 'index' %}" class="flyout-toggle"><span></span></a>
 			<ul class="flyout">
 				{% for group in groups %}
 				<li>
-					<h6><a href="{% url server-list %}#group-{{ group.id }}">{{ group.name }}</a></h6>
+					<h6><a href="{% url 'server-list' %}#group-{{ group.id }}">{{ group.name }}</a></h6>
 				</li>
 				{% for server in group.servers.all %}
 				<li class="{% if not server.state %}offline{% else %}online{% endif %}">
-					<a href="{% url server-detail server.id %}">{{ server.hostname }}</a>
+					<a href="{% url 'server-detail' server.id %}">{{ server.hostname }}</a>
 				</li>
 				{% endfor %}
 				{% endfor %}
@@ -23,7 +23,7 @@
 				</li>
 				{% for server in nogroup_servers %}
 				<li class="{% if not server.state %}offline{% else %}online{% endif %}">
-					<a href="{% url server-detail server.id %}">{{ server.hostname }}</a>
+					<a href="{% url 'server-detail' server.id %}">{{ server.hostname }}</a>
 				</li>
 				{% endfor %}
 				{% endif %}
@@ -41,9 +41,9 @@
 		{% endif %}
 		<li>
 			{% if nb_mesures %}
-			<a href="{% url logs-list %}">{{ nb_mesures }} {% trans 'mesures' %}</a>
+			<a href="{% url 'logs-list' %}">{{ nb_mesures }} {% trans 'mesures' %}</a>
 			{% else %}
-			<a href="{% url logs-list %}">{% get_nb_mesures %} {% trans 'mesures' %}</a>
+			<a href="{% url 'logs-list' %}">{% get_nb_mesures %} {% trans 'mesures' %}</a>
 			{% endif %}
 		</li>
 		<li class="has-flyout">
@@ -65,10 +65,10 @@
 				{% endif %}
 				{% if user.is_authenticated %}
 				<li class="logs">
-					<a title="{% trans 'Voir le rapport des sondes' %}..." href="{% url logs-list %}">{% trans 'Rapport des sondes' %}...</a>
+					<a title="{% trans 'Voir le rapport des sondes' %}..." href="{% url 'logs-list' %}">{% trans 'Rapport des sondes' %}...</a>
 				</li>
 				<li class="probe">
-					<a title="{% trans 'Voir la liste des sondes' %}..." href="{% url probe-list %}">{% trans 'Liste des sondes' %}...</a>
+					<a title="{% trans 'Voir la liste des sondes' %}..." href="{% url 'probe-list' %}">{% trans 'Liste des sondes' %}...</a>
 				</li>
 				{% endif %}
 				{% if user.is_staff %}
@@ -118,11 +118,11 @@
 				</li>
 				{% if user.is_authenticated %}
 				<li class="logout">
-					<a title="{% trans 'Se déconnecter de Skwissh' %}" href="{% url django.contrib.auth.views.logout %}">{% trans 'Se déconnecter' %}...</a>
+					<a title="{% trans 'Se déconnecter de Skwissh' %}" href="{% url 'django.contrib.auth.views.logout' %}">{% trans 'Se déconnecter' %}...</a>
 				</li>
 				{% else %}
 				<li class="login">
-					<a title="{% trans 'Se connecter de Skwissh' %}" href="{% url login %}">{% trans 'Se connecter' %}...</a>
+					<a title="{% trans 'Se connecter de Skwissh' %}" href="{% url 'login' %}">{% trans 'Se connecter' %}...</a>
 				</li>
 				{% endif %}
 			</ul>

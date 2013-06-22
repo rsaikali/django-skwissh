@@ -3,30 +3,14 @@ from django.conf import settings
 from django.conf.urls import patterns, url, include
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic import list_detail
+from django.views.generic import TemplateView
 from skwissh.generic_views import AddServerView, DeleteServerView, \
     UpdateServerView, DeleteGroupView, AddServerGroupView, UpdateServerGroupView, \
-    DeleteProbeView, UpdateProbeView, AddProbeView
+    DeleteProbeView, UpdateProbeView, AddProbeView, LogsView
 from skwissh.models import CronLog, ServerGroup, Server
 
 staff_required = user_passes_test(lambda u: u.is_staff)
 
-
-def get_nogroups():
-    return Server.objects.filter(servergroup__isnull=True).order_by('hostname')
-
-
-def get_groups():
-    return ServerGroup.objects.all().order_by('name')
-
-logs_info = {"queryset": CronLog.objects.all(),
-             "template_name": 'cronlog_list.html',
-             "paginate_by": 50,
-             "extra_context": {
-                               'groups': get_groups,
-                               'nogroup_servers': get_nogroups
-                               },
-}
 
 urlpatterns = patterns('',
     # Skwissh index
@@ -59,7 +43,7 @@ urlpatterns = patterns('',
 
     # Logs
     # url(r'^logs/$', CronLogListView.as_view(), name='logs-list'),
-    url(r'^logs/$', login_required(list_detail.object_list), logs_info, name='logs-list'),
+    url(r'^logs/$', login_required(LogsView.as_view()), name='logs-list'),
 
     # Ajax
     url(r'^mesures/(\d+)/(\d+)/(\w+)/$', 'skwissh.views.mesures', name='mesures'),
@@ -73,6 +57,6 @@ urlpatterns = patterns('',
 
 if settings.DEBUG:
     urlpatterns += patterns('',
-                            url(r'^500/$', 'django.views.generic.simple.direct_to_template', {'template': '500.html'}),
-                            url(r'^404/$', 'django.views.generic.simple.direct_to_template', {'template': '404.html'}),
+        url(r'^500/$', TemplateView.as_view(template_name='500.html')),
+        url(r'^404/$', TemplateView.as_view(template_name='404.html')),
     )
