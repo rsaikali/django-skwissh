@@ -6,7 +6,7 @@
 		</li>
 	</ul>
 	<div class="panel">
-		<form action="{% url add-probe %}" method="post">
+		<form action="{% url 'add-probe' %}" method="post">
 			{% csrf_token %}
 			{{ probe_form.as_table }}
 			<input class="right small success button radius" type="submit" value="{% trans 'Sauvegarder' %}" />

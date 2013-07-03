@@ -11,7 +11,7 @@
 <script type="text/javascript" src="{{ STATIC_URL }}skwissh/javascripts/plots.js"></script>
 <script type="text/javascript">
 var plots = {}
-var get_mesures_url = "{% url mesures server.id '999' 'period' %}";
+var get_mesures_url = "{% url 'mesures' server.id '999' 'period' %}";
 var graphtypes = {}
 {% for graphtype in graphtypes %}
 graphtypes['{{ graphtype.name }}'] = { {{ graphtype.options|safe }} };

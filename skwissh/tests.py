@@ -184,7 +184,7 @@ class SkwisshTest(TestCase):
         for probe in self.test_server.probes.all():
             response = self.client.get(reverse('mesures', args=(self.test_server.id, probe.id, 'hour')), HTTP_X_REQUESTED_WITH='XMLHttpRequest')
             self.assertEqual(response.status_code, 200, "XHR call to Ajax URL should work.")
-            self.assertEqual(len(json.simplejson.loads(response.content)), 1, "Ajax call response length should be 1, got %d instead." % len(json.simplejson.loads(response.content)))
+            self.assertEqual(len(json.json.loads(response.content)), 1, "Ajax call response length should be 1, got %d instead." % len(json.json.loads(response.content)))
 
     def test_0282_security_ajax_badparameter(self):
         self.client.login(username=self.user.username, password=self.user_password)
@@ -233,7 +233,7 @@ class SkwisshTest(TestCase):
         for probe in self.test_server.probes.all():
             response = self.client.get(reverse('mesures', args=(self.test_server.id, probe.id, 'hour')), HTTP_X_REQUESTED_WITH='XMLHttpRequest')
             self.assertEqual(response.status_code, 200, "XHR call to Ajax URL should work.")
-            self.assertEqual(len(json.simplejson.loads(response.content)), 1, "Ajax call response length should be 1, got %d instead." % len(json.simplejson.loads(response.content)))
+            self.assertEqual(len(json.json.loads(response.content)), 1, "Ajax call response length should be 1, got %d instead." % len(json.json.loads(response.content)))
 
     def test_0382_security_admin_ajax_badparameter(self):
         self.client.login(username=self.admin_user.username, password=self.admin_password)
