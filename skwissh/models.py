@@ -70,6 +70,7 @@ class Server(models.Model):
 
     class Meta:
         verbose_name = _(u"serveur")
+        verbose_name_plural = _(u"serveurs")
         ordering = ['hostname', 'ip']
 
 
