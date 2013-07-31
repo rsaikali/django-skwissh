@@ -97,7 +97,7 @@
 					<h6><a href="#">{% trans 'Langue' %}</a></h6>
 				</li>
 				<li>
-				<form id="langform" name='langform' action='/skwissh/i18n/setlang/' method='post'>
+				<form id="langform" name='langform' action='{% url "set_language" %}' method='post'>
 				{% csrf_token %}
 				<ul>
 				{% for lang in langs %}
