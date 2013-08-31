@@ -66,7 +66,7 @@
 			"probe_unit": "%",
 			"date_created": "2012-05-17T18:09:01Z",
 			"graph_type": 4,
-			"python_parse": "output = \";\".join([str(float(100) - float(i.split(',')[3].split(\"%\")[0])) for i in output.splitlines()[-(len(output.splitlines())/2):]])"
+			"python_parse": "output = \";\".join([i.split(',')[0].split(':')[1].strip('%us').strip() for i in output.splitlines()[-(len(output.splitlines())/2):]])"
 		}
 	}, {
 		"pk": 6,
@@ -81,7 +81,7 @@
 			"probe_unit": "%",
 			"date_created": "2012-08-13T13:31:56Z",
 			"graph_type": 4,
-			"python_parse": "output = \";\".join([i.split(',')[4].split(\"%\")[0].strip() for i in output.splitlines()[-(len(output.splitlines())/2):]])"
+			"python_parse": "output = \";\".join([i.split(',')[4].strip('%wa').strip() for i in output.splitlines()[-(len(output.splitlines())/2):]])"
 		}
 	}, {
 		"pk": 4,
