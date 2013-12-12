@@ -88,7 +88,7 @@
 			"date_modified": "2012-08-29T12:32:18Z",
 			"addon_name": "Ubuntu 12.04",
 			"display_name": "Disk Usage",
-			"ssh_command": "df -h / | tail -1",
+			"ssh_command": "df -hP / | tail -1",
 			"probe_labels": "Free space;Used space",
 			"use_sudo": false,
 			"probe_unit": "%",
