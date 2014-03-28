@@ -5,6 +5,7 @@ python:
 env:
   - DJANGO=1.5
   - DJANGO=1.5.1
+  - DJANGO=1.6.2
 install:
   - pip install Django==$DJANGO
   - python setup.py install
