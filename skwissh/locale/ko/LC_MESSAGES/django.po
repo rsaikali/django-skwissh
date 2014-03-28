@@ -1,0 +1,646 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Skwissh-0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-28 17:34+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Sungjin Kang <ujuc@ujuc.kr>\n"
+"Language-Team: Sungjin Kang <ujuc@ujuc.kr>\n"
+"Language: ko \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: forms.py:10 models.py:31 templates/section-probe.html:48
+msgid "Utilise 'sudo' ?"
+msgstr "'sudo'를 사용하시겠습니까?"
+
+#: forms.py:10 templates/modal-delete-probe.html:21
+#: templates/modal-delete-server-group.html:18
+#: templates/modal-delete-server.html:21 templates/section-probe.html:52
+msgid "Oui"
+msgstr "예"
+
+#: forms.py:10 templates/modal-delete-probe.html:22
+#: templates/modal-delete-server-group.html:19
+#: templates/modal-delete-server.html:22 templates/section-probe.html:54
+msgid "Non"
+msgstr "아뇨"
+
+#: forms.py:18 templates/index.html:27
+msgid "Mot de passe"
+msgstr "비밀번호"
+
+#: models.py:9
+msgid "Nom"
+msgstr "이름"
+
+#: models.py:10
+msgid "Options jqPlot"
+msgstr "jqPlot 옵션"
+
+#: models.py:11 models.py:36 models.py:57 models.py:75
+msgid "Date de création"
+msgstr "생성 날짜"
+
+#: models.py:12 models.py:37 models.py:58 models.py:76
+msgid "Date de modification"
+msgstr "변경 날짜"
+
+#: models.py:18
+msgid "type de graphique"
+msgstr "그래프 타입"
+
+#: models.py:19
+msgid "types de graphiques"
+msgstr "그래프 타입"
+
+#: models.py:28
+msgid "Nom de la sonde"
+msgstr "센서 이름"
+
+#: models.py:29
+msgid "Infos complémentaires (version linux...)"
+msgstr "추가 정보 (리눅스 버전...)"
+
+#: models.py:30 templates/section-probe.html:40
+msgid "Commande SSH"
+msgstr "SSH 명령어"
+
+#: models.py:32
+msgid "Commande Python de parsing"
+msgstr "파이썬 명령어 파싱"
+
+#: models.py:33
+msgid "Type de graphique par défaut"
+msgstr "기본 그래프 타입"
+
+#: models.py:34
+msgid "Unité"
+msgstr "단위"
+
+#: models.py:35
+msgid "Labels des valeurs"
+msgstr "항목 라벨"
+
+#: models.py:46
+msgid "sonde"
+msgstr "센서"
+
+#: models.py:51
+msgid "Nom du serveur"
+msgstr "서버 이름"
+
+#: models.py:52
+msgid "Adresse IP"
+msgstr "IP 주소"
+
+#: models.py:53
+msgid "Serveur accessible ?"
+msgstr "연결된 서버?"
+
+#: models.py:54
+msgid "Serveur en cours de mesures ?"
+msgstr "서버에 현재 측정가능한가?"
+
+#: models.py:55
+msgid "Nom d'utilisateur SSH"
+msgstr "SSH 사용자 이름"
+
+#: models.py:56
+msgid "Mot de passe SSH"
+msgstr "SSH 비밀번호"
+
+#: models.py:59 templates/base/navigation.html:61
+msgid "Sondes"
+msgstr "센서"
+
+#: models.py:69
+msgid "serveur"
+msgstr "서버"
+
+#: models.py:74
+msgid "Nom du groupe"
+msgstr "그룹 이름"
+
+#: models.py:77
+msgid "Serveurs"
+msgstr "서버"
+
+#: models.py:83
+msgid "groupe de serveurs"
+msgstr "서버 그룹"
+
+#: models.py:84
+msgid "groupes de serveurs"
+msgstr "서버 그룹"
+
+#: models.py:89 models.py:104 models.py:119 models.py:134 models.py:149
+msgid "Date et heure"
+msgstr "날짜와 시간"
+
+#: models.py:90 models.py:105 models.py:120 models.py:135 models.py:150
+#: models.py:151 templates/cronlog_list.html:32
+msgid "Serveur"
+msgstr "서버"
+
+#: models.py:91 models.py:106 models.py:121 models.py:136
+msgid "Sonde"
+msgstr "센서"
+
+#: models.py:92 models.py:107 models.py:122 models.py:137
+msgid "Valeur mesurée"
+msgstr "센서 값"
+
+#: models.py:98
+msgid "mesure"
+msgstr "측정"
+
+#: models.py:99 templates/base/navigation.html:44
+#: templates/base/navigation.html.py:46
+msgid "mesures"
+msgstr "측정"
+
+#: models.py:113
+msgid "mesure (vue journalière)"
+msgstr "측정 (하루 평균)"
+
+#: models.py:114
+msgid "mesures (vue journalière)"
+msgstr "측정 (하루 평균)"
+
+#: models.py:128
+msgid "mesure (vue hebdomadaire)"
+msgstr "측정 (일주일 평균)"
+
+#: models.py:129
+msgid "mesures (vue hebdomadaire)"
+msgstr "측정 (일주일 평균)"
+
+#: models.py:143
+msgid "mesure (vue mensuelle)"
+msgstr "측정 (한달 평균)"
+
+#: models.py:144
+msgid "mesures (vue mensuelle)"
+msgstr "측정 (한달 평균)"
+
+#: models.py:152
+msgid "Succès de l'exécution ?"
+msgstr "성공적으로 실행되었는가?"
+
+#: models.py:153
+msgid "Message"
+msgstr "메시지"
+
+#: models.py:154
+msgid "Durée en secondes"
+msgstr "지속 시간 (초)"
+
+#: models.py:160
+msgid "exécution de tâches cron"
+msgstr "센서 레포트"
+
+#: models.py:161
+msgid "exécutions de tâches cron"
+msgstr "센서 레포트"
+
+#: templates/404.html:8
+msgid "Erreur 404 - Ressource non trouvée"
+msgstr "404 오류 - 찾을 수 없음"
+
+#: templates/404.html:18
+msgid "La page à laquelle vous tentez d'accéder n'existe pas."
+msgstr "이 패이지에 접근할 수 없습니다."
+
+#: templates/404.html:21
+msgid ""
+"Si un lien du site vous a mené à cette page, merci de nous contacter afin de "
+"corriger cette erreur."
+msgstr ""
+"일반 앱 네비게이션을 통해서 여기에 도착한 경우, 저희에게 연락하십시오."
+"그래야 우리가 문제 해결을 할 수 있습니다."
+
+#: templates/500.html:8
+msgid "Erreur 500 - Erreur interne du serveur"
+msgstr "500 오류 - 내부 서버 오류"
+
+#: templates/500.html:18
+msgid ""
+"Une erreur interne du serveur est survenue alors que vous tentiez d'accéder "
+"à une fonctionnalité."
+msgstr ""
+"기능에 접근하는 동안 내부 서버 오류가 발생하였습니다."
+
+#: templates/500.html:21
+msgid ""
+"Si cette erreur se reproduit, merci de nous contacter afin que nous "
+"puissions la corriger."
+msgstr ""
+"이 오류가 다시 발생할 경우, 우리에게 연락을 주시기 바랍니다."
+
+#: templates/cronlog_list.html:9 templates/base/navigation.html:68
+msgid "Rapport des sondes"
+msgstr "센서 레포트"
+
+#: templates/cronlog_list.html:31
+msgid "Date / heure"
+msgstr "날짜 / 시간"
+
+#: templates/cronlog_list.html:33
+msgid "Action"
+msgstr "작동"
+
+#: templates/cronlog_list.html:34
+msgid "Durée totale"
+msgstr "전체 지속시간"
+
+#: templates/cronlog_list.html:35
+msgid "Status"
+msgstr "상태"
+
+#: templates/cronlog_list.html:47
+msgid "secondes"
+msgstr "초"
+
+#: templates/cronlog_list.html:49
+msgid "OK"
+msgstr "OK"
+
+#: templates/cronlog_list.html:52
+msgid "Erreur"
+msgstr "오류"
+
+#: templates/cronlog_list.html:55
+msgid "Voir les détails..."
+msgstr "자세히..."
+
+#: templates/index.html:11 templates/base/navigation.html:116
+msgid "Connexion"
+msgstr "연결"
+
+#: templates/index.html:16
+msgid "Veuillez vous identifier pour accéder à Skwissh."
+msgstr "Skwissh를 접속하기 위해 당신의 증명서를 입력하세요."
+
+#: templates/index.html:20
+msgid "Sur ce site de demo, vous pouvez vous connecter avec "
+msgstr "지금은 데모 사이트입니다. 증명서를 이용하여 연결할 수 있습니다."
+
+#: templates/index.html:25
+msgid "Nom d'utilisateur"
+msgstr "사용자 이름"
+
+#: templates/index.html:29 templates/base/navigation.html:125
+msgid "Se connecter"
+msgstr "로그인"
+
+#: templates/index.html:64
+msgid "Skwissh en action"
+msgstr "Skwissh 작동"
+
+#: templates/index.html:87
+msgid "Qu'est ce que Skwissh ?"
+msgstr "Skwissh란?"
+
+#: templates/index.html:92
+msgid ""
+"Skwissh est une application Django pour monitorer vos serveurs à distance en "
+"utilisant du SSH."
+msgstr ""
+"Skwissh는 SSH를 이용하여 서버 원격 모니터링을 하는 Django 어플리케이션입니다."
+
+#: templates/index.html:95
+msgid ""
+"En arrière plan, Skwissh utilise Python Fabric (http://fabfile.org) pour "
+"exécuter des commandes SSH, récupérer leurs sorties et historiser les "
+"résultats. Les mesures sont prises toutes les minutes."
+msgstr ""
+"백그라운드에서 crontab을 이용하여 Skwissh는 SSH 명령어를 실행하는 파이썬 Fabiric (http://"
+"fabfile.org)를 사용합니다. 일명 \"센서\"라 불리우는 것이 출력값을 가져오고 타임스탬프 값을 저장"
+"합니다. 매분마다 측정합니다."
+
+#: templates/index.html:98
+msgid ""
+"Côté application web, Skwissh permet de présenter toutes les historiques des "
+"mesures sous différentes formes (graphiques en ligne, histogrammes, "
+"camemberts, sorties textuelles)."
+msgstr ""
+"웹 어플리케이션 측면에선, Skwissh는 집계한 측정값들을 차트 (선형 차트, 바 차트, 원형 차트, 간단한"
+" 텍스트)를 이용하여 보기 좋게 만들어줍니다."
+
+#: templates/index.html:101
+msgid ""
+"Plusieurs sondes sont fournies avec Skwissh (testées sous Ubuntu 12.04) : "
+"CPU, Swap, WaitIO, mémoire, réseau..."
+msgstr ""
+"많은 센서들을 사용할 수 있습니다. (테스트는 Ubuntu 12.04에서 했습니다.):"
+"CPU, Swap, WaitIO, Memory, Network..."
+
+#: templates/index.html:104
+msgid "Mais vous pouvez également ajouter vos propres sondes personnalisées"
+msgstr "그리고 쉽게 센서들을 추가할 수 있습니다."
+
+#: templates/modal-add-probe.html:5 templates/base/navigation.html:87
+msgid "Ajouter une sonde"
+msgstr "센서 추가"
+
+#: templates/modal-add-probe.html:12 templates/modal-add-server-group.html:12
+#: templates/modal-add-server.html:12 templates/modal-edit-server.html:12
+#: templates/modal-update-probe.html:16
+#: templates/modal-update-server-group.html:14
+msgid "Sauvegarder"
+msgstr "저장"
+
+#: templates/modal-add-probe.html:13 templates/modal-add-server-group.html:13
+#: templates/modal-add-server.html:13 templates/modal-edit-server.html:13
+#: templates/modal-update-probe.html:17
+#: templates/modal-update-server-group.html:15
+msgid "Annuler"
+msgstr "취소"
+
+#: templates/modal-add-server-group.html:5
+msgid "Ajout d'un groupe de serveurs"
+msgstr "서버 그룹 추가"
+
+#: templates/modal-add-server.html:5
+msgid "Ajout d'un serveur"
+msgstr "서버 추가"
+
+#: templates/modal-delete-probe.html:5
+#, python-format
+msgid "Supprimer la sonde '%(name)s' ?"
+msgstr "센서 '%(name)s를 삭제하시겠습니까?"
+
+#: templates/modal-delete-probe.html:11
+msgid ""
+"La suppression de cette sonde entraînera la suppression de toutes les "
+"mesures associées."
+msgstr ""
+"센서를 삭제하게 되면 저장된 모든 측정값들을 삭제하게 됩니다."
+
+#: templates/modal-delete-probe.html:14 templates/modal-delete-server.html:13
+#, python-format
+msgid "%(count)s mesures seront définitivement perdues."
+msgstr "%(count)s 측정값이 손실되었습니다."
+
+#: templates/modal-delete-probe.html:15 templates/modal-delete-server.html:14
+msgid "Cette opération est irréversible."
+msgstr "이 작업은 되돌릴 수 없습니다."
+
+#: templates/modal-delete-probe.html:18
+#, python-format
+msgid "Voulez vous vraiment supprimer la sonde '%(name)s' ?"
+msgstr "정말 센서 '%(name)s'를 삭제하시겠습니까?"
+
+#: templates/modal-delete-server-group.html:5
+#, python-format
+msgid "Supprimer le groupe de serveurs '%(name)s' ?"
+msgstr "서버 그룹 '%(name)s'를 삭제하시겠습니까?"
+
+#: templates/modal-delete-server-group.html:10
+msgid "Les serveurs inclus dans ce groupe ne seront pas supprimés."
+msgstr "서버가 포함되어있어 그룹을 삭제할 수 없습니다."
+
+#: templates/modal-delete-server-group.html:11
+msgid "Vous pourrez les retrouver dans la zone 'Non Classés'."
+msgstr "'분류되지 않은'영역에서 찾을 수 있습니다."
+
+#: templates/modal-delete-server-group.html:14
+#, python-format
+msgid "Etes-vous sûr de vouloir supprimer le groupe de serveurs '%(name)s' ?"
+msgstr "정말 서버 그룹 '%(name)s'를 삭제하시겠습니까?"
+
+#: templates/modal-delete-server.html:5
+#, python-format
+msgid "Supprimer le serveur '%(name)s' ?"
+msgstr "서버 '%(name)s' 삭제하시겠습니까?"
+
+#: templates/modal-delete-server.html:10
+msgid ""
+"La suppression de ce serveur entraînera la suppression de toutes les mesures "
+"associées."
+msgstr "서버를 삭제하면 저장된 모든 측정 값들이 삭제됩니다."
+
+#: templates/modal-delete-server.html:17
+#, python-format
+msgid "Voulez vous vraiment supprimer le serveur '%(name)s' ?"
+msgstr "정말 서버 '%(name)s'를 삭제하시겠습니까?"
+
+#: templates/modal-edit-server.html:5
+#, python-format
+msgid "Editer le serveur '%(name)s'"
+msgstr "서버 '%(name)s' 편집"
+
+#: templates/modal-update-probe.html:9
+#, python-format
+msgid "Editer la sonde '%(name)s'"
+msgstr "센서 '%(name)s' 편집"
+
+#: templates/modal-update-server-group.html:8
+#, python-format
+msgid "Editer le groupe de serveurs '%(name)s'"
+msgstr "서버 그룹 '%(name)s' 편집"
+
+#: templates/section-graph.html:6
+msgid "Dernière mesure"
+msgstr "최근 측정값"
+
+#: templates/section-graph.html:7
+msgid "Dernière heure"
+msgstr "최근 한시간"
+
+#: templates/section-graph.html:8
+msgid "Dernière journée"
+msgstr "최근 하루"
+
+#: templates/section-graph.html:9
+msgid "Dernière semaine"
+msgstr "최근 일주일"
+
+#: templates/section-graph.html:10
+msgid "Dernier mois"
+msgstr "최근 한달"
+
+#: templates/section-graph.html:35
+msgid "Télécharger le graphique..."
+msgstr "차트 이미지 받기..."
+
+#: templates/section-graph.html:38
+msgid "Chargement des données en cours..."
+msgstr "데이터 로딩중..."
+
+#: templates/section-group.html:6 templates/base/navigation.html:22
+msgid "Non classé"
+msgstr "분류되지 않음"
+
+#: templates/section-group.html:15
+msgid "Editer ce groupe de serveurs"
+msgstr "서버 그룹 편집"
+
+#: templates/section-group.html:15 templates/section-probe.html:9
+msgid "Editer"
+msgstr "편집"
+
+#: templates/section-group.html:18
+msgid "Supprimer ce groupe de serveurs"
+msgstr "서버 그룹 삭제"
+
+#: templates/section-group.html:18 templates/section-probe.html:10
+msgid "Supprimer"
+msgstr "삭제"
+
+#: templates/section-group.html:33
+msgid "Supprimer le serveur"
+msgstr "서버 삭제"
+
+#: templates/section-group.html:37
+msgid "Aucun serveur dans ce groupe"
+msgstr "그룹에 서버가 없습니다."
+
+#: templates/section-probe.html:9
+msgid "Editer cette sonde"
+msgstr "센서 편집"
+
+#: templates/section-probe.html:10
+msgid "Supprimer cette sonde"
+msgstr "센서 삭제"
+
+#: templates/section-probe.html:22
+msgid "Graphique en lignes"
+msgstr "Linechart"
+
+#: templates/section-probe.html:23
+msgid "Graphique en lignes empilées"
+msgstr "Stacked linechart"
+
+#: templates/section-probe.html:24
+msgid "Histogramme empilé"
+msgstr "Stacked barchart"
+
+#: templates/section-probe.html:25
+msgid "Histogramme par groupe"
+msgstr "Grouped Barchart"
+
+#: templates/section-probe.html:26
+msgid "Graphique camembert"
+msgstr "Piechart"
+
+#: templates/section-probe.html:27
+msgid "Sortie texte"
+msgstr "텍스트 출력"
+
+#: templates/section-probe.html:30
+msgid "mesures effectuées"
+msgstr "측정 토큰"
+
+#: templates/section-probe.html:33
+msgid "Actuellement sur"
+msgstr "현재 작동중"
+
+#: templates/section-probe.html:33
+msgid "serveurs"
+msgstr "서버"
+
+#: templates/section-probe.html:59
+msgid "Commande Python"
+msgstr "파이썬 명령어"
+
+#: templates/section-probe.html:68
+msgid "Unités"
+msgstr "단위"
+
+#: templates/section-probe.html:76
+msgid "Libéllés"
+msgstr "라벨"
+
+#: templates/server-list.html:30
+msgid "Aucun serveur"
+msgstr "서버 없음"
+
+#: templates/server-list.html:34
+msgid "Aucun serveur n'est actuellement configuré."
+msgstr "서버를 찾을 수 없음"
+
+#: templates/server-list.html:35
+msgid ""
+"Veuillez ajouter un serveur via le menu 'Options' puis 'Ajouter un serveur'."
+msgstr ""
+"'옵션' 메뉴에서 '서버 추가'를 선택하여 서버를 추가해주세요."
+#: templates/base/footer.html:14
+msgid "Développé par"
+msgstr "Developed by"
+
+#: templates/base/header.html:10
+msgid "Gardez un oeil sur vos serveurs..."
+msgstr "서버 주시중..."
+
+#: templates/base/navigation.html:7
+msgid "Accueil"
+msgstr "Home"
+
+#: templates/base/navigation.html:39
+#, python-format
+msgid "%(nb)s sonde disponible"
+msgid_plural "%(nb)s sondes disponibles"
+msgstr[0] "%(nb)s 사용가능한 서버"
+msgstr[1] "%(nb)s 사용가능한 서버"
+
+#: templates/base/navigation.html:55
+msgid "Configuration"
+msgstr "구성"
+
+#: templates/base/navigation.html:68
+msgid "Voir le rapport des sondes"
+msgstr "센서 레포트 확인"
+
+#: templates/base/navigation.html:71
+msgid "Voir la liste des sondes"
+msgstr "센서 목록"
+
+#: templates/base/navigation.html:71
+msgid "Liste des sondes"
+msgstr "센서 목록"
+
+#: templates/base/navigation.html:77
+msgid "Ajouter un serveur"
+msgstr "서버 추가"
+
+#: templates/base/navigation.html:82
+msgid "Ajouter un groupe de serveurs"
+msgstr "서버 그룹 추가"
+
+#: templates/base/navigation.html:82
+msgid "Ajouter un groupe"
+msgstr "그룹 추가"
+
+#: templates/base/navigation.html:92
+msgid "Editer le serveur actuel"
+msgstr "현재 서버 편집"
+
+#: templates/base/navigation.html:92
+msgid "Editer ce serveur"
+msgstr "서버 편집"
+
+#: templates/base/navigation.html:97
+msgid "Langue"
+msgstr "언어"
+
+#: templates/base/navigation.html:121
+msgid "Se déconnecter de Skwissh"
+msgstr "Skwissh에서 로그아웃"
+
+#: templates/base/navigation.html:121
+msgid "Se déconnecter"
+msgstr "로그아웃"
+
+#: templates/base/navigation.html:125
+msgid "Se connecter de Skwissh"
+msgstr "Skwissh로 로그인"
