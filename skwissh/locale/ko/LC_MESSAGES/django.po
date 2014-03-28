@@ -32,7 +32,7 @@ msgstr "예"
 #: templates/modal-delete-server-group.html:19
 #: templates/modal-delete-server.html:22 templates/section-probe.html:54
 msgid "Non"
-msgstr "아뇨"
+msgstr "아니오"
 
 #: forms.py:18 templates/index.html:27
 msgid "Mot de passe"
@@ -104,11 +104,11 @@ msgstr "IP 주소"
 
 #: models.py:53
 msgid "Serveur accessible ?"
-msgstr "연결된 서버?"
+msgstr "연결된 서버입니까?"
 
 #: models.py:54
 msgid "Serveur en cours de mesures ?"
-msgstr "서버에 현재 측정가능한가?"
+msgstr "서버에 현재 측정가능합니까?"
 
 #: models.py:55
 msgid "Nom d'utilisateur SSH"
@@ -194,7 +194,7 @@ msgstr "측정 (한달 평균)"
 
 #: models.py:152
 msgid "Succès de l'exécution ?"
-msgstr "성공적으로 실행되었는가?"
+msgstr "성공적으로 실행되었습니까?"
 
 #: models.py:153
 msgid "Message"
@@ -256,7 +256,7 @@ msgstr "날짜 / 시간"
 
 #: templates/cronlog_list.html:33
 msgid "Action"
-msgstr "작동"
+msgstr "액션"
 
 #: templates/cronlog_list.html:34
 msgid "Durée totale"
@@ -341,12 +341,12 @@ msgid ""
 "Plusieurs sondes sont fournies avec Skwissh (testées sous Ubuntu 12.04) : "
 "CPU, Swap, WaitIO, mémoire, réseau..."
 msgstr ""
-"많은 센서들을 사용할 수 있습니다. (테스트는 Ubuntu 12.04에서 했습니다.):"
+"많은 센서들을 사용할 수 있습니다. (테스트는 Ubuntu 12.04에서 했습니다.): "
 "CPU, Swap, WaitIO, Memory, Network..."
 
 #: templates/index.html:104
 msgid "Mais vous pouvez également ajouter vos propres sondes personnalisées"
-msgstr "그리고 쉽게 센서들을 추가할 수 있습니다."
+msgstr "그리고 쉽게 센서들을 추가할 수 있습니다"
 
 #: templates/modal-add-probe.html:5 templates/base/navigation.html:87
 msgid "Ajouter une sonde"
@@ -377,19 +377,19 @@ msgstr "서버 추가"
 #: templates/modal-delete-probe.html:5
 #, python-format
 msgid "Supprimer la sonde '%(name)s' ?"
-msgstr "센서 '%(name)s를 삭제하시겠습니까?"
+msgstr "'%(name)s 센서를 삭제하시겠습니까?"
 
 #: templates/modal-delete-probe.html:11
 msgid ""
 "La suppression de cette sonde entraînera la suppression de toutes les "
 "mesures associées."
 msgstr ""
-"센서를 삭제하게 되면 저장된 모든 측정값들을 삭제하게 됩니다."
+"센서를 삭제하면 저장된 모든 측정값이 삭제됩니다."
 
 #: templates/modal-delete-probe.html:14 templates/modal-delete-server.html:13
 #, python-format
 msgid "%(count)s mesures seront définitivement perdues."
-msgstr "%(count)s 측정값이 손실되었습니다."
+msgstr "%(count)s 측정값이 사라집니다."
 
 #: templates/modal-delete-probe.html:15 templates/modal-delete-server.html:14
 msgid "Cette opération est irréversible."
@@ -398,30 +398,30 @@ msgstr "이 작업은 되돌릴 수 없습니다."
 #: templates/modal-delete-probe.html:18
 #, python-format
 msgid "Voulez vous vraiment supprimer la sonde '%(name)s' ?"
-msgstr "정말 센서 '%(name)s'를 삭제하시겠습니까?"
+msgstr "정말 '%(name)s' 센서를 삭제하시겠습니까?"
 
 #: templates/modal-delete-server-group.html:5
 #, python-format
 msgid "Supprimer le groupe de serveurs '%(name)s' ?"
-msgstr "서버 그룹 '%(name)s'를 삭제하시겠습니까?"
+msgstr "'%(name)s' 서버 그룹을 삭제하시겠습니까?"
 
 #: templates/modal-delete-server-group.html:10
 msgid "Les serveurs inclus dans ce groupe ne seront pas supprimés."
-msgstr "서버가 포함되어있어 그룹을 삭제할 수 없습니다."
+msgstr "서버가 포함되어있으면 그룹을 삭제할 수 없습니다."
 
 #: templates/modal-delete-server-group.html:11
 msgid "Vous pourrez les retrouver dans la zone 'Non Classés'."
-msgstr "'분류되지 않은'영역에서 찾을 수 있습니다."
+msgstr "'분류되지 않은' 영역에서 찾을 수 있습니다."
 
 #: templates/modal-delete-server-group.html:14
 #, python-format
 msgid "Etes-vous sûr de vouloir supprimer le groupe de serveurs '%(name)s' ?"
-msgstr "정말 서버 그룹 '%(name)s'를 삭제하시겠습니까?"
+msgstr "정말 '%(name)s' 서버 그룹을 삭제하시겠습니까?"
 
 #: templates/modal-delete-server.html:5
 #, python-format
 msgid "Supprimer le serveur '%(name)s' ?"
-msgstr "서버 '%(name)s' 삭제하시겠습니까?"
+msgstr "'%(name)s' 서버를 삭제하시겠습니까?"
 
 #: templates/modal-delete-server.html:10
 msgid ""
@@ -432,22 +432,22 @@ msgstr "서버를 삭제하면 저장된 모든 측정 값들이 삭제됩니다
 #: templates/modal-delete-server.html:17
 #, python-format
 msgid "Voulez vous vraiment supprimer le serveur '%(name)s' ?"
-msgstr "정말 서버 '%(name)s'를 삭제하시겠습니까?"
+msgstr "정말 '%(name)s' 서버를 삭제하시겠습니까?"
 
 #: templates/modal-edit-server.html:5
 #, python-format
 msgid "Editer le serveur '%(name)s'"
-msgstr "서버 '%(name)s' 편집"
+msgstr "'%(name)s' 서버 편집"
 
 #: templates/modal-update-probe.html:9
 #, python-format
 msgid "Editer la sonde '%(name)s'"
-msgstr "센서 '%(name)s' 편집"
+msgstr "'%(name)s' 센서 편집"
 
 #: templates/modal-update-server-group.html:8
 #, python-format
 msgid "Editer le groupe de serveurs '%(name)s'"
-msgstr "서버 그룹 '%(name)s' 편집"
+msgstr "'%(name)s' 서버 그룹 편집"
 
 #: templates/section-graph.html:6
 msgid "Dernière mesure"
@@ -455,19 +455,19 @@ msgstr "최근 측정값"
 
 #: templates/section-graph.html:7
 msgid "Dernière heure"
-msgstr "최근 한시간"
+msgstr "한시간"
 
 #: templates/section-graph.html:8
 msgid "Dernière journée"
-msgstr "최근 하루"
+msgstr "하루"
 
 #: templates/section-graph.html:9
 msgid "Dernière semaine"
-msgstr "최근 일주일"
+msgstr "일주일"
 
 #: templates/section-graph.html:10
 msgid "Dernier mois"
-msgstr "최근 한달"
+msgstr "한달"
 
 #: templates/section-graph.html:35
 msgid "Télécharger le graphique..."
@@ -580,7 +580,7 @@ msgstr "Developed by"
 
 #: templates/base/header.html:10
 msgid "Gardez un oeil sur vos serveurs..."
-msgstr "서버 주시중..."
+msgstr "서버 모니터링중..."
 
 #: templates/base/navigation.html:7
 msgid "Accueil"
