@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Skwissh-0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-28 17:34+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2014-03-28 19:18+0900\n"
 "Last-Translator: Sungjin Kang <ujuc@ujuc.kr>\n"
 "Language-Team: Sungjin Kang <ujuc@ujuc.kr>\n"
 "Language: ko \n"
@@ -256,7 +256,7 @@ msgstr "날짜 / 시간"
 
 #: templates/cronlog_list.html:33
 msgid "Action"
-msgstr "액션"
+msgstr "액"
 
 #: templates/cronlog_list.html:34
 msgid "Durée totale"
@@ -288,11 +288,11 @@ msgstr "연결"
 
 #: templates/index.html:16
 msgid "Veuillez vous identifier pour accéder à Skwissh."
-msgstr "Skwissh를 접속하기 위해 당신의 증명서를 입력하세요."
+msgstr "Skwissh를 접속하기 위해 당신의 ID를 입력하세요."
 
 #: templates/index.html:20
 msgid "Sur ce site de demo, vous pouvez vous connecter avec "
-msgstr "지금은 데모 사이트입니다. 증명서를 이용하여 연결할 수 있습니다."
+msgstr "지금은 데모 사이트입니다. ID를 이용하여 연결할 수 있습니다."
 
 #: templates/index.html:25
 msgid "Nom d'utilisateur"
