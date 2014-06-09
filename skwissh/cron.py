@@ -144,8 +144,14 @@ def calculateAveragesForPeriod(period, classname, server, probe):
     if len(measures) > 0:
         all_values = []
         for i in range(len(measures[0].value.split(";"))):
-            values = [float(measure.value.split(";")[i]) for measure in measures]
-            all_values.append(str(round(float(sum(values) / len(values)), 2)))
+            values = []
+            for measure in measures:
+                val = measure.value.split(";")[i]
+                if (not ' ' in val
+                    and float(val) > 0):
+                    values.append(float(val))
+            if values:
+                all_values.append(str(round(float(sum(values) / len(values)), 2)))
         classname.objects.create(timestamp=round_now, server=server, probe=probe, value=";".join(all_values))
     else:
         classname.objects.create(timestamp=round_now, server=server, probe=probe, value="0")
