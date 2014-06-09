@@ -29,6 +29,8 @@ setup(
     platforms=['OS Independent'],
     classifiers=CLASSIFIERS,
     install_requires=[
+        'django',
+        'kronos',
         'Fabric',
         'django-extra-views',
         'django-kronos',
