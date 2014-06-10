@@ -147,8 +147,7 @@ def calculateAveragesForPeriod(period, classname, server, probe):
             values = []
             for measure in measures:
                 val = measure.value.split(";")[i]
-                if (not ' ' in val
-                    and float(val) > 0):
+                if not ' ' in val:
                     values.append(float(val))
             if values:
                 all_values.append(str(round(float(sum(values) / len(values)), 2)))
