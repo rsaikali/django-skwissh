@@ -76,7 +76,7 @@ Install Skwissh tasks (will write to your user crontab, thanks to 'django-kronos
 
 ::
 
-   ./manage.py installtasks
+   ./manage.py installsensors
     
 You can check that 4 crontab job have been configured:
 
@@ -103,6 +103,74 @@ In your project ``settings.py``, add the Django ``LocaleMiddleware`` and set the
 
 You're ready to go ! 
 Connect to the application and start configure your servers and sensors !
+
+
+=====================
+Changing task backend
+=====================
+
+By default ``kronos`` is used for running jobs. This behavior can be changed by using
+different task backend. At the moment there are only two backends availible:
+
+* ``kronos``
+* ``celery``
+
+Backend can be changed with ``SKWISSH_TASK_BACKEND`` in ``settings.py`` of your project.
+
+Celery as task backend
+~~~~~~~~~~~~~~~~~~~~~~
+
+If you want to use `celery <http://celeryproject.org/>`_ as your task backend you must
+install ``django-celery`` package:
+
+::
+
+    pip install django-celery
+
+Add 'djcelery' to your Django ``INSTALLED_APPS``:
+
+::
+
+    INSTALLED_APPS = (
+        ...
+        'djcelery',
+    )
+
+And add following lines to ``setup.py``:
+
+::
+
+    # select celery backend
+    SKWISSH_TASK_BACKEND = "celery"
+
+    # tell celery where to look for tasks
+    CELERY_IMPORTS = (
+        "skwissh.tasks.celery_tasks",
+    )
+
+    # use DatabaseScheduler
+    CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
+
+You must also choose and configure celery backend. If you don't know how
+please refer to `celery documentation <http://docs.celeryproject.org/en/latest/index.html>`_.
+
+To start collecting data install tasks in database schedule:
+
+::
+
+    ./manage.py installsensors
+
+And start celery worker with heartbeat enabled:
+::
+
+    ./manage.py celery worker -B
+
+Or as two separate processes:
+
+::
+
+    ./manage.py celery beat
+    ./manage.py celery worker
 
 ===========
 Screenshots
