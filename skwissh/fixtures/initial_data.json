@@ -66,7 +66,7 @@
 			"probe_unit": "%",
 			"date_created": "2012-05-17T18:09:01Z",
 			"graph_type": 4,
-			"python_parse": "output = \";\".join([str(float(100) - float(i.split(',')[3].split(\"%\")[0])) for i in output.splitlines()[-(len(output.splitlines())/2):]])"
+			"python_parse": "output = ';'.join([str(float(100) - float(line.split(',')[3].strip().split(' ')[0])) for line in output.splitlines()])"
 		}
 	}, {
 		"pk": 6,
