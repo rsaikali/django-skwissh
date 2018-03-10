@@ -8,8 +8,8 @@ import datetime
 class GraphType(models.Model):
     name = models.CharField(max_length=255, verbose_name=_(u"Nom"), null=True, blank=True)
     options = models.TextField(verbose_name=_(u"Options jqPlot"), null=True, blank=True)
-    date_created = models.DateTimeField(verbose_name=_(u"Date de création"), null=True, auto_now_add=True, default=datetime.datetime.now())
-    date_modified = models.DateTimeField(verbose_name=_(u"Date de modification"), null=True, auto_now=True, default=datetime.datetime.now())
+    date_created = models.DateTimeField(verbose_name=_(u"Date de création"), null=True, auto_now_add=True)
+    date_modified = models.DateTimeField(verbose_name=_(u"Date de modification"), null=True, auto_now=True)
 
     def __unicode__(self):
         return u"%s" % self.name
@@ -33,8 +33,8 @@ class Probe(models.Model):
     graph_type = models.ForeignKey(GraphType, verbose_name=_(u"Type de graphique par défaut"), default=get_default_graph_type)
     probe_unit = models.CharField(max_length=10, verbose_name=_(u"Unité"), null=True, blank=True)
     probe_labels = models.CharField(max_length=255, verbose_name=_(u"Labels des valeurs"), null=True, blank=True)
-    date_created = models.DateTimeField(verbose_name=_(u"Date de création"), null=True, auto_now_add=True, default=datetime.datetime.now())
-    date_modified = models.DateTimeField(verbose_name=_(u"Date de modification"), null=True, auto_now=True, default=datetime.datetime.now())
+    date_created = models.DateTimeField(verbose_name=_(u"Date de création"), null=True, auto_now_add=True)
+    date_modified = models.DateTimeField(verbose_name=_(u"Date de modification"), null=True, auto_now=True)
 
     def __unicode__(self):
         if self.addon_name:
@@ -54,8 +54,8 @@ class Server(models.Model):
     is_measuring = models.BooleanField(verbose_name=_(u"Serveur en cours de mesures ?"), default=False)
     username = models.CharField(max_length=50, verbose_name=_(u"Nom d'utilisateur SSH"), blank=True, default="")
     password = EncryptedCharField(max_length=50, verbose_name=_(u"Mot de passe SSH"), blank=True, default="")
-    date_created = models.DateTimeField(verbose_name=_(u"Date de création"), null=True, auto_now_add=True, default=datetime.datetime.now())
-    date_modified = models.DateTimeField(verbose_name=_(u"Date de modification"), null=True, auto_now=True, default=datetime.datetime.now())
+    date_created = models.DateTimeField(verbose_name=_(u"Date de création"), null=True, auto_now_add=True)
+    date_modified = models.DateTimeField(verbose_name=_(u"Date de modification"), null=True, auto_now=True)
     probes = models.ManyToManyField(Probe, verbose_name=_(u"Sondes"), blank=True, null=True)
     # Avoid this bug: https://code.djangoproject.com/ticket/9321
     # We do not like "Hold down "Control", or "Command" on a Mac, to select more than one" in show_object view
@@ -76,8 +76,8 @@ class Server(models.Model):
 
 class ServerGroup(models.Model):
     name = models.CharField(max_length=255, verbose_name=_(u"Nom du groupe"))
-    date_created = models.DateTimeField(verbose_name=_(u"Date de création"), null=True, auto_now_add=True, default=datetime.datetime.now())
-    date_modified = models.DateTimeField(verbose_name=_(u"Date de modification"), null=True, auto_now=True, default=datetime.datetime.now())
+    date_created = models.DateTimeField(verbose_name=_(u"Date de création"), null=True, auto_now_add=True)
+    date_modified = models.DateTimeField(verbose_name=_(u"Date de modification"), null=True, auto_now=True)
     servers = models.ManyToManyField(Server, verbose_name=_(u"Serveurs"), blank=True, null=True)
 
     def __unicode__(self):
