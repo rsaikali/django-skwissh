@@ -11,6 +11,7 @@ class ProbeForm(ModelForm):
 
     class Meta:
         model = Probe
+        fields = '__all__'
         widgets = {"use_sudo": forms.RadioSelect}
 
 
