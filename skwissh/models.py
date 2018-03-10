@@ -56,7 +56,7 @@ class Server(models.Model):
     password = EncryptedCharField(max_length=50, verbose_name=_(u"Mot de passe SSH"), blank=True, default="")
     date_created = models.DateTimeField(verbose_name=_(u"Date de création"), null=True, auto_now_add=True)
     date_modified = models.DateTimeField(verbose_name=_(u"Date de modification"), null=True, auto_now=True)
-    probes = models.ManyToManyField(Probe, verbose_name=_(u"Sondes"), blank=True, null=True)
+    probes = models.ManyToManyField(Probe, verbose_name=_(u"Sondes"), blank=True)
     # Avoid this bug: https://code.djangoproject.com/ticket/9321
     # We do not like "Hold down "Control", or "Command" on a Mac, to select more than one" in show_object view
     probes.help_text = ""
@@ -78,7 +78,7 @@ class ServerGroup(models.Model):
     name = models.CharField(max_length=255, verbose_name=_(u"Nom du groupe"))
     date_created = models.DateTimeField(verbose_name=_(u"Date de création"), null=True, auto_now_add=True)
     date_modified = models.DateTimeField(verbose_name=_(u"Date de modification"), null=True, auto_now=True)
-    servers = models.ManyToManyField(Server, verbose_name=_(u"Serveurs"), blank=True, null=True)
+    servers = models.ManyToManyField(Server, verbose_name=_(u"Serveurs"), blank=True)
 
     def __unicode__(self):
         return u"%s" % self.name
