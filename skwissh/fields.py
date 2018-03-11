@@ -33,6 +33,7 @@ class BaseEncryptedField(models.Field):
 
 
 class EncryptedTextField(BaseEncryptedField):
+    __metaclass__ = models.SubfieldBase
 
     def get_internal_type(self):
         return 'TextField'
@@ -44,6 +45,7 @@ class EncryptedTextField(BaseEncryptedField):
 
 
 class EncryptedCharField(BaseEncryptedField):
+    __metaclass__ = models.SubfieldBase
 
     def get_internal_type(self):
         return "CharField"
@@ -52,3 +54,12 @@ class EncryptedCharField(BaseEncryptedField):
         defaults = {'max_length': self.max_length}
         defaults.update(kwargs)
         return super(EncryptedCharField, self).formfield(**defaults)
+
+try:
+    from south.modelsinspector import add_introspection_rules
+    add_introspection_rules([], ["^skwissh\.fields\.BaseEncryptedField"])
+    add_introspection_rules([], ["^skwissh\.fields\.EncryptedCharField"])
+    add_introspection_rules([], ["^skwissh\.fields\.EncryptedTextField"])
+except ImportError:
+    pass
+
